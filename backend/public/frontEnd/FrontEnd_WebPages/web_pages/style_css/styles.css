@@ -1,0 +1,236 @@
+/* Reset default margin and padding */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #d3d3d3;
+    color: #fff;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #003366;
+    /* Dark blue background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Image Styling */
+.logo-img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    display: flex;
+    flex-grow: 1;
+    /* Allow navbar to expand */
+    justify-content: flex-start;
+    /* Align items to the start */
+    align-items: center;
+    margin-left: 50px;
+    /* Shift slightly to the right */
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    /* Vertically center items */
+    gap: 30px;
+    /* Space between items */
+    flex: 1;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar li:last-child {
+    margin-right: 0;
+}
+
+.navbar a {
+    color: #fff;
+    /* White color */
+    text-decoration: none;
+    font-weight: bold;
+    /* Bold text */
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    /* Vertically center icon and text */
+}
+
+.navbar a.active,
+.navbar a:hover {
+    color: #ff4500;
+    /* Highlight color */
+}
+
+.navbar a.login-icon {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.navbar a.login-icon .fa-user {
+    margin-right: 5px;
+}
+
+/* Mobile Menu Icon */
+#menu {
+    display: none;
+}
+
+/* Software Topics Section */
+.software-topics {
+    padding: 100px 20px 50px;
+    /* Add padding to top to avoid overlapping with fixed header */
+    text-align: center;
+}
+
+.software-topics h1 {
+    color: #000;
+    margin-bottom: 30px;
+}
+
+.topics {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.topic {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.topic img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.topic-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.topic-link {
+    color: #ff4500;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.topic-link:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    margin-top: 30px;
+}
+
+/* Search Form Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.search-form button {
+    background: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background: #ff6347;
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #ff4500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #menu {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+
+    .navbar ul.active {
+        display: flex;
+        flex-direction: column;
+    }
+}

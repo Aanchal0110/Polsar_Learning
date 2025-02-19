@@ -1,0 +1,423 @@
+/* Reset default margin and padding */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #d3d3d3;
+    color: #fff;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #003366; /* Dark blue background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Image Styling */
+.logo-img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    display: flex;
+    flex-grow: 1; /* Allow navbar to expand */
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center; /* Vertically center items */
+    margin-left: 50px; /* Shift slightly to the right */
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Vertically center items */
+    gap: 20px; /* Space between items */
+    flex: 1;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar li:last-child {
+    margin-right: 0;
+}
+
+.navbar a {
+    color: #fff; /* White color */
+    text-decoration: none;
+    font-weight: bold; /* Bold text */
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center; /* Vertically center icon and text */
+}
+
+.navbar a.active,
+.navbar a:hover {
+    color: #ff4500; /* Highlight color */
+}
+
+.navbar a.login-icon {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.navbar a.login-icon .fa-user {
+    margin-right: 5px;
+}
+
+/* Mobile Menu Icon */
+#menu {
+    display: none;
+}
+
+/* Blog Header Styles */
+.blog-header {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #003366; /* Dark blue for text visibility */
+    margin-top: 70px; /* Ensure it is below the fixed header */
+}
+
+.blog-header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.blog-header p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+/* Write Your Own Blog Button */
+.write-blog-btn {
+    position: fixed; /* Fixed to avoid overlapping */
+    right: 50px;
+    top: 100px; /* Adjust to fit below the header */
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    z-index: 1000;
+}
+
+.write-blog-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Blog Posts Section */
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.blog-post {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+.blog-post h2 {
+    color: #003366; /* Dark blue */
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.blog-post img.blog-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: #ff4500; /* Highlight color */
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.read-more:hover {
+    color: #e03d00;
+}
+
+/* Center the pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.pagination a {
+    color: #333;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #003366;
+    color: #fff;
+    margin-top: 40px;
+    border-top: 4px solid #ff4500; /* Red top border */
+    border-radius: 0 0 10px 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .navbar ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .blog-header h1 {
+        font-size: 2rem;
+    }
+
+    .blog-header p {
+        font-size: 1rem;
+    }
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Active Menu Item Styling */
+.navbar a.active,
+.navbar a:hover,
+.navbar a:focus {
+    color: #ff4500; /* Highlight color */
+}
+
+/* Contact Icons */
+.contact-icons {
+    margin-top: 20px;
+}
+
+.contact-icons .icon {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-icons .icon:hover {
+    color: #ff4500;
+}
+
+/* Search Form Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.search-form button {
+    background: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background: #ff6347;
+}
+
+/* Nested Dropdown Subcontent Styling */
+.dropdown-subcontent {
+    display: none;
+    position: absolute; /* Change to absolute for better positioning */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-subcontent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-subcontent a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Add this for the dropdown toggle effect */
+.dropdown-subcontent.show {
+    display: block;
+}
+
+/* Default styling for the opensource toggle */
+.dropdown-subcontent a.opensource-toggle {
+    color: black;
+    font-weight: normal;
+}
+
+/* Styling for the active state of the opensource toggle */
+.dropdown-subcontent a.opensource-toggle.active {
+    color: red;
+    font-weight: bold;
+}
+
+.academicians {
+    padding: 20px;
+    text-align: center;
+}
+
+.academicians-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.academician-item {
+    margin: 20px;
+    max-width: 300px;
+}
+
+.academician-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.comment-section {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.comment-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.comment-form button {
+    padding: 8px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #0056b3;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating span {
+    margin-right: 10px;
+}
+.rating .fa-star {
+    font-size: 20px;
+    color: #ccc; /* Default star color */
+    cursor: pointer;
+}
+
+.rating .fa-star.checked {
+    color: #FFD700 !important; /* Force golden color for selected stars */
+}
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Blog Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            margin-top: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #preview {
+            margin-top: 30px;
+        }
+
+        #preview h3 {
+            font-size: 22px;
+            color: #333;
+        }
+
+        #preview-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #preview-content {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        #preview-tags {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Write Your Blog</h2>
+        <form id="blog-form">
+            <div class="form-group">
+                <label for="title">Blog Title</label>
+                <input type="text" id="title" placeholder="Enter your blog title" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Blog Content</label>
+                <textarea id="content" rows="10" placeholder="Write your blog content here" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tags">Tags (comma-separated)</label>
+                <input type="text" id="tags" placeholder="e.g., microwave, remote sensing, education">
+            </div>
+            <div class="form-group">
+                <label for="image">Upload Cover Image</label>
+                <input type="file" id="image" accept="image/*">
+            </div>
+            <button type="submit">Submit Blog</button>
+        </form>
+        <div id="preview">
+            <h3>Blog Preview</h3>
+            <h4 id="preview-title"></h4>
+            <p id="preview-content"></p>
+            <p id="preview-tags"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('blog-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get input values
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            const tags = document.getElementById('tags').value;
+
+            // Show preview
+            document.getElementById('preview-title').innerText = title;
+            document.getElementById('preview-content').innerText = content;
+            document.getElementById('preview-tags').innerText = `Tags: ${tags}`;
+            
+            // You can also add the logic here to send the data to the server using AJAX or fetch API
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+// index.html
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculator</title>
+  </head>
+
+  <body>
+    <h1>Simple Calculator.</h1>
+    <form action="/test" method="POST">
+      <input type="text" name="num1" placeholder="First Number" id="username" />
+      <input
+        type="text"
+        name="num2"
+        placeholder="Second Number"
+        id="password"
+      />
+
+      <button type="submit" name="submit" id="submit">log</button>
+    </form>
+    <button type="button" id="btn_1">new button</button>
+    <script>
+      var user_name = document.getElementById("username");
+      var pass_word = document.getElementById("password");
+      var submit = document.getElementById("btn_1");
+      submit.addEventListener("click", to_send_data);
+      function to_send_data() {
+        fetch("/test", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            body: JSON.stringify({
+              name: user_name.value,
+              password: pass_word.value,
+            }),
+            d: "data",
+          },
+          body: JSON.stringify({ name: "hello" }),
+        });
+        console.log("i was called");
+      }
+    </script>
+  </body>
+</html>
