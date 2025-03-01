@@ -1,9 +1,9 @@
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import useUser from "../context/user/UserContext";
 
-const AddResource = () => {
+const AddResource = (props) => {
   const [BookName, setBook] = useState(null);
   const [Title, setTitle] = useState(null);
   const [Author, setAuthor] = useState(null);
@@ -32,7 +32,7 @@ const AddResource = () => {
   };
 
   return (
-    <>
+    <div style={props.style}>
       <form action="">
         <h4>Book Name</h4>
         <TextField onChange={(e) => setBook(e.target.value)} />
@@ -44,11 +44,12 @@ const AddResource = () => {
         <TextField onChange={(e) => setDes(e.target.value)} />
         <h4>Content Type</h4>
         <TextField onChange={(e) => setcontentType(e.target.value)} />
-        <button onClick={addInfo} type="submit">
+        {/* <button onClick={addInfo} type="submit">
           Submit
-        </button>
+        </button> */}
+        <Button onClick={addInfo}>Submit</Button>
       </form>
-    </>
+    </div>
   );
 };
 

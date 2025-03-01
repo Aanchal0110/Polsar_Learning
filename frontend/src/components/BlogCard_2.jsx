@@ -2,8 +2,12 @@ import React from "react";
 import { Box } from "@mui/material";
 import { Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import { useNavigate } from "react-router-dom";
+import useUser from "../context/user/UserContext";
 
-export default function BlogCard_2() {
+export default function BlogCard_2(props) {
+  const nav = useNavigate();
+  const user = useUser();
   return (
     <Box
       sx={{
@@ -44,7 +48,7 @@ export default function BlogCard_2() {
             fontSize: "35px",
           }}
         >
-          Understanding Remote Sensing Techniques
+          {props.data.Title}
         </h1>
         <p
           style={{
@@ -55,7 +59,7 @@ export default function BlogCard_2() {
             color: "#000",
           }}
         >
-          Published on August 15, 2024 by Aanchal Choudhary
+          Published on {props.data.Updated_At} by {props.data.User_Name}
         </p>
       </Box>
       <Box
@@ -96,7 +100,15 @@ export default function BlogCard_2() {
           article explores different remote sensing techniques and their
           applications...
         </p>
-        <span>Read More</span>
+        {/* <span> */}
+        {/* <a onClick={() => nav(`/post_info/${data.post_id}`)}>Read More</a> */}
+        {/* </span> */}
+        {/* <a href={`${user.backendUrl}post_info/${props.data.post_id}`}>
+          Read more
+        </a> */}
+        <Button onClick={() => nav(`/post_info/${props.data.post_id}`)}>
+          Read more
+        </Button>
       </Box>
       <br />
       <Box

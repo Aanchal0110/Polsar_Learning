@@ -6,7 +6,7 @@ export const UserContext = createContext();
 // Create a provider component
 export const UserProvider = ({ children }) => {
   const [isLogged, setlog] = useState(false);
-  const [backendUrl, setUrl] = useState("http://localhost:3000/");
+  const [backendUrl, setUrl] = useState("http://192.168.20.239:3000/");
   const [user, setUser] = useState(() => {
     const storeUser = sessionStorage.getItem("user");
     return storeUser ? JSON.parse(storeUser) : null;

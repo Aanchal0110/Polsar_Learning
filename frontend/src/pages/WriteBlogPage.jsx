@@ -23,6 +23,7 @@ export const WriteBlogPage = () => {
   return (
     <>
       <MainNavBar_1 />
+      <WordEditor />
     </>
   );
 };

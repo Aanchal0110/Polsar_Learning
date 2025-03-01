@@ -36,16 +36,15 @@ export class DomainExperts extends Component {
         >
           <MainNavBar_1 />
         </header>
-        <main style={{ width: "80%", justifySelf: "center" }}>
+        <main style={{ width: "90%", justifySelf: "center" }}>
           <div>
-            <h1>Researcher</h1>
             <div
               style={{
-                border: "2px black solid",
-                width: "100%",
-                height: "300px",
                 display: "flex",
-                overflow: "scroll",
+                flexWrap: "wrap",
+                gap: "20px",
+                justifyContent: "center",
+                alignItems: "centers",
               }}
             >
               {this.state.data.map((data, index) => (
@@ -54,33 +53,6 @@ export class DomainExperts extends Component {
                 </>
               ))}
             </div>
-          </div>
-          <div>
-            <h1>Researcher</h1>
-            <div
-              style={{
-                border: "2px black solid",
-                width: "100%",
-                height: "300px",
-                display: "flex",
-                overflow: "scroll",
-              }}
-            ></div>
-          </div>
-          <div>
-            <h1>Researcher</h1>
-            <div
-              style={{
-                border: "2px black solid",
-                width: "100%",
-                height: "300px",
-                display: "flex",
-                overflow: "scroll",
-                flexDirection: "row",
-                flexFlow: "row",
-                flexGrow: "initial",
-              }}
-            ></div>
           </div>
         </main>
       </>

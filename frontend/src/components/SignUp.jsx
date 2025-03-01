@@ -27,7 +27,7 @@ export const Signup = () => {
       return;
     }
     setError("");
-    const res = await axios.post("http://192.168.236.54:3000/auth/SignIn", {
+    const res = await axios.post(User_Info.backendUrl + "auth/SignIn", {
       UserName: fullName,
       Email: email,
       Password: password,
@@ -36,7 +36,7 @@ export const Signup = () => {
 
     if (res.status == 200) {
       User_Info.login(res.data);
-      navigate("/");
+      navigate("/login");
     }
   };
 

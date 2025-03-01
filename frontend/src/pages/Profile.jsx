@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Avatar,
   Box,
@@ -14,6 +14,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WorkIcon from "@mui/icons-material/Work";
 import BlogCard_2 from "../components/BlogCard_2";
 import { useUser } from "../context/user/UserContext";
+import axios from "axios";
 
 export const Profile = () => {
   const User_Info = useUser();
@@ -44,6 +45,14 @@ export const Profile = () => {
     ],
   });
 
+  const [blogs, setblogs] = useState({});
+
+  useEffect(() => {
+    const data = async () => {
+      const res = await axios.post(User_Info.backendUrl);
+    };
+  });
+
   return (
     <Box
       sx={{ width: "100%", bgcolor: "#f4f4f4", minHeight: "100vh", padding: 2 }}
@@ -62,10 +71,7 @@ export const Profile = () => {
       <Box
         sx={{ display: "flex", justifyContent: "center", marginTop: "-50px" }}
       >
-        <Avatar
-          src="https://via.placeholder.com/150"
-          sx={{ width: 120, height: 120, border: "4px solid white" }}
-        />
+        <Avatar sx={{ width: 120, height: 120, border: "4px solid white" }} />
       </Box>
 
       {/* User Info */}
@@ -127,7 +133,7 @@ export const Profile = () => {
         <Typography variant="h6" fontWeight="bold">
           Your Blogs
         </Typography>
-        <BlogCard_2 />
+        {/* <BlogCard_2 /> */}
       </Card>
 
       <Card sx={{ maxWidth: 800, margin: "20px auto", padding: 2 }}>

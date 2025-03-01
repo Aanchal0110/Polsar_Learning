@@ -1,23 +1,24 @@
 const settings = require("../config/settings");
 const database = require("../config/db");
 const moment = require("moment");
-const fs = require('fs');
+const fs = require('fs').promises;
 var count = 0;
 
 const query_for_Post = {
     create_table: ` CREATE TABLE Post (
         post_id CHAR(20) PRIMARY KEY,
         User_id VARCHAR(15) NOT NULL,
+        User_Name VARCHAR(255) NOT NULL,
         Text_Location VARCHAR(100) NOT NULL,
         Title VARCHAR(255) NOT NULL,
         Created_At DATETIME DEFAULT CURRENT_TIMESTAMP,
         Updated_At DATETIME DEFAULT CURRENT_TIMESTAMP,
         Status VARCHAR(30)
     );`,
-    insert: `INSERT INTO Post (post_id, User_id, Text_Location, Title, Status)
-             VALUES (?, ?, ?, ?, ?);`,
+    insert: `INSERT INTO Post (post_id, User_id, User_Name, Text_Location, Title, Status)
+             VALUES (?, ?, ?, ?, ?, ?);`,
     delete: `DELETE FROM Post WHERE post_id = ?;`,
-    fetch: `SELECT * FROM Post WHERE trans_id = ?;`,
+    fetch: `SELECT * FROM Post WHERE post_id = ?;`,
     all: `SELECT * FROM Post;`,
     delete_table:`DROP TABLE IF EXISTS Post;`
 };
@@ -84,18 +85,42 @@ function insert_data(PostInfo) {
 
     // create a file using the post id
     if (TextLocation != '') {
-        fs.writeFile(TextLocation, PostInfo.content, (err) => {
+        // fs.writeFile(TextLocation, PostInfo.content, (err) => {
+        //     if (err) settings.trigger_Error("Not able to insert data in file...");
+        //     else {
+        //         settings.trigger_Error("File successfully created...")
+        //     }
+        // })
+        
+    }
+    
+
+    return new Promise((resolve, reject) => {
+        database.db.all(query_for_Post.insert, [
+            PostInfo.post_id , PostInfo.User_id, PostInfo.User_Name ,PostInfo.TextLocation, PostInfo.title, PostInfo.status
+        ], (err, row) => {
+            if (err) reject(err)
+            resolve(row)
+        })
+    })
+}
+
+async function wirtePostFile(TextLocation, content) {
+    try {
+        await fs.writeFile(TextLocation, content, (err) => {
             if (err) settings.trigger_Error("Not able to insert data in file...");
             else {
                 settings.trigger_Error("File successfully created...")
             }
         })
+    } catch (err) {
+        return err
     }
+}
 
+function fecth_single_post(post_id) {
     return new Promise((resolve, reject) => {
-        database.db.all(query_for_Post.insert, [
-            post_id , PostInfo.User_id, TextLocation, PostInfo.title, PostInfo.status
-        ], (err, row) => {
+        database.db.all(query_for_Post.fetch, [post_id], (err, row) => {
             if (err) reject(err)
             resolve(row)
         })
@@ -108,4 +133,5 @@ module.exports = {
     fetch_all_post_details,
     delete_table,
     insert_data,
+    fecth_single_post,
 }

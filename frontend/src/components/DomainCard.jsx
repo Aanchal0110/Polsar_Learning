@@ -6,8 +6,8 @@ export const DomainCard = (props) => {
     <>
       <div
         style={{
-          height: "90%",
-          width: "300px",
+          height: "400px",
+          width: "400px",
           border: "2px red solid",
           margin: "15px",
           overflow: "auto",
@@ -23,16 +23,17 @@ export const DomainCard = (props) => {
             height: "50%",
             borderRadius: "50%",
             justifySelf: "center",
-            marginLeft: "25%",
-            marginTop: "10px",
+            alignSelf: "center",
           }}
           src={logo}
           alt=""
         />
-        <h4>Name:{props.data.UserName}</h4>
-        <h4>Domain: {props.data.Occupation}</h4>
-        <h4>Contact: {props.data.Email}</h4>
-        <h4>Verified: {props.data.Verified}</h4>
+        <div>
+          <h4>Name:{props.data.UserName}</h4>
+          <h4>Domain: {props.data.Occupation}</h4>
+          <h4>Contact: {props.data.Email}</h4>
+          <h4>Verified: {props.data.Verified}</h4>
+        </div>
       </div>
     </>
   );

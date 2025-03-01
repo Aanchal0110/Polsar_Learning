@@ -14,6 +14,7 @@ import { UserProvider } from "./context/user/UserContext";
 import { WriteBlogPage } from "./pages/WriteBlogPage";
 import React, { Component } from "react";
 import Profile from "./pages/Profile";
+import BlogPost from "./pages/BlogPost";
 
 export class App extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ export class App extends Component {
               <Route path="/write_page" index element={<WriteBlogPage />} />
               <Route path="/Profile" index element={<Profile />} />
               <Route path="/" index element={<Home />} />
+              <Route path="/post_info/:id" index element={<BlogPost />} />
             </Route>
           </Routes>
         </BrowserRouter>

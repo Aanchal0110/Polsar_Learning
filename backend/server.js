@@ -15,7 +15,7 @@ if (settings.configs.debug) {
 const app = express()
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit:"10mb"}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", MainRoutes.PageRoutes.router);
@@ -23,6 +23,10 @@ app.use("/post", MainRoutes.PostRoutes.router);
 app.use("/auth", MainRoutes.UserRoutes.router);
 app.use("/resource", MainRoutes.ResourceRoutes.router);
 app.use("/career", MainRoutes.CareerRoutes.router);
+app.get("/clear", (req, res) => {
+    console.clear();
+    res.send({done:"done"})
+})
 app.get("*", (req, res) => {
     res.setHeader('Content-Type', 'application/javascript');
     res.sendFile(path.join(__dirname, 'public/dist', 'index.html'))

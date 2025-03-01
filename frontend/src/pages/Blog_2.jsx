@@ -4,14 +4,31 @@ import { Box } from "@mui/material";
 import { Button } from "@mui/material";
 import BlogCard_2 from "../components/BlogCard_2";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/user/UserContext";
+import axios from "axios";
 
 export class Blog_2 extends Component {
+  static contextType = UserContext;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      d: [1, 2, 3, 4],
+    };
+  }
+
+  async componentDidMount() {
+    const res = await axios.get(`${this.context.backendUrl}post/`);
+    this.setState({ data: res.data });
+    console.log(this.state.data);
+  }
+
   render() {
     return (
       <Box
         sx={{
           width: "100vw",
-          height: "100vh",
+          // height: "100vh",
           background: "#d3d3d3",
         }}
       >
@@ -20,7 +37,7 @@ export class Blog_2 extends Component {
         </header>
         <Box
           sx={{
-            border: "1px solid black",
+            // border: "1px solid black",
             width: "99.7vw",
             height: "91vh",
           }}
@@ -75,15 +92,16 @@ export class Blog_2 extends Component {
               width: "100%",
               height: "85%",
               //   border: "1px solid red",
-              display: "flex",
-              //   flexWrap: "wrap",
-              justifyContent: "space-around",
+              display: "grid",
+              // flexWrap: "wrap",
+              // justifyContent: "space-between",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "10px",
+              // padding: "10px",
             }}
           >
-            <BlogCard_2 />
-            <BlogCard_2 />
-            <BlogCard_2 />
-            <BlogCard_2 />
+            {this.state.data &&
+              this.state.data.map((data, index) => <BlogCard_2 data={data} />)}
           </Box>
         </Box>
       </Box>
