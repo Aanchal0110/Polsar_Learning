@@ -1,0 +1,340 @@
+[
+    {
+      "name": "BlackSky",
+      "founded": 2014,
+      "headquarters": "Herndon, Virginia, USA",
+      "description": "BlackSky operates a constellation of 60 small satellites providing high-frequency satellite imagery and analytics via its Spectra AI platform. The company serves government and commercial sectors, including national security and environmental monitoring.",
+      "ticker": "BKSY",
+      "website": "https://www.blacksky.com/careers/"
+    },
+    {
+      "name": "Fototerra Atividades de Aerolevantamentos Ltda",
+      "founded": 1993,
+      "headquarters": "Macaé, Rio de Janeiro, Brazil",
+      "description": "Fototerra specializes in aerial surveying and geospatial data, providing high-resolution imagery, LiDAR data, hyperspectral imaging, and radar services. The company is a leader in geospatial intelligence and serves architecture, engineering, and design industries.",
+      "website": "https://fototerra.com.br/ingles/"
+    },
+    {
+      "name": "MGGP Aero",
+      "headquarters": "Tarnów, Poland",
+      "description": "MGGP Aero focuses on remote sensing data from airborne and satellite platforms, providing high-resolution aerial imagery, LiDAR, hyperspectral, and thermal imaging. It operates across Europe, including Romania and Germany, and collaborates with scientific institutions for R&D.",
+      "website": "https://www.mggpaero.com/en/"
+    },
+    {
+      "name": "Marvel Geospatial Solutions Pvt Ltd.",
+      "founded": 2008,
+      "headquarters": "Hyderabad, India",
+      "description": "Marvel Geospatial provides geospatial solutions such as data mapping, GIS, remote sensing, and photogrammetry. The company serves clients in utilities, land administration, and transportation sectors, expanding globally with a focus on drone technology.",
+      "website": "https://marvelgeospatial.com/pages/careers/"
+    },
+    {
+      "name": "Satellogic",
+      "founded": 2010,
+      "headquarters": "New York, USA",
+      "description": "Satellogic provides high-resolution satellite imagery and geospatial data. The company operates 26 satellites and aims to expand to 200, focusing on democratizing Earth observation data to tackle global challenges like climate change and food security.",
+      "website": "https://satellogic.com/company/careers/"
+    },
+    {
+      "name": "Umbra",
+      "founded": 2015,
+      "headquarters": "Santa Barbara, California, USA",
+      "description": "Umbra specializes in synthetic aperture radar (SAR) satellite systems for intelligence, defense, and disaster response. The company launched its first satellite in 2021 and aims to operate a fleet of 32 SAR satellites for all-weather, day-and-night imaging.",
+      "website": "https://umbra.space/"
+    },
+    {
+      "name": "Opegieka",
+      "founded": 1989,
+      "headquarters": "Elbląg, Poland",
+      "description": "Opegieka specializes in geoinformatics, photogrammetry, remote sensing, geodesy, and cartography. It holds ISO certifications and provides digital terrain models, topographic maps, and nationwide teleinformatics systems.",
+      "website": "https://opegieka.pl/"
+    },
+    {
+      "name": "SkyWatch",
+      "founded": 2014,
+      "headquarters": "Kitchener, Ontario, Canada",
+      "description": "SkyWatch provides Earth observation (EO) data aggregation and management services through EarthCache, a modern API for satellite imagery, and TerraStream, an automated data distribution platform for satellite operators.",
+      "website": "https://skywatch.com/careers/"
+    },
+    {
+      "name": "Albedo",
+      "founded": 2020,
+      "headquarters": "Broomfield, Colorado, USA",
+      "description": "Albedo is developing very low Earth orbit (VLEO) satellites capable of capturing 10cm resolution imagery. The company plans to launch its first satellite in 2025 and aims for a fleet of 24 satellites for high-precision imaging.",
+      "website": "https://albedo.com/company#jobs"
+    },
+    {
+      "name": "Satellite Imaging Corporation",
+      "description": "Satellite Imaging Corporation provides geospatial data solutions for agriculture, urban planning, environmental monitoring, and disaster response. It transforms satellite data into actionable intelligence through advanced image analysis.",
+      "website": "https://www.satimagingcorp.com/"
+    },
+    {
+        "name": "Space Imaging Middle East",
+        "description": "A leading provider of satellite and aerial imagery services in the Middle East, established in 1997 and headquartered in the UAE. A regional affiliate of DigitalGlobe, specializing in geospatial and GIS solutions.",
+        "headquarters": "United Arab Emirates",
+        "founded": 1997,
+        "website": "https://spaceimagingme.com/"
+      },
+      {
+        "name": "Walphot Sa",
+        "description": "Provides geomatics products and services for over 30 years, covering the entire production line of geographic data, from data capture to delivery of maps and reports. Participated in the first large project using satellite data (CORINE-program).",
+        "website": "https://eopages.eu/company/walphot-s-a"
+      },
+      {
+        "name": "L3Harris Geospatial",
+        "description": "A provider of geospatial data and technology, specializing in image analysis, data visualization, and remote sensing solutions. Serving industries such as defense, agriculture, transportation, and environmental management since 1951.",
+        "headquarters": "Broomfield, Colorado, USA",
+        "founded": 1951,
+        "website": "https://careers.l3harris.com/en"
+      },
+      {
+        "name": "Capella Space",
+        "description": "An American company specializing in Earth observation through Synthetic Aperture Radar (SAR) technology. Founded in 2016, it provides timely and reliable SAR imagery for decision-making across various sectors.",
+        "headquarters": "San Francisco, California, USA",
+        "founded": 2016,
+        "website": "https://www.capellaspace.com/company/careers"
+      },
+      {
+        "name": "Planet Labs",
+        "description": "An American Earth imaging company founded in 2010 by former NASA scientists. Operates a fleet of small satellites called Doves, capturing daily high-resolution images of Earth for various applications. Went public in 2021.",
+        "headquarters": "San Francisco, California, USA",
+        "founded": 2010,
+        "website": "https://www.planet.com/company/careers/"
+      },
+      {
+        "name": "OpalAi",
+        "description": "OpalAi is a technology company specializing in spatial artificial intelligence, headquartered in Los Angeles, California. Founded with expertise drawn from NASA, OpalAi focuses on transforming complex satellite and SAR imagery into actionable insights for various applications, such as vehicle detection and wildfire monitoring. Their core offerings include innovative solutions like ScanToBIM, which generates detailed Building Information Models from point cloud data, and ScanTo3D, enabling real-time creation of 2D and 3D CAD models. The company aims to enhance decision-making processes across industries such as real estate, insurance, and transportation by leveraging advanced AI technologies.",
+        "website": "https://www.opal-ai.com/"
+      },
+      {
+        "name": "SATIM Inc",
+        "description": "SATIM Inc., founded in 2012 and headquartered in Burlingame, California, specializes in object detection and classification using Synthetic Aperture Radar (SAR) satellite imagery. The company operates in the defense, security, and commercial sectors, providing services that accurately detect and classify various objects such as military vessels and aircraft. SATIM has developed advanced AI-based software solutions and simulators for generating synthetic SAR signatures, enhancing the capabilities of SAR data analysis. It has partnered with the European Space Agency and co-developed a Synthetic Aperture Radar Environment Simulator with Digilogic Systems.",
+        "website": "https://www.satim.co/"
+      },
+      {
+        "name": "Piersight",
+        "description": "Piersight is a space technology company founded in 2023 and based in Ahmedabad, India, specializing in surveillance solutions for the maritime industry. It focuses on developing a constellation of SAR and AIS satellites for persistent monitoring of ocean activities. Piersight serves sectors including shipping, maritime insurance, defense, and environmental protection, offering all-weather imaging and low-latency insights. The company has raised $6.72 million in funding and is part of the Techstars Space Accelerator program, collaborating with NASA and the U.S. Space Force.",
+        "website": "https://jobs.gohire.io/piersight-rfd9c90d/"
+      },
+      {
+        "name": "Ball Corporation",
+        "description": "Ball Corporation, through its subsidiary Ball Aerospace, contributes to remote sensing by developing advanced technologies for Earth observation. Notable projects include the environmental testing of the WorldView-3 satellite, methane remote sensing technology, and the Operational Land Imager 2 (OLI-2) on NASA's Landsat 9. Ball Aerospace supports applications in environmental monitoring, national security, and scientific research.",
+        "website": "https://www.ball.com/careers"
+      },
+      {
+        "name": "Esri",
+        "description": "Esri, founded in 1969 by Jack and Laura Dangermond, is a global leader in geographic information system (GIS) software, best known for its flagship product, ArcGIS. Headquartered in Redlands, California, Esri serves over 350,000 organizations worldwide, including government agencies, businesses, and educational institutions. The company focuses on leveraging geospatial technology to address challenges such as climate change and urban planning, with a strong commitment to research and development.",
+        "website": "https://www.esri.com/en-us/about/careers/overview"
+      },
+      {
+        "name": "GomSpace ApS",
+        "description": "GomSpace ApS is a Danish company specializing in the design, manufacture, and operation of nanosatellites for defense, academic research, and commercial applications. Founded in 2007 and headquartered in Aalborg, Denmark, the company is known for its innovative nanosatellite platforms and constellation operations. Key missions include the GomX-4 satellites, which demonstrated inter-satellite communication and high-resolution imaging. GomSpace is also expanding into microsatellite development for signal intelligence and surveillance.",
+        "website": "https://gomspace.com/careers.aspx"
+      },
+      {
+        "name": "ImageSat International",
+        "description": "ImageSat International (ISI) is an Israel-based company specializing in satellite photography and geospatial intelligence services, primarily for security agencies. Founded in 1999, ISI operates a constellation of advanced satellites, including the EROS series, offering ultra-high-resolution imagery. The company provides mission-effective satellite systems, ground control solutions, and AI-powered analytics for strategic intelligence gathering.",
+        "website": "https://imagesatintl.com/careers/"
+      },
+      {
+        "name": "Maxar Technologies Inc.",
+        "description": "Maxar Technologies Inc. is an American space technology company headquartered in Westminster, Colorado, specializing in satellite imaging and geospatial services. Formed in 2017 through the merger of DigitalGlobe and MDA, Maxar operates a fleet of high-resolution Earth observation satellites, including the WorldView series. The company provides services such as SAR imaging, Precision3D data solutions, and on-demand intelligence for defense, telecommunications, climate research, and disaster response.",
+        "website": "https://www.maxar.com/careers"
+      },
+      {
+        "name": "Spire Global Inc.",
+        "description": "Spire Global Inc. is a satellite-powered data company headquartered in Vienna, Virginia, offering high-frequency weather data, ship tracking, and aviation analytics. Founded in 2012, Spire operates a large constellation of LEMUR nanosatellites for maritime and aviation monitoring, weather prediction, and trade analytics. The company integrates machine learning and predictive analytics to provide actionable insights for industries such as government, marine, and logistics.",
+        "website": "https://spire.com/careers/"
+      },
+      {
+        "name": "China Aerospace Science and Technology Corporation (CASC)",
+        "description": "The China Aerospace Science and Technology Corporation (CASC) is a state-owned enterprise responsible for spacecraft, launch vehicle, and aerospace technology development in China. Established in 1999, CASC plays a central role in China's space program, covering military and civilian aerospace applications. The corporation leads various national projects, including manned space missions and lunar exploration, while also manufacturing machinery, chemicals, and communications equipment.",
+        "website": "https://english.spacechina.com/n17221/index.html"
+      },
+      {
+        "name": "Japan Aerospace Exploration Agency (JAXA)",
+        "description": "JAXA is Japan's national space agency, established in 2003 through the merger of NASDA, ISAS, and NAL. Headquartered in Tsukuba, Ibaraki, JAXA engages in satellite development, space exploration, and aeronautics research. The agency plays a key role in international space missions, ISS operations, and planetary exploration, while also developing rocket technologies for autonomous space activities.",
+        "website": "https://global.jaxa.jp/about/employ/index.html"
+      },
+      {
+        "name": "ROSCOSMOS",
+        "description": "ROSCOSMOS, Russia’s governmental space agency, was established in 2015. Headquartered in Moscow, it oversees human spaceflight, satellite operations, and space exploration. It plays a major role in the ISS program and deep-space missions. ROSCOSMOS operates key launch facilities, including Baikonur Cosmodrome in Kazakhstan and Vostochny Cosmodrome in Russia's Far East.",
+        "website": "https://www.roscosmos.ru/"
+      },
+      {
+        "name": "KaleidEO",
+        "description": "KaleidEO, a Bengaluru-based subsidiary of SatSure, was founded in 2022. The company specializes in high-resolution optical payloads for satellites and edge computing technology in space. By deploying AI and ML algorithms, KaleidEO enhances real-time satellite image processing for applications such as national security and disaster response. It plans to launch four edge-computing satellites by 2025.",
+        "website": "https://kaleideo.co/join-us/"
+      },
+      {
+        "name": "SatSure",
+        "description": "SatSure is a Bengaluru-based deep-tech startup founded in 2017, specializing in decision intelligence through satellite remote sensing, machine learning, and big data analytics. It provides insights across agriculture, infrastructure, and climate action sectors. SatSure is a key player in India's space tech ecosystem, leveraging satellite imagery for commercial applications.",
+        "website": "https://satsure.co/career.html"
+      },
+      {
+        "name": "Pixxel",
+        "description": "Pixxel, an Indian space technology startup founded in 2018 and backed by Google, is building a constellation of hyperspectral imaging satellites. Its Firefly constellation provides high-resolution Earth observation data for agriculture, environmental monitoring, and defense. Pixxel launched three of six planned satellites on January 15, 2025, and aims to expand its fleet to 18 satellites.",
+        "website": "https://www.pixxel.space/careers"
+      },
+      {
+        "name": "Dhruva Space",
+        "description": "Dhruva Space, founded in 2012 and headquartered in Hyderabad, specializes in small satellite development for commercial, governmental, and academic markets. The company provides full-stack space-engineering solutions, including design, launch, and operations. It has successfully tested its Satellite Orbital Deployer and launched amateur radio communication CubeSats as part of ISRO's missions.",
+        "website": "https://www.dhruvaspace.com/careers"
+      },
+      {
+        "name": "Korea Aerospace Research Institute (KARI)",
+        "description": "KARI, South Korea's national aerospace agency, was established in 1989 and is based in Daejeon. It focuses on satellite development, launch vehicles, and unmanned aerial systems. Notable projects include the KSLV-2 launcher and the Korea Pathfinder Lunar Orbiter (KPLO), South Korea’s first lunar mission. KARI collaborates with government, academia, and industry to strengthen the national space ecosystem.",
+        "website": "https://www.kari.re.kr/kor.do"
+      },
+      {
+        "name": "Indian Space Research Organisation (ISRO)",
+        "description": "ISRO, India's national space agency, was established in 1969 and is headquartered in Bengaluru. It has developed key launch vehicles like PSLV and GSLV and has launched missions such as Mangalyaan and Chandrayaan. ISRO focuses on satellite communication, remote sensing, weather forecasting, disaster management, and human spaceflight programs.",
+        "website": "https://www.isro.gov.in/Careers.html"
+      },
+      {
+        "name": "Space Applications Centre (SAC)",
+        "description": "SAC, part of ISRO and based in Ahmedabad, was established in 1972. It specializes in telecommunications, remote sensing, meteorology, and satellite navigation. SAC develops payloads for communication satellites like INSAT and GSAT and contributes to scientific missions like Chandrayaan and Mangalyaan. The center also offers training programs for students in satellite technology.",
+        "website": "https://www.sac.gov.in/Vyom/careers/"
+      },
+      {
+        "name": "Aaizel Tech Labs",
+        "description": "Aaizel Tech Labs is an advanced R&D hub specializing in artificial intelligence, computer vision, natural language processing (NLP), and cybersecurity. The company develops cutting-edge technology solutions, including geospatial analytics and climate change monitoring.",
+        "website": "https://aaizeltech.com/"
+      },
+      {
+        "name": "National Aeronautics and Space Administration (NASA)",
+        "description": "NASA is an independent U.S. government agency established in 1958 to oversee the civilian space program and aeronautics research. Headquartered in Washington, D.C., it has led landmark missions, including the Apollo Moon landings, the Space Shuttle program, and Mars rover explorations. NASA focuses on aeronautics, space science, space technology, and human exploration.",
+        "website": "https://www.nasa.gov/careers/"
+      },
+      {
+        "name": "European Space Agency (ESA)",
+        "description": "ESA is an intergovernmental organization established in 1975, dedicated to space exploration and technology development. Headquartered in Paris, it comprises 23 member states and participates in international space missions, including the ISS and planetary exploration. ESA operates key facilities in the Netherlands and Germany and has an annual budget of €11 billion as of 2023.",
+        "website": "https://www.esa.int/About_Us/Careers_at_ESA"
+      },
+      {
+        "name": "National Oceanic and Atmospheric Administration (NOAA)",
+        "description": "NOAA is a U.S. government scientific agency established in 1970, responsible for climate, weather, and ocean monitoring. It operates offices such as the National Weather Service and National Environmental Satellite, Data, and Information Service. NOAA plays a crucial role in severe weather forecasting and environmental stewardship.",
+        "website": "https://www.noaa.gov/work-with-us"
+      },
+      {
+        "name": "Google Earth Engine (GEE)",
+        "description": "GEE is a cloud-based platform for large-scale geospatial analysis, integrating satellite imagery with computational capabilities. It supports environmental monitoring and mapping, offering datasets from satellites like Landsat and Sentinel. GEE provides JavaScript and Python APIs for interactive and batch processing, with machine learning tools for data analysis.",
+        "website": "https://earthengine.google.com/"
+      },
+      {
+        "name": "Trimble",
+        "description": "Trimble Inc., founded in 1978 and headquartered in Colorado, specializes in technology solutions for construction, agriculture, geospatial, and transportation industries. The company develops GNSS-based positioning systems, machine control technologies, and cloud-based solutions, enhancing productivity and sustainability across critical sectors.",
+        "website": "https://www.trimble.com/en/careers"
+      },
+      {
+    "name": "National Aeronautics and Space Administration (NASA)",
+    "description": "NASA is an independent U.S. government agency established in 1958 to oversee the civilian space program and aeronautics research. Headquartered in Washington, D.C., it has led landmark missions, including the Apollo Moon landings, the Space Shuttle program, and Mars rover explorations. NASA focuses on aeronautics, space science, space technology, and human exploration.",
+    "website": "https://www.nasa.gov/careers/"
+  },
+  {
+    "name": "European Space Agency (ESA)",
+    "description": "ESA is an intergovernmental organization established in 1975, dedicated to space exploration and technology development. Headquartered in Paris, it comprises 23 member states and participates in international space missions, including the ISS and planetary exploration. ESA operates key facilities in the Netherlands and Germany and has an annual budget of €11 billion as of 2023.",
+    "website": "https://www.esa.int/About_Us/Careers_at_ESA"
+  },
+  {
+    "name": "National Oceanic and Atmospheric Administration (NOAA)",
+    "description": "NOAA is a U.S. government scientific agency established in 1970, responsible for climate, weather, and ocean monitoring. It operates offices such as the National Weather Service and National Environmental Satellite, Data, and Information Service. NOAA plays a crucial role in severe weather forecasting and environmental stewardship.",
+    "website": "https://www.noaa.gov/work-with-us"
+  },
+  {
+    "name": "Google Earth Engine (GEE)",
+    "description": "GEE is a cloud-based platform for large-scale geospatial analysis, integrating satellite imagery with computational capabilities. It supports environmental monitoring and mapping, offering datasets from satellites like Landsat and Sentinel. GEE provides JavaScript and Python APIs for interactive and batch processing, with machine learning tools for data analysis.",
+    "website": "https://earthengine.google.com/"
+  },
+  {
+    "name": "Trimble",
+    "description": "Trimble Inc., founded in 1978 and headquartered in Colorado, specializes in technology solutions for construction, agriculture, geospatial, and transportation industries. The company develops GNSS-based positioning systems, machine control technologies, and cloud-based solutions, enhancing productivity and sustainability across critical sectors.",
+    "website": "https://www.trimble.com/en/careers"
+  },
+  {
+    "name": "Hexagon",
+    "headquarters": "Stockholm, Sweden",
+    "founded": 1975,
+    "description": "Hexagon AB is a multinational industrial technology company specializing in digital reality solutions integrating sensor, software, and autonomous technologies. It focuses on measurement technology and geospatial tools across industries like construction, manufacturing, agriculture, and defense.",
+    "employees": 24000,
+    "revenue": "$5.5 billion (2023)",
+    "notable_acquisitions": ["Leica Geosystems"],
+    "careers": "https://hexagon.com/company/careers"
+  },
+  {
+    "name": "Topcon Positioning Systems",
+    "headquarters": "Livermore, California, USA",
+    "founded": 1994,
+    "description": "Topcon Positioning Systems specializes in precision measurement and workflow solutions for construction, geospatial, and agriculture industries, offering GNSS receivers, total stations, machine control systems, and 3D scanning solutions.",
+    "careers": "https://www.topconpositioning.com/company/careers"
+  },
+  {
+    "name": "BM Geoinformatics",
+    "headquarters": "Kolkata, India",
+    "founded": 2011,
+    "description": "BM Geoinformatics is an emerging geospatial company specializing in Building Information Modeling (BIM), GIS mapping, 3D laser scanning, and photogrammetry.",
+    "careers": "https://bmgeomatic.com/"
+  },
+  {
+    "name": "Genesys International Corporation Limited",
+    "headquarters": "Mumbai, India",
+    "founded": 1995,
+    "description": "Genesys International is a leading provider of mapping, survey, and geospatial services, specializing in GIS, LiDAR, aerial imagery, and 3D mapping technologies, serving sectors like urban development, telecommunications, and infrastructure.",
+    "employees": 2000,
+    "careers": "https://www.igenesys.com/career-page-1"
+  },
+  {
+    "name": "Rolta India",
+    "headquarters": "Mumbai, India",
+    "founded": 1982,
+    "description": "Rolta India Limited is a multinational technology company providing IT solutions across industries such as government, utilities, oil and gas, and healthcare, with a strong focus on business intelligence, big data analytics, and geospatial visualization.",
+    "careers": "http://www.rolta.com/rolta-careers/"
+  },
+  {
+    "name": "Mapsense Technologies (OPC) Private Limited",
+    "headquarters": "Gurgaon, Haryana, India",
+    "founded": 2019,
+    "description": "Mapsense Technologies is an Indian startup that develops enterprise-grade geospatial solutions, focusing on location intelligence and real-time location tracking for businesses.",
+    "careers": "https://mapsense.in/"
+  },
+  {
+    "name": "Gray Routes Technology Pvt. Ltd",
+    "headquarters": "Mumbai, India",
+    "founded": 2015,
+    "description": "Gray Routes Technology specializes in location analytics and field automation software, offering geospatial data solutions for territory planning, inventory management, and sales force automation.",
+    "careers": "https://www.grayroutes.in/"
+  },
+  {
+    "name": "HERE Technologies",
+    "headquarters": "Netherlands",
+    "founded": 1985,
+    "description": "HERE Technologies, formerly Navteq, specializes in mapping technologies and location data services. Acquired by Nokia in 2007 and rebranded in 2012, it is now majority-owned by German automakers Audi, BMW, and Mercedes-Benz, with Intel as a stakeholder.",
+    "careers": "https://www.here.com/about/careers"
+  },
+  {
+    "name": "Descartes Labs",
+    "headquarters": "Santa Fe, New Mexico, USA",
+    "founded": 2014,
+    "description": "Descartes Labs automates the analysis of geospatial data to provide insights in agriculture, resource exploration, and climate resilience. It leverages satellite imagery and analytics to address challenges like food security and environmental monitoring.",
+    "careers": "https://descarteslabs.com/contact"
+  },
+  {
+    "name": "Aerial Services, Inc. (ASI)",
+    "headquarters": "Cedar Falls, Iowa, USA",
+    "description": "Aerial Services, Inc. is a woman-owned small business specializing in high-quality aerial surveys and geospatial services, with a commitment to excellence, integrity, and humility.",
+    "careers": "https://aerialservicesinc.com/careers/"
+  },
+  {
+    "name": "Satpalda Geospatial Services",
+    "headquarters": "Delhi, India",
+    "founded": 2019,
+    "description": "Satpalda Geospatial Services is a leading provider of satellite imagery and geospatial solutions, offering high-resolution satellite imagery, photogrammetry, digital surface models (DSM), and digital terrain models (DTM).",
+    "careers": "https://satpalda.co/careers/"
+  },
+  {
+    "name": "ICEYE",
+    "headquarters": "Finland",
+    "description": "ICEYE designs, builds, and operates a constellation of synthetic-aperture radar (SAR) satellites, providing near real-time Earth imaging for monitoring and rapid response applications.",
+    "careers": "https://www.iceye.com/careers"
+  }
+
+  ]

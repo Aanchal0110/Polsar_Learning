@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academicians</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
+    <style>
+      .academician-item {
+        border: 1px solid #ccc;
+        margin: 15px 0;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      p {
+        text-align: justify;
+      }
+      .academician-img {
+        width: 100%;
+        max-width: 200px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+      }
+      .academician-item h2 {
+        margin-top: 10px;
+        color: black;
+      }
+      .academician-item img {
+        width: 150px; /* Set the desired size */
+        height: 150px;
+        object-fit: cover; /* Ensures the image fits the container without distortion */
+        border-radius: 50%; /* Makes the image circular */
+        display: block;
+        margin: 0 auto; /* Centers the image */
+      }
+
+      .read-more-content {
+        display: none;
+        margin-top: 10px;
+        color: black; /* Make the text color black */
+        text-align: justify; /* Justify the text */
+      }
+
+      .read-more-content a {
+        display: block; /* Makes the link block-level, so it can be centered */
+        text-align: center; /* Centers the text */
+        margin-top: 10px; /* Adds spacing from the content above */
+      }
+
+      .read-more-content ul {
+        list-style-type: none; /* Remove default bullet points */
+        padding-left: 0;
+      }
+
+      .read-more-content li {
+        margin-bottom: 10px; /* Space between list items */
+      }
+
+      .linkedin-link {
+        color: #6a4c9c;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .linkedin-link:hover {
+        text-decoration: underline;
+      }
+
+      .read-more-btn {
+        color: #0077b5;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .read-more-content a.website-link {
+        color: #6a4c9c; /* Purple color */
+        text-decoration: underline; /* Underlined link */
+        font-weight: bold; /* Bold text */
+      }
+
+      .read-more-content a.website-link:hover {
+        color: #4b2e83; /* Darker purple on hover */
+        text-decoration: underline; /* Keep underline on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a href="#" class="logo">
+          <img
+            src="/infi website/image/logo.jpeg"
+            alt="Logo"
+            class="logo-img"
+          />
+        </a>
+
+        <div id="menu" class="fas fa-bars"></div>
+
+        <nav id="navbar" class="navbar"></nav>
+      </header>
+
+      <span id="navBarTracker">Nav bar tracker</span>
+      <main>
+        <section class="academicians">
+          <h1>Academicians</h1>
+          <div class="academicians-items" style="text-align: center">
+            <!-- Dr. Dharmendra Singh -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. dharmendra Singh.jpg"
+                alt="Dr. Dharmendra Singh"
+                class="academician-img"
+              />
+              <h2>Dr. Dharmendra Singh (IIT Roorkee)</h2>
+              <p>
+                Senior Professor, IIT Roorkee; Coordinator of the DRONE RESEARCH
+                CENTER.
+              </p>
+              <p>
+                Awarded Monbusho, DAAD, TWAS fellowships; National GOLD Award
+                for e-governance.
+              </p>
+              <a
+                href="https://www.researchgate.net/profile/Dharmendra-Singh-28"
+                target="_blank"
+                >Research Profile</a
+              >
+            </div>
+
+            <!-- Dr. Gulab Singh -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. gulab Singh.jpeg"
+                alt="Dr. Gulab Singh"
+                class="academician-img"
+              />
+              <h2>Dr. Gulab Singh (CSRE IIT Bombay)</h2>
+              <p>Expert in radar polarimetry and SAR data analysis.</p>
+              <p>
+                Focus areas: Water storage in snow/glaciers, SAR tomography,
+                remote sensing.
+              </p>
+              <a
+                href="https://linkedin.com/in/gulab-singh-26935244"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+
+            <!-- Dr. Krishna Mohan Buddhiraju -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Krishna Mohan Buddhiraju.jpg"
+                alt="Dr. Krishna Mohan Buddhiraju"
+                class="academician-img"
+              />
+              <h2>Dr. Krishna Mohan Buddhiraju (CSRE IIT Bombay)</h2>
+              <p>Specialist in satellite image processing and analysis.</p>
+              <p>
+                Research: High-resolution segmentation, hyperspectral imaging,
+                GIS.
+              </p>
+              <a
+                href="https://linkedin.com/in/krishna-mohan-buddhiraju-b31b9334"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+
+            <!-- Dr. Avik Bhattacharya -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Avik Bhattacharya.jpeg"
+                alt="Dr. Avik Bhattacharya"
+                class="academician-img"
+              />
+              <h2>Dr. Avik Bhattacharya (CSRE IIT Bombay)</h2>
+              <p>Professor at IIT Bombay, specializes in SAR polarimetry.</p>
+              <p>
+                Editor-in-Chief, IEEE Geoscience and Remote Sensing Letters
+                (GRSL).
+              </p>
+              <a
+                href="https://linkedin.com/in/avik-bhattacharya-b66015137"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+
+            <!-- Dr. Varsha Turkar -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Varsha-Turkar.png"
+                alt="Dr. Varsha Turkar"
+                class="academician-img"
+              />
+              <h2>Dr. Varsha Turkar (VIT, Mumbai)</h2>
+              <p>
+                Expert in SAR image classification and microwave remote sensing.
+              </p>
+              <p>
+                Strong research background in data analysis and machine
+                learning.
+              </p>
+              <a href="https://varsha.turkar.in/" target="_blank">Website</a> |
+              <a href="https://linkedin.com/in/varshaturkar" target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+
+            <!-- Dr. Sanjay S. Shitole -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Sanjay Shitole.jpeg"
+                alt="Dr. Sanjay S. Shitole"
+                class="academician-img"
+              />
+              <h2>Dr. Sanjay S. Shitole (UMIT, Mumbai)</h2>
+              <p>
+                Research in SAR data analysis, machine learning, and urban
+                applications.
+              </p>
+              <p>Led NASA-ISRO funded project on SAR speckle reduction.</p>
+              <a href="http://sanjayshitole.com/" target="_blank">Website</a> |
+              <a
+                href="https://www.linkedin.com/in/dr-sanjay-shitole"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+
+            <!-- Dr. Amiya Kumar Tripathy -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Amiya Kumar Tripathy.jpeg"
+                alt="Dr. Amiya Kumar Tripathy"
+                class="academician-img"
+              />
+              <h2>Dr. Amiya Kumar Tripathy (DBIT, Mumbai)</h2>
+              <p>
+                Professor in Data Science, expert in AI, IoT, and sensor
+                networks.
+              </p>
+              <a href="http://aktripathy.in/" target="_blank">Website</a> |
+              <a
+                href="https://www.linkedin.com/in/dr-amiya-ku-tripathy-phd-b715732"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+
+            <!-- Dr. Chandrakanta Ojha -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Chandrakanta Ojha.jpeg"
+                alt="Dr. Chandrakanta Ojha"
+                class="academician-img"
+              />
+              <h2>Dr. Chandrakanta Ojha (IISER Mohali)</h2>
+              <p>
+                Geodesist specializing in satellite-based Earth deformation
+                monitoring.
+              </p>
+              <p>
+                Expert in SAR interferometry and remote sensing applications.
+              </p>
+              <a
+                href="https://linkedin.com/in/chandrakanta-ojha-82965035"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+
+            <!-- Dr. Unmesh Khati -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Ummesh Khati.jpeg"
+                alt="Dr. Unmesh Khati"
+                class="academician-img"
+              />
+              <h2>Dr. Unmesh Khati (IIT Indore)</h2>
+              <p>
+                Specialist in SAR remote sensing, former NASA-JPL researcher.
+              </p>
+              <p>
+                Research: SAR tomography, change detection, UAS sensor
+                integration.
+              </p>
+              <a href="https://linkedin.com/in/unmesh-khati" target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+
+            <!-- Dr. Rishikesh Bharti -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Rishikesh Bharti.jpeg"
+                alt="Dr. Rishikesh Bharti"
+                class="academician-img"
+              />
+              <h2>Dr. Rishikesh Bharti (IIT Guwahati)</h2>
+              <p>
+                Research in snow/glacier studies, tectonic geomorphology,
+                micro-climate modeling.
+              </p>
+              <p>
+                Expert in GPR-based subsurface investigation and landslide
+                studies.
+              </p>
+              <a href="https://linkedin.com/in/rishikesh-bharti" target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Copyright © 2024 All rights reserved |</p>
+      </footer>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="/infi website/Javascript/script.js"></script>
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+    <script>
+      function toggleReadMore(button) {
+        var content = button.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          button.textContent = "Read More";
+        } else {
+          content.style.display = "block";
+          button.textContent = "Read Less";
+        }
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const profileLinks = document.querySelectorAll(".profile-link");
+
+        profileLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const profileType = link.getAttribute("data-profile-type");
+            const profileUrl = link.getAttribute("data-profile-url");
+
+            if (profileType && profileUrl) {
+              if (profileType === "research") {
+                window.open(profileUrl, "_blank");
+              } else if (profileType === "linkedin") {
+                window.open(profileUrl, "_blank");
+              }
+            } else {
+              console.error("Profile type or URL is missing.");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

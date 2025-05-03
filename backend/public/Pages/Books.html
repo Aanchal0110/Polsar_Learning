@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Learn RS & MW</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
+
+    <style>
+      
+   
+      .navbar a.active {
+        color: red; /* Red color for active "Resources" */
+      }
+
+      .navbar a:hover {
+        color: #1e90ff;
+      }
+
+      header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #002147; /* Navbar background color */
+}
+
+main {
+  margin-top: 25px; /* Add space to account for the navbar height */
+  padding: 15px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333; /* Adjust color if needed */
+}
+
+
+
+      /* Styling for the table */
+      .book-table {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background: #f7f7f7; /* Light background for the table */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .book-table thead {
+        background-color: #d6d6d6;
+        color: #000;
+      }
+
+      .book-table th,
+      .book-table td {
+        text-align: left;
+        padding: 1rem;
+        font-size: 1rem;
+        border-bottom: 1px solid #ccc;
+        color: #333;
+      }
+
+      .book-table th {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .book-table tr:hover {
+        background-color: #eaeaea;
+      }
+
+      .book-table td img {
+        width: 80px;
+        height: 100px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .book-table td a {
+        color: #1e90ff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .book-table td a:hover {
+        text-decoration: underline;
+      }
+
+      .book-table td p {
+        margin: 0.8rem 0 0;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .search-form {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .search-form input {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+      }
+
+      .search-form button {
+        background-color: #1e90ff;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .search-form button:hover {
+        background-color: #005bb5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <img src="../image/logo.jpeg" alt="Logo" class="logo-img" />
+      </a>
+
+      <div id="menu" class="fas fa-bars"></div>
+
+      <nav class="navbar">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li class="dropdown">
+              <a href="resources.html" class="dropbtn">Resources</a>
+              <div class="dropdown-content">
+                  <a href="Fundamental.html">Fundamentals</a>
+                  <a href="Technical Paper.html">Technical Papers</a>
+                  <a href="Books.html">Books</a>
+                  <a href="Videos.html">Videos</a>
+                  
+              </div>
+          </li>
+          <li class="dropdown">
+              <a href="domain-expert.html" class="dropbtn">Domain Experts</a>
+              <div class="dropdown-content">
+                  <a href="academicians.html">Academicians</a>
+                  <a href="Industry Personnel.html">Industry Personnel</a>
+                  <a href="Researchers.html">Researchers</a>
+              </div>
+          </li>
+          <li class="dropdown">
+              <a href="datadownload.html" class="dropbtn">Downloads</a>
+              <div class="dropdown-content">
+                  <a href="datadownload.htmls">Data Download</a>
+                  <a href="opensource.html">Software</a>
+              </div>
+          </li>
+
+          <li class="dropdown">
+              <a href="education.html" class="dropbtn">Education</a>
+             
+          </li>
+      
+        <li><a href="career.html">Career</a></li>
+        <li><a href="event.html">Events</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+
+        <li>
+              <form class="search-form">
+                  <input type="text" placeholder="Search..." required>
+                  <button type="submit"><i class="fas fa-search"></i></button>
+              </form>
+          </li>
+          <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
+      </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Books</h1>
+      
+      <!-- Add Search Bar -->
+      <div style="text-align: center; margin: 20px 0;">
+        <input 
+          type="text" 
+          id="bookSearch" 
+          placeholder="Search by title, author, or keyword..."
+          style="
+            padding: 12px 20px;
+            width: 60%;
+            max-width: 500px;
+            border: 2px solid #002147;
+            border-radius: 25px;
+            font-size: 1rem;
+          "
+        >
+      </div>
+     
+      <table class="book-table">
+        
+        <thead>
+          <tr>
+            <th>Cover</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr>
+            <td><img src="../BOOKS image/Introduction to remote sending.jpg" alt="Intro to Remote Sensing"></td>
+            <td>Introduction to Remote Sensing</td>
+            <td>Arthur P. Cracknell</td>
+            <td>Physical principles, satellite systems, lidar, SAR applications</td>
+            <td><a href="https://www.goodreads.com/book/show/2623751-introduction-to-remote-sensing">View Details</a></td>
+          </tr>
+          <tr>
+            <td><img src="../BOOKS image/principle of remote sensing.jpg" alt="Principles"></td>
+            <td>Remote Sensing: Principles and Applications</td>
+            <td>B C Panda</td>
+            <td>Core principles, sensor technologies, data interpretation</td>
+            <td><a href="https://www.goodreads.com/book/show/48657306-remote-sensing">View Details</a></td>
+          </tr>
+          <tr>
+            <td><img src="../BOOKS image/Introduction to geospatial.jpg" alt="Geospatial Tech"></td>
+            <td>Introduction to Geospatial Technologies</td>
+            <td>Bradley A. Shellito</td>
+            <td>GIS integration, cloud technology, ArcGIS labs</td>
+            <td><a href="https://www.goodreads.com/book/show/14347657-introduction-to-geospatial-technologies">View Details</a></td>
+          </tr>
+          <tr>
+            <td><img src="../BOOKS image/Remote sensing and GIS.jpg" alt="RS & GIS"></td>
+            <td>Remote Sensing and GIS</td>
+            <td>Basudeb Bhatta</td>
+            <td>Optical/thermal/microwave RS, digital image processing</td>
+            <td><a href="https://www.goodreads.com/book/show/6539830-remote-sensing-and-gis">View Details</a></td>
+          </tr>
+          <tr>
+            <td><img src="../BOOKS image/Hyperspectral Remote Sensing.webp" alt="Physical Fundamentals"></td>
+            <td>Physical Fundamentals of Remote Sensing</td>
+            <td>E. Schanda  Springer-Verlag</td>
+            <td>EM wave interactions, sensor technology</td>
+            <td><a href="https://www.goodreads.com/book/show/4843135-physical-fundamentals-of-remote-sensing">View Details</a></td>
+          </tr>
+          
+          <tr>
+            <td><img src="../BOOKS image/Hyperspectral  rs.jpg" alt="Hyperspectral"></td>
+            <td>Hyperspectral Remote Sensing: Principles</td>
+            <td>Marcus Borengasser, William S. Hungate, Russell Watkins</td>
+            <td>Spectral analysis, agriculture/environmental monitoring</td>
+            <td><a href="https://www.routledge.com/Hyperspectral-Remote-Sensing-Principles-and-Applications/Borengasser-Hungate-Watkins/p/book/9781138747180">View Details</a></td>
+          </tr>
+          <tr>
+            <td><img src="../BOOKS image/Satellite remote sensing.jpg" alt="Conservation"></td>
+            <td>Satellite RS for Conservation Action</td>
+            <td>Graeme M. Buchanan</td>
+            <td>Biodiversity monitoring, aquatic/terrestrial ecosystems</td>
+            <td><a href="#">View Details</a></td>
+          </tr>
+          <tr>
+            <td><img src="../BOOKS image/RS global croplant.jpg" alt="Food Security"></td>
+            <td>RS of Global Croplands</td>
+            <td>Prasad Thenkabail</td>
+            <td>Crop monitoring, water use analysis, food security</td>
+            <td><a href="https://www.goodreads.com/book/show/36809747-satellite-remote-sensing-for-conservation-action">View Details</a></td>
+          </tr>
+         
+          <tr>
+            <td><img src="../BOOKS image/RS and Gs for Ecologists.jpg" alt="Open Source"></td>
+            <td>RS & GIS for Ecologists</td>
+            <td>Martin Wegmann</td>
+            <td>Open source tools, QGIS/R/GRASS integration</td>
+            <td><a href="https://www.goodreads.com/book/show/36809747-satellite-remote-sensing-for-conservation-action">View Details</a></td>
+          </tr>
+         
+          <tr>
+            <td><img src="../BOOKS image/Introductory Digital Image Processing.jpg" alt="Digital Image"></td>
+            <td>Introductory Digital Image Processing</td>
+            <td>John R. Jensen</td>
+            <td>Pixel-based analysis, resource management</td>
+            <td><a href="https://www.goodreads.com/book/show/1764902.Introductory_Digital_Image_Processing">View Details</a></td>
+          </tr>
+          <tr>
+            <td><img src="../BOOKS image/Synthetic Aperture Radar Polarimetry.jpg" alt="SAR"></td>
+            <td>Synthetic Aperture Radar Polarimetry</td>
+            <td>Jakob J. Van Zyl</td>
+            <td>Radar principles, earth observation applications</td>
+            <td><a href="https://www.goodreads.com/book/show/13838134-synthetic-aperture-radar-polarimetry">View Details</a></td>
+          </tr>
+          
+          <tr>
+            <td><img src="../BOOKS image/Big Data  Digital Earth and Smart Earth.jpg" alt="Advanced RS"></td>
+            <td>Big Data for Remote Sensing: Visualization, Analysis and Interpretation: Digital 
+              Earth and Smart Earth </td>
+            <td>Nilanjan Dey (Editor),Chintan Bhatt (Editor),Amira S. Ashour(Editor) </td>
+            <td>Terrestrial data extraction, multi-sensor fusion</td>
+            <td><a href="v=https://www.goodreads.com/book/show/40886813-big-data-for-remote-sensing">View Details</a></td>
+          </tr>
+          <tr>
+            <td><img src="../BOOKS image/Advances in Environmental RS.webp" alt="Coastal"></td>
+            <td>RS of Coastal EnvironmentsAdvances in Environmental Remote SensingSensors, Algorithms, and Applications </td>
+            <td>Qihao Weng</td>
+            <td>Advances in Environmental Remote Sensing: Sensors, Algorithms, and Applications </td>
+            <td><a href="https://www.routledge.com/Advances-in-Environmental-Remote-Sensing-Sensors-Algorithms-and-Applications/Weng/p/book/9781138072916">View Details</a></td>
+          </tr>
+          <main>
+            
+            <table class="book-table">
+              <!-- Your existing book table content remains unchanged -->
+            </table>
+      
+            <!-- ADDED SECTION START -->
+            <h2 style="text-align: center; margin: 40px 0 20px; color: #002147;">Explore More</h2>
+            <table class="book-table" style="margin-top: 20px;">
+              <thead>
+                <tr>
+                  <th>Website Image</th>
+                  <th>Name</th>
+                  <th>Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="../BOOKS image/route.png" alt="NASA Earthdata" style="width: 100px; height: 60px;"></td>
+                  <td>Routledge</td>
+                  <td><a href="https://www.routledge.com/india" target="_blank">Visit Site</a></td>
+                </tr>
+                <tr>
+                  <td><img src="../BOOKS image/goodread.png" alt="USGS Earth Explorer" style="width: 100px; height: 60px;"></td>
+                  <td>Good read</td>
+                  <td><a href="https://www.goodreads.com/" target="_blank">Visit Site</a></td>
+                
+              </tbody>
+            </table>
+            <!-- ADDED SECTION END -->
+          </main>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
+<script>
+      document.getElementById('bookSearch').addEventListener('keyup', function() {
+        const searchTerm = this.value.toLowerCase();
+        const rows = document.querySelectorAll('.book-table tbody tr');
+
+        rows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(searchTerm) ? '' : 'none';
+        });
+      });

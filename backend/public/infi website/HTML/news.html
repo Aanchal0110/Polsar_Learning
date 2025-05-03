@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NASA Space News</title>
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
+    <style>
+      :root {
+        --nasa-blue: #0b3d91;
+        --nasa-red: #fc3d21;
+        --dark-bg: #0a192f;
+        --text-light: #ffffff;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: var(--dark-bg);
+        color: var(--text-light);
+      }
+
+      .header {
+        text-align: center;
+        padding: 2rem;
+        background: linear-gradient(135deg, var(--nasa-blue), var(--nasa-red));
+        border-radius: 15px;
+        margin-bottom: 2rem;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .news-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      .news-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 2rem;
+        font-size: 1.2rem;
+      }
+
+      .error {
+        color: var(--nasa-red);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img" />
+      </a>
+
+      <div id="menu" class="fas fa-bars"></div>
+
+      <nav id="navbar" class="navbar"></nav>
+    </header>
+    <span id="navBarTracker">Nav bar tracker</span>
+    <div class="header">
+      <h1>🌌 NASA Space News</h1>
+      <p>Official updates from NASA</p>
+    </div>
+
+    <div class="news-grid" id="news-container">
+      <div class="loading">Loading space news...</div>
+    </div>
+
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+    <script>
+      // Working NASA API endpoints
+      const APOD_API =
+        "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=5";
+      const MARS_PHOTOS_API =
+        "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY";
+      const NEWAPIS =
+        "https://newsapi.org/v2/everything?q='image processing'&apiKey=805a73edd74c4f5cb9ce192c52031e32";
+
+      async function fetchNASAData() {
+        try {
+          const response = await fetch(APOD_API);
+          if (!response.ok)
+            throw new Error(`HTTP error! status: ${response.status}`);
+
+          const data = await response.json();
+          displayNews(data);
+        } catch (error) {
+          document.getElementById(
+            "news-container"
+          ).innerHTML = `<p class="error">Error loading data: ${error.message}</p>`;
+        }
+      }
+
+      function displayNews(items) {
+        const container = document.getElementById("news-container");
+        container.innerHTML = "";
+
+        items.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "news-card";
+          card.innerHTML = `
+                    <img class="news-image" src="${
+                      item.url || "https://via.placeholder.com/400"
+                    }" 
+                         alt="${item.title}">
+                    <h3>${item.title}</h3>
+                    <p>${item.explanation.substring(0, 100)}...</p>
+                    <p class="date">${item.date}</p>
+                `;
+          container.appendChild(card);
+        });
+      }
+
+      // Initialize
+
+      var req = new Request(NEWAPIS);
+      let DATA = 0;
+
+      async function display_News() {
+        // fetch(req)
+        //   .then((res) => {
+        //     return res.json();
+        //   })
+        //   .then((data) => {
+        //     DATA = data;
+        //   });.
+        const res = await fetch(req);
+        const data = await res.json();
+        const container = document.getElementById("news-container");
+        container.innerHTML = "";
+        data.articles.forEach((news) => {
+          console.log(news);
+          const card = document.createElement("div");
+          card.className = "news-card";
+          card.innerHTML = `
+                    <img class="news-image" src="${
+                      news.urlToImage || "https://via.placeholder.com/400"
+                    }" 
+                         alt="${news.title}">
+                    <h3>${news.title}</h3>
+                    <p>${news.description.substring(0, 100)}...</p>
+                    <p class="date">${news.publishedAt}</p>
+                `;
+
+          card.addEventListener("click", () => {
+            window.location.href = "/events";
+          });
+          container.appendChild(card);
+        });
+      }
+
+      window.addEventListener("load", display_News);
+    </script>
+  </body>
+</html>

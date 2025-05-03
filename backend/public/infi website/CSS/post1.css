@@ -1,0 +1,315 @@
+/* Reset default margin and padding */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #d3d3d3;
+  color: #fff;
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #003366;
+  /* Dark blue background */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Image Styling */
+.logo-img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Navigation Bar Styling */
+.navbar {
+  display: flex;
+  flex-grow: 1;
+  /* Allow navbar to expand */
+  justify-content: flex-start;
+  /* Align items to the start */
+  align-items: center;
+  margin-left: 50px;
+  /* Shift slightly to the right */
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  /* Vertically center items */
+  gap: 30px;
+  /* Space between items */
+  flex: 1;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar li:last-child {
+  margin-right: 0;
+}
+
+.navbar a {
+  color: #fff;
+  /* White color */
+  text-decoration: none;
+  font-weight: bold;
+  /* Bold text */
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  /* Vertically center icon and text */
+}
+
+.navbar a.active,
+.navbar a:hover {
+  color: #ff4500;
+  /* Highlight color */
+}
+
+.navbar a.login-icon {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.navbar a.login-icon .fa-user {
+  margin-right: 5px;
+}
+
+/* Mobile Menu Icon */
+#menu {
+  display: none;
+}
+
+/* Blog Header Styling */
+.blog-header {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.blog-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #ff4500; /* Changed header text color to the highlight color */
+}
+
+.blog-header p {
+  color: #bbb; /* Slightly darker grey for better contrast */
+}
+
+/* Blog Content Styling */
+.blog-content {
+  background: #fff;
+  color: #333; /* Darker text color for better visibility */
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-height: 70vh;
+  width: 80vw;
+  justify-self: center;
+}
+
+.blog-content .blog-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #003366;
+  color: #fff;
+  margin-top: 40px;
+  border-top: 4px solid #ff4500;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+
+  .navbar ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .blog-header h1 {
+    font-size: 2rem;
+  }
+
+  .blog-header p {
+    font-size: 1rem;
+  }
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Active Menu Item Styling */
+.navbar a.active,
+.navbar a:hover,
+.navbar a:focus {
+  color: #ff4500;
+  /* Highlight color */
+}
+
+/* Contact Icons */
+.contact-icons {
+  margin-top: 20px;
+}
+
+.contact-icons .icon {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-icons .icon:hover {
+  color: #ff4500;
+}
+
+/* Search Form Styling */
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.search-form button {
+  background: #ff4500;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background: #ff6347;
+}
+
+/* Nested Dropdown Subcontent Styling */
+.dropdown-subcontent {
+  display: none;
+  position: relative;
+  /* Change to relative for better positioning */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-subcontent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-subcontent a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Add this for the dropdown toggle effect */
+.dropdown-subcontent.show {
+  display: block;
+}
+
+/* Default styling for the opensource toggle */
+.dropdown-subcontent a.opensource-toggle {
+  color: black;
+  font-weight: normal;
+}
+
+/* Styling for the active state of the opensource toggle */
+.dropdown-subcontent a.opensource-toggle.active {
+  color: red;
+  font-weight: bold;
+}
+
+.academicians {
+  padding: 20px;
+  text-align: center;
+}
+
+.academicians-items {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.academician-item {
+  margin: 20px;
+  max-width: 300px;
+}
+
+.academician-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}

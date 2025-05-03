@@ -1,0 +1,301 @@
+[
+  {
+    "name": "Dr. Dharmendra Singh",
+    "institution": "IIT Roorkee",
+    "position": "Senior Professor, Electronics and Communication Engineering Department",
+    "description": "Dr. Dharmendra Singh is a senior professor at IIT Roorkee and coordinator of the DRONE RESEARCH CENTER. He has received multiple fellowships and awards, including the National GOLD Award for e-Governance (2019-2020). His research focuses on radar, image processing, AI, machine learning, and satellite data applications.",
+    "research_interests": [
+      "Radar development",
+      "Microwave/Millimeter/THz Imaging",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "IoT",
+      "Cloud-Based Solutions",
+      "DRONE-based Applications",
+      "Anti-Drone Technology",
+      "Image Processing and Enhancement",
+      "Satellite Data Applications",
+      "Remote Sensing",
+      "Radar Polarimetry and Interferometry",
+      "Stealth Technology",
+      "Electromagnetic Modeling"
+    ]
+  },
+  {
+    "name": "Dr. Gulab Singh",
+    "institution": "CSRE, IIT Bombay",
+    "position": "Professor",
+    "description": "Dr. Gulab Singh specializes in radar remote sensing techniques, particularly for monitoring glaciers and stored water. His research also includes radar polarimetry and SAR inversion techniques.",
+    "research_interests": [
+      "Radar Remote Sensing of Snowpack and Glaciers",
+      "Radar Polarimetry and SAR Data Decomposition",
+      "Inversion and SAR Tomography Techniques"
+    ],
+    "linkedin": "linkedin.com/in/gulab-singh-26935244"
+  },
+  {
+    "name": "Dr. Krishna Mohan Buddhiraju",
+    "institution": "CSRE, IIT Bombay",
+    "position": "Professor",
+    "description": "Dr. Krishna Mohan Buddhiraju focuses on satellite image processing and analysis. He leads research in hyperspectral imaging, GIS, and educational content development.",
+    "research_interests": [
+      "High-Resolution Image Segmentation and Classification",
+      "Hyperspectral Image Analysis",
+      "Multimedia Educational Content for Image Processing",
+      "Geographic Information Systems (GIS)"
+    ],
+    "linkedin": "linkedin.com/in/krishna-mohan-buddhiraju-b31b9334"
+  },
+  {
+    "name": "Dr. Avik Bhattacharya",
+    "institution": "CSRE, IIT Bombay",
+    "position": "Professor",
+    "description": "Dr. Avik Bhattacharya is a leading researcher in SAR polarimetry and statistical analysis of SAR images. He serves as Editor-in-Chief of the IEEE GEOSCIENCE AND REMOTE SENSING LETTERS (GRSL).",
+    "research_interests": [
+      "SAR Polarimetry",
+      "Statistical Analysis of Polarimetric SAR Images"
+    ],
+    "linkedin": "linkedin.com/in/avik-bhattacharya-b66015137"
+  },
+  {
+    "name": "Dr. Varsha Turkar",
+    "institution": "Vidyalankar Institute of Technology, Mumbai",
+    "position": "Professor",
+    "description": "Dr. Turkar is a performance-driven researcher specializing in digital image processing and machine learning, with expertise in Synthetic Aperture Radar (SAR) and data analysis.",
+    "research_interests": ["Digital Image Processing", "Machine Learning"],
+    "linkedin": "linkedin.com/in/varshaturkar"
+  },
+  {
+    "name": "Dr. Sanjay S. Shitole",
+    "institution": "Usha Mittal Institute of Technology, SNDT Women’s University, Mumbai",
+    "position": "Professor",
+    "description": "Dr. Shitole is a researcher focused on remote sensing and image processing, with experience in SAR data analysis and urban applications. He has secured NASA-ISRO funding for machine learning research.",
+    "research_interests": [
+      "Remote Sensing",
+      "Image Processing",
+      "Machine Learning",
+      "LaTeX for Research",
+      "Digital Marketing"
+    ],
+    "linkedin": "linkedin.com/in/dr-sanjay-shitole"
+  },
+  {
+    "name": "Dr. Amiya Kumar Tripathy",
+    "institution": "Don Bosco Institute of Technology, Mumbai",
+    "position": "Professor",
+    "description": "Dr. Tripathy is a data science professor with expertise in AI, IoT, and real-time systems. His research integrates Geo-ICT for agriculture and rural development.",
+    "research_interests": [
+      "AI and Data Science",
+      "Embedded Systems & IoT",
+      "Machine Learning and Real-Time Systems",
+      "Geo-ICT for Agriculture & Rural Development"
+    ],
+    "linkedin": "linkedin.com/in/dr-amiya-ku-tripathy-phd-b715732"
+  },
+  {
+    "name": "Dr. Chandrakanta Ojha",
+    "institution": "IISER Mohali",
+    "position": "Geodesist",
+    "description": "Dr. Ojha specializes in microwave remote sensing and satellite radar interferometry. His work focuses on monitoring Earth's surface deformation using geodesy techniques.",
+    "research_interests": [
+      "Microwave Remote Sensing",
+      "Satellite Radar Interferometry",
+      "Crustal Deformation",
+      "Groundwater Monitoring",
+      "Parallel Computing"
+    ],
+    "linkedin": "linkedin.com/in/chandrakanta-ojha-82965035"
+  },
+  {
+    "name": "Dr. Unmesh Khati",
+    "institution": "IIT Indore",
+    "position": "Faculty, Department of Astronomy, Astrophysics, and Space Engineering",
+    "description": "Dr. Khati is an expert in SAR remote sensing, working on spaceborne tomography and NASA-ISRO SAR mission algorithms. His research extends to ecosystem monitoring and UAV sensor integration.",
+    "research_interests": [
+      "Radar Polarimetry and Interferometry",
+      "PolInSAR Techniques for Ecosystem Studies",
+      "Change Detection Algorithms",
+      "Machine Learning",
+      "Data Fusion",
+      "Lidar Remote Sensing",
+      "SAR Tomography"
+    ],
+    "linkedin": "linkedin.com/in/unmesh-khati"
+  },
+  {
+    "name": "Dr. Rishikesh Bharti",
+    "institution": "IIT Guwahati",
+    "position": "Professor",
+    "description": "Dr. Bharti's research covers snow and glacier studies, micro-climate modeling, tectonic geomorphology, and ground-penetrating radar for subsurface investigations.",
+    "research_interests": [
+      "Snow and Glacier Studies",
+      "Micro-Climate Modeling",
+      "Tectonic Geomorphology",
+      "Landslide Susceptibility",
+      "Ocean-Atmospheric Interactions",
+      "Liquefaction Potential Evaluation",
+      "Subsurface Investigation using Ground Penetration Radar (GPR)"
+    ],
+    "linkedin": "linkedin.com/in/rishikesh-bharti-831ab8118"
+  },
+  {
+    "name": "Dr. Vineet Kumar",
+    "institution": "Tata Institute of Social Sciences (TISS), Mumbai",
+    "position": "Assistant Professor, Jamsetji Tata School of Disaster Studies",
+    "description": "Dr. Vineet Kumar is an Assistant Professor at TISS Mumbai, specializing in geospatial applications for disaster studies and sustainability. Previously, he worked as a Geospatial Data Expert at FAO-UN in Rome, Italy.",
+    "research_interests": [
+      "Earth Observation for Sustainability Studies",
+      "Synthetic Aperture Radar (SAR) Polarimetry",
+      "Land Use Land Cover Change",
+      "Geoinformatics for Disasters"
+    ],
+    "linkedin": "linkedin.com/in/vineet-kumar-6537b420"
+  },
+  {
+    "name": "Dr. Mugdha Agarwadkar",
+    "institution": "A P Shah Institute of Technology",
+    "position": "Associate Professor, Department of Civil Engineering",
+    "description": "Dr. Mugdha Agarwadkar is an Associate Professor at A.P. Shah Institute of Technology with expertise in groundwater hydrology and environmental monitoring. She earned her PhD from IIT Bombay in Groundwater Hydrology.",
+    "research_interests": [
+      "Groundwater Hydrology",
+      "Water Resources",
+      "Environmental Health and Monitoring",
+      "Remote Sensing",
+      "GIS and GPS",
+      "Terrain Evaluation",
+      "Climate Change",
+      "Coastal and Marine Environment",
+      "Image Processing",
+      "Disaster Management"
+    ],
+    "linkedin": "linkedin.com/in/dr-mugdha-apte-agarwadkar-6145661a"
+  },
+  {
+    "name": "Dr. Mousmi Chaurasia",
+    "institution": "Muffakham Jah College of Engineering and Technology, Hyderabad",
+    "position": "Professor and Head, Information Technology Department",
+    "description": "Dr. Mousmi Chaurasia is a Professor and Head of the IT Department at Muffakham Jah College of Engineering and Technology. She has published over 28 papers, holds five patents, and has worked on government projects in South Korea and Saudi Arabia. She received the 2020 Significant Volunteer Award from IEEE Hyderabad Section.",
+    "research_interests": [
+      "Artificial Intelligence",
+      "Geoscience and Remote Sensing",
+      "Computational Intelligence"
+    ],
+    "linkedin": "linkedin.com/in/mousmi-ajay-chaurasia-17a4a7188"
+  },
+  {
+    "name": "Dr. Yogesh Agarwadkar",
+    "institution": "InfiCorridor Solutions Private Limited",
+    "position": "Researcher and Consultant",
+    "description": "Dr. Yogesh Agarwadkar has over 12 years of research experience, having managed nine research projects and established a research facility at IIT Bombay. He has worked on 10 consultancy projects related to civil engineering applications in environmental and disaster management. He has published seven journal papers and presented 17 conference papers at national and international levels. He also organized the national conference 'Geomatrix' and helped launch IIT Bombay's Research Scholars' Confluence.",
+    "expertise": [
+      "Environmental Impact Assessment",
+      "Computational Fluid Dynamics",
+      "Remote Sensing",
+      "Engineering Applied and Computational Mathematics",
+      "Numerical Modeling",
+      "Modeling and Simulation",
+      "Numerical Analysis",
+      "Spatial Analysis Mapping"
+    ],
+    "consultancy_areas": [
+      "Solution Architecture",
+      "Hydrological Modelling",
+      "Ground Water Analysis",
+      "Soil Erosion and Runoff Modelling",
+      "Terrain Evaluation",
+      "Surveying and Related Services",
+      "Data Analysis",
+      "Environmental Assessment",
+      "Disaster Management",
+      "Climate Change",
+      "Software Development",
+      "Simulation",
+      "Geo-Spatial Analysis",
+      "Spatial Modelling",
+      "Image Processing"
+    ],
+    "linkedin": "linkedin.com/in/yogesh-a-1598045"
+  },
+  {
+    "name": "Dr. Shaunak De",
+    "institution": "Capella Space",
+    "position": "Senior Radar Engineer",
+    "description": "Dr. Shaunak De is a senior radar engineer at Capella Space, specializing in machine learning for radar remote sensing. With over eight years of experience, he designs advanced signal processing algorithms for RF data processing, delivering high-resolution radar imagery for applications such as urban planning, disaster management, and environmental monitoring. He has developed methodologies integrating physical radar scattering with deep neural networks and contributed to India's RISAT-1 sensor by creating the first toolbox for compact polarimetric data processing as part of ISRO-sponsored projects.",
+    "research_interests": [
+      "Machine Learning",
+      "Polarimetric SAR",
+      "Deep Learning"
+    ],
+    "personal_website": "Shaunak De",
+    "linkedin": "linkedin.com/in/shaunakde"
+  },
+  {
+    "name": "Dr. Shiv Mohan",
+    "institution": "Space Application Centre, Ahmedabad",
+    "position": "Scientist and Educator",
+    "description": "Dr. Shiv Mohan is an eminent scientist specializing in microwave remote sensing. With over 33 years at ISRO, he played a key role in developing India's microwave remote sensing applications, including projects like RISAT and Chandrayaan SAR programs. He has served in over 70 ISRO technical committees and has published 320 research papers. He has been recognized with prestigious awards, including the IEEE GRSS Outstanding Service Award (2022) and the Indian National Remote Sensing Award (1995). Currently, he is a visiting professor at multiple universities and actively contributes to IEEE GRSS initiatives in India.",
+    "research_interests": [
+      "Microwave Remote Sensing",
+      "Planetary Remote Sensing",
+      "SAR Data Analytics"
+    ],
+    "linkedin": "linkedin.com/in/shiv-mohan-1a009234"
+  },
+  {
+    "name": "Dr. Anup Das",
+    "institution": "Space Application Centre, Ahmedabad-ISRO",
+    "position": "Scientist",
+    "description": "Dr. Anup Das specializes in SAR-based remote sensing applications for geosciences and planetary sciences. He has led multiple spaceborne SAR projects, including ISRO and NASA collaborations like Chandrayaan and NISAR. He is actively involved in ISRO’s planetary mission science planning and has been recognized with the 'Green Asia Award' for his contributions to forest biomass monitoring. He is a Senior Member of IEEE and contributes to India's REDD+ initiatives.",
+    "research_interests": [
+      "Vegetation Mapping",
+      "SAR",
+      "Remote Sensing",
+      "Satellite Image Analysis",
+      "Interpolation",
+      "Scattering"
+    ],
+    "linkedin": "linkedin.com/in/anup-das-51880327"
+  },
+  {
+    "name": "Dr. Sujata Ghosh",
+    "institution": "ADRIN, Hyderabad",
+    "position": "Scientist",
+    "description": "Dr. Sujata Ghosh is a scientist at ADRIN, Hyderabad, with previous experience at ISRO. She holds a degree from Banaras Hindu University and has expertise in government research projects.",
+    "linkedin": "linkedin.com/in/sujata-ghosh-7b338a8"
+  },
+  {
+    "name": "Dr. Sujata Dash",
+    "institution": "Defence Terrain Research Laboratory (DTRL), DRDO, New Delhi",
+    "position": "Scientist",
+    "description": "Dr. Sujata Dash specializes in terrain analysis using multi-sensor satellite imagery. With 21 years at DTRL, she has contributed to geospatial applications for military planning, coastal studies, and disaster preparedness. She has received several awards, including the 'Scientist of the Year' (2006). She holds a Ph.D. in Oceanography from IIT-Delhi and an MBA in Disaster Management.",
+    "research_interests": [
+      "Disaster and Humanitarian Relief",
+      "Environment",
+      "Science and Technology"
+    ],
+    "linkedin": "linkedin.com/in/sujata-dash-422971a3"
+  },
+  {
+    "name": "Dr. Pratima Pandey",
+    "institution": "IIRS, Dehradun",
+    "position": "Scientist",
+    "description": "Dr. Pratima Pandey is an expert in glaciological studies, with a focus on optical and SAR data applications for cryospheric research.",
+    "research_expertise": [
+      "Glaciological Studies",
+      "Optical and SAR Data Applications for Cryospheric Studies"
+    ],
+    "linkedin": "linkedin.com/in/pratima-pandey-209b181b3"
+  },
+  {
+    "name": "Dr. Paul Rosen",
+    "institution": "Jet Propulsion Laboratory-NASA",
+    "position": "Manager, Radar Science and Engineering Section",
+    "description": "Dr. Paul Rosen leads radar science and engineering research at NASA's Jet Propulsion Laboratory. He specializes in Synthetic Aperture Radar (SAR) and interferometric methods for geodesy and surface characterization. He played a key role in the Shuttle Radar Topography Mission (SRTM) and received NASA's Exceptional Service and Achievement Medals for his contributions. He also serves as a faculty member at Caltech and has over 30 journal publications.",
+    "research_interests": [
+      "Scientific Exploration with Radar",
+      "Interferometric Methods for Geodesy and Surface Characterization",
+      "Scientific Computing and Analysis Methods"
+    ],
+    "linkedin": "linkedin.com/in/paul-rosen-4052b8b"
+  }
+]

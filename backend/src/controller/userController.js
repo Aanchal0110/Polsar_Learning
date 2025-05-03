@@ -1,5 +1,8 @@
 const settings = require("../config/settings");
-const MainModel = require("../models/MainModel")
+const MainModel = require("../models/MainModel");
+const uploadImage = require("../middleware/imageUpload");
+const { generateOTP, verifyOTP } = require("../utils/otpService");
+const sendOTPEmail = require("../config/mailer");
 
 const fetch_All_User = async (req, res, next) => {
     try {
@@ -88,6 +91,38 @@ const Verify_User = async (req, res, next) => {
     }
 }
 
+const upload_image = async (req, res, next) => {
+    if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+    }
+    res.status(200).json({
+    message: 'Image uploaded successfully',
+    filePath: `/${req.file.path}`,
+  });
+}
+
+const generate_otp = async (req, res, next) => {
+    const { email } = req.body;
+    if (!email) {
+        return res.status(400).json({error:"Email is requied"})
+    }
+    const otp = generateOTP(email);
+    await sendOTPEmail(email, otp);
+
+    res.json({ message: "OTP sent successfully" });
+}
+
+const verify_otp = async (req, res, next) => {
+    const { email, otp } = req.body;
+    if (!email || !otp) return res.status(400).json({ message: "Email and OTP are required" });
+    const isValid = verifyOTP(email, otp);
+    if (isValid) {
+    res.status(200).json({ message: "OTP verified successfully" });
+  } else {
+    res.status(400).json({ message: "Invalid or expired OTP" });
+  }
+}
+
 
 
 module.exports = {
@@ -97,5 +132,8 @@ module.exports = {
     Remove_User,
     create_Table,
     detele_Table,
-    Verify_User
+    Verify_User,
+    upload_image,
+    generate_otp,
+    verify_otp,
 }

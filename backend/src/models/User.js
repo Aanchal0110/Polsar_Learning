@@ -12,14 +12,17 @@ const query_for_User = {
         Password VARCHAR(50) NOT NULL,
         Occupation VARCHAR(100),
         Image_Url VARCHAR(255)  DEFAULT "",
-        Verified VHAR(1) DEFAULT "N");`,
+        Verified VHAR(1) DEFAULT "N",
+        About_YourSelf TEXT);`,
     insert: `INSERT INTO User ( Uid, UserName, Email, Password, Occupation)
              VALUES (?, ?, ?, ?, ?);`,
     delete: "DELETE FROM User WHERE Uid = ?;",
     fetch: `SELECT * FROM User WHERE Email = ?;`,
     all: "SELECT * FROM User;",
     delete_table: `DROP TABLE User`,
-    verify_User:`UPDATE User SET Verified = "Y" WHERE Email = ?;`
+    verify_User: `UPDATE User SET Verified = "Y" WHERE Email = ?;`,
+    set_image_url: `UDPATE User SET Image_Url = ? WHERE Email = ?;`,
+    set_about_yourself:`UPADTE user SET About_YourSelf = ? WHERE Email = ?;`
 }
 
 function insert_user(database, data) {
@@ -122,6 +125,24 @@ function verify_User(email) {
     })
 }
 
+function set_image(email, url) {
+    return new Promise((resolve, reject) => {
+        database.db.all(query_for_User.set_image_url, [url, email], (err, row) => {
+            if (err) reject(err)
+            resolve(row)
+        })
+    })
+}
+
+function set_about_yourself(email, text) {
+    return new Promise((resolve, reject) => {
+        database.db.all(query_for_User.set_about_yourself, [text, email], (err, row) => {
+            if (err) reject(err)
+            resolve(row)
+        })
+    })
+}
+
 module.exports = {
     query_for_User,
     insert_user,
@@ -133,4 +154,6 @@ module.exports = {
     removeUser,
     delete_table,
     verify_User,
+    set_image,
+    set_about_yourself
 }

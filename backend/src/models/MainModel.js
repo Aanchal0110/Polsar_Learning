@@ -5,6 +5,7 @@ const PostModel = require("./Post");
 const CommentModel = require("./Comments");
 const Resource = require("./Resource");
 const CareerModel = require("./Career");
+const DomainExpert = require("./DomainExpert")
 
 module.exports = {
     AdminModel,
@@ -13,4 +14,5 @@ module.exports = {
     CommentModel,
     Resource,
     CareerModel,
+    DomainExpert
 }

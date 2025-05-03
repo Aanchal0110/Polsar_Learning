@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industry Professionals</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
+    <style>
+      .academician-item {
+        border: 1px solid #ccc;
+        margin: 15px 0;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      p {
+        text-align: justify;
+      }
+      .academician-img {
+        width: 100%;
+        max-width: 200px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+      }
+      .academician-item h2 {
+        margin-top: 10px;
+        color: black;
+      }
+      .academician-item img {
+        width: 150px; /* Set the desired size */
+        height: 150px;
+        object-fit: cover; /* Ensures the image fits the container without distortion */
+        border-radius: 50%; /* Makes the image circular */
+        display: block;
+        margin: 0 auto; /* Centers the image */
+      }
+
+      .read-more-content {
+        display: none;
+        margin-top: 10px;
+        color: black; /* Make the text color black */
+        text-align: justify; /* Justify the text */
+      }
+
+      .read-more-content a {
+        display: block; /* Makes the link block-level, so it can be centered */
+        text-align: center; /* Centers the text */
+        margin-top: 10px; /* Adds spacing from the content above */
+      }
+
+      .read-more-content ul {
+        list-style-type: none; /* Remove default bullet points */
+        padding-left: 0;
+      }
+
+      .read-more-content li {
+        margin-bottom: 10px; /* Space between list items */
+      }
+
+      .linkedin-link {
+        color: #6a4c9c;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .linkedin-link:hover {
+        text-decoration: underline;
+      }
+
+      .read-more-btn {
+        color: #0077b5;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .read-more-content a.website-link {
+        color: #6a4c9c; /* Purple color */
+        text-decoration: underline; /* Underlined link */
+        font-weight: bold; /* Bold text */
+      }
+
+      .read-more-content a.website-link:hover {
+        color: #4b2e83; /* Darker purple on hover */
+        text-decoration: underline; /* Keep underline on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a href="#" class="logo">
+          <img
+            src="/infi website/image/logo.jpeg"
+            alt="Logo"
+            class="logo-img"
+          />
+        </a>
+
+        <div id="menu" class="fas fa-bars"></div>
+
+        <nav id="navbar" class="navbar"></nav>
+      </header>
+      <span id="navBarTracker">Nav bar tracker</span>
+
+      <main>
+        <section class="academicians">
+          <h1>Industry Professionals</h1>
+          <div class="academicians-items" style="text-align: center">
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Yogesh Agarwadkar.jpeg"
+                alt="Dr. Yogesh Agarwadkar"
+                class="academician-img"
+                style="display: block; margin: 0 auto"
+              />
+              <h2 style="margin-top: 10px">
+                Dr. Yogesh Agarwadkar (InfiCorridor Solutions Private Limited)
+              </h2>
+              <p style="text-align: justify">
+                Research experience of over 12 years while handling 9 research
+                projects. Planned, set-up and maintained a research facility at
+                IIT Bombay for successful completion of these projects. Also
+                have a teaching experience of over 3 years and have been invited
+                to conduct guest lectures at Mumbai University along with a
+                Short-Term Training Programme. Worked on 10 consultancy projects
+                in the field of application of civil engineering to
+                environmental and disaster management
+              </p>
+              <span class="read-more-btn" onclick="toggleReadMore(this)"
+                >Read More</span
+              >
+              <div class="read-more-content">
+                <p style="text-align: justify">
+                  Possess around two years of industry experience till date.
+                  Published 7 journal papers and presented 17 papers in national
+                  and international conferences. Successfully initiated,
+                  conceptualised, and organised a national conference
+                  “geomatrix” and helped organise a Research Scholars’
+                  Confluence for the first time during the golden jubilee year
+                  of IIT Bombay.
+                </p>
+                <p style="text-align: justify">
+                  Consultancy involvements in the field pertaining to Solution
+                  architecture, Hydrological modelling, Ground water analysis,
+                  Soil erosion and run off modelling, Terrain Evaluation,
+                  Surveying and related services, Data Analysis, Environmental
+                  Assessment, Disaster Management, Climate Change, Software
+                  Development, Simulation, Geo-spatial Analysis and Spatial
+                  Modelling, Image Processing etc.
+                </p>
+                <p style="text-align: justify">His Skills and Expertise:</p>
+                <ol>
+                  <li>Environmental Impact Assessment</li>
+                  <li>Computational Fluid Dynamics</li>
+                  <li>Remote Sensing</li>
+                  <li>Engineering Applied and Computational Mathematics</li>
+                  <li>Numerical Modeling</li>
+                  <li>Modeling and Simulation</li>
+                  <li>Numerical Analysis</li>
+                  <li>Spatial Analysis Mapping</li>
+                </ol>
+                <a
+                  href="https://www.linkedin.com/in/yogesh-a-1598045"
+                  class="linkedin-link"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Shaunak De.jpeg"
+                alt="Dr. Shaunak De"
+                class="academician-img"
+                style="display: block; margin: 0 auto"
+              />
+              <h2>Dr. Shaunak De (Capella Space)</h2>
+              <p>
+                Shaunak De received the B.Eng. degree in electronics engineering
+                from the University of Mumbai, Mumbai, India, in 2012,
+                graduating as a gold medalist. He is currently working toward
+                the Ph.D. degree in remote sensing image analysis at the Centre
+                of Studies in Resources Engineering, Indian Institute of
+                Technology Bombay, Mumbai, India.
+              </p>
+              <span class="read-more-btn" onclick="toggleReadMore(this)"
+                >Read More</span
+              >
+              <div class="read-more-content">
+                <p>
+                  His current research interests include polarimetric SAR,
+                  machine learning, and information theory. He serves as a
+                  reviewer for international journals, among them, the IEEE
+                  Journal Of Selected Topics In Applied Earth Observations And
+                  Remote Sensing and the IEEE Geoscience And Remote Sensing
+                  Letters.
+                </p>
+                <p style="text-align: justify">
+                  Research Field and Area of Interests:
+                </p>
+                <ol>
+                  <li>Machine Learning</li>
+                  <li>Polarimetric SAR</li>
+                  <li>Deep Learning</li>
+                </ol>
+                <a
+                  href="https://www.linkedin.com/in/shaunakde"
+                  class="linkedin-link"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Copyright © 2024 All rights reserved |</p>
+      </footer>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="/infi website/Javascript/script.js"></script>
+    <script src="/infi website/JavaScript/navBar.js" type="module"></script>
+    <script>
+      function toggleReadMore(button) {
+        var content = button.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          button.textContent = "Read More";
+        } else {
+          content.style.display = "block";
+          button.textContent = "Read Less";
+        }
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const profileLinks = document.querySelectorAll(".profile-link");
+
+        profileLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const profileType = link.getAttribute("data-profile-type");
+            const profileUrl = link.getAttribute("data-profile-url");
+
+            if (profileType && profileUrl) {
+              if (profileType === "research") {
+                window.open(profileUrl, "_blank");
+              } else if (profileType === "linkedin") {
+                window.open(profileUrl, "_blank");
+              }
+            } else {
+              console.error("Profile type or URL is missing.");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

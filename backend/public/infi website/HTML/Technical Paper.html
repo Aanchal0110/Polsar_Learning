@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>polsarlearn</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
+
+    <style>
+      .navbar a.active {
+        color: red; /* Red color for active "Resources" */
+      }
+
+      .navbar a:hover {
+        color: #1e90ff;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: #002147; /* Navbar background color */
+        padding: 10px 0;
+      }
+
+      main {
+        margin-top: 80px; /* Add space to account for the navbar height */
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        color: #333;
+      }
+      .search-bar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .search-bar input {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 300px;
+      }
+
+      /* Styling for the table */
+      .education-table {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background: #f7f7f7;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .education-table thead {
+        background-color: #d6d6d6;
+        color: #000;
+      }
+
+      .education-table th,
+      .education-table td {
+        text-align: left;
+        padding: 1rem;
+        font-size: 1rem;
+        border-bottom: 1px solid #ccc;
+        color: #333;
+      }
+
+      .education-table th {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .education-table tr:hover {
+        background-color: #eaeaea;
+      }
+      .highlight {
+        background-color: #ffeb3b !important;
+      }
+
+      .search-form {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .search-form input {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+      }
+
+      .search-form button {
+        background-color: #1e90ff;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .search-form button:hover {
+        background-color: #005bb5;
+      }
+      .paper-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .paper-item {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .paper-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .paper-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: #002147;
+      }
+
+      .paper-item a {
+        color: #002147;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        display: block;
+        font-family: "Playfair Display", serif;
+        transition: color 0.3s;
+      }
+
+      .paper-item a:hover {
+        color: #1e90ff;
+      }
+
+      .paper-item p {
+        color: #666;
+        font-size: 0.95rem;
+        margin: 0;
+        margin-bottom: 15px;
+      }
+
+      .paper-item .abstract {
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 10px;
+        max-height: 200px;
+        overflow-y: auto;
+        padding-right: 10px;
+        line-height: 1.5;
+      }
+
+      .paper-item .abstract::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      .paper-item .abstract::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      .paper-item .abstract::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 10px;
+      }
+
+      .paper-item .keywords {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .paper-item .keyword {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+        background-color: #f0f4f8;
+        color: #002147;
+        border-radius: 20px;
+        display: inline-block;
+      }
+
+      .paper-item .read-more {
+        margin-top: 15px;
+        align-self: flex-start;
+        color: #1e90ff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .paper-item .read-more i {
+        margin-left: 5px;
+        transition: transform 0.3s;
+      }
+
+      .paper-item .read-more:hover i {
+        transform: translateX(3px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img" />
+      </a>
+
+      <div id="menu" class="fas fa-bars"></div>
+
+      <nav id="navbar" class="navbar"></nav>
+    </header>
+    <span id="navBarTracker">Nav bar tracker</span>
+
+    <div class="container">
+      <h1>Research Paper Repository</h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search"
+          onkeyup="filterPapers()"
+          placeholder="Search research papers..."
+        />
+      </div>
+
+      <h2 class="category-title">Remote Sensing: Sensor Types</h2>
+      <ul class="paper-list" id="paperList">
+        <li class="paper-item">
+          <a href="https://ieeexplore.ieee.org/document/6049956" target="_blank"
+            >Remote sensing satellite sensor information retrieval and
+            visualization based on SensorML</a
+          >
+          <div class="abstract">
+            <strong>Abstract:</strong> In the era of high-frequency occurrence
+            of natural disasters, users are more urgently concerned with the
+            sharing of the satellite sensor resources information and
+            coordinating the complement of sensor observation. However, the
+            capacity of discovering, retrieving and visualizing the sensor
+            resource information accurately based on heterogeneous sensors over
+            sensor network is very limited. This paper proposes the system
+            architecture for effectively managing those heterogeneous and
+            multiple sensors and their information, which is inspired by the
+            Open Geospatial Consortium (OGC) Sensor Web Enablement (SWE)
+            Initiative and based on one of its information model- Sensor Model
+            Language (SensorML) of which Process Model is the core. The
+            prototype "SensorModel VI. 0" is designed and implemented used to
+            construct the standard model for unified management of multiple
+            remote sensing satellite sensor resources information and
+            demonstrate the model-based retrieval and visualization of related
+            remote sensors and their information, which promotes the
+            comprehensive accessing and collaborative planning/controlling the
+            available remote sensor's information in time-critical disaster
+            emergency.
+          </div>
+          <div class="keywords">
+            <span class="keyword">Satellites</span>
+            <span class="keyword">Remote sensing</span>
+            <span class="keyword">Data models</span>
+            <span class="keyword">ISO standards</span>
+            <span class="keyword">Visualization</span>
+            <span class="keyword">Orbits</span>
+            <span class="keyword">Information services</span>
+          </div>
+        </li>
+        <li class="paper-item">
+          <a
+            href="https://www.researchgate.net/publication/330212930_Remote_Sensing_Platforms_and_Sensors"
+            target="_blank"
+            >Remote Sensing Platforms and Sensors</a
+          >
+          <div class="abstract">
+            <strong>Abstract:</strong> Remote sensing is the acquisition of
+            information about an object without coming in physical contact of
+            that object. And 'sensor' is a device that helps in gathering of
+            information (amount of EMR emitted or reflected by the object). In
+            other words, 'sensor' is the remote sensing device that records
+            wavelengths of energy. Generally, these sensors are mounted or fixed
+            with a 'platform'. Therefore, 'platform' is termed as a vehicle that
+            carries remote sensing device.
+          </div>
+        </li>
+        <li class="paper-item">
+          <a
+            href="https://www.ijeat.org/wp-content/uploads/papers/v9i1/A9844109119.pdf"
+            target="_blank"
+            >A Study of Types of Sensors used in Remote Sensing</a
+          >
+          <div class="abstract">
+            <strong>Abstract:</strong> Of late, the science of Remote Sensing
+            has been gaining a lot of interest and attention due to its wide
+            variety of applications. Remotely sensed data can be used in various
+            fields such as medicine, agriculture, engineering, weather
+            forecasting, military tactics, disaster management etc. only to name
+            a few. This article presents a study of the two categories of
+            sensors namely optical and microwave which are used for remotely
+            sensing the occurrence of disasters such as earthquakes, floods,
+            landslides, avalanches, tropical cyclones and suspicious movements.
+            The remotely sensed data acquired either through satellites or
+            through ground based- synthetic aperture radar systems could be used
+            to avert or mitigate a disaster or to perform a post-disaster
+            analysis.
+          </div>
+        </li>
+      </ul>
+
+      <h2 class="category-title">Data Acquisition and Preprocessing</h2>
+      <ul class="paper-list">
+        <li class="paper-item">
+          <a
+            href="https://www.researchgate.net/publication/339127308_Remote_Sensing_Data_Preprocessing_Technology"
+            target="_blank"
+            >Remote Sensing Data Preprocessing Technology</a
+          >
+          <div class="abstract">
+            <strong>Abstract:</strong> With the development of remote sensing
+            technology, remote sensing images are becoming increasingly
+            convenient. Different types of remote sensing images have different
+            advantages in urban green space research. This chapter mainly
+            introduces the characteristics and preprocessing methods of
+            multi-spectral high-resolution data, LiDAR point cloud data,
+            Quickbird image data, etc. Apart from these, the latest street view
+            map, a type of real time map service, provides 360° panoramic views
+            of cities, streets or others. The service provides users the maps
+            with an immersive browsing experience. Street view data has
+            gradually become the data source of urban green space research due
+            to its similarity to pedestrian perspective and low acquisition
+            cost. At the end of this chapter, we will introduce the objects
+            classification techniques and characteristics of street view data.
+          </div>
+        </li>
+        <li class="paper-item">
+          <a href="https://ieeexplore.ieee.org/document/9351456" target="_blank"
+            >Satellite image formation and preprocessing methods</a
+          >
+          <div class="abstract">
+            <strong>Abstract:</strong> This paper gives a conceptual and
+            practical introduction to the field of satellite image formation and
+            preprocessing. In particular, the process of satellite image
+            generation is discussed going through each step of its lifecycle. A
+            special explanatory emphasis is given to the process of remote
+            sensing and further mapping and fusion of satellite imagery within
+            acquired segments of electromagnetic spectrum. Moreover, methods of
+            satellite imagery retrieval have been practically demonstrated. The
+            satellite imagery data has been extracted from Sentinel 2 dataset
+            and analyzed with Python language image processing libraries.
+          </div>
+          <div class="keywords">
+            <span class="keyword">Information science</span>
+            <span class="keyword">Satellites</span>
+            <span class="keyword">Image synthesis</span>
+            <span class="keyword">Wavelength measurement</span>
+            <span class="keyword">Libraries</span>
+            <span class="keyword">Sensors</span>
+            <span class="keyword">Remote sensing</span>
+          </div>
+        </li>
+        <li class="paper-item">
+          <a
+            href="https://agris.fao.org/agris-search/search.do?recordID=US8235635"
+            target="_blank"
+            >Data Acquisition And Preprocessing Techniques For Remote Sensing
+            Field Research</a
+          >
+          <div class="abstract">
+            <strong>Abstract:</strong> A crops and soils data base has been
+            developed at Purdue University's Laboratory for Applications of
+            Remote Sensing using spectral and agronomic measurements made by
+            several government and university researchers. The data are being
+            used to (1) quantitatively determine the relationships of spectral
+            and agronomic characteristics of crops and soils, (2) define future
+            sensor systems, and (3) develop advanced data analysis techniques.
+            Researchers follow defined data acquisition and preprocessing
+            techniques to provide fully annotated and calibrated sets of
+            spectral, agronomic, and meteorological data. These procedures
+            enable the researcher to combine his data with that acquired by
+            other researchers for remote sensing research. The key elements or
+            requirements for developing a field research data base of spectral
+            data that can be transported across sites and years are appropriate
+            experiment design, accurate spectral data calibration, defined field
+            procedures, and thorough experiment documentation.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+    <script>
+      // JavaScript for paper filtering functionality
+      function filterPapers() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let items = document.querySelectorAll(".paper-item");
+
+        items.forEach((item) => {
+          let text = item.textContent.toLowerCase();
+          item.style.display = text.includes(input) ? "block" : "none";
+        });
+
+        // Check if any papers are visible in each category
+        document.querySelectorAll(".category-title").forEach((category) => {
+          const nextPaperList = category.nextElementSibling;
+          const visiblePapers = nextPaperList.querySelectorAll(
+            '.paper-item[style="display: block"]'
+          );
+
+          if (visiblePapers.length === 0) {
+            category.style.display = "none";
+            nextPaperList.style.display = "none";
+          } else {
+            category.style.display = "block";
+            nextPaperList.style.display = "grid";
+          }
+        });
+      }
+
+      // Toggle menu for mobile view
+      document.querySelector("#menu").onclick = () => {
+        document.querySelector(".navbar").classList.toggle("active");
+      };
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        const menu = document.querySelector("#menu");
+        const navbar = document.querySelector(".navbar");
+
+        if (
+          e.target !== menu &&
+          !menu.contains(e.target) &&
+          e.target !== navbar &&
+          !navbar.contains(e.target)
+        ) {
+          navbar.classList.remove("active");
+        }
+      });
+
+      // Dropdown hover effects for desktop
+      const dropdowns = document.querySelectorAll(".dropdown");
+
+      function closeDropdowns() {
+        dropdowns.forEach((dropdown) => {
+          const content = dropdown.querySelector(".dropdown-content");
+          if (window.innerWidth > 768) {
+            content.style.display = "";
+          }
+        });
+      }
+
+      // Close dropdowns when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".dropdown")) {
+          closeDropdowns();
+        }
+      });
+    </script>
+  </body>
+</html>

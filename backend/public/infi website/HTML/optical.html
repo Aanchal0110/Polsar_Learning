@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optical Remote Sensing</title>
+    <link rel="stylesheet" href="/infi website/CSS/style.css">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #003366;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* .logo-img {
+            width: 80px;
+            height: auto;
+            border-radius: 30%;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            padding: 40px;
+        }
+
+        .navbar a:hover {
+            background: #555;
+            border-radius: 5px;
+        } */
+
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .section h2 {
+            width: 100%;
+            margin-bottom: 15px;
+            color: #003366;
+        }
+
+        .content {
+            flex: 1 1 60%;
+            margin-bottom: 20px;
+        }
+
+        .content img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .image-container {
+            flex: 1 1 35%;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            text-align: left;
+            background: #f9f9f9;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background: #003366;
+            color: #fff;
+        }
+
+        footer {
+            background: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content,
+            .image-container {
+                flex: 1 1 100%;
+            }
+
+            .content img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="home.html" class="logo">
+            <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img">
+        </a>
+        <nav id="navbar" class="navbar">
+        </nav>
+    </header>
+
+    <<span id="navBarTracker">Nav bar tracker</span>
+
+    <div class="container">
+        <section class="section">
+            <h2>Introduction to Optical Remote Sensing</h2>
+            <div class="content">
+                <p>Optical remote sensing is a crucial technology that provides valuable insights into the Earth's surface by analyzing electromagnetic radiation across a wide spectrum. It primarily captures the reflected or emitted radiation from objects on the Earth’s surface in the visible, near-infrared (NIR), and short-wave infrared (SWIR) bands. The sensors used in optical remote sensing systems are typically passive, meaning they rely on natural light sources, such as the Sun, 
+                    to illuminate the Earth's surface, though artificial light sources can also be used in specific cases. The collected data can be used for a range of applications, from environmental monitoring, where it helps track land-use changes, vegetation health, and water bodies, to agriculture, where it aids in crop health assessment and precision farming. Optical remote sensing also plays an important role in urban planning, helping in the analysis of urban growth, infrastructure development,
+                    and pollution monitoring. Moreover, it contributes to disaster management by detecting floods, wildfires, and other natural disasters, and supports climate change research by monitoring the effects of temperature changes, glacier retreat, and deforestation. By leveraging the different wavelengths of light captured by optical sensors, researchers can extract detailed information about the Earth's surface, its vegetation, moisture content, and much more, making it an invaluable tool for decision-makers across various sectors.</p>
+            </div>
+            <div class="image-container">
+                <img src="/infi website/Optical image/Optical image/optical1.jpg" alt="Introduction to Optical Remote Sensing">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Concepts of Optical Remote Sensing</h2>
+            <div class="content-container">
+                <div class="content">
+                    <h3>Electromagnetic Spectrum:</h3>
+                    <p>Optical remote sensing generally operates in the visible range of near infrared and shortwave infrared regions within the electromagnetic spectrum.</p>
+                    <ul>
+                        <li><strong>Visible Light (400-700 nm):</strong> This region of the spectrum can be seen by the naked eye. Light falling upon many materials at the surface can reflect various amounts of red, green, and blue light, enabling true color images.</li>
+                        <li><strong>Near-Infrared (700-1400 nm):</strong> Beyond the visible, NIR is very useful for analyzing vegetation and water content in soil.</li>
+                        <li><strong>Shortwave Infrared (1400-3000 nm):</strong> SWIR is used to detect moisture levels, differentiate rock types, and identify materials based on their unique reflectance patterns.</li>
+                    </ul>
+        
+                    <h3>Resolution in Optical Remote Sensing:</h3>
+                    <p>Resolution in optical remote sensing refers to the level of detail that can be sensed. There are four basic types:</p>
+                    <ul>
+                        <li><strong>Spatial Resolution:</strong> The smallest possible area that a sensor can distinguish on the ground. Higher spatial resolution provides more detailed images.</li>
+                        <li><strong>Spectral Resolution:</strong> The ability of the sensor to distinguish between various wavelengths of light. High spectral resolution allows for more precise wavelength identification.</li>
+                        <li><strong>Temporal Resolution:</strong> The frequency with which a sensor captures imagery of the same location. High temporal resolution is important for monitoring dynamic changes such as growth or disasters.</li>
+                        <li><strong>Radiometric Resolution:</strong> The ability to discern small-scale differences in energy intensity or brightness. High radiometric resolution captures subtle changes in reflectance.</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="/infi website/Optical image/Optical image/S2B_MSIL2A_20241217T054139_N0511_R005_T43QBB_20241217T074201-ql.jpg" alt="Optical Remote Sensing Satellites">
+                </div>
+            </div>
+        </section>
+        
+        <style>
+            .content-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: space-between;
+            }
+        
+            .content {
+                flex: 1;
+                min-width: 60%;
+                margin-bottom: 20px;
+            }
+        
+            .content h3 {
+                color: #003366;
+            }
+        
+            .content ul {
+                padding-left: 20px;
+            }
+        
+            .image-container {
+                flex: 1;
+                min-width: 35%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .image-container img {
+                width: 100%;
+                border-radius: 10px;
+                object-fit: cover;
+            }
+        
+            @media (max-width: 768px) {
+                .content-container {
+                    flex-direction: column;
+                    align-items: center;
+                }
+        
+                .content,
+                .image-container {
+                    min-width: 100%;
+                }
+            }
+        </style>
+        <section class="section">
+            <h2>Key Applications</h2>
+            <div class="content">
+                <ul>
+                    <li><strong>Land Use and Land Cover Mapping:</strong>Optical sensors help monitor urban expansion, deforestation, and land cover changes over time.</li>
+                    <li><strong>Agriculture:</strong>Used to assess crop health, soil moisture, and irrigation patterns. Vegetation indices like NDVI (Normalized Difference Vegetation Index) are derived from optical imagery.</li>
+                    <li><strong>Disaster Monitoring:</strong> Identifying the extent of floods, wildfires, and landslides.</li>
+                </ul>
+            </div>
+            <div class="image-container">
+                <img src="/infi website/Optical image/Optical image/Applications.png" alt="Optical Remote Sensing Applications">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Satellites Providing Optical Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Satellite/Mission</th>
+                        <th>Launch Year</th>
+                        <th>Country/Agency</th>
+                        <th>Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="https://landsat.gsfc.nasa.gov/satellites/landsat-1/">Landsat 1</a></td>
+                        <td>1972</td>
+                        <td>NASA/USGS</td>
+                        <td>Earth's surface imaging for agriculture, forestry, geology, and land use planning.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://earth.esa.int/eogateway/missions/spot-1/description">SPOT 1</a></td>
+                        <td>1986</td>
+                        <td>CNES (France)</td>
+                        <td>High-resolution optical imaging for cartography, land use, and environmental monitoring.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.isro.gov.in/IRS_1A.html?timeline=timeline">IRS-1A</a></td>
+                        <td>1988</td>
+                        <td>ISRO (India)</td>
+                        <td>Land and water resources management, agricultural monitoring, and urban planning.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://eospso.nasa.gov/missions/terra">Terra (EOS AM-1)</a></td>
+                        <td>1999</td>
+                        <td>NASA</td>
+                        <td>Multispectral imaging for climate research, vegetation analysis, and atmospheric studies.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://eospso.nasa.gov/missions/terra">IKONOS</a></td>
+                        <td>1999</td>
+                        <td>GeoEye (USA)</td>
+                        <td>High-resolution imagery for urban planning, disaster response, and environmental monitoring.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://earth.esa.int/eogateway/missions/quickbird-2">QuickBird</a></td>
+                        <td>2001</td>
+                        <td>DigitalGlobe (USA)</td>
+                        <td>High-resolution Earth imagery for mapping, agriculture, and urban development.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.satimagingcorp.com/satellite-sensors/other-satellite-sensors/formosat-2/">FORMOSAT-2</a></td>
+                        <td>2004</td>
+                        <td>NSPO (Taiwan)</td>
+                        <td>High-resolution imagery for disaster monitoring, environmental observation, and agricultural assessment.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://earth.esa.int/eogateway/missions/worldview-1">WorldView-1</a></td>
+                        <td>2007</td>
+                        <td>DigitalGlobe (USA)</td>
+                        <td>High-resolution imaging for defense, intelligence, and mapping applications.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.isro.gov.in/CARTOSAT_2_PSLVC40.html">Cartosat-2</a></td>
+                        <td>2007</td>
+                        <td>ISRO (India)</td>
+                        <td>High-resolution imagery for urban planning, rural development, and infrastructure monitoring.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://earth.esa.int/eogateway/missions/geoeye-1">GeoEye-1</a></td>
+                        <td>2008</td>
+                        <td>GeoEye (USA)</td>
+                        <td>High-resolution Earth imagery for mapping, agriculture, and urban planning.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1/">Pleiades-1A</a></td>
+                        <td>2011</td>
+                        <td>CNES (France)</td>
+                        <td>High-resolution optical imaging for defense, civil engineering, and environmental monitoring.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1b/">Pleiades-1B</a></td>
+                        <td>2012</td>
+                        <td>CNES (France)</td>
+                        <td>Complementing Pleiades-1A for increased coverage and revisit frequency.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.eoportal.org/satellite-missions/kompsat-3">Kompsat-3</a></td>
+                        <td>2012</td>
+                        <td>KARI (South Korea)</td>
+                        <td>High-resolution imagery for land use, disaster monitoring, and environmental observation.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.eoportal.org/satellite-missions/dubaisat-2#spacecraft">DubaiSat-2</a></td>
+                        <td>2013</td>
+                        <td>EIAST (UAE)</td>
+                        <td>High-resolution Earth imaging for urban planning, infrastructure development, and environmental monitoring.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.eoportal.org/satellite-missions/gaofen-1">Gaofen-1</a></td>
+                        <td>2013</td>
+                        <td>CNSA (China)</td>
+                        <td>High-resolution Earth observation for agricultural, disaster, and resource monitoring.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://en.wikipedia.org/wiki/Sentinel-2A">Sentinel-2A</a></td>
+                        <td>2015</td>
+                        <td>ESA (European Union)</td>
+                        <td>Multispectral imaging for land monitoring, agriculture, and disaster management.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://earth.esa.int/eogateway/missions/worldview-4">WorldView-4</a></td>
+                        <td>2016</td>
+                        <td>DigitalGlobe (USA)</td>
+                        <td>High-resolution imagery for mapping, land classification, and infrastructure planning.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.eoportal.org/satellite-missions/gaojing#spacecraft">SuperView-1</a></td>
+                        <td>2016</td>
+                        <td>Siwei Star Co. (China)</td>
+                        <td>High-resolution imagery for mapping, land use, and urban planning.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://en.wikipedia.org/wiki/Sentinel-2B">Sentinel-2B</a></td>
+                        <td>2017</td>
+                        <td>ESA (European Union)</td>
+                        <td>Continuation of Sentinel-2A's mission for enhanced coverage and data continuity.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://earth.esa.int/eogateway/missions/planetscope">PlanetScope</a></td>
+                        <td>2014-present</td>
+                        <td>Planet Labs (USA)</td>
+                        <td>Constellation of small satellites providing daily, high-resolution imagery for various applications, including agriculture, forestry, and disaster response.</td>
+                    </tr>
+                            </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2024 All rights reserved</p>
+    </footer>
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+</body>
+
+</html>

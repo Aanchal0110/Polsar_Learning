@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remote Sensing PolSAR</title>
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
+    <style>
+      /* Reset default margin and padding */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #d3d3d3;
+        color: #fff;
+      }
+
+      /* Header Styling */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background: #003366;
+        /* Dark blue background */
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      /* Mobile Menu Icon */
+      #menu {
+        display: none;
+      }
+
+      /* Container Styling */
+      .container {
+        background-color: #ffffff;
+        /* White background for the container */
+        padding: 20px;
+        margin: 80px auto 20px auto;
+        /* Adjust margin to account for fixed header */
+        max-width: 1200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Remote Sensing Info Styling */
+      .remote-sensing-info {
+        margin-top: 20px;
+      }
+
+      .remote-sensing-info h1,
+      .remote-sensing-info h2,
+      .remote-sensing-info p {
+        margin: 20px 0;
+      }
+
+      .content-section {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        /* Adjust gap */
+        margin: 20px 0;
+        /* background-color: #d9cbcb; */
+        /* Black background for content section */
+        padding: 20px;
+        /* Padding inside the content section */
+        border-radius: 10px;
+        color: #333;
+        /* Rounded corners */
+      }
+
+      .content-section img {
+        max-width: 35%;
+        /* Ensure images are not too large */
+        height: auto;
+        /* Maintain aspect ratio */
+        border-radius: 10px;
+      }
+
+      .content-section.reverse {
+        flex-direction: row-reverse;
+      }
+
+      /* Footer Styling */
+      footer {
+        text-align: center;
+        padding: 15px 0;
+        background-color: #333;
+        color: #fff;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="home.html" class="logo">
+        <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img" />
+      </a>
+      <nav id="navbar" class="navbar"></nav>
+    </header>
+    <span id="navBarTracker">Nav bar tracker</span>
+
+    <div class="container">
+      <main>
+        <section class="remote-sensing-info">
+          <h1>What is Remote Sensing?</h1>
+          <div class="content-section">
+            <div>
+              <p>
+                Remote Sensing Overview: Remote sensing is the process of
+                acquiring information about an object or area without making
+                physical contact. This is typically achieved by capturing data
+                through sensors mounted on various platforms. Platforms in the
+                Image: Spaceborne (Satellites): Satellites equipped with remote
+                sensing instruments orbit the Earth and collect large-scale data
+                over wide areas. They are effective for monitoring global
+                phenomena such as deforestation, weather patterns, and urban
+                growth. Airborne (Aircraft): Planes or helicopters carry sensors
+                closer to the Earth's surface. They are useful for regional
+                studies with finer spatial resolution than satellites. UAVs
+                (Unmanned Aerial Vehicles/Drones): Drones are a flexible option
+                for high-resolution, small-scale data collection. They are
+                commonly used for precision agriculture, environmental
+                monitoring, and disaster response. Ground-Based Sensors: Fixed
+                or mobile sensors placed on the ground provide detailed and
+                localized data. They are often used to calibrate and validate
+                data from airborne or satellite sensors. Applications of Remote
+                Sensing: Monitoring vegetation health Tracking land-use changes
+                Assessing natural disasters (floods, wildfires) Climate change
+                studies Precision agriculture.
+              </p>
+            </div>
+            <img
+              src="/infi website/INTRODUCTION TO RS/Images/intrors.webp"
+              alt="Remote Sensing"
+            />
+          </div>
+
+          <h2>Why Remote Sensing?</h2>
+          <div class="content-section reverse">
+            <div>
+              <p>
+                Remote sensing allows for the collection of data over large
+                areas and in inaccessible regions, providing critical
+                information for a variety of applications including
+                environmental monitoring, disaster management, and resource
+                exploration.
+              </p>
+            </div>
+            <img src="/infi website/image/r2.jpeg" alt="Why Remote Sensing" />
+          </div>
+
+          <h2>Types of Remote Sensing</h2>
+          <div class="content-section">
+            <div>
+              <p>
+                <strong>Optical Remote Sensing:</strong> Uses visible,
+                near-infrared, and short-wave infrared sensors to detect
+                reflected sunlight.
+              </p>
+              <p>
+                <strong>Microwave Remote Sensing:</strong> Uses radar to
+                penetrate clouds and collect data in all weather conditions.
+              </p>
+              <p>
+                <strong>Thermal Remote Sensing:</strong> Detects heat emitted
+                from the Earth's surface.
+              </p>
+            </div>
+            <img
+              src="/infi website/image/r4.jpeg"
+              alt="Types of Remote Sensing"
+            />
+          </div>
+
+          <h2>General Applications</h2>
+          <div class="content-section reverse">
+            <div>
+              <p>
+                Remote sensing is used in a variety of fields including
+                agriculture, forestry, land-use planning, environmental
+                monitoring, and disaster management. It helps in mapping land
+                cover, monitoring deforestation, assessing crop health, and
+                managing natural disasters like floods and earthquakes.
+              </p>
+            </div>
+            <img src="/infi website/image/r3.jpeg" alt="Applications" />
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>Copyright © 2024 All rights reserved |</p>
+    </footer>
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+  </body>
+</html>

@@ -8,6 +8,7 @@ router.get("", MainController.PageController.home_page);
 
 router.get("/blogs", MainController.PageController.blog_page);
 router.get("/blogwrite", MainController.PageController.write_blog_page);
+router.get("/blog/post/:id", MainController.PageController.blog_post)
 
 router.get("/domain_experts", MainController.PageController.domain_experts);
 router.get("/domain_experts/academic", MainController.PageController.academic_pages);
@@ -16,6 +17,13 @@ router.get("/domain_experts/industry_personality", MainController.PageController
 router.get("/domain_experts/researchers", MainController.PageController.researcher_page);
 
 router.get("/Login", MainController.PageController.login_page);
+
+router.get("/dashboard", MainController.PageController.dashboard);
+
+router.get("/home", MainController.PageController.home_page);
+router.get("/home/microwave", MainController.PageController.microwave);
+router.get("/home/optical-sensing", MainController.PageController.opticalwave)
+router.get("/home/remote-sensing", MainController.PageController.remote_sensing);
 
 router.get("/resource/fundamentals", MainController.PageController.fundamental_page);
 router.get("/resource/technical_papers", MainController.PageController.technical_paper_pages);
@@ -27,9 +35,15 @@ router.get("/downloads", MainController.PageController.data_download_page);
 router.get("/downloads/data_downloads", MainController.PageController.data_download_page);
 router.get("/downloads/open_softwares", MainController.PageController.open_software_page);
 
-router.get("/education", MainController.PageController.diploma_page);
-router.get("education/diploma", MainController.PageController.diploma_page);
-router.get("education/Master", MainController.PageController.Master_page);
+router.get("/education", MainController.PageController.education);
+router.get("/education/diploma", MainController.PageController.diploma_page);
+router.get("/education/Master", MainController.PageController.Master_page);
+
+router.get("/career", MainController.PageController.career);
+
+router.get("/events", MainController.PageController.events);
+
+router.get("/contact", MainController.PageController.contact_us);
 
 
 module.exports = {

@@ -5,6 +5,7 @@ const PostRoutes = require("./postRoutes");
 const PageRoutes = require("./pagesRoutes");
 const ResourceRoutes = require("./resourceRoutes");
 const CareerRoutes = require("./careerRoutes");
+const DomainExpertRoutes = require("./domainepertRoutes");
 
 module.exports = {
     AuthRoutes,
@@ -12,5 +13,6 @@ module.exports = {
     PostRoutes,
     PageRoutes,
     ResourceRoutes,
-    CareerRoutes
+    CareerRoutes,
+    DomainExpertRoutes
 }

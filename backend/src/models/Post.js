@@ -6,21 +6,24 @@ var count = 0;
 
 const query_for_Post = {
     create_table: ` CREATE TABLE Post (
-        post_id CHAR(20) PRIMARY KEY,
+        post_id CHAR(40) PRIMARY KEY,
         User_id VARCHAR(15) NOT NULL,
         User_Name VARCHAR(255) NOT NULL,
         Text_Location VARCHAR(100) NOT NULL,
         Title VARCHAR(255) NOT NULL,
         Created_At DATETIME DEFAULT CURRENT_TIMESTAMP,
         Updated_At DATETIME DEFAULT CURRENT_TIMESTAMP,
-        Status VARCHAR(30)
+        Status VARCHAR(30),
+        Cover_page TEXT
     );`,
     insert: `INSERT INTO Post (post_id, User_id, User_Name, Text_Location, Title, Status)
              VALUES (?, ?, ?, ?, ?, ?);`,
     delete: `DELETE FROM Post WHERE post_id = ?;`,
     fetch: `SELECT * FROM Post WHERE post_id = ?;`,
     all: `SELECT * FROM Post;`,
-    delete_table:`DROP TABLE IF EXISTS Post;`
+    delete_table: `DROP TABLE IF EXISTS Post;`,
+    update_cover_page: `UPDATE Post SET Cover_page = ? WHERE post_id = ?;`,
+    search:`SELECT * FROM Post WHERE User_Name LIKE ? OR Title LIKE ?;`
 };
 
 const query_for_Comment = {
@@ -74,53 +77,74 @@ function insert_data(PostInfo) {
     post_id = post_id + characters.at(count) + characters.at(count - 1) + characters.at(count - 2) + characters.at(count - 3) + characters.at(count - 4);
 
     // get the file locations
-    TextLocation = ''
-    if (PostInfo.post_or_comment == "post") {
-        TextLocation = `./database/posts/${PostInfo.User_id}/post/${post_id}.txt`;
-    } else if (PostInfo.post_or_comment == "comment") {
-        TextLocation = `./database/posts/${PostInfo.User_id}/comments/${post_id}.txt`;
-    } else {
-        TextLocation = '';
-    }
+    // TextLocation = ''
+    // if (PostInfo.post_or_comment == "post") {
+    //     TextLocation = `./database/posts/${PostInfo.User_id}/post/${post_id}.txt`;
+    // } else if (PostInfo.post_or_comment == "comment") {
+    //     TextLocation = `./database/posts/${PostInfo.User_id}/comments/${post_id}.txt`;
+    // } else {
+    //     TextLocation = '';
+    // }
 
     // create a file using the post id
-    if (TextLocation != '') {
-        // fs.writeFile(TextLocation, PostInfo.content, (err) => {
-        //     if (err) settings.trigger_Error("Not able to insert data in file...");
-        //     else {
-        //         settings.trigger_Error("File successfully created...")
-        //     }
-        // })
+    // if (TextLocation != '') {
+    //     // fs.writeFile(TextLocation, PostInfo.content, (err) => {
+    //     //     if (err) settings.trigger_Error("Not able to insert data in file...");
+    //     //     else {
+    //     //         settings.trigger_Error("File successfully created...")
+    //     //     }
+    //     // })
         
-    }
+    // }
     
+    // console.log(PostInfo)
 
     return new Promise((resolve, reject) => {
         database.db.all(query_for_Post.insert, [
             PostInfo.post_id , PostInfo.User_id, PostInfo.User_Name ,PostInfo.TextLocation, PostInfo.title, PostInfo.status
         ], (err, row) => {
             if (err) reject(err)
+            // console.log(row)
             resolve(row)
         })
     })
 }
 
-async function wirtePostFile(TextLocation, content) {
-    try {
-        await fs.writeFile(TextLocation, content, (err) => {
-            if (err) settings.trigger_Error("Not able to insert data in file...");
-            else {
-                settings.trigger_Error("File successfully created...")
-            }
-        })
-    } catch (err) {
-        return err
-    }
-}
+// async function wirtePostFile(TextLocation, content) {
+//     try {
+//         await fs.writeFile(TextLocation, content, (err) => {
+//             if (err) settings.trigger_Error("Not able to insert data in file...");
+//             else {
+//                 settings.trigger_Error("File successfully created...")
+//             }
+//         })
+//     } catch (err) {
+//         return err
+//     }
+// }
 
 function fecth_single_post(post_id) {
     return new Promise((resolve, reject) => {
         database.db.all(query_for_Post.fetch, [post_id], (err, row) => {
+            if (err) reject(err)
+            resolve(row)
+        })
+    })
+}
+
+function add_cover_page(post_id, Cover_page) {
+    
+    return new Promise((resolve, reject) => {
+        database.db.all(query_for_Post.update_cover_page, [Cover_page, post_id], (err, row) => {
+            if (err) reject(err)
+            resolve(row)
+        })
+    })
+}
+
+function search(like) {
+    return new Promise((resolve, reject) => {
+        database.db.all(query_for_Post.search, [like, like], (err, row) => {
             if (err) reject(err)
             resolve(row)
         })
@@ -134,4 +158,6 @@ module.exports = {
     delete_table,
     insert_data,
     fecth_single_post,
+    add_cover_page,
+    search
 }

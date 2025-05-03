@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Write a Blog Post</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 60%;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        margin-top: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      input[type="file"] {
+        margin-top: 10px;
+      }
+
+      button {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      #preview {
+        margin-top: 30px;
+      }
+
+      #preview h3 {
+        font-size: 22px;
+        color: #333;
+      }
+
+      #preview-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      #preview-content {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+
+      #preview-tags {
+        font-style: italic;
+        color: #555;
+      }
+
+      .toolbar {
+        margin-bottom: 10px;
+      }
+      .toolbar button {
+        margin-right: 5px;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        background-color: #f0f0f0;
+        transition: background-color 0.3s;
+      }
+      .toolbar button.active {
+        background-color: #007bff;
+        color: white;
+      }
+      #editor {
+        width: 100%;
+        height: 300px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        outline: none;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Write Your Blog</h2>
+      <form id="blog-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="title">Blog Title</label>
+          <input
+            type="text"
+            id="title"
+            placeholder="Enter your blog title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="content">Blog Content</label>
+          <div class="toolbar">
+            <button onclick="toggleActive(this); formatText('bold')">
+              Bold
+            </button>
+            <button onclick="toggleActive(this); formatText('italic')">
+              Italic
+            </button>
+            <button onclick="toggleActive(this); formatText('underline')">
+              Underline
+            </button>
+            <button
+              onclick="toggleActive(this); formatText('insertOrderedList')"
+            >
+              OL
+            </button>
+            <button
+              onclick="toggleActive(this); formatText('insertUnorderedList')"
+            >
+              UL
+            </button>
+            <button onclick="toggleActive(this); formatText('h1')">H1</button>
+            <button onclick="toggleActive(this); formatText('h2')">H2</button>
+            <button onclick="toggleActive(this); formatText('h3')">H3</button>
+            <input
+              type="color"
+              id="colorPicker"
+              onchange="formatColor()"
+              title="Choose font color"
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onchange="insertImage(event)"
+              title="Upload image"
+            />
+          </div>
+          <div id="editor" contenteditable="true">he</div>
+        </div>
+        <div class="form-group">
+          <label for="tags">Tags (comma-separated)</label>
+          <input
+            type="text"
+            id="tags"
+            placeholder="e.g., microwave, remote sensing, education"
+          />
+        </div>
+        <div class="form-group">
+          <label for="image">Upload Cover Image</label>
+          <input type="file" id="image" accept="image/*" />
+        </div>
+        <button type="submit">Submit Blog</button>
+      </form>
+      <div id="preview">
+        <h3>Blog Preview</h3>
+        <h4 id="preview-title"></h4>
+        <p id="preview-content"></p>
+        <p id="preview-tags"></p>
+      </div>
+    </div>
+
+    <script src="/infi webiste/JavaScript/navBar.js" type="module"></script>
+    <script src="/infi website/JavaScript/blogwrite.js" type="module"></script>
+    <script>
+      document
+        .getElementById("blog-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get input values
+          const title = document.getElementById("title").value;
+          const content = document.getElementById("content").value;
+          const tags = document.getElementById("tags").value;
+
+          // Show preview
+          document.getElementById("preview-title").innerText = title;
+          document.getElementById("preview-content").innerText = content;
+          document.getElementById("preview-tags").innerText = `Tags: ${tags}`;
+
+          // You can also add the logic here to send the data to the server using AJAX or fetch API
+        });
+      function formatText(command) {
+        if (command === "h1" || command === "h2" || command === "h3") {
+          document.execCommand("formatBlock", false, "<" + command + ">");
+        } else {
+          document.execCommand(command, false, null);
+        }
+      }
+
+      function formatColor() {
+        let color = document.getElementById("colorPicker").value;
+        document.execCommand("styleWithCSS", false, true);
+        document.execCommand("foreColor", false, color);
+      }
+
+      function insertImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            document.execCommand("insertImage", false, e.target.result);
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+
+      function toggleActive(button) {
+        button.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

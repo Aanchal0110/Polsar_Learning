@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Learn RS & MW</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
+
+    <style>
+      .navbar a.active {
+        color: red; /* Red color for active "Resources" */
+      }
+
+      .navbar a:hover {
+        color: #1e90ff;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: #002147; /* Navbar background color */
+      }
+
+      main {
+        margin-top: 80px; /* Add space to account for the navbar height */
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #333; /* Adjust color if needed */
+      }
+
+      /* Styling for the table */
+      .book-table {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background: #f7f7f7; /* Light background for the table */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .book-table thead {
+        background-color: #d6d6d6;
+        color: #000;
+      }
+
+      .book-table th,
+      .book-table td {
+        text-align: left;
+        padding: 1rem;
+        font-size: 1rem;
+        border-bottom: 1px solid #ccc;
+        color: #333;
+      }
+
+      .book-table th {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .book-table tr:hover {
+        background-color: #eaeaea;
+      }
+
+      .book-table td img {
+        width: 80px;
+        height: 100px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .book-table td a {
+        color: #1e90ff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .book-table td a:hover {
+        text-decoration: underline;
+      }
+
+      .book-table td p {
+        margin: 0.8rem 0 0;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .search-form {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .search-form input {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+      }
+
+      .search-form button {
+        background-color: #1e90ff;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .search-form button:hover {
+        background-color: #005bb5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img" />
+      </a>
+
+      <div id="menu" class="fas fa-bars"></div>
+
+      <nav id="navbar" class="navbar"></nav>
+    </header>
+
+    <span id="navBarTracker">Nav bar tracker</span>
+
+    <main>
+      <h1>Books</h1>
+      <table class="book-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="table_body">
+          <tr>
+            <td>
+              <img
+                src="/infi website/image/book1 Arthur P. Cracknell.jpg"
+                alt="Introduction to Remote Sensing"
+              />
+            </td>
+            <td><a href="#">Introduction to Remote Sensing</a></td>
+            <td>Arthur P. Cracknell</td>
+            <td>
+              Comprehensive introduction with applications across multiple
+              scientific domains.
+            </td>
+          </tr>
+          <!-- <tr>
+            <td>
+              <img
+                src="/infi website/image/book2BC panda.jpeg"
+                alt="Remote Sensing: Principles and Applications"
+              />
+            </td>
+            <td>
+              <a href="#">Remote Sensing: Principles and Applications</a>
+            </td>
+            <td>B C Panda</td>
+            <td>
+              Focus on principles and recent advancements in remote sensing.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="/infi website/image/Book3 Bradley A. Shellito.jpg"
+                alt="Introduction to Geospatial Technologies"
+              />
+            </td>
+            <td><a href="#">Introduction to Geospatial Technologies</a></td>
+            <td>Bradley A. Shellito</td>
+            <td>Theoretical and hands-on GIS with cloud integration.</td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="/infi website/image/book4.jpg"
+                alt="Remote Sensing and GIS"
+              />
+            </td>
+            <td><a href="#">Remote Sensing and GIS</a></td>
+            <td>Basudeb Bhatta</td>
+            <td>Covers optical, thermal, and microwave remote sensing.</td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="/infi website/image/book5.jpg"
+                alt="Physical Fundamentals of Remote Sensing"
+              />
+            </td>
+            <td>
+              <a href="#">Physical Fundamentals of Remote Sensing</a>
+            </td>
+            <td>E. Schanda</td>
+            <td>Focus on electromagnetic radiation and natural objects.</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </main>
+    <script src="/infi website/JavaScript/navBar.js" type="module"></script>
+    <script type="module" src="/infi website/JavaScript/book.js"></script>
+    <!-- <script type="module" src="/infi website/JavaScript/book_1.js"></script> -->
+  </body>
+</html>
