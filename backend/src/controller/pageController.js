@@ -4,15 +4,15 @@ const fs = require("fs");
 
 
 const home_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/home.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/home.html"))
 }
 
 const blog_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/blog.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/blog.html"))
 }
 
 const write_blog_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/blogwrite.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/blogwrite.html"))
 }
 
 // error no man page for domain expert
@@ -21,23 +21,23 @@ const domain_experts = (req, res) => {
 }
 
 const login_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/login.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/login.html"))
 }
 
 const fundamental_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Fundamental.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Fundamental.html"))
 }
 
 const technical_paper_pages = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Technical Paper.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Technical Paper.html"))
 }
 
 const books_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Books.html"));
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Books.html"));
 }
 
 const videos_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Videos.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Videos.html"))
 }
 
 // error relevents page is empty , it is removed
@@ -46,43 +46,43 @@ const relevents_links_page = (req, res) => {
 }
 
 const academic_pages = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/academicians.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/academicians.html"))
 }
 
 const scientist_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/scientists.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/scientists.html"))
 }
 
 const industry_personality_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Industry Personnel.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Industry Personnel.html"))
 }
 
 const researcher_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Researchers.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Researchers.html"))
 }
 
 
 const data_download_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/datadownloads.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/datadownloads.html"))
 }
 
 const open_software_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/opensource.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/opensource.html"))
 }
 
 // error diploma page is empty, removed
 const diploma_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Diploma.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Diploma.html"))
 }
 
 // error degree page is empty removed
 const degree_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Degree.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Degree.html"))
 }
 
 // error master page is empty removed
 const Master_page = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Master.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Master.html"))
 }
 
 // error phd page is empty removed
@@ -101,39 +101,39 @@ const contact_page = (req, res) => {
 }
 
 const dashboard = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/Dashboard.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/Dashboard.html"))
 }
 
 const microwave = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/microwave.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/microwave.html"))
 }
 
 const opticalwave = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/optical.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/optical.html"))
 }
 
 const remote_sensing = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/remote-sensing.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/remote-sensing.html"))
 }
 
 const blog_post = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/post1.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/post1.html"))
 }
 
 const career = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/career.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/career.html"))
 }
 
 const events = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/news.html"  ))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/news.html"  ))
 }
 
 const contact_us = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/contact.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/contact.html"))
 }
 
 const education = (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/infi website/Html/education.html"))
+    res.sendFile(path.join(__dirname, "../../public/infi website/HTML/education.html"))
 }
 
 module.exports = {
