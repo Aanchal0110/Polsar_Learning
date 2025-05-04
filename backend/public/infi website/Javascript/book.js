@@ -32,7 +32,7 @@ function addBooks(title, author, info, image, link) {
 }
 
 async function get_resource() {
-    const res = await fetch("http://localhost:3000/resource");
+    const res = await fetch(`${window.location.origin}/resource`);
     const data = await res.json();
     return data
 }

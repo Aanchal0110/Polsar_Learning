@@ -10,7 +10,7 @@ blog.addEventListener("submit", async (e) => {
     formData.append("image", fileinput.files[0]);
 
     try {
-        const res_0 = await fetch("http://localhost:3000/post/insert", {
+        const res_0 = await fetch(`${window.location.origin}/post/insert`, {
             method: "POST",
             headers: {
                 'Content-Type':'application/json'
@@ -25,13 +25,13 @@ blog.addEventListener("submit", async (e) => {
         })
         const data_0 = await res_0.json();
         if (res_0.status == 200) {
-            const res_1 = await fetch("http://localhost:3000/post/upload_cover_image", {
+            const res_1 = await fetch(`${window.location.origin}/post/upload_cover_image`, {
                 method: 'POST',
                 body: formData
             })
             const data_1 = await res_1.json();
             if (res_1.status == 200) {
-                const res_2 = await fetch("http://localhost:3000/post/add_cover_page", {
+                const res_2 = await fetch(`${window.location.origin}/post/add_cover_page`, {
                     method: 'POST',
                     headers: {
                 'Content-Type':'application/json'

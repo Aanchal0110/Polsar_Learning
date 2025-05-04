@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:3000/";
+const backendUrl = `${window.location.origin}/`;
 
 export async function setData(key, value) {
     sessionStorage.setItem(key, JSON.stringify(value))

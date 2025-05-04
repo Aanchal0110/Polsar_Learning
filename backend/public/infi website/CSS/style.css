@@ -193,6 +193,7 @@ header {
 
   #menu {
     display: block;
+    z-index: 30;
   }
 
   .dropdown-content {

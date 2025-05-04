@@ -9,7 +9,7 @@ const post_id = params.get('id');
 console.log(post_id);
 
 async function post_data() {
-    const res = await fetch("http://localhost:3000/post/fetch_post", {
+    const res = await fetch(`${window.location.origin}/post/fetch_post`, {
         method: "POST",
         headers: {
                     'Content-Type': 'application/json'

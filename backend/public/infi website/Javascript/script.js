@@ -68,7 +68,9 @@ document.querySelectorAll('.rating .fa-star').forEach(star => {
 });
 
 // Navbar Toggling for Mobile View
-document.getElementById('menu').addEventListener('click', function () {
-    const navbar = document.querySelector('.navbar');
-    navbar.classList.toggle('active');
-});
+// document.getElementById('menu').addEventListener('click', function () {
+//     console.log("I was clicked")
+//     const navbar = document.querySelector('.navbar');
+//     // const menu = document.getElementById("menu");
+//     navbar.classList.toggle('active');
+// });

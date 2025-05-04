@@ -70,4 +70,9 @@ if (currentLink) {
   currentLink.classList.add("active");
 }
 
-tracker.innerHTML = `<a href="/">${window.location.pathname}</a>`;
+// tracker.innerHTML = `<a href="/">${window.location.pathname}</a>`;
+
+const menu = document.getElementById("menu");
+menu.addEventListener("click", () => {
+    document.getElementById("navbar").classList.toggle("active")
+})

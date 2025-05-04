@@ -4,7 +4,7 @@ const login_password = document.getElementById("login_password");
 const login_button = document.getElementById("login_button");
 
 login_button.addEventListener("click", async () => {
-    const res = await fetch("http://localhost:3000/auth/login", {
+    const res = await fetch(`${window.location.origin}/auth/login`, {
         method: "POST",
         headers: {
             'Content-Type':'application/json'

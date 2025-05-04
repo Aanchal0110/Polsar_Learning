@@ -5,7 +5,7 @@ const password = document.getElementById("signup_password_1");
 const btn = document.getElementById("signup_btn");
 
 btn.addEventListener("click", async () => {
-    const res = await fetch("http://localhost:3000/auth/SignIn", {
+    const res = await fetch(`${window.location.origin}/auth/SignIn`, {
         method: "POST",
         headers: {
             'Content-Type':'application/json'
@@ -19,7 +19,7 @@ btn.addEventListener("click", async () => {
     });
     const data = await res.json();
     if (res.status == 200) {
-        const res_1 = await fetch("http://localhost:3000/auth/send-otp", {
+        const res_1 = await fetch(`${window.location.origin}/auth/send-otp`, {
         method: "POST",
         headers: {
             'Content-Type':'application/json'

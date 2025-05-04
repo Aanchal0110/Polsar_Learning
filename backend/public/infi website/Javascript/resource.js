@@ -6,7 +6,7 @@ document.getElementById("submit_btn_1").addEventListener("click", async (e) => {
     formData.append("image", fileinput.files[0]);
 
 
-    const res_1 = await fetch("http://localhost:3000/resource/insert", {
+    const res_1 = await fetch(`${window.location.origin}/resource/insert`, {
         method: "POST",
         headers: {
             'Content-Type':'application/json'
@@ -24,14 +24,14 @@ document.getElementById("submit_btn_1").addEventListener("click", async (e) => {
     })
     const data_1 = await res_1.json();
     if (res_1.status == 200) {
-        const res_2 = await fetch("http://localhost:3000/resource/upload_images", {
+        const res_2 = await fetch(`${window.location.origin}/resource/upload_images`, {
                 method: 'POST',
                 body: formData
         })
         
         const data_2 = await res_2.json();
         if (res_2.status == 200) {
-            const res_3 = await fetch("http://localhost:3000/resource/add_images",{
+            const res_3 = await fetch(`${window.location.origin}/resource/add_images`,{
         method: "POST",
         headers: {
             'Content-Type':'application/json'

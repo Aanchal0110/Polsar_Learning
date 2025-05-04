@@ -30,7 +30,7 @@ const blog_template = `<article class="blog-post">
                 </article>`
 
 async function fetch_blog_info() {
-    const res = await fetch("http://localhost:3000/post/");
+    const res = await fetch(`${window.location.origin}/post/`);
     const data = await res.json();
     data.map((data, index) => {
         let image = data.Cover_page.replace("uploads\\", "")
