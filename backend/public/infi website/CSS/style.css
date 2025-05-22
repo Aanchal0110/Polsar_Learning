@@ -266,11 +266,20 @@ button:hover {
   position: relative;
   max-width: 100%;
   margin: auto;
+  /* height: 50vh; */
 }
 
 .mySlides {
   display: none;
   position: relative;
+  /* height: 50%; */
+  /* border: 2pc solid black; */
+  /* height: 50vh; */
+}
+
+.mySlides img {
+  height: 90vh;
+  object-fit: cover;
 }
 
 img {
