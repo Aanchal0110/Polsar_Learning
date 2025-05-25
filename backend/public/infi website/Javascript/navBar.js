@@ -17,7 +17,7 @@ const navbar = `
 <ul>
                     <li><a href="/" class="">Home</a></li>
                     <li class="dropdown">
-                        <a href="/resource" class="dropbtn">Resources</a>
+                        <a href="#" class="dropbtn">Resources</a>
                         <div class="dropdown-content">
                             <a href="/resource/fundamentals">Fundamentals</a>
                             <a href="/resource/technical_papers">Technical Papers</a>
@@ -26,7 +26,7 @@ const navbar = `
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="/domain_experts" class="dropbtn">Domain Experts</a>
+                        <a href="#" class="dropbtn">Domain Experts</a>
                         <div class="dropdown-content">
                             <a href="/domain_experts/academic">Academicians</a>
                             <a href="/domain_experts/industry_personality">Industry Personnel</a>
@@ -34,7 +34,7 @@ const navbar = `
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="/downloads" class="dropbtn">Downloads</a>
+                        <a href="#" class="dropbtn">Downloads</a>
                         <div class="dropdown-content">
                             <a href="/downloads/data_downloads">Data Download</a>
                             <a href="/downloads/open_softwares">Software</a>
