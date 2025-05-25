@@ -143,6 +143,7 @@
         //   });.
         const res = await fetch(req);
         const data = await res.json();
+        console.log(data);
         const container = document.getElementById("news-container");
         container.innerHTML = "";
         data.articles.forEach((news) => {
