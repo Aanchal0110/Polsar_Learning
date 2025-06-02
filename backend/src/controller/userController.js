@@ -1,139 +1,111 @@
-const settings = require("../config/settings");
-const MainModel = require("../models/MainModel");
-const uploadImage = require("../middleware/imageUpload");
-const { generateOTP, verifyOTP } = require("../utils/otpService");
-const sendOTPEmail = require("../config/mailer");
+const { query } = require("../config/database");
+const fs = require("fs");
+const path = require("path");
+const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-const fetch_All_User = async (req, res, next) => {
-    try {
-        const User = await MainModel.UserModel.fetch_user();
-        // if (!User) res.status(300).json({ error: "No User Found" });
-        res.status(200).json(User);
-    } catch (err) {
-        next(err);
-    }
-}
+const SALT_ROUNDS = Number(process.env.SALT_ROUND);
 
-const create_Table = async (req, res, next) => {
-    try {
-        const data = await MainModel.UserModel.create_table();
-        res.status(200).json({ title: "User Table", Data: data });
-    } catch (err) {
-        next(err);
-    }
-}
+const UserModel = {
+  init() {
+    const sql = fs.readFileSync(path.join(__dirname, "../models/user_schema.sql"), 'utf8');
+    return query(sql);
+  },
 
-const detele_Table = async (req, res, next) => {
-    try {
-        const data = await MainModel.UserModel.delete_table();
-        res.status(200).json({ title: "User Table", Data: data });
-    } catch (err) {
-        next(err)
-    }
-}
+  async insert({ username, email, password }) {
+    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+    const sql = `INSERT INTO "User" (UserName, Email, Password) VALUES ($1, $2, $3) RETURNING Uid, UserName, Email`;
+    const result = await query(sql, [username, email, hashedPassword]);
+    return result.rows[0];
+  },
 
-const fetch_User = async (req, res, next) => {
-    const { email, password } = req.body;
-    // console.log(req.body);
-    try {
-        const User = await MainModel.UserModel.get_user(email);
-        settings.trigger_Error(User)
-        if (User && (User.Password == password) && password) {
-            res.status(200).set('Content-Type', 'application/json').json({User});
-        } else {
+  async delete_data(email) {
+    const sql = `DELETE FROM "User" WHERE Email = $1 RETURNING Uid, UserName, Email`;
+    const result = await query(sql, [email]);
+    return result.rows[0];
+  },
 
-            res.status(300).json({ error: "no user found.." })
-        }
-    } catch (err) {
-        next(err)
-    }
-}
+  async update_data({ email, username, password }) {
+    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+    const sql = `
+      UPDATE "User"
+      SET UserName = $1, Password = $2
+      WHERE Email = $3
+      RETURNING Uid, UserName, Email`;
+    const result = await query(sql, [username, hashedPassword, email]);
+    return result.rows[0];
+  },
 
-const Add_User = async (req, res, next) => {
-    const User = req.body;
-    try {
-        const  s = MainModel.UserModel.addUser(User);
-        settings.trigger_Error(User)
-        if (s) {
-            res.status(200).json(User);
-        } else {
-            res.status(300).json({error:"User No Added..."})
-        }
-    } catch (err) {
-        next(err)
-    }
-}
-
-const Remove_User = async (req, res, next) => {
-    const { Uid } = req.query;
-    try { 
-        const s = MainModel.UserModel.removeUser(Uid)
-        settings.trigger_Error(Uid)
-        if (s) {
-            res.status(200).json({"uid":Uid});
-        } else {
-            res.status(300).json({error:"User No Deleted.."})
-        }
-    } catch (err) {
-        next(err)
-    }
-}
-
-const Verify_User = async (req, res, next) => {
-    const { Email } = req.query;
-    try {
-        const s = MainModel.UserModel.verify_User(Email);
-        if (s) {
-            res.status(200).json({ Topic: "User TAble", Data: "s" });
-        }
-    } catch (err) {
-        next(err)
-    }
-}
-
-const upload_image = async (req, res, next) => {
-    if (!req.file) {
-    return res.status(400).json({ error: 'No file uploaded' });
-    }
-    res.status(200).json({
-    message: 'Image uploaded successfully',
-    filePath: `/${req.file.path}`,
-  });
-}
-
-const generate_otp = async (req, res, next) => {
-    const { email } = req.body;
-    if (!email) {
-        return res.status(400).json({error:"Email is requied"})
-    }
-    const otp = generateOTP(email);
-    await sendOTPEmail(email, otp);
-
-    res.json({ message: "OTP sent successfully" });
-}
-
-const verify_otp = async (req, res, next) => {
-    const { email, otp } = req.body;
-    if (!email || !otp) return res.status(400).json({ message: "Email and OTP are required" });
-    const isValid = verifyOTP(email, otp);
-    if (isValid) {
-    res.status(200).json({ message: "OTP verified successfully" });
-  } else {
-    res.status(400).json({ message: "Invalid or expired OTP" });
+  async find_by_email(email) {
+    const sql = `SELECT * FROM "User" WHERE Email = $1`;
+    const result = await query(sql, [email]);
+    return result.rows[0]; // returns password too, handle carefully in controller
   }
-}
+};
 
+const UserController = {
+  async createUser(req, res) {
+    try {
+      const { username, email, password } = req.body;
+      if (!username || !email || !password) {
+        return res.status(400).json({ success: false, message: "All fields are required" });
+      }
 
+      const user = await UserModel.insert({ username, email, password });
+      res.status(201).json({ success: true, data: user });
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message });
+    }
+  },
+
+  async loginUser(req, res) {
+    try {
+      const { email, password } = req.body;
+      if (!email || !password) {
+        return res.status(400).json({ success: false, message: "Email and password required" });
+      }
+
+      const user = await UserModel.find_by_email(email);
+      if (!user) {
+        return res.status(404).json({ success: false, message: "User not found" });
+      }
+
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(401).json({ success: false, message: "Invalid credentials" });
+      }
+
+      const token = jwt.sign(
+        { uid: user.uid, email: user.email },
+        process.env.JWT_SECRET,
+        { expiresIn: process.env.JWT_EXPIRY || "1h" }
+      );
+
+      res.json({ success: true, token }); // You can also return safe user info
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message });
+    }
+  },
+
+  // Example of a protected route
+  async getUserByEmail(req, res) {
+    try {
+      const { email } = req.params;
+      const user = await UserModel.find_by_email(email);
+      if (user) {
+        const { password, ...safeUser } = user;
+        res.json({ success: true, data: safeUser });
+      } else {
+        res.status(404).json({ success: false, message: "User not found" });
+      }
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message });
+    }
+  }
+};
 
 module.exports = {
-    fetch_User,
-    fetch_All_User,
-    Add_User,
-    Remove_User,
-    create_Table,
-    detele_Table,
-    Verify_User,
-    upload_image,
-    generate_otp,
-    verify_otp,
+  UserModel,
+  UserController
 }

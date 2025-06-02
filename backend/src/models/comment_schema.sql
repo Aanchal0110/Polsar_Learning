@@ -1,0 +1,9 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS Comments (
+    trans_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    post_id CHAR(15) NOT NULL,
+    User_id VARCHAR(15) NOT NULL,
+    Comment_Text TEXT NOT NULL,
+    Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

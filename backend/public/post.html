@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Upload Blog Post</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 2em;
+        max-width: 600px;
+        margin: auto;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 0.5em;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .alert {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Create New Blog Post</h2>
+
+    <div class="alert" id="error"></div>
+
+    <input type="text" id="title" placeholder="Enter blog title" required />
+
+    <label for="status">Post Status:</label>
+    <select id="status">
+      <option value="draft">Draft</option>
+      <option value="published">Published</option>
+    </select>
+
+    <label for="postFile">Markdown File (.md):</label>
+    <input type="file" id="postFile" accept=".md" required />
+
+    <label for="coverImage">Cover Image (JPG/PNG):</label>
+    <input type="file" id="coverImage" accept="image/*" required />
+
+    <button onclick="uploadPost()">Upload Post</button>
+
+    <script>
+      async function uploadPost() {
+        const errorDiv = document.getElementById("error");
+        errorDiv.innerText = ""; // Clear errors
+
+        const token = localStorage.getItem("token");
+        if (!token) {
+          errorDiv.innerText = "Please login first.";
+          return;
+        }
+
+        const title = document.getElementById("title").value.trim();
+        const status = document.getElementById("status").value;
+        const postFile = document.getElementById("postFile").files[0];
+        const coverImage = document.getElementById("coverImage").files[0];
+
+        if (!title || !postFile || !coverImage) {
+          errorDiv.innerText = "All fields are required.";
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("status", status);
+        formData.append("postFile", postFile);
+        formData.append("coverImage", coverImage);
+
+        try {
+          const res = await fetch("http://localhost:5000/post", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`, // 🔐 JWT token for auth
+            },
+            body: formData,
+          });
+
+          const result = await res.json();
+
+          if (!res.ok) {
+            throw new Error(result.message || "Upload failed");
+          }
+
+          alert("✅ Post uploaded successfully!");
+          location.reload();
+        } catch (err) {
+          errorDiv.innerText = err.message;
+        }
+      }
+    </script>
+  </body>
+</html>

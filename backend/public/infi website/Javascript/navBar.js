@@ -1,7 +1,7 @@
 import {getData} from "./context.js"
 const navBar = document.getElementById("navbar");
 const tracker = document.getElementById("navBarTracker");
-let user_info = await getData("user");
+let user_info = await getData("token");
 let x = '';
 
 try {
@@ -15,47 +15,47 @@ try {
 
 const navbar = `
 <ul>
-                    <li><a href="/" class="">Home</a></li>
+                    <li><a href="/infi website/HTML/home.html" class="">Home</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropbtn">Resources</a>
                         <div class="dropdown-content">
-                            <a href="/resource/fundamentals">Fundamentals</a>
-                            <a href="/resource/technical_papers">Technical Papers</a>
-                            <a href="/resource/books">Books</a>
-                            <a href="/resource/videos">Videos</a>
+                            <a href="/infi website/HTML/Fundamental.html">Fundamentals</a>
+                            <a href="/infi website/HTML/Technical Paper.html">Technical Papers</a>
+                            <a href="/infi website/HTML/Books.html">Books</a>
+                            <a href="/infi website/HTML/Videos.html">Videos</a>
                         </div>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropbtn">Domain Experts</a>
                         <div class="dropdown-content">
-                            <a href="/domain_experts/academic">Academicians</a>
-                            <a href="/domain_experts/industry_personality">Industry Personnel</a>
-                            <a href="/domain_experts/researchers">Researchers</a>
+                            <a href="/infi website/HTML/academicians.html">Academicians</a>
+                            <a href="/infi website/HTML/Industry Personnel.html">Industry Personnel</a>
+                            <a href="/infi website/HTML/Researchers.html">Researchers</a>
                         </div>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropbtn">Downloads</a>
                         <div class="dropdown-content">
-                            <a href="/downloads/data_downloads">Data Download</a>
-                            <a href="/downloads/open_softwares">Software</a>
+                            <a href="/infi website/HTML/datadownloads.html">Data Download</a>
+                            <a href="/infi website/HTML/opensource.html">Software</a>
                         </div>
                     </li>
 
                     <li class="dropdown">
-                        <a href="/education" class="dropbtn">Education</a>
+                        <a href="/infi website/HTML/education.html" class="dropbtn">Education</a>
                        
                     </li>
-                    <li><a href="/career">Career</a></li>
-                    <li><a href="/events">Events</a></li>
-                    <li><a href="/blogs">Blog</a></li> <!-- Blog link added -->
-                    <li><a href="/contact">Contact Us</a></li> <!-- Contact Us link added -->
+                    <li><a href="/infi website/HTML/career.html">Career</a></li>
+                    <li><a href="/infi website/HTML/news.html">Events</a></li>
+                    <li><a href="/infi website/HTML/blog.html">Blog</a></li> <!-- Blog link added -->
+                    <li><a href="/infi website/HTML/contact.html">Contact Us</a></li> <!-- Contact Us link added -->
                     <li>
                         <form class="search-form">
                             <input type="text" placeholder="Search...">
                             <button type="submit"><i class="fas fa-search"></i></button>
                         </form>
                     </li>
-                    <li> <a href="/login" >${x}</a></li>
+                    <li> <a href="/infi website/HTML/login.html" >${x}</a></li>
                 </ul>
 `
 navBar.innerHTML = navbar;

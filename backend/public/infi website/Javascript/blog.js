@@ -30,11 +30,13 @@ const blog_template = `<article class="blog-post">
                 </article>`
 
 async function fetch_blog_info() {
-    const res = await fetch(`${window.location.origin}/post/`);
+    const res = await fetch(`${window.location.origin}/post`);
     const data = await res.json();
-    data.map((data, index) => {
-        let image = data.Cover_page.replace("uploads\\", "")
-        serve_post(data.Title, data.Created_At, data.User_Name, `/blog/post/${data.post_id}`, data.post_id, image)
+    
+    data.posts.map((data, index) => {
+        // let image = data.Cover_page.replace("uploads\\", "")
+        console.log(data);
+        serve_post(data.title, data.created_at, data.user_name, `/blog/post/${data.post_id}`, data.post_id, data.cover_page)
     })
 }
 
@@ -42,7 +44,7 @@ function serve_post(title, Published, Author, link, id, image) {
     blog_section.innerHTML += `<article class="blog-post">
                     <h2>${title}</h2>
                     <p>Published on ${Published} by <strong>${Author}</strong></p>
-                    <img src="${image}" alt="Remote Sensing Techniques Image" class="blog-image">
+                    <img height="50px" width="50px" src="${image}" alt="Remote Sensing Techniques Image" class="blog-image">
                     <p>Remote sensing involves the use of various technologies to observe and measure objects without being in direct contact with them. This article explores different remote sensing techniques and their applications...</p>
                     <a href="${link}?id=${id}" class="read-more">Read More</a>
                     <!-- Comment Box and Rating System -->
@@ -70,14 +72,15 @@ function serve_post(title, Published, Author, link, id, image) {
 
 write_blog_btn.addEventListener('click', async () => {
     try { 
-        const user = await getData("user");
+        const user = await getData("token");
         const data = JSON.parse(user);
-        if (data.User) {
-            window.location.href = "blogwrite"
+        console.log(data);
+        if (data) {
+            window.location.href = "/infi website/HTML/blogwrite.html";
         }
     }
     catch (err) {
-        window.location.href = "/login";
+        window.location.href = "/infi website/HTML/login.html";
     }
 })
 

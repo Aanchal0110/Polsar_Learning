@@ -4,30 +4,33 @@ const email = document.getElementById("signup_email");
 const password = document.getElementById("signup_password_1");
 const btn = document.getElementById("signup_btn");
 
-btn.addEventListener("click", async () => {
-    const res = await fetch(`${window.location.origin}/auth/SignIn`, {
+btn.addEventListener("click", async (event) => {
+    event.preventDefault();
+    console.log({
+        username: first_name.value + " " + last_name.value,
+        email: email.value,
+        password: password.value,
+      })
+    fetch(`${window.location.origin}/auth/register`, {
         method: "POST",
-        headers: {
-            'Content-Type':'application/json'
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            UserName: first_name.value + " " + last_name.value,
-            Email: email.value,
-            Occupation: "NaN",
-            Password:password.value
-        })
-    });
-    const data = await res.json();
-    if (res.status == 200) {
-        const res_1 = await fetch(`${window.location.origin}/auth/send-otp`, {
-        method: "POST",
-        headers: {
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify({
+            username: first_name.value + " " + last_name.value,
             email: email.value,
-        })
-    })
-        window.location.herf = "/login";
-    }
+            password: password.value,
+          }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          const a = res.success
+            ? alert("Registered!")
+                : alert(res.message);
+            
+            if (res.success) {
+                document.getElementById("signupForm").classList.remove("active");
+                document.getElementById("loginForm").classList.add("active");
+                document.getElementById("formTitle").innerText = "Login";
+        }
+        });
+    // window.location.href = "/infi"
 })

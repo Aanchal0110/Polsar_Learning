@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -162,7 +163,7 @@
               title="Upload image"
             />
           </div>
-          <div id="editor" contenteditable="true">he</div>
+          <div id="editor" contenteditable="true"></div>
         </div>
         <div class="form-group">
           <label for="tags">Tags (comma-separated)</label>
@@ -176,7 +177,7 @@
           <label for="image">Upload Cover Image</label>
           <input type="file" id="image" accept="image/*" />
         </div>
-        <button type="submit">Submit Blog</button>
+        <button id="submit_btn" type="submit">Submit Blog</button>
       </form>
       <div id="preview">
         <h3>Blog Preview</h3>
@@ -186,9 +187,9 @@
       </div>
     </div>
 
-    <script src="/infi webiste/Javascript/navBar.js" type="module"></script>
+    <!-- <script src="/infi website/Javascript/navBar.js" type="module"></script> -->
     <script src="/infi website/Javascript/blogwrite.js" type="module"></script>
-    <!-- <script>
+    <script>
       document
         .getElementById("blog-form")
         .addEventListener("submit", function (event) {
@@ -234,6 +235,6 @@
       function toggleActive(button) {
         button.classList.toggle("active");
       }
-    </script> -->
+    </script>
   </body>
 </html>

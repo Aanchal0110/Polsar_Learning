@@ -1,116 +1,143 @@
-const settings = require("../config/settings");
-const MainModel = require("../models/MainModel");
-const fs = require("fs").promises;
+const { query } = require("../config/database");
+const fs = require("fs");
 const path = require("path");
+require("dotenv").config;
 
-const create_Table = async (req, res, next) => {
-    try {
-        const data = await MainModel.Resource.create_table();
-        res.status(200).json({ title: "Resouce Table", Data: data });
-    } catch (err) {
-        next(err);
-    }
-}
+const resourceModel = {
 
-const detele_Table = async (req, res, next) => {
-    try {
-        const data = await MainModel.Resource.delete_table();
-        res.status(200).json({ title: "Resouce Table", Data: data });
-    } catch (err) {
-        next(err)
-    }
-}
-
-const fetch_All_Resource = async (req, res, next) => {
-    try {
-        const User = await MainModel.Resource.get_all();
-        // if (!User) res.status(300).json({ error: "No User Found" });
-        res.status(200).json(User);
-    } catch (err) {
-        next(err);
-    }
-}
-
-const add_Resource = async (req, res, next) => {
-    const data = {
-        UserID: req.body.UserID,
-        Auth_Name: req.body.Auth_Name,
-        Title: req.body.Title,
-        Contain_Link: req.body.Contain_Link,
-        Content_Type: req.body.Content_Type,
-        Description: req.body.Description,
-        Resource_Keyword: req.body.Resource_Keyword,
-        UserName: req.body.UserName
-    }
-    // trans Id Auth_Name Contain_Path Contain_Type Images
+    async init() {
+        const sql = fs.readFileSync(
+          path.join(__dirname, "../models/resource_schema.sql"),
+          "utf8"
+        );
+        return query(sql);
+      }
+    ,
+    async create({ auth_name, title, contain_link, contain_type, images, description, user_email, resource_keyword}) {
+        const sql = `
+          INSERT INTO "Resource"
+          (Auth_Name, Title, Contain_Link, Contain_Type, Images, Description, User_Email, Resource_Keyword)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+          RETURNING *;
+        `;
+        const params = [
+          auth_name,
+          title,
+          contain_link,
+          contain_type,
+          images,
+          description,
+          user_email,
+          resource_keyword,
+        ];
+        const { rows } = await query(sql, params);
+        return rows[0];
+      }
+    ,
+    async fetch(type, limit = 10) {
+        const sql = `
+          SELECT * FROM "Resource"
+          WHERE Contain_Type = $1
+          ORDER BY Date_of_Upload DESC, Time_of_Upload DESC
+          LIMIT $2;
+        `;
+        const { rows } = await query(sql, [type, limit]);
+        return rows;
+      }
+    ,
+    async update(trans_id, fieldsToUpdate) {
+        const keys = Object.keys(fieldsToUpdate);
+        const values = Object.values(fieldsToUpdate);
     
-    try {
-        const User = await MainModel.Resource.add_Resource(data);
-        console.log(User)
-        // if (!User) res.status(300).json({ error: "No User Found" });
-        res.status(200).json({data:User });
-    } catch (err) {
-        next(err);
-    }
+        const setClause = keys.map((key, idx) => `"${key}" = $${idx + 1}`).join(", ");
+        const sql = `
+          UPDATE "Resource"
+          SET ${setClause}
+          WHERE Trans_Id = $${keys.length + 1}
+          RETURNING *;
+        `;
+    
+        const { rows } = await query(sql, [...values, trans_id]);
+        return rows[0];
+      }
+    ,
+    async delete(trans_id) {
+        const sql = `DELETE FROM "Resource" WHERE Trans_Id = $1 RETURNING *;`;
+        const { rows } = await query(sql, [trans_id]);
+        return rows[0];
+      }
+
 }
 
-const uploadFile = async (req, res) => {
-    console.log("i was called")
-  if (!req.file) {
-    return res.status(400).json({ message: 'No file uploaded.' });
-  }
-
-  res.status(200).json({
-    message: 'File uploaded successfully.',
-      file: req.file.filename,
-    filePath: req.file.path
-  });
-};
-
-const uploadImages = async (req, res, next) => {
-    if (!req.file) {
-    return res.status(400).json({ error: 'No file uploaded' });
-  }
-    res.status(200).json({
-    message: 'Image uploaded successfully',
-    filePath: `/${req.file.path}`,
-  });
-}
-
-const admin_resource = async (req, res, next) => {
-    const { resource_id } = req.body;
-    try { 
-        const files = await fs.readdir("/resource/", { withFileTypes: true });
-        const data = files.filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
-        const data_1 = await fs.readFile(`/resource/${resource_id}/info.json`, "utf8");
-        const data_2 = await JSON.parse(data_1);
-    }
-    catch (err) {
-        next(err)
-    }
-}
-
-const add_cover_page = async (req, res, next) => {
-    const { path, var_1 } = req.body;
-    console.log(req.body);
-    try {
-        const data = await MainModel.Resource.add_image(path, var_1);
-        if (data) {
-            res.status(200).json({ content: data });
+const resourceController = {
+    async create(req, res) {
+        try {
+          const {
+            auth_name,
+            title,
+            contain_link,
+            contain_type,
+            description,
+            user_email,
+            resource_keyword,
+          } = req.body;
+    
+          const images = req.body.images || null; // optional
+    
+          if (!auth_name || !title || !contain_type) {
+            return res.status(400).json({ success: false, message: "Missing required fields" });
+          }
+    
+          const newResource = await resourceModel.create({
+            auth_name,
+            title,
+            contain_link,
+            contain_type,
+            images,
+            description,
+            user_email,
+            resource_keyword,
+          });
+    
+          res.status(201).json({ success: true, data: newResource });
+        } catch (err) {
+          console.error("Create Resource Error:", err);
+          res.status(500).json({ success: false, message: "Server error" });
         }
-    } catch (err) {
-        next(err)
-    }
+    },
+    async fetch(req, res) {
+        try {
+          const { type } = req.params;
+          const resources = await resourceModel.fetch(type, 20);
+          res.json({ success: true, data: resources });
+        } catch (err) {
+          console.error("Fetch Resource Error:", err);
+          res.status(500).json({ success: false, message: "Server error" });
+        }
+    },
+    async update(req, res) {
+        try {
+          const { id } = req.params;
+          const updated = await resourceModel.update(id, req.body);
+          res.json({ success: true, data: updated });
+        } catch (err) {
+          console.error("Update Resource Error:", err);
+          res.status(500).json({ success: false, message: "Server error" });
+        }
+    },
+    async delete(req, res) {
+        try {
+          const { id } = req.params;
+          const deleted = await resourceModel.delete(id);
+          res.json({ success: true, data: deleted });
+        } catch (err) {
+          console.error("Delete Resource Error:", err);
+          res.status(500).json({ success: false, message: "Server error" });
+        }
+      },
 }
-
-
 
 module.exports = {
-    create_Table,
-    detele_Table,
-    fetch_All_Resource,
-    add_Resource,
-    uploadFile,
-    uploadImages,
-    add_cover_page
+    resourceModel,
+    resourceController
 }

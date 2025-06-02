@@ -1,48 +1,47 @@
-const fs = require("fs").promises;
-const path = require("path");
+require("dotenv").config();
 const express = require("express");
-const settings = require("./src/config/settings.js");
-const MainRoutes = require("./src/routes/MainRoutes.js")
 const cors = require("cors");
-const MainMiddleware = require('./src/middleware/MainMiddleware.js');
-const errorHandleMiddleware = require("./src/middleware/errorMiddleware.js");
-const MainController = require("./src/controller/searchController.js");
+const morgan = require("morgan");
+const path = require("path")
 
-// 805a73edd74c4f5cb9ce192c52031e32
+const { UserController, UserModel } = require("./src/controller/userController");
+const { postController, postModel } = require("./src/controller/postControlller");
+const { resourceController, resourceModel} = require("./src/controller/resourceController");
 
+const userRoute = require("./src/routes/userRoutes");
+const postRoute = require("./src/routes/postRoutes");
+const proxyRoute = require("./src/routes/proxy");
+const resourceRoute = require("./src/routes/resourceRoutes");
 
-if (settings.configs.debug) {
-    console.clear();
-}
-
-const app = express()
+const app = express();
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(express.json({limit:"10mb"}));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'uploads')));
-app.use('/resource/uplaod_pdf', express.static(path.join(__dirname, 'uploads')));
-app.use('/resource/upload_images', express.static('uploads'));
-app.use('/images', express.static(path.join(__dirname, 'uploads')));
-app.use(express.static(path.join(__dirname, 'cleint/frontend/dist')));
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", MainRoutes.PageRoutes.router);
-app.use("/post", MainRoutes.PostRoutes.router);
-app.use("/auth", MainRoutes.UserRoutes.router);
-app.use("/resource", MainRoutes.ResourceRoutes.router, );
-app.use("/career", MainRoutes.CareerRoutes.router);
-app.use("/domainExpert", MainRoutes.DomainExpertRoutes.router);
-app.get("/search", MainController.search);
-app.get("/clear", (req, res) => {
+(async () => {
+  try {
+    // await UserModel.init();
+    // await postModel.init();
+    // await resourceModel.init();
+      console.log("Database initialized.");
+    } catch (err) {
+      console.error("Failed to initialize DB:", err.message);
+    }
+})();
+  
+app.use("/auth", userRoute);
+app.use("/post", postRoute);
+app.use("/proxy", proxyRoute);
+app.use("/resource", resourceRoute);
+app.get("/", (req, res) => {
+    res.send("Server is working...");
+});
+
+app.listen(PORT, () => {
     console.clear();
-    res.send({done:"done"})
-})
-// app.get("*", (req, res) => {
-//     res.setHeader('Content-Type', 'application/javascript');
-//     res.sendFile(path.join(__dirname, 'cleint/frontend/dist', 'index.html'))
-// })
-
-// app.use(errorHandleMiddleware.handleError);
-// app.use(errorHandleMiddleware.notFound);
-
-app.listen(settings.configs.PORT, settings.configs.allowed_host[-1], () => console.log(`Server listening on port: ${settings.configs.PORT}`));
+    console.log(`Server running at http://localhost:${PORT}`);
+  });

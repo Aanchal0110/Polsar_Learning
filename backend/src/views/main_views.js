@@ -1,9 +1,0 @@
-const settings = require("../config/settings");
-const express = require('express');
-const router = express.Router();
-
-
-
-module.exports = {
-    router
-}
