@@ -22,6 +22,10 @@ header {
   z-index: 1000;
 }
 
+main {
+  margin-top: -60px;
+}
+
 .logo-img {
   width: 60px;
   height: 60px;
@@ -146,11 +150,14 @@ header {
 }
 
 /* ===== Blog Posts ===== */
-.blog-posts {
+#blog-post {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* 4 per row on desktop */
+  gap: 1.5rem;
+  padding: 1rem;
 }
 
 .blog-post {
