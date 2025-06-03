@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Verify OTP</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f1f2f6;
+        margin: 0;
+      }
+      .otp-box {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      h2 {
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      .otp-inputs {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .otp-inputs input {
+        width: 40px;
+        height: 45px;
+        text-align: center;
+        font-size: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .resend {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #1a252f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="otp-box">
+      <h2>OTP Verification</h2>
+      <p>
+        OTP has been sent to <strong id="user-email">user@example.com</strong>
+      </p>
+      <div class="otp-inputs">
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+      </div>
+      <div class="resend">Resend OTP in <span id="timer">00:30</span></div>
+      <button onclick="verifyOtp()">Verify OTP</button>
+    </div>
+    <!-- <script type="module" src="../Javascript/context.js"></script> -->
+    <script>
+      const email = localStorage.getItem("email");
+      if (email) document.getElementById("user-email").textContent = email;
+      // Autofocus on next input
+      document
+        .querySelectorAll(".otp-inputs input")
+        .forEach((input, i, inputs) => {
+          input.addEventListener("input", () => {
+            if (input.value && i < inputs.length - 1) inputs[i + 1].focus();
+          });
+        });
+
+      // Dummy Timer Countdown
+      function startTimer(seconds) {
+        const timer = document.getElementById("timer");
+        const interval = setInterval(() => {
+          const min = String(Math.floor(seconds / 60)).padStart(2, "0");
+          const sec = String(seconds % 60).padStart(2, "0");
+          timer.textContent = `${min}:${sec}`;
+          seconds--;
+          if (seconds < 0) clearInterval(interval);
+        }, 1000);
+      }
+      startTimer(30);
+
+      // Dummy OTP verification
+      function verifyOtp() {
+        console.log("running");
+        let otp = "";
+        document
+          .querySelectorAll(".otp-inputs input")
+          .forEach((input, i, inputs) => {
+            // console.log(input.value);
+            otp += input.value;
+          });
+        // otp = parseInt(otp);
+        fetch(`${window.location.origin}/auth/verify-otp`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: email,
+            otp: otp,
+          }),
+        }).then((res) => {
+          if (res.status == 200) {
+            window.location.href = "/infi website/HTML/login.html";
+          } else {
+            alert("Wrong OTP");
+          }
+        });
+      }
+
+      // Set user email from session/localStorage/etc.
+    </script>
+  </body>
+</html>

@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
+const { generateOTP, getStoredOTP, deleteOTP, storeOTP } = require("../services/otpService");
+const { sendEmail } = require("../services/mailService");
 require("dotenv").config();
 
 const SALT_ROUNDS = Number(process.env.SALT_ROUND);
@@ -102,6 +104,33 @@ const UserController = {
     } catch (err) {
       res.status(500).json({ success: false, message: err.message });
     }
+  },
+  async sendOtp(req, res) {
+    const { email } = req.body;
+    if (!email) return res.status(400).json({ error: 'Email is required' });
+  
+    const otp = generateOTP();
+    await storeOTP(email, otp);
+  
+    try {
+      await sendEmail(email, otp);
+      res.json({ message: 'OTP sent successfully' });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Failed to send OTP' });
+    }
+  },
+  verifyOtp(req, res){
+    // console.error(req.body);
+    const { email, otp } = req.body;
+    const stored = getStoredOTP(email);
+    // console.log(stored);
+  
+    if (!stored) return res.status(400).json({ error: 'OTP not found or expired' });
+    if (stored.otp !== otp) return res.status(400).json({ error: 'Invalid OTP' });
+  
+    deleteOTP(email);
+    res.json({ message: 'Email verified successfully!' });
   }
 };
 

@@ -1,3 +1,5 @@
+import { setData } from "./context.js";
+
 const first_name = document.getElementById("signup_first_name");
 const last_name = document.getElementById("signup_last_name");
 const email = document.getElementById("signup_email");
@@ -27,9 +29,16 @@ btn.addEventListener("click", async (event) => {
                 : alert(res.message);
             
             if (res.success) {
-                document.getElementById("signupForm").classList.remove("active");
-                document.getElementById("loginForm").classList.add("active");
-                document.getElementById("formTitle").innerText = "Login";
+                // document.getElementById("signupForm").classList.remove("active");
+                // document.getElementById("loginForm").classList.add("active");
+              // document.getElementById("formTitle").innerText = "Login";
+              localStorage.setItem("email", email.value);
+              window.location.href = "/infi website/HTML/otpVerify.html";
+              fetch(`/auth/send-otp`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email.value, })
+              });
         }
         });
     // window.location.href = "/infi"

@@ -225,3 +225,63 @@
 {"level":"info","message":"Client removed from pool","timestamp":"2025-06-02 19:56:39"}
 {"level":"info","message":"Database connection established","timestamp":"2025-06-02 19:57:11"}
 {"level":"info","message":"Client removed from pool","timestamp":"2025-06-02 19:58:11"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 01:02:49"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 01:02:49"}
+{"error":"duplicate key value violates unique constraint \"User_email_key\"","level":"error","message":"Query execution error:","params":["Dummy 2","addu2012005@gmail.com","$2b$10$mKqXnFxJXuwnFFylOgkYneCZL6V19ilBH5cWns58OgznPkmxXw3ua"],"text":"INSERT INTO \"User\" (UserName, Email, Password) VALUES ($1, $2, $3) RETURNING Uid, UserName, Email","timestamp":"2025-06-03 01:02:49"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 01:02:57"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 01:03:53"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 01:04:53"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 01:05:23"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 01:06:23"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Query execution error:","text":"CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";\r\nDROP TABLE IF EXISTS \"User\";\r\n\r\nCREATE TABLE IF NOT EXISTS \"User\" (\r\n    Uid UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\r\n    UserName VARCHAR(100) NOT NULL,\r\n    TimeOfSignIn TIME DEFAULT CURRENT_TIME,\r\n    DateofSignIn DATE DEFAULT CURRENT_DATE,\r\n    Email TEXT NOT NULL UNIQUE,\r\n    Password VARCHAR(100) NOT NULL,\r\n    Occupation VARCHAR(100) DEFAULT '',\r\n    Image_Url VARCHAR(255) DEFAULT '',\r\n    Verified VARCHAR(1) DEFAULT 'N',\r\n    About_YourSelf TEXT DEFAULT ''\r\n);","timestamp":"2025-06-03 01:08:19"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 01:08:35"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 01:10:13"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 01:12:31"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 01:12:41"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 01:14:21"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 01:14:37"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 03:15:35"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 09:30:09"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 09:31:09"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 09:32:17"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 09:33:18"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 09:34:30"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 09:36:08"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 09:38:16"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 09:38:16"}
+{"error":"duplicate key value violates unique constraint \"User_email_key\"","level":"error","message":"Query execution error:","params":["Adarsh Meshram","addu2012005@gmail.com","$2b$10$mVXT91JRprcvegtCmDJw3uaX3UhtS/VCa2RrlZXZ4eQXrtcweOxpO"],"text":"INSERT INTO \"User\" (UserName, Email, Password) VALUES ($1, $2, $3) RETURNING Uid, UserName, Email","timestamp":"2025-06-03 09:38:16"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 09:38:29"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 09:39:14"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 09:40:56"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 09:55:07"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 09:56:14"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 09:57:17"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 09:57:17"}
+{"error":"duplicate key value violates unique constraint \"User_email_key\"","level":"error","message":"Query execution error:","params":["adarsh meshram","addu2012005@gmail.com","$2b$10$CcfQmlAVhpDzXh1DAx4yUeewa5/Jliwp9xX5LZxv8X2NBPn3YInyK"],"text":"INSERT INTO \"User\" (UserName, Email, Password) VALUES ($1, $2, $3) RETURNING Uid, UserName, Email","timestamp":"2025-06-03 09:57:17"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 09:57:27"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 09:58:33"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:01:13"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 10:02:27"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:03:41"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 10:04:47"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:05:49"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 10:06:49"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:12:51"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:13:20"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:13:40"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:13:47"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 10:24:29"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:25:07"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 10:26:07"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:26:14"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:26:18"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:26:29"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:28:00"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 10:29:21"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:31:19"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:32:11"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:32:16"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 10:33:17"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:33:21"}
+{"level":"info","message":"Database connection established","timestamp":"2025-06-03 10:39:00"}
+{"level":"info","message":"Client removed from pool","timestamp":"2025-06-03 10:40:00"}

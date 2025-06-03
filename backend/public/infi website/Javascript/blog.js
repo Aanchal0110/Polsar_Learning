@@ -77,6 +77,8 @@ write_blog_btn.addEventListener('click', async () => {
         console.log(data);
         if (data) {
             window.location.href = "/infi website/HTML/blogwrite.html";
+        } else {
+            window.location.href = "/infi website/HTML/login.html";
         }
     }
     catch (err) {
