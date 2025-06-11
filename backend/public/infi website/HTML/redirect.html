@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #121212;
+        color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .countdown {
+        font-size: 1.2rem;
+        margin-top: 20px;
+      }
+      a {
+        color: #80b3ff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>You'r post will be verfied by the Admin</h1>
+    <h2>And will be avialable to the website shortly</h2>
+    <p class="countdown">Redirecting in <span id="timer">5</span> seconds.</p>
+    <p>
+      If you are not redirected,
+      <a id="link" href="/infi website/HTML/blog.html">click here</a>.
+    </p>
+
+    <script>
+      const countdownElement = document.getElementById("timer");
+      const redirectUrl = "/infi website/HTML/blog.html";
+      let seconds = 5;
+
+      const intervalId = setInterval(() => {
+        seconds--;
+        countdownElement.textContent = seconds;
+
+        if (seconds === 0) {
+          clearInterval(intervalId);
+          window.location.href = redirectUrl;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
