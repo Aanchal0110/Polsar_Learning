@@ -1,986 +1,354 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>polsarlearn - Geospatial Industry</title>
 
     <!-- Font Awesome CDN Link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <!-- Custom CSS File Link -->
-    <link rel="stylesheet" href="/infi website/CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/style.css" />
 
     <style>
-      .navbar a.active {
-        color: red; /* Red color for active "Resources" */
-      }
+        .navbar a.active {
+            color: red; /* Red color for active "Resources" */
+        }
 
-      .navbar a:hover {
-        color: #1e90ff;
-      }
+        .navbar a:hover {
+            color: #1e90ff;
+        }
 
-      header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background: #002147; /* Navbar background color */
-        padding: 10px 0;
-      }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #002147; /* Navbar background color */
+            padding: 10px 0;
+        }
 
-      main {
-        margin-top: 80px; /* Add space to account for the navbar height */
-        padding: 20px;
-      }
+        main {
+            margin-top: 80px; /* Add space to account for the navbar height */
+            padding: 20px;
+        }
 
-      h1 {
-        text-align: center;
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 20px;
-      }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #004080;
+            margin-bottom: 20px;
+        }
+        
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .search-bar input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
 
-      .search-bar {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-      }
+        /* Styles for Mermaid diagrams */
+        .mermaid-container {
+            margin: 40px auto;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-      .search-bar input {
-        padding: 0.5rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 300px;
-      }
+        .mermaid-container h2 {
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
 
-      /* Styling for the table */
-      .companies-table {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        border-collapse: collapse;
-        background: #f7f7f7;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-      }
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
 
-      .companies-table thead {
-        background-color: #d6d6d6;
-        color: #000;
-      }
+        .mermaid .node text, .mermaid .edge-label text {
+            font-size: 14px !important;
+        }
 
-      .companies-table th,
-      .companies-table td {
-        text-align: left;
-        padding: 1rem;
-        font-size: 1rem;
-        border-bottom: 1px solid #ccc;
-        color: #333;
-      }
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-      .companies-table th {
-        text-transform: uppercase;
-        font-weight: bold;
-      }
+        .search-form input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
 
-      .companies-table tr:hover {
-        background-color: #eaeaea;
-      }
+        .search-form button {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-      .highlight {
-        background-color: #ffeb3b !important;
-      }
+        .search-form button:hover {
+            background-color: #005bb5;
+        }
+        
+        .company-name {
+            font-weight: bold;
+        }
+        
+        .company-website {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        
+        .company-website:hover {
+            text-decoration: underline;
+        }
 
-      .search-form {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
+        .category-heading {
+            background-color: #002147;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
 
-      /* .search-form input {
-        padding: 0.5rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 200px;
-      }
-
-      .search-form button {
-        background-color: #1e90ff;
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-      } */
-
-      .search-form button:hover {
-        background-color: #005bb5;
-      }
-
-      .company-name {
-        font-weight: bold;
-      }
-
-      .company-website {
-        color: #1e90ff;
-        text-decoration: none;
-      }
-
-      .company-website:hover {
-        text-decoration: underline;
-      }
-
-      .category-heading {
-        background-color: #002147;
-        color: white;
-        padding: 10px;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-      }
+        body {
+            background: #f0f8fa;
+            color: #1a2a2a;
+        }
+        .career-list {
+            width: 100%;
+            margin: 40px 0 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .career-list li {
+            margin-bottom: 18px;
+            border: 2px solid #009688;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,150,136,0.07);
+        }
+        .career-toggle {
+            width: 100%;
+            text-align: center;
+            background: #009688;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            padding: 14px 18px;
+            cursor: pointer;
+            outline: none;
+            transition: background 0.2s;
+        }
+        .career-toggle:hover, .career-toggle.active {
+            background: #00796b;
+        }
+        .career-details {
+            display: none;
+            padding: 20px 24px;
+            color: #1a2a2a;
+            background: #f9fdfc;
+            border-radius: 0 0 8px 8px;
+            border-top: 1px solid #009688;
+            text-align: justify;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        .career-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 20px;
+            background: #009688;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,150,136,0.07);
+        }
+        .career-btn:hover {
+            background: #00796b;
+            color: #fff;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <a href="#" class="logo">
-        <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img" />
-      </a>
+        <a href="#" class="logo">
+            <img src="../image/logo.jpeg" alt="Logo" class="logo-img" />
+        </a>
 
-      <div id="menu" class="fas fa-bars"></div>
+        <div id="menu" class="fas fa-bars"></div>
 
-      <nav id="navbar" class="navbar"></nav>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                    
+                    <div class="dropdown-content">
+                        <a href="Fundamental.html">Fundamentals</a>
+                        <a href="Technical Paper.html">Technical Papers</a>
+                        <a href="Books.html">Books</a>
+                        <a href="Videos.html">Videos</a>
+                        
+                    </div>
+                </li>
+                <li class="dropdown">
+                   
+                    <div class="dropdown-content">
+                        <a href="academicians.html">Academicians</a>
+                        <a href="Industry Personnel.html">Industry Personnel</a>
+                        <a href="Researchers.html">Researchers/Scientists</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    
+                    <div class="dropdown-content">
+                        <a href="datadownload.html">Data Download</a>
+                        <a href="opensource.html">Software</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="education.html" class="dropbtn">Education</a>
+                   
+                </li>
+            </li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="event.html">Events</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+
+            <li>
+                    <form class="search-form">
+                        <input type="text" placeholder="Search..." required>
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </li>
+                <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
+            </ul>
+        </nav>
     </header>
-    '
-    <span id="navBarTracker">Nav bar tracker</span>
 
     <main>
-      <h1>Geospatial Industry Career Opportunities</h1>
-      <div class="search-bar">
-        <input
-          type="text"
-          id="search"
-          placeholder="Search companies, technologies, sectors..."
-          onkeyup="filterTable()"
-        />
-      </div>
-
-      <h2 class="category-heading">Private Companies</h2>
-      <table class="companies-table" id="companiesTable">
-        <thead>
-          <tr>
-            <th>Company</th>
-            <th>Specialization</th>
-            <th>Location</th>
-            <th>Career Page</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="company-name">BlackSky</td>
-            <td>
-              Geospatial intelligence, satellite imagery, real-time data
-              analytics
-            </td>
-            <td>Herndon, Virginia, USA</td>
-            <td>
-              <a
-                href="https://www.blacksky.com/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">
-              Fototerra Atividades de Aerolevantamentos Ltda
-            </td>
-            <td>
-              Aerial surveying, geospatial data generation, Lidar, hyperspectral
-              imaging
-            </td>
-            <td>Macaé, Rio de Janeiro, Brazil</td>
-            <td>
-              <a
-                href="https://fototerra.com.br/ingles/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">MGGP Aero</td>
-            <td>Remote sensing data acquisition, aerial imagery, LiDAR data</td>
-            <td>Tarnów, Poland</td>
-            <td>
-              <a
-                href="https://www.mggpaero.com/en/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Marvel Geospatial Solutions Pvt Ltd.</td>
-            <td>
-              Geospatial solutions, data mapping, satellite and aerial remote
-              sensing
-            </td>
-            <td>Hyderabad, India</td>
-            <td>
-              <a
-                href="https://marvelgeospatial.com/pages/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Satellogic</td>
-            <td>Earth observation, high-resolution satellite imagery</td>
-            <td>New York, USA</td>
-            <td>
-              <a
-                href="https://satellogic.com/company/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Umbra</td>
-            <td>Synthetic aperture radar (SAR) satellite systems</td>
-            <td>Santa Barbara, California, USA</td>
-            <td>
-              <a
-                href="https://umbra.space/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">OPEGIEKA</td>
-            <td>Geoinformatics, photogrammetry, remote sensing, geodesy</td>
-            <td>Elbląg, Poland</td>
-            <td>
-              <a
-                href="https://opegieka.pl/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">SkyWatch</td>
-            <td>Earth observation data aggregation and management</td>
-            <td>Kitchener, Ontario, Canada</td>
-            <td>
-              <a
-                href="https://skywatch.com/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Albedo</td>
-            <td>Very low Earth orbit (VLEO) satellite imaging</td>
-            <td>Broomfield, Colorado, USA</td>
-            <td>
-              <a
-                href="https://albedo.com/company#jobs"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Satellite Imaging Corporation</td>
-            <td>Satellite imagery and geospatial data solutions</td>
-            <td>Houston, Texas, USA</td>
-            <td>
-              <a
-                href="https://www.satimagingcorp.com/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Space Imaging Middle East</td>
-            <td>Satellite and aerial imagery services</td>
-            <td>Dubai, UAE</td>
-            <td>
-              <a
-                href="https://spaceimagingme.com/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Walphot</td>
-            <td>Geomatics, geographic data capture and analysis</td>
-            <td>Belgium</td>
-            <td>
-              <a
-                href="https://eopages.eu/company/walphot-s-a"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">L3Harris Geospatial</td>
-            <td>Geospatial data and technology, image analysis</td>
-            <td>Broomfield, Colorado, USA</td>
-            <td>
-              <a
-                href="https://careers.l3harris.com/en"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Capella Space</td>
-            <td>Synthetic Aperture Radar (SAR) technology</td>
-            <td>San Francisco, California, USA</td>
-            <td>
-              <a
-                href="https://www.capellaspace.com/company/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Planet Labs</td>
-            <td>Earth imaging, satellite constellation operation</td>
-            <td>San Francisco, California, USA</td>
-            <td>
-              <a
-                href="https://www.planet.com/company/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">OpalAi</td>
-            <td>
-              Spatial artificial intelligence, satellite and SAR imagery
-              analysis
-            </td>
-            <td>Los Angeles, California, USA</td>
-            <td>
-              <a
-                href="https://www.opal-ai.com/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">SATIM Inc</td>
-            <td>Synthetic Aperture Radar (SAR) satellite imagery analysis</td>
-            <td>Burlingame, California, USA</td>
-            <td>
-              <a
-                href="https://www.satim.co/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Piersight</td>
-            <td>Maritime surveillance, SAR and AIS satellite technology</td>
-            <td>Ahmedabad, India</td>
-            <td>
-              <a
-                href="https://jobs.gohire.io/piersight-rfd9c90d/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Ball Corporation (Ball Aerospace)</td>
-            <td>Advanced technologies for Earth observation</td>
-            <td>Broomfield, Colorado, USA</td>
-            <td>
-              <a
-                href="https://www.ball.com/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">ESRI</td>
-            <td>Geographic information system (GIS) software</td>
-            <td>Redlands, California, USA</td>
-            <td>
-              <a
-                href="https://www.esri.com/en-us/about/careers/overview"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">GomSpace ApS</td>
-            <td>Nanosatellite design, manufacture, and operation</td>
-            <td>Aalborg, Denmark</td>
-            <td>
-              <a
-                href="https://gomspace.com/careers.aspx"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">ImageSat International</td>
-            <td>Satellite photography, space-based intelligence solutions</td>
-            <td>Israel</td>
-            <td>
-              <a
-                href="https://imagesatintl.com/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Maxar Technologies Inc.</td>
-            <td>Satellite imaging, geospatial services</td>
-            <td>Westminster, Colorado, USA</td>
-            <td>
-              <a
-                href="https://www.maxar.com/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Spire Global Inc.</td>
-            <td>Satellite-powered data, weather data, ship tracking</td>
-            <td>Vienna, Virginia, USA</td>
-            <td>
-              <a
-                href="https://spire.com/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">KaleidEO</td>
-            <td>High-resolution optical payloads for satellites</td>
-            <td>Bengaluru, India</td>
-            <td>
-              <a
-                href="https://kaleideo.co/join-us/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">SatSure</td>
-            <td>Decision intelligence, satellite remote sensing</td>
-            <td>Bengaluru, India</td>
-            <td>
-              <a
-                href="https://satsure.co/career.html"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Pixxel</td>
-            <td>Hyperspectral imaging satellites</td>
-            <td>Bengaluru, India</td>
-            <td>
-              <a
-                href="https://www.pixxel.space/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Dhruva Space</td>
-            <td>Small satellite development</td>
-            <td>Hyderabad, India</td>
-            <td>
-              <a
-                href="https://www.dhruvaspace.com/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Aaizeltech</td>
-            <td>
-              Artificial intelligence, computer vision, geospatial solutions
-            </td>
-            <td>India</td>
-            <td>
-              <a
-                href="https://aaizeltech.com/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Trimble</td>
-            <td>Positioning, modeling, connectivity, and data analytics</td>
-            <td>Westminster, Colorado, USA</td>
-            <td>
-              <a
-                href="https://www.trimble.com/en/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Hexagon</td>
-            <td>Digital reality solutions, measurement technology</td>
-            <td>Stockholm, Sweden</td>
-            <td>
-              <a
-                href="https://hexagon.com/company/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Topcon Positioning Systems</td>
-            <td>Precision measurement and workflow solutions</td>
-            <td>Livermore, California, USA</td>
-            <td>
-              <a
-                href="https://www.topconpositioning.com/company/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">BM Geoinformatics</td>
-            <td>Building Information Modeling, GIS mapping, laser scanning</td>
-            <td>Kolkata, India</td>
-            <td>
-              <a
-                href="https://bmgeomatic.com/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">
-              Genesys International Corporation Limited
-            </td>
-            <td>Advanced mapping, survey, and geospatial services</td>
-            <td>Mumbai, India</td>
-            <td>
-              <a
-                href="https://www.igenesys.com/career-page-1"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Rolta India</td>
-            <td>
-              IT solutions, BI, big data analytics, geospatial visualization
-            </td>
-            <td>Mumbai, India</td>
-            <td>
-              <a
-                href="http://www.rolta.com/rolta-careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">
-              Mapsense Technologies (OPC) Private Limited
-            </td>
-            <td>Geospatial technologies, location intelligence</td>
-            <td>Gurgaon, Haryana, India</td>
-            <td>
-              <a
-                href="https://mapsense.in/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Gray Routes Technology Pvt. Ltd</td>
-            <td>Location analytics, field automation software</td>
-            <td>Mumbai, India</td>
-            <td>
-              <a
-                href="https://www.grayroutes.in/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">HERE Technologies</td>
-            <td>Mapping technologies, location data services</td>
-            <td>Netherlands</td>
-            <td>
-              <a
-                href="https://www.here.com/about/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Descartes Labs</td>
-            <td>Geospatial data analysis, satellite imagery analysis</td>
-            <td>Santa Fe, New Mexico, USA</td>
-            <td>
-              <a
-                href="https://descarteslabs.com/contact"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Aerial Services, Inc. (ASI)</td>
-            <td>Aerial surveys, geospatial services</td>
-            <td>Cedar Falls, Iowa, USA</td>
-            <td>
-              <a
-                href="https://aerialservicesinc.com/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Satpalda Geospatial Services</td>
-            <td>Satellite imagery, geospatial solutions</td>
-            <td>Delhi, India</td>
-            <td>
-              <a
-                href="https://satpalda.co/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">ICEYE</td>
-            <td>Synthetic-aperture radar (SAR) satellites</td>
-            <td>Finland</td>
-            <td>
-              <a
-                href="https://www.iceye.com/careers"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2 class="category-heading">
-        Government Organizations & Space Agencies
-      </h2>
-      <table class="companies-table">
-        <thead>
-          <tr>
-            <th>Organization</th>
-            <th>Focus Areas</th>
-            <th>Location</th>
-            <th>Career Page</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="company-name">
-              China Aerospace Science and Technology Corporation (CASC)
-            </td>
-            <td>
-              Spacecraft, launch vehicles, satellite technology, space
-              exploration
-            </td>
-            <td>China</td>
-            <td>
-              <a
-                href="https://english.spacechina.com/n17221/index.html"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">
-              Japan Aerospace Exploration Agency (JAXA)
-            </td>
-            <td>
-              Satellite development, space exploration, aeronautics research
-            </td>
-            <td>Tsukuba, Ibaraki, Japan</td>
-            <td>
-              <a
-                href="https://global.jaxa.jp/about/employ/index.html"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">ROSCOSMOS</td>
-            <td>Human spaceflight, satellite operations, space exploration</td>
-            <td>Moscow, Russia</td>
-            <td>
-              <a
-                href="https://www.roscosmos.ru/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">
-              Korea Aerospace Research Institute (KARI)
-            </td>
-            <td>
-              Aeronautics, launch vehicles, satellites, unmanned aerial systems
-            </td>
-            <td>Daejeon, South Korea</td>
-            <td>
-              <a
-                href="https://www.kari.re.kr/kor.do"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">
-              Indian Space Research Organization (ISRO)
-            </td>
-            <td>
-              Space technology, satellite communication, remote sensing, space
-              exploration
-            </td>
-            <td>Bengaluru, India</td>
-            <td>
-              <a
-                href="https://www.isro.gov.in/Careers.html"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">Space Applications Centre (SAC)</td>
-            <td>
-              Telecommunications, remote sensing, meteorology, satellite
-              navigation
-            </td>
-            <td>Ahmedabad, India</td>
-            <td>
-              <a
-                href="https://www.sac.gov.in/Vyom/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">
-              National Aeronautics and Space Administration (NASA)
-            </td>
-            <td>
-              Human and robotic space exploration, satellite development,
-              scientific research
-            </td>
-            <td>Washington, D.C., USA</td>
-            <td>
-              <a
-                href="https://www.nasa.gov/careers/"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">European Space Agency (ESA)</td>
-            <td>
-              Earth observation, navigation, telecommunications, space
-              exploration
-            </td>
-            <td>Paris, France</td>
-            <td>
-              <a
-                href="https://www.esa.int/About_Us/Careers_at_ESA"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="company-name">
-              National Oceanic and Atmospheric Administration (NOAA)
-            </td>
-            <td>Climate, weather, oceans, and coastal monitoring</td>
-            <td>USA</td>
-            <td>
-              <a
-                href="https://www.noaa.gov/work-with-us"
-                class="company-website"
-                target="_blank"
-                >Careers</a
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2 class="category-heading">Technology Platforms</h2>
-      <table class="companies-table">
-        <thead>
-          <tr>
-            <th>Platform</th>
-            <th>Specialization</th>
-            <th>Location</th>
-            <th>Website</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="company-name">Google Earth Engine</td>
-            <td>
-              Cloud-based platform for geospatial analysis, satellite imagery
-              processing
-            </td>
-            <td>Mountain View, California, USA</td>
-            <td>
-              <a
-                href="https://earthengine.google.com/"
-                class="company-website"
-                target="_blank"
-                >Website</a
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <h1>Geospatial Industry Career Opportunities</h1>
+        <ol class="career-list">
+          <li><button class="career-toggle">BlackSky</button><div class="career-details"><p>BlackSky is a geospatial intelligence company founded in 2014 and headquartered in Herndon, Virginia. It operates a constellation of 60 small satellites in low Earth orbit, providing high-frequency satellite imagery and analytics through its proprietary Spectra AI software platform. BlackSky serves various sectors, including government and commercial enterprises, with applications ranging from national security to environmental monitoring. The company is publicly traded on the New York Stock Exchange under the ticker symbol BKSY and has established itself as a leader in the geospatial market, known for its agile tasking system that allows rapid data collection and analysis. With a growing business pipeline and significant contracts with government agencies, BlackSky is well-positioned to meet the increasing demand for real-time Earth observation services.</p><a href="https://www.blacksky.com/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Fototerra Atividades de Aerolevantamentos Ltda</button><div class="career-details"><p>Fototerra Atividades de Aerolevantamentos Ltda, founded in 1993, is a Brazilian company based in Macaé, Rio de Janeiro, specializing in aerial surveying and geospatial data generation. The company provides high-resolution imagery, Lidar data, hyperspectral imaging, and radar data services. Fototerra positions itself as a leader in the information technology sector, focusing on innovative solutions and new business opportunities within the architecture, engineering, and design industries. With a workforce of 100 to 249 employees, Fototerra is recognized for its expertise in leveraging advanced technologies to deliver comprehensive geospatial intelligence and support various projects across different sectors.</p><a href="https://fototerra.com.br/ingles/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">MGGP Aero</button><div class="career-details"><p>MGGP Aero is a Polish company specializing in remote sensing data acquisition from airborne and satellite platforms. Established over 20 years ago, it focuses on providing high-resolution aerial imagery, LiDAR data, hyperspectral imaging, and thermal images. The company is actively involved in various sectors, including environmental monitoring and urban analysis, and has completed numerous projects across Europe, including Romania and Germany. MGGP Aero operates a diverse fleet of aircraft equipped with advanced sensors, enabling comprehensive geospatial solutions for clients. It is also engaged in research and development, collaborating with scientific institutions to innovate within the geoinformation industry. The company's headquarters are located in Tarnów, Poland.</p><a href="https://www.mggpaero.com/en/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Marvel Geospatial Solutions Pvt Ltd.</button><div class="career-details"><p>Marvel Geospatial Solutions Pvt Ltd, established in 2008 and based in Hyderabad, India, specializes in providing comprehensive geospatial solutions, including data mapping and management services. The company integrates various technologies such as satellite and aerial remote sensing, GIS databases, and photogrammetry to support sectors like utilities, land administration, and transportation. With a workforce of around 100 employees, Marvel has earned recognition as a winner of the India 5000 Best MSME Awards in 2020. It is ISO 9001:2015 certified and serves a diverse clientele across Australia, Africa, the US, and the UAE. The company aims to enhance its global presence through innovative solutions and has recently ventured into drone manufacturing to expand its service offerings.</p><a href="https://marvelgeospatial.com/pages/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Satellogic</button><div class="career-details"><p>Satellogic Inc., founded in 2010 by Emiliano Kargieman and Gerardo Richarte, is a leading Earth observation company focused on providing high-resolution satellite imagery and geospatial data. Headquartered in New York and with R&D facilities in Argentina, Satellogic has developed a scalable constellation of satellites designed to remap the entire planet frequently and affordably. As of early 2024, the company operates 26 satellites and aims to expand its fleet to over 200. The company's mission is to democratize access to geospatial data to address global challenges like climate change and food security, making it a key player in the remote sensing industry.</p><a href="https://satellogic.com/company/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Umbra</button><div class="career-details"><p>Umbra is a U.S.-based commercial space technology company founded in 2015, specializing in synthetic aperture radar (SAR) satellite systems. Headquartered in Santa Barbara, California, Umbra operates a constellation designed to provide high-resolution imagery for various applications, including intelligence, defense, and disaster response. The first satellite, Umbra-01, was launched in June 2021, and the company plans to expand its fleet to 32 satellites. Umbra's SAR technology allows for all-weather and day-and-night monitoring capabilities, making it a valuable resource for both commercial and governmental clients. Recently, Umbra has been awarded contracts by the Space Development Agency to integrate its remote sensing capabilities into future space architectures, further solidifying its role in the evolving landscape of satellite imagery and geospatial intelligence.</p><a href="https://umbra.space/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Opegieka</button><div class="career-details"><p>OPEGIEKA Sp. z o.o. is a Polish company founded in 1989, specializing in geoinformatics and related services such as photogrammetry, remote sensing, geodesy, and cartography. Based in Elbląg, Poland, OPEGIEKA has established itself as a leader in the GEO/ICT market, providing innovative spatial information solutions for businesses, government agencies, and various sectors. The company holds several certifications, including ISO 9001 and ISO 27000, and operates its own data center. OPEGIEKA is involved in significant projects like the development of nationwide teleinformatics systems and has extensive experience in creating digital terrain models and topographic maps. It utilizes advanced technologies, including LiDAR and aerial surveying, to deliver high-quality geospatial data and services tailored to client needs.</p><a href="https://opegieka.pl/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Skywatch</button><div class="career-details"><p>SkyWatch is a Canadian company founded in 2014, based in Kitchener, Ontario, that specializes in Earth observation (EO) data aggregation and management. The company provides a platform called EarthCache, which allows users to easily access and integrate satellite imagery and geospatial data into their applications and workflows. SkyWatch aims to democratize remote sensing data by offering a modern API for high-volume data access, thereby facilitating its use across various sectors such as agriculture, environmental monitoring, and critical infrastructure. Additionally, SkyWatch operates TerraStream, an automated data distribution platform for satellite operators, enabling them to deliver their data products directly to customers.</p><a href="https://skywatch.com/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Albedo</button><div class="career-details"><p>Albedo is an American satellite imaging company founded in 2020, focused on developing very low Earth orbit (VLEO) satellites capable of capturing high-resolution imagery with a resolution of 10 centimeters. Headquartered in Broomfield, Colorado, Albedo aims to provide aerial-quality imagery from space, which can be utilized across various sectors such as agriculture, urban development, insurance, and environmental monitoring. The company plans to launch its first satellite in 2025 and intends to establish a fleet of 24 satellites to enhance global access to its imagery.</p><a href="https://albedo.com/company#jobs" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Satellite Imaging Corporation</button><div class="career-details"><p>Satellite Imaging Corporation is a company that specializes in providing satellite imagery and geospatial data solutions. The company focuses on transforming satellite data into actionable intelligence for various applications, including agriculture, urban planning, environmental monitoring, and disaster response. It utilizes advanced technologies to analyze and interpret satellite images, enabling clients to make informed decisions based on real-time data.</p><a href="https://www.satimagingcorp.com/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Space Imaging Middle East</button><div class="career-details"><p>Space Imaging Middle East (SIME) is a leading provider of satellite and aerial imagery services in the Middle East, established in 1997 and headquartered in the United Arab Emirates. As a regional affiliate of DigitalGlobe, SIME plays a significant role in the geospatial and GIS solutions market across the Middle East, Persian Gulf, Eastern Africa, and Central Asia. IME utilizes a wide range of satellite constellations and aerial sensors to deliver its products. The company has established partnerships with leading technology firms to enhance its service offerings. Its ground station in the UAE controls the satellite operations, ensuring efficient data collection and processing.</p><a href="https://spaceimagingme.com/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Walphot Sa</button><div class="career-details"><p>Walphot proposes products and services in the area of geomatics since more than 30 years. Walphot is qualified for the whole production line of geographic data from the capture of the information (spaceborne or airborne) to the delivery of specific products (maps, reports,…) or integrated services (Geographic Information Systems). Walphot already participated in the 80ís to the first large project using satellite data (CORINE-program).</p><a href="https://eopages.eu/company/walphot-s-a" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">L3Harris Geospatial</button><div class="career-details"><p>L3Harris Geospatial Solutions, Inc. is a prominent provider of geospatial data and technology, specializing in image analysis, data visualization, and remote sensing solutions. Based in Broomfield, Colorado, the company has been delivering advanced geospatial products since 1951, catering to various industries including defense, agriculture, transportation, and environmental management.</p><a href="https://careers.l3harris.com/en" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Capella Space</button><div class="career-details"><p>Capella Space is an innovative American company specializing in Earth observation through Synthetic Aperture Radar (SAR) technology. Founded in 2016 by Payam Banazadeh and William Walter Woods, the company is headquartered in San Francisco, California, with additional offices in Washington, D.C., and Louisville, Colorado. Capella Space aims to revolutionize how industries access and utilize geospatial data. By providing timely and reliable SAR imagery, the company supports critical decision-making processes across various sectors, contributing to a deeper understanding of global changes and challenges.</p><a href="https://www.capellaspace.com/company/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Planet Labs</button><div class="career-details"><p>Planet Labs PBC, founded in 2010 by former NASA scientists, is an American Earth imaging company based in San Francisco. It operates a fleet of small satellites called Doves, which capture daily high-resolution images of the Earth for various applications, including agriculture, urban planning, and environmental monitoring. The company went public in 2021 through a merger with DMY Technology Group IV, valuing it at approximately $2.8 billion. As a Public Benefit Corporation, Planet Labs is dedicated to making global changes visible and actionable through its satellite data services.</p><a href="https://www.planet.com/company/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">OpalAi</button><div class="career-details"><p>OpalAi is a technology company specializing in spatial artificial intelligence, headquartered in Los Angeles, California. Founded with expertise drawn from NASA, OpalAi focuses on transforming complex satellite and SAR imagery into actionable insights for various applications, such as vehicle detection and wildfire monitoring. Their core offerings include innovative solutions like ScanToBIM, which generates detailed Building Information Models from point cloud data, and ScanTo3D, enabling real-time creation of 2D and 3D CAD models. The company aims to enhance decision-making processes across industries such as real estate, insurance, and transportation by leveraging advanced AI technologies. OpalAi emphasizes collaboration between AI systems and professionals to tackle intricate challenges in dynamic environments.</p><a href="https://www.opal-ai.com/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">SATIM Inc</button><div class="career-details"><p>SATIM Inc., founded in 2012 and headquartered in Burlingame, California, is a technology company specializing in object detection and classification using Synthetic Aperture Radar (SAR) satellite imagery. The company operates primarily in the defense, security, and commercial sectors, providing services that accurately detect and classify various objects such as military vessels and aircraft. SATIM has developed advanced AI-based software solutions and simulators for generating synthetic SAR signatures, enhancing the capabilities of SAR data analysis. In recent developments, SATIM signed a Memorandum of Understanding with Digilogic Systems to co-develop a Synthetic Aperture Radar Environment Simulator, aimed at improving testing processes for SAR payloads. The company has partnered with the European Space Agency and is recognized for its innovation in automatic object detection technologies.</p><a href="https://www.satim.co/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Piersight</button><div class="career-details"><p>Piersight is a space technology company founded in 2023 and based in Ahmedabad, India, specializing in surveillance solutions for the maritime industry. The company focuses on developing a constellation of Synthetic Aperture Radar (SAR) and Automatic Identification System (AIS) satellites to provide persistent monitoring of ocean activities. Piersight's services cater to various sectors, including shipping, maritime insurance, defense, and environmental protection, offering all-weather imaging and low-latency actionable insights. The company has raised a total of $6.72 million in funding, with its latest round being a seed investment. Key founders Gaurav Seth and Vinit Bansal bring extensive experience from the Indian Space Research Organisation (ISRO) and the defense sector. Piersight is also part of the Techstars Space Accelerator program, collaborating with prominent organizations like NASA and the United States Space Force to enhance its technological capabilities.</p><a href="https://jobs.gohire.io/piersight-rfd9c90d/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Ball Corporation</button><div class="career-details"><p>Ball Corporation, through its subsidiary Ball Aerospace, plays a significant role in the remote sensing domain by developing advanced technologies for Earth observation. Notable contributions include the successful completion of environmental testing for the WorldView-3 satellite, which features innovative sensors designed to enhance image quality and atmospheric monitoring capabilities. Ball Aerospace also demonstrated its methane remote sensing technology during the Mobile Monitoring Challenge, effectively detecting methane leaks with high spatial resolution. Additionally, Ball's Operational Land Imager 2 (OLI-2) instrument was launched aboard NASA's Landsat 9 satellite, further solidifying its commitment to providing precise and reliable remote sensing solutions. The company has a rich history of pioneering advancements in aerospace systems and continues to support various applications in environmental monitoring, national security, and scientific research. For more detailed information about their remote sensing.</p><a href="https://www.ball.com/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">ESRI</button><div class="career-details"><p>Esri, founded in 1969 by Jack and Laura Dangermond, is a leading global provider of geographic information system (GIS) software, renowned for its flagship product, ArcGIS. Headquartered in Redlands, California, Esri has established itself as a pioneer in spatial analytics and location intelligence, serving over 350,000 organizations worldwide, including government agencies, businesses, and educational institutions. The company focuses on leveraging geospatial technology to address complex societal challenges such as climate change and urban planning. With a commitment to innovation and sustainability, Esri invests significantly in research and development to enhance its offerings. The company's diverse workforce of over 6,000 employees collaborates with a vast network of partners to deliver effective GIS solutions that empower users to make informed decisions based on geographic data.</p><a href="https://www.esri.com/en-us/about/careers/overview" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Gomspace APS</button><div class="career-details"><p>GomSpace ApS is a Danish company specializing in the design, manufacture, and operation of nanosatellites for various applications, including defense, academic research, and commercial markets. Founded in 2007 and headquartered in Aalborg, Denmark, GomSpace has developed a reputation for its innovative nanosatellite platforms and constellation operations management. The company has successfully launched several missions, such as the GomX-4 satellites, which demonstrated advanced capabilities like inter-satellite communication and high-resolution imaging. GomSpace is also expanding into the microsatellite domain, with recent contracts aimed at developing new platforms for enhanced signal intelligence and surveillance. With a focus on integrated solutions and cutting-edge technology, GomSpace is positioned as a leader in the small satellite industry.</p><a href="https://gomspace.com/careers.aspx" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">ImageSat International</button><div class="career-details"><p>ImageSat International (ISI) is an Israel-based company specializing in satellite photography and data decoding services, primarily for security agencies. Founded in 1999, ISI has established itself as a leader in space-based intelligence solutions, providing high-quality satellite observation services and analytics powered by artificial intelligence. The company operates a constellation of advanced satellites, including the EROS series, which offer ultra-high-resolution imagery for various applications. ISI's capabilities encompass the development of mission-effective satellite systems and multi-satellite command and control ground systems, enabling persistent surveillance and strategic intelligence gathering. With a workforce of approximately 105 employees, ISI continues to innovate in the field of geospatial intelligence, serving some of the world's most demanding defense and intelligence organizations.</p><a href="https://imagesatintl.com/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Maxar Technologies Inc.</button><div class="career-details"><p>Maxar Technologies Inc. is an American space technology company headquartered in Westminster, Colorado, specializing in advanced satellite imaging and geospatial services. Formed in 2017 through the merger of DigitalGlobe and MacDonald, Dettwiler and Associates (MDA), Maxar operates a fleet of high-resolution Earth observation satellites, including the WorldView series, which provides critical data for applications in defense, telecommunications, climate research, and disaster response. The company offers a range of products and services, including Synthetic Aperture Radar (SAR) imaging, Precision3D data suites, and on-demand intelligence solutions.</p><a href="https://www.maxar.com/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Spire Global Inc.</button><div class="career-details"><p>Spire Global Inc. is a satellite-powered data company headquartered in Vienna, Virginia, specializing in providing high-frequency weather data, ship tracking, and other analytics services. Founded in 2012, Spire operates a large constellation of nanosatellites, known as LEMUR (Low Earth Multi-Use Receiver), which allows for comprehensive monitoring of maritime and aviation activities, as well as weather patterns. The company's data is utilized across various sectors, including maritime domain awareness, trade monitoring, and search and rescue operations. Spire's innovative approach combines machine learning and predictive analytics to deliver actionable insights to clients such as government authorities, marine companies, and port operators.</p><a href="https://spire.com/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">China Aerospace Science and Technology Corporation (CASC)</button><div class="career-details"><p>The China Aerospace Science and Technology Corporation (CASC) is a major state-owned enterprise responsible for the development and manufacturing of spacecraft, launch vehicles, and ground equipment in China. Established in 1999, CASC has its roots in the country's aerospace initiatives dating back to 1956. It plays a central role in China's space program and is involved in various sectors, including military and civilian aerospace applications. CASC oversees multiple subsidiaries and research academies, focusing on missile systems, satellite technology, and space exploration. The corporation has made significant contributions to national projects such as manned space missions and lunar exploration. In addition to its core aerospace functions, CASC is involved in producing machinery, chemicals, and communications equipment, reflecting its diverse industrial capabilities. The corporation's strategic focus includes innovation-driven development and enhancing China's position in global aerospace markets.</p><a href="https://english.spacechina.com/n17221/index.html" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Japan Aerospace Exploration Agency (JAXA)</button><div class="career-details"><p>The Japan Aerospace Exploration Agency (JAXA) is the national space agency of Japan, established on October 1, 2003, through the merger of three organizations: the National Space Development Agency (NASDA), the Institute of Space and Astronautical Science (ISAS), and the National Aerospace Laboratory of Japan (NAL). Headquartered in Tsukuba, Ibaraki, JAXA is responsible for a wide range of activities including satellite development, space exploration, and aeronautics research. JAXA's mission encompasses promoting satellite utilization to enhance quality of life, advancing scientific knowledge about the universe, exploring celestial bodies like the Moon and Mars, and ensuring the operation of the International Space Station (ISS). The agency also focuses on developing rocket technologies to meet diverse launch needs and conducting fundamental engineering research for autonomous space activities. With approximately 1,500 staff members, JAXA operates several research centers and facilities across Japan, including the Tanegashima Space Center for rocket launches and the Earth Observation Research Center in Tokyo. The agency is known for its motto "One JAXA" and its corporate slogan "Explore to Realize," reflecting its commitment to utilizing space for societal benefits. JAXA continues to play a pivotal role in international space collaborations and advancements in aerospace technology.</p><a href="https://global.jaxa.jp/about/employ/index.html" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">ROSCOSMOS</button><div class="career-details"><p>ROSCOSMOS, officially known as the State Corporation for Space Activities "Roscosmos," is the governmental body responsible for managing Russia's space program, established in 2015 through the merger of the Federal Space Agency and the United Rocket and Space Corporation. Headquartered in Moscow, ROSCOSMOS oversees a wide range of activities including human spaceflight, satellite operations, and space exploration, playing a significant role in the International Space Station (ISS) program and developing missions to explore celestial bodies like the Moon and Mars. The organization operates several launch facilities, notably the Baikonur Cosmodrome in Kazakhstan and the Vostochny Cosmodrome in Russia's Far East.</p><a href="https://www.roscosmos.ru/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">KaleidEO</button><div class="career-details"><p>KaleidEO is a subsidiary of SatSure, established in 2022 and headquartered in Bengaluru, India. The company focuses on developing high-resolution optical payloads for satellites, aiming to address challenges in imagery acquisition for various applications. KaleidEO has made significant strides in deploying edge computing technology in space, enabling real-time analysis of satellite imagery directly from orbiting satellites. This capability enhances the efficiency of data processing and allows for actionable insights to be generated quickly, which is crucial for applications such as national security and disaster response. The company plans to launch four satellites equipped with edge-computing capabilities by 2025, contributing to India's growing space technology ecosystem. KaleidEO's innovative approach includes the use of artificial intelligence and machine learning algorithms for tasks like cloud detection and change detection in satellite images.</p><a href="https://kaleideo.co/join-us/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">SatSure</button><div class="career-details"><p>SatSure is a Bengaluru-based deep-tech startup founded in 2017, specializing in decision intelligence through the integration of satellite remote sensing, machine learning, and big data analytics. The company focuses on providing actionable insights across various sectors, including agriculture, infrastructure, and climate action. By leveraging satellite imagery combined with additional data sources, SatSure aims to enhance decision-making processes related to agricultural finance, infrastructure monitoring, and climate change mitigation. The company is recognized for its innovative approach to commercializing space data and has established itself as a key player in the Indian space technology ecosystem.</p><a href="https://satsure.co/career.html" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Pixxel</button><div class="career-details"><p>Pixxel is an Indian space technology startup based in Bengaluru, focused on developing a constellation of hyperspectral imaging satellites. Founded in 2018 and backed by Google, Pixxel aims to provide high-resolution Earth observation data with applications across various sectors, including agriculture, environmental monitoring, mining, and defense. The company recently achieved a significant milestone by successfully launching three of its six satellites as part of the Firefly constellation aboard a SpaceX rocket on January 15, 2025. These satellites are designed to capture detailed imagery across hundreds of light bands, enabling precise monitoring of natural resources and environmental changes. Pixxel plans to expand its constellation with an additional 18 satellites.</p><a href="https://www.pixxel.space/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Dhruva Space</button><div class="career-details"><p>Dhruva Space is an Indian aerospace manufacturer headquartered in Hyderabad, founded in 2012 by Sanjay Srikanth Nekkanti. The company specializes in developing small satellites for commercial, governmental, and academic markets, providing full-stack space-engineering solutions that encompass the design, launch, and operation of satellites. Dhruva Space has gained recognition for its innovative capabilities, including the successful testing of its Satellite Orbital Deployer and the launch of amateur radio communication CubeSats as part of ISRO's missions. Dhruva Space has received several awards for its contributions to the space sector and continues to pursue ambitious projects, including collaborations with various organizations and upcoming missions to validate its nanosatellite platforms.</p><a href="https://www.dhruvaspace.com/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Korea Aerospace Research Institute (KARI)</button><div class="career-details"><p>The Korea Aerospace Research Institute (KARI) is South Korea's primary aeronautics and space agency, established in 1989. Located in Daejeon, KARI focuses on advancing the country's aerospace capabilities, including the development of launch vehicles, satellites, and unmanned aerial systems. The institute has been pivotal in several significant projects, such as the KSLV-2 launcher and the Korea Pathfinder Lunar Orbiter (KPLO), which marks South Korea's first lunar exploration mission. KARI's vision includes enhancing indigenous launch capabilities, exploring the Moon, and developing environmentally friendly aircraft technologies. The institute also plays a crucial role in fostering collaboration between government, academia, and industry to strengthen the national space ecosystem. As of early 2024, KARI continues to lead advancements in satellite technology and space exploration initiatives, contributing to South Korea's emergence as a key player in the global space sector.</p><a href="https://www.kari.re.kr/kor.do" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Indian Space Research Organization (ISRO)</button><div class="career-details"><p>The Indian Space Research Organisation (ISRO) is India's national space agency, established on August 15, 1969, with the objective of harnessing space technology for national development. Headquartered in Bengaluru, ISRO operates under the Department of Space (DOS) and has played a pivotal role in advancing India's capabilities in satellite communication, remote sensing, and space exploration. The organization is known for developing reliable launch vehicles like the Polar Satellite Launch Vehicle (PSLV) and the Geosynchronous Satellite Launch Vehicle (GSLV), which have made significant contributions to both national and international satellite launches. ISRO's projects include a wide array of applications such as weather forecasting, disaster management, telemedicine, and education through its extensive fleet of satellites. The agency also emphasizes scientific research and education, conducting missions like the Mars Orbiter Mission (Mangalyaan) and the Chandrayaan lunar missions. With a commitment to future readiness, ISRO is actively pursuing advancements in heavy-lift launchers, reusable vehicles, and human spaceflight initiatives.</p><a href="https://www.isro.gov.in/Careers.html" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Space Applications Centre (SAC)</button><div class="career-details"><p>The Space Applications Centre (SAC) is a key research and development institution under the Indian Space Research Organisation (ISRO), located in Ahmedabad, India. Established in 1972, SAC focuses on the development and application of space technology across various fields, including telecommunications, remote sensing, meteorology, and satellite navigation. The center is responsible for creating payloads for communication satellites like the Indian National Satellite (INSAT) and the Geo-Stationary Satellite (GSAT) series, which support services such as broadcasting, internet, and telecommunication. SAC also plays a significant role in scientific missions, contributing to projects like Chandrayaan-1 and the Mars Orbiter Mission. With advanced facilities for payload integration, environmental testing, and data processing, SAC collaborates with national and international institutions to enhance its research capabilities. Additionally, it offers training programs for students from the Asia-Pacific region in satellite meteorology and communication under the Centre for Space Science and Technology Education in Asia and the Pacific (CSSTEAP).</p><a href="https://www.sac.gov.in/Vyom/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Aaizeltech</button><div class="career-details"><p>Aaizel Tech Labs, a premier research and development hub, focuses on pioneering innovations in technology, particularly in areas such as artificial intelligence, computer vision, natural language processing (NLP), and cybersecurity. The company develops advanced technology products tailored to various needs, including geospatial solutions and climate change monitoring.</p><a href="https://aaizeltech.com/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">National Aeronautics and Space Administration (NASA)</button><div class="career-details"><p>The National Aeronautics and Space Administration (NASA) is an independent agency of the United States federal government, established on July 29, 1958, to oversee the nation's civilian space program and aeronautics research. Headquartered in Washington, D.C., NASA is responsible for a wide range of activities, including human and robotic space exploration, satellite development, and scientific research related to Earth and the universe. The agency has been instrumental in numerous landmark missions, such as the Apollo Moon landings, the Space Shuttle program, and the ongoing International Space Station (ISS) operations. NASA's organizational structure comprises four main directorates: Aeronautics Research, Science, Space Technology, and Human Exploration and Operations. With a rich history of innovation and exploration, NASA continues to lead efforts in advancing space technology and understanding the cosmos through missions like the Mars rovers and the James Webb Space Telescope.</p><a href="https://www.nasa.gov/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">European Space Agency (ESA)</button><div class="career-details"><p>The European Space Agency (ESA) is an intergovernmental organization established in 1975, dedicated to space exploration and technology development. Headquartered in Paris, ESA comprises 23 member states and coordinates their financial and intellectual resources to undertake projects that exceed the capabilities of individual nations. Its mission encompasses a wide range of activities, including Earth observation, navigation, telecommunications, and human and robotic exploration of space. ESA is known for its significant contributions to international space missions, such as participation in the International Space Station (ISS) program and various planetary exploration initiatives. The agency operates several key facilities, including the European Space Research and Technology Centre (ESTEC) in the Netherlands and the European Space Operations Centre (ESOC) in Germany. With an annual budget of approximately €11 billion as of 2023, ESA continues to play a crucial role in advancing Europe's capabilities in space science and technology while collaborating with global partners.</p><a href="https://www.esa.int/About_Us/Careers_at_ESA" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">National Oceanic and Atmospheric Administration (NOAA)</button><div class="career-details"><p>The National Oceanic and Atmospheric Administration (NOAA) is a scientific agency of the United States government, established on October 3, 1970, under the Department of Commerce. NOAA is responsible for understanding and predicting changes in climate, weather, oceans, and coasts, which includes forecasting weather, monitoring oceanic and atmospheric conditions, and conducting research to protect marine resources and manage fisheries. The agency comprises six major offices: the National Weather Service (NWS), which provides weather forecasts and warnings; the National Marine Fisheries Service (NMFS), focused on managing coastal fisheries; the National Ocean Service (NOS), which addresses ocean health; the National Environmental Satellite, Data, and Information Service (NESDIS), responsible for environmental data dissemination; the Office of Oceanic and Atmospheric Research (OAR), conducting environmental research; and the Office of Marine and Aviation Operations (OMAO). NOAA operates numerous research laboratories across the country and plays a crucial role in severe weather preparedness and environmental stewardship.</p><a href="https://www.noaa.gov/work-with-us" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Google Earth Engine</button><div class="career-details"><p>Google Earth Engine (GEE) is a cloud-based platform for planetary-scale geospatial analysis, combining a vast catalog of satellite imagery and geospatial datasets with powerful computational capabilities. It enables users, including researchers and developers, to perform complex analyses on large amounts of data for applications such as environmental monitoring and mapping. GEE provides access to extensive datasets from satellites like Landsat and Sentinel, offering both interactive and batch processing modes through JavaScript and Python APIs. The platform also includes machine learning tools for efficient model development. While free for academic and research use, commercial applications require a subscription. GEE is essential for tracking environmental changes and assessing climate impacts.</p><a href="https://earthengine.google.com/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Trimble</button><div class="career-details"><p>Trimble Inc. is a global technology company founded in 1978, headquartered in Westminster, Colorado. It specializes in providing software, hardware, and services that enhance productivity across various industries, including construction, agriculture, geospatial, and transportation. Trimble's core technologies encompass positioning, modeling, connectivity, and data analytics, which connect the physical and digital worlds to improve efficiency and sustainability. The company is known for its innovations in global navigation satellite systems (GNSS), machine control, and cloud-based solutions. Trimble operates over 150 locations worldwide and has made significant acquisitions to expand its capabilities, including the purchase of SketchUp from Google in 2012. As of 2024, Trimble continues to lead in transforming critical industries through advanced technology solutions.</p><a href="https://www.trimble.com/en/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Hexagon</button><div class="career-details"><p>Hexagon AB is a multinational industrial technology company headquartered in Stockholm, Sweden, specializing in digital reality solutions that integrate sensor, software, and autonomous technologies. Established in 1975, Hexagon has evolved significantly, focusing on measurement technology and geospatial tools since 2000. The company operates across various industries, including construction, manufacturing, agriculture, and defense, providing products and services that enhance productivity and quality through data-driven insights. With around 24,000 employees and revenues of approximately $5.5 billion in 2023, Hexagon has completed over 170 acquisitions to expand its capabilities, including notable subsidiaries like Leica Geosystems. The company is committed to driving sustainability and innovation through continuous investment in research and development.</p><a href="https://hexagon.com/company/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Topcon Positioning Systems</button><div class="career-details"><p>Topcon Positioning Systems, a subsidiary of Topcon Corporation, is a leading provider of precision measurement and workflow solutions for the construction, geospatial, and agriculture sectors. Established in 1994 and headquartered in Livermore, California, Topcon specializes in technologies such as GNSS receivers, total stations, machine control systems, and 3D scanning solutions. The company aims to enhance productivity and efficiency through innovative technologies that integrate high-precision measurement with software and data. Topcon's mission focuses on delivering end-to-end solutions that meet the global demand for sustainable infrastructure and agriculture. The company has a strong presence worldwide, with operations in various countries and a commitment to research and development to advance its product offerings.</p><a href="https://www.topconpositioning.com/company/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">BM Geoinformatics</button><div class="career-details"><p>BM Geoinformatics is an emerging geospatial company based in India, specializing in a range of services including Building Information Modeling (BIM), GIS mapping, 3D laser scanning, and photogrammetry. Established in 2011 and located in Kolkata, the company aims to revolutionize construction and urban planning by integrating advanced technologies into its workflows.</p><a href="https://bmgeomatic.com/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Genesys International Corporation Limited</button><div class="career-details"><p>Genesys International Corporation Limited, established in 1995 and headquartered in Mumbai, India, is a leading provider of advanced mapping, survey, and geospatial services. The company specializes in Geographic Information Systems (GIS), LiDAR, aerial imagery, and 3D mapping technologies. With a workforce of over 2,000 professionals, Genesys has successfully executed numerous projects across various sectors, including urban development, telecommunications, and infrastructure.</p><a href="https://www.igenesys.com/career-page-1" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Rolta India</button><div class="career-details"><p>Rolta India Limited is an Indian multinational technology company headquartered in Mumbai, specializing in innovative IT solutions across various sectors, including government, utilities, oil and gas, and healthcare. Founded in 1982, Rolta has developed a strong portfolio of products and services based on its proprietary intellectual property (IP), focusing on areas such as business intelligence (BI), big data analytics, geospatial visualization, and cloud solutions.</p><a href="http://www.rolta.com/rolta-careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Mapsense Technologies (OPC) Private Limited</button><div class="career-details"><p>Mapsense Technologies (OPC) Private Limited is an Indian startup founded on May 23, 2019, and headquartered in Gurgaon, Haryana. The company specializes in developing enterprise-grade products using geospatial technologies, focusing on location intelligence and real-time location tracking solutions for businesses of various sizes.</p><a href="https://mapsense.in/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Gray Routes Technology Pvt. Ltd</button><div class="career-details"><p>Gray Routes Technology Pvt. Ltd. is a prominent provider of location analytics and field automation software, headquartered in Mumbai, India. Founded in 2015, the company specializes in offering geospatial data and tools that facilitate territory and inventory planning, as well as sales force automation (SFA) implementation.</p><a href="https://www.grayroutes.in/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">HERE Technologies</button><div class="career-details"><p>Here Technologies is a Dutch multinational company specializing in mapping technologies and location data services. Established in 1985 as Navteq, it was acquired by Nokia in 2007 and rebranded as HERE in 2012. The company is majority-owned by a consortium of German automotive manufacturers, including Audi, BMW, and Mercedes-Benz, along with Intel holding a stake.</p><a href="https://www.here.com/about/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Descartes Labs</button><div class="career-details"><p>Descartes Labs is a technology company founded in 2014 and headquartered in Santa Fe, New Mexico. It specializes in automating the analysis of geospatial data to provide actionable insights for various sectors, including agriculture, resource exploration, and climate resilience. The company leverages satellite imagery and advanced analytics to help organizations address critical global challenges, such as food security and environmental monitoring.</p><a href="https://descarteslabs.com/contact" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Aerial Services, Inc. (ASI)</button><div class="career-details"><p>Aerial Services, Inc. (ASI) is a woman-owned small business based in Cedar Falls, Iowa, specializing in high-quality aerial surveys and geospatial services. Founded with a commitment to excellence, integrity, and humility, ASI offers a comprehensive range of services.</p><a href="https://aerialservicesinc.com/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">Satpalda Geospatial Services</button><div class="career-details"><p>Satpalda Geospatial Services is a prominent provider of satellite imagery and geospatial solutions, established in 2019 and based in Delhi, India. The company specializes in delivering high-resolution satellite imagery and a wide range of geospatial services, including photogrammetry, digital surface models (DSM), and digital terrain models (DTM).</p><a href="https://satpalda.co/careers/" target="_blank" class="career-btn">View Careers</a></div></li>
+          <li><button class="career-toggle">ICEYE</button><div class="career-details"><p>ICEYE is a Finnish company that designs, builds, and operates a constellation of synthetic-aperture radar (SAR) satellites. ICEYE's satellites provide near real-time imaging of Earth, which can be used for monitoring and responding to changes.</p><a href="https://www.iceye.com/careers" target="_blank" class="career-btn">View Careers</a></div></li>
+        </ol>
     </main>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
     <script>
-      function filterTable() {
-        let input = document.getElementById("search").value.toLowerCase();
-        let tables = document.getElementsByClassName("companies-table");
+        mermaid.initialize({ startOnLoad: true });
 
-        for (let t = 0; t < tables.length; t++) {
-          let table = tables[t];
-          let rows = table.getElementsByTagName("tr");
+        function filterMindMaps() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let containers = document.getElementsByClassName('mermaid-container');
 
-          for (let i = 1; i < rows.length; i++) {
-            let cells = rows[i].getElementsByTagName("td");
-            let match = false;
-
-            for (let j = 0; j < cells.length; j++) {
-              let cellText = cells[j].textContent.toLowerCase();
-              if (cellText.includes(input)) {
-                match = true;
-                break;
-              }
+            for (let i = 0; i < containers.length; i++) {
+                let containerText = containers[i].textContent.toLowerCase();
+                if (containerText.includes(input)) {
+                    containers[i].style.display = '';
+                    } else {
+                    containers[i].style.display = 'none';
+                }
             }
-
-            if (match) {
-              rows[i].classList.add("highlight");
-              rows[i].style.display = "";
-            } else {
-              rows[i].classList.remove("highlight");
-              rows[i].style.display = "none";
-            }
-          }
         }
-      }
+
+        document.querySelectorAll('.career-toggle').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const details = this.nextElementSibling;
+                const isOpen = details.style.display === 'block';
+                document.querySelectorAll('.career-details').forEach(d => d.style.display = 'none');
+                document.querySelectorAll('.career-toggle').forEach(b => b.classList.remove('active'));
+                if (!isOpen) {
+                    details.style.display = 'block';
+                    this.classList.add('active');
+                }
+            });
+        });
     </script>
-    <script type="module" src="/infi website/Javascript/navBar.js"></script>
-  </body>
+    <script src="../Javascript/script.js"></script>
+    <script type="module" src="../Javascript/navBar.js"></script>
+</body>
 </html>

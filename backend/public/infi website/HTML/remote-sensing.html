@@ -1,208 +1,510 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Remote Sensing PolSAR</title>
-    <link rel="stylesheet" href="/infi website/CSS/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Sensing</title>
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="../CSS/style.css">
     <style>
-      /* Reset default margin and padding */
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background: #d3d3d3;
-        color: #fff;
-      }
+        /* Reset default margin and padding */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #FFFFFF;
+            color: #333;
+        }
 
-      /* Header Styling */
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background: #003366;
-        /* Dark blue background */
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-      }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            background: #003366;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            height: 60px;
+        }
 
-      /* Mobile Menu Icon */
-      #menu {
-        display: none;
-      }
+        /* Logo Image Styling */
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
 
-      /* Container Styling */
-      .container {
-        background-color: #ffffff;
-        /* White background for the container */
-        padding: 20px;
-        margin: 80px auto 20px auto;
-        /* Adjust margin to account for fixed header */
-        max-width: 1200px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+        /* Navigation Bar Styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            margin: 0 20px;
+        }
 
-      /* Remote Sensing Info Styling */
-      .remote-sensing-info {
-        margin-top: 20px;
-      }
+        .navbar ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
 
-      .remote-sensing-info h1,
-      .remote-sensing-info h2,
-      .remote-sensing-info p {
-        margin: 20px 0;
-      }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 8px 12px;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
 
-      .content-section {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        /* Adjust gap */
-        margin: 20px 0;
-        /* background-color: #d9cbcb; */
-        /* Black background for content section */
-        padding: 20px;
-        /* Padding inside the content section */
-        border-radius: 10px;
-        color: #333;
-        /* Rounded corners */
-      }
+        .navbar a:hover {
+            color: #ff4500;
+        }
 
-      .content-section img {
-        max-width: 35%;
-        /* Ensure images are not too large */
-        height: auto;
-        /* Maintain aspect ratio */
-        border-radius: 10px;
-      }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1001;
+            border-radius: 4px;
+        }
 
-      .content-section.reverse {
-        flex-direction: row-reverse;
-      }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-      /* Footer Styling */
-      footer {
-        text-align: center;
-        padding: 15px 0;
-        background-color: #333;
-        color: #fff;
-        margin-top: 20px;
-      }
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: #ff4500;
+        }
+
+        /* Container adjustment for fixed header */
+        .container {
+            margin-top: 80px;
+            background-color: transparent;
+            padding: 0;
+            max-width: none;
+            box-shadow: none;
+            width: 100%;
+        }
+
+        /* Remote Sensing Info Styling */
+        .remote-sensing-info {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .remote-sensing-info h1,
+        .remote-sensing-info h2 {
+            color: #003366;
+            margin: 30px 0 20px 0;
+            text-align: center;
+            font-size: 2.2em;
+        }
+
+        .remote-sensing-info h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #ff4500;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .content-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 60px;
+            margin: 40px 0;
+            padding: 30px;
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .content-section > div {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .content-section img {
+            max-width: 40%;
+            flex-basis: 40%;
+            flex-grow: 1;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .content-section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-section p {
+            line-height: 1.8;
+            text-align: justify;
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .application-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .application-card h3 {
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .rs-type-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .rs-type-btn {
+            padding: 15px 30px;
+            background: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rs-type-btn:hover {
+            background: #ff4500;
+            transform: translateY(-2px);
+        }
+
+        .rs-type-btn i {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .content-section img {
+                max-width: 100%;
+            }
+
+            .content-section.reverse {
+                flex-direction: column;
+            }
+
+            .rs-type-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* Add new styles for RS type descriptions */
+        .rs-type-descriptions {
+            margin-top: 30px;
+        }
+
+        .rs-type-card {
+            background: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff4500;
+        }
+
+        .rs-type-card h3 {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        .rs-type-card p {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .rs-type-buttons {
+            margin-bottom: 30px;
+        }
+
+        .types-section {
+            width: 100vw;
+            margin: 0 0 40px 0;
+            background: #fff;
+            border-radius: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            padding: 40px 0;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .types-section h2 {
+            color: #003366;
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom: 2px solid #ff4500;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+            width: 90%;
+            max-width: 1000px;
+        }
+        .rs-type-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            width: 90%;
+            max-width: 1000px;
+            justify-content: center;
+        }
+        .rs-type-btn {
+            padding: 15px 30px;
+            background: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0;
+            min-width: 220px;
+            justify-content: center;
+        }
+        .rs-type-btn:hover {
+            background: #ff4500;
+            transform: translateY(-2px);
+        }
+        .rs-type-desc {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff4500;
+            min-width: 250px;
+        }
+        .rs-type-desc h3 {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        .rs-type-desc p {
+            color: #444;
+            line-height: 1.6;
+        }
+        @media (max-width: 900px) {
+            .rs-type-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .types-section h2, .rs-type-row {
+                width: 98%;
+            }
+        }
+        /* Center the global page content */
+        body, html {
+            width: 100vw;
+            overflow-x: hidden;
+        }
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            float: none;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-    <header>
-      <a href="home.html" class="logo">
-        <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img" />
-      </a>
-      <div id="menu" class="fas fa-bars"></div>
-      <nav id="navbar" class="navbar"></nav>
-    </header>
-    <span id="navBarTracker">Nav bar tracker</span>
+<body>
+    <div id="navbar"></div>
+    <div id="navBarTracker"></div>
 
     <div class="container">
-      <main>
-        <section class="remote-sensing-info">
-          <h1>What is Remote Sensing?</h1>
-          <div class="content-section">
-            <div>
-              <p>
-                Remote Sensing Overview: Remote sensing is the process of
-                acquiring information about an object or area without making
-                physical contact. This is typically achieved by capturing data
-                through sensors mounted on various platforms. Platforms in the
-                Image: Spaceborne (Satellites): Satellites equipped with remote
-                sensing instruments orbit the Earth and collect large-scale data
-                over wide areas. They are effective for monitoring global
-                phenomena such as deforestation, weather patterns, and urban
-                growth. Airborne (Aircraft): Planes or helicopters carry sensors
-                closer to the Earth's surface. They are useful for regional
-                studies with finer spatial resolution than satellites. UAVs
-                (Unmanned Aerial Vehicles/Drones): Drones are a flexible option
-                for high-resolution, small-scale data collection. They are
-                commonly used for precision agriculture, environmental
-                monitoring, and disaster response. Ground-Based Sensors: Fixed
-                or mobile sensors placed on the ground provide detailed and
-                localized data. They are often used to calibrate and validate
-                data from airborne or satellite sensors. Applications of Remote
-                Sensing: Monitoring vegetation health Tracking land-use changes
-                Assessing natural disasters (floods, wildfires) Climate change
-                studies Precision agriculture.
-              </p>
-            </div>
-            <img
-              src="/infi website/INTRODUCTION TO RS/Images/intrors.webp"
-              alt="Remote Sensing"
-            />
-          </div>
+        <main>
+            <section class="remote-sensing-info">
+                <h1>Understanding Remote Sensing</h1>
+                <div class="content-section">
+                    <div>
+                        <h2>What is Remote Sensing?</h2>
+                        <p>Remote sensing is the science of acquiring information about objects or areas from a distance, typically from aircraft or satellites. This technology involves the use of various types of sensors that detect and measure electromagnetic radiation reflected or emitted from the Earth's surface.</p>
+                        <p>Platforms used in Remote Sensing:</p>
+                        <ul>
+                            <li><strong>Spaceborne (Satellites):</strong> Orbit the Earth and collect large-scale data over wide areas</li>
+                            <li><strong>Airborne (Aircraft):</strong> Provide regional studies with finer spatial resolution</li>
+                            <li><strong>UAVs (Drones):</strong> Offer high-resolution, small-scale data collection</li>
+                            <li><strong>Ground-Based Sensors:</strong> Provide detailed and localized data</li>
+                        </ul>
+                    </div>
+                    <img src="../INTRODUCTION TO RS/Images/intrors.webp" alt="Remote Sensing">
+                </div>
 
-          <h2>Why Remote Sensing?</h2>
-          <div class="content-section reverse">
-            <div>
-              <p>
-                Remote sensing allows for the collection of data over large
-                areas and in inaccessible regions, providing critical
-                information for a variety of applications including
-                environmental monitoring, disaster management, and resource
-                exploration.
-              </p>
-            </div>
-            <img src="/infi website/image/r2.jpeg" alt="Why Remote Sensing" />
-          </div>
+                <div class="rs-type-buttons">
+                    <a href="optical.html" class="rs-type-btn">
+                        <i class="fas fa-sun"></i>
+                        Optical Remote Sensing
+                    </a>
+                    <a href="microwave.html" class="rs-type-btn">
+                        <i class="fas fa-broadcast-tower"></i>
+                        Microwave Remote Sensing
+                    </a>
+                    <a href="thermal.html" class="rs-type-btn">
+                        <i class="fas fa-temperature-high"></i>
+                        Thermal Remote Sensing
+                    </a>
+                </div>
 
-          <h2>Types of Remote Sensing</h2>
-          <div class="content-section">
-            <div>
-              <p>
-                <strong>Optical Remote Sensing:</strong> Uses visible,
-                near-infrared, and short-wave infrared sensors to detect
-                reflected sunlight.
-              </p>
-              <p>
-                <strong>Microwave Remote Sensing:</strong> Uses radar to
-                penetrate clouds and collect data in all weather conditions.
-              </p>
-              <p>
-                <strong>Thermal Remote Sensing:</strong> Detects heat emitted
-                from the Earth's surface.
-              </p>
-            </div>
-            <img
-              src="/infi website/image/r4.jpeg"
-              alt="Types of Remote Sensing"
-            />
-          </div>
+                <h2>Key Applications</h2>
+                <div class="application-grid">
+                    <div class="application-card">
+                        <h3>Environmental Monitoring</h3>
+                        <p>Track deforestation, monitor water quality, and assess air pollution levels using satellite imagery and remote sensing data.</p>
+                    </div>
+                    <div class="application-card">
+                        <h3>Agriculture</h3>
+                        <p>Monitor crop health, estimate yields, and optimize irrigation using multispectral and thermal imaging.</p>
+                    </div>
+                    <div class="application-card">
+                        <h3>Disaster Management</h3>
+                        <p>Assess damage from natural disasters, monitor flood extents, and track wildfire progression in real-time.</p>
+                    </div>
+                    <div class="application-card">
+                        <h3>Urban Planning</h3>
+                        <p>Monitor urban growth, assess infrastructure development, and analyze land use patterns.</p>
+                    </div>
+                    <div class="application-card">
+                        <h3>Climate Studies</h3>
+                        <p>Track climate change indicators, monitor ice caps, and study atmospheric conditions.</p>
+                    </div>
+                    <div class="application-card">
+                        <h3>Natural Resource Management</h3>
+                        <p>Map mineral resources, monitor forest cover, and assess water resources.</p>
+                    </div>
+                </div>
 
-          <h2>General Applications</h2>
-          <div class="content-section reverse">
-            <div>
-              <p>
-                Remote sensing is used in a variety of fields including
-                agriculture, forestry, land-use planning, environmental
-                monitoring, and disaster management. It helps in mapping land
-                cover, monitoring deforestation, assessing crop health, and
-                managing natural disasters like floods and earthquakes.
-              </p>
-            </div>
-            <img src="/infi website/image/r3.jpeg" alt="Applications" />
-          </div>
-        </section>
-      </main>
+                <div class="content-section reverse">
+                    <div>
+                        <h2>Why Choose Remote Sensing?</h2>
+                        <p>Remote sensing offers numerous advantages:</p>
+                        <ul>
+                            <li>Large area coverage and global perspective</li>
+                            <li>Cost-effective data collection</li>
+                            <li>Access to inaccessible areas</li>
+                            <li>Real-time monitoring capabilities</li>
+                            <li>Historical data analysis</li>
+                            <li>Multi-temporal analysis</li>
+                        </ul>
+                    </div>
+                    <img src="../image/r4.jpeg" alt="Types of Remote Sensing">
+                </div>
+
+                <div class="content-section">
+                    <div>
+                        <h2>Types of Remote Sensing</h2>
+                        
+                            
+                            
+                        </div>
+                        <div class="rs-type-descriptions">
+                            <div class="rs-type-card">
+                                <h3>Optical Remote Sensing</h3>
+                                <p>Uses visible, near-infrared, and short-wave infrared sensors to detect reflected sunlight. Ideal for vegetation analysis and land cover mapping. Provides high-resolution imagery and is widely used in environmental monitoring.</p>
+                                
+                            <a href="optical.html" class="rs-type-btn">
+                                <i class="fas fa-sun"></i>
+                                Optical Remote Sensing
+                            </a>
+                            </div>
+                            <div class="rs-type-card">
+                                <h3>Microwave Remote Sensing</h3>
+                                <p>Uses radar to penetrate clouds and collect data in all weather conditions. Perfect for all-weather monitoring and surface deformation studies. Essential for monitoring through cloud cover and during nighttime.</p>
+                                <a href="microwave.html" class="rs-type-btn">
+                                    <i class="fas fa-broadcast-tower"></i>
+                                    Microwave Remote Sensing
+                                </a>
+                            </div>
+                            <div class="rs-type-card">
+                                <h3>Thermal Remote Sensing</h3>
+                                <p>Detects heat emitted from the Earth's surface. Useful for temperature mapping and thermal anomaly detection. Valuable for monitoring volcanic activity, urban heat islands, and thermal pollution.</p>
+                                <a href="thermal.html" class="rs-type-btn">
+                                    <i class="fas fa-temperature-high"></i>
+                                    Thermal Remote Sensing
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        </main>
     </div>
 
+    
+
     <footer>
-      <p>Copyright © 2024 All rights reserved |</p>
+        <p>Copyright © 2024 All rights reserved |</p>
     </footer>
-    <script type="module" src="/infi website/Javascript/navBar.js"></script>
-  </body>
+
+    <!-- JavaScript Files -->
+    <script src="../Javascript/script.js"></script>
+    <script type="module" src="../Javascript/navBar.js"></script>
+</body>
+
 </html>

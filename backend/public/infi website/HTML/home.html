@@ -7,36 +7,76 @@
     <title>Home - Learn RS & MW</title>
 
     <!-- Font Awesome CDN Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS File Link -->
-    <link rel="stylesheet" href="/infi website/CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        @keyframes colorChange {
+            0% { color: #ff4500; }  /* Orange-red */
+            25% { color: #FFFFFF; } /* White */
+            50% { color: #ADD8E6; } /* Light Blue */
+            75% { color: #FFD700; } /* Gold */
+            100% { color: #ff4500; } /* Back to orange-red */
+        }
+
+        body {
+            background: url('../Cover%20image/cover%20images/Earth.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        /* Optional: add a dark overlay for readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            
+            z-index: 0;
+            pointer-events: none;
+        }
+        .container, main, section, .website-info, .info-content {
+            position: relative;
+            z-index: 1;
+        }
+        .website-info h1 {
+            color: #ffffff;
+        }
+        .website-info {
+            padding: 6rem 4rem;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <header>
             <a href="#" class="logo">
-                <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img">
+                <img src="../image/logo.jpeg" alt="Logo" class="logo-img">
             </a>
 
             <div id="menu" class="fas fa-bars"></div>
 
-            <nav id="navbar" class="navbar">
-                <!-- <ul>
+            <nav class="navbar">
+                <ul>
                     <li><a href="home.html" class="active">Home</a></li>
                     <li class="dropdown">
-                        <a href="resources.html" class="dropbtn">Resources</a>
+                        <a href="#" class="dropbtn">Resources</a>
                         <div class="dropdown-content">
                             <a href="Fundamental.html">Fundamentals</a>
-                            <a href="Technical Papers.html">Technical Papers</a>
+                            <a href="Technical Paper.html">Technical Papers</a>
                             <a href="Books.html">Books</a>
                             <a href="Videos.html">Videos</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="domain-expert.html" class="dropbtn">Domain Experts</a>
+                        <a href="#" class="dropbtn">Domain Experts</a>
                         <div class="dropdown-content">
                             <a href="academicians.html">Academicians</a>
                             <a href="Industry Personnel.html">Industry Personnel</a>
@@ -44,7 +84,7 @@
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="downloads.html" class="dropbtn">Downloads</a>
+                        <a href="#" class="dropbtn">Downloads</a>
                         <div class="dropdown-content">
                             <a href="datadownload.html">Data Download</a>
                             <a href="opensource.html">Software</a>
@@ -57,8 +97,8 @@
                     </li>
                     <li><a href="career.html">Career</a></li>
                     <li><a href="event.html">Events</a></li>
-                    <li><a href="blog.html">Blog</a></li>  Blog link added 
-                    <li><a href="contact.html">Contact Us</a></li> Contact Us link added
+                    <li><a href="blog.html">Blog</a></li> <!-- Blog link added -->
+                    <li><a href="contact.html">Contact Us</a></li> <!-- Contact Us link added -->
                     <li>
                         <form class="search-form">
                             <input type="text" placeholder="Search...">
@@ -66,42 +106,36 @@
                         </form>
                     </li>
                     <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
-                </ul> -->
+                </ul>
             </nav>
         </header>
 
-        <!-- Slideshow Section -->
-        <div class="slideshow-container">
-            <!-- SLIDESHOW_SECTION_START -->
-            <div class="mySlides fade">
-                <img src="/infi website/image/Cover image/cover images/Earth.png" alt="Slide 1">
-                <div class="text">
-                    <h2>MAKE YOUR JOURNEY MORE INTERESTING</h2>
-                    <button class="watch-video">WATCH VIDEO <i class="fas fa-video"></i></button>
-                    <button class="read-more">READ MORE</button>
+        <!-- Website Info Section -->
+        <section class="website-info">
+            <div class="info-content">
+                <h1>Welcome to Remote Sensing & Microwave Learning Platform</h1>
+                <p>Your comprehensive resource for learning about Remote Sensing and Microwave technology. Explore our extensive collection of resources, connect with domain experts, and enhance your knowledge in this fascinating field.</p>
+                
+                <div class="hover-buttons">
+                    <a href="Fundamental.html" class="hover-btn">
+                        <i class="fas fa-book"></i>
+                        <span>Resources</span>
+                    </a>
+                    <a href="Researchers.html" class="hover-btn">
+                        <i class="fas fa-users"></i>
+                        <span>Domain Experts</span>
+                    </a>
+                    <a href="datadownload.html" class="hover-btn">
+                        <i class="fas fa-download"></i>
+                        <span>Downloads</span>
+                    </a>
+                    <a href="education.html" class="hover-btn">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Education</span>
+                    </a>
                 </div>
             </div>
-            <div class="mySlides fade">
-                <img src="/infi website/image/Cover image/cover images/Satellite.png" alt="Slide 2">
-                <div class="text">
-                    <h2>EXPLORE THE UNIVERSE</h2>
-                    <button class="watch-video">WATCH VIDEO <i class="fas fa-video"></i></button>
-                    <button class="read-more">READ MORE</button>
-                </div>
-            </div>
-            <div class="mySlides fade">
-                <img src="/infi website/image/Cover image/cover images/free-photo-of-satellite-orbiting-earth-with-blue-ocean-view.jpg" alt="Slide 3">
-                <div class="text">
-                    <h2>DISCOVER NEW HORIZONS</h2>
-                    <button class="watch-video">WATCH VIDEO <i class="fas fa-video"></i></button>
-                    <button class="read-more">READ MORE</button>
-                </div>
-            </div>
-            <!-- Additional slides can be added here -->
-            <!-- SLIDESHOW_SECTION_END -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
+        </section>
 
         <main>
             <!-- INTRO_SECTION_START -->
@@ -113,14 +147,13 @@
                         sensors that detect and measure electromagnetic radiation reflected or emitted from the Earth's
                         surface.
                     </p>
-                    <a href="/infi website/HTML/remote-sensing.html"><button class="explore-more">Start Exploring</button></a>
+                    <a href="remote-sensing.html"><button class="explore-more">Start Exploring</button></a>
                 </div>
-                <img src="/infi website/image/Cover image/cover images/Suez_Canal,_Egypt_(satellite_view).jpg" alt="Satellite" class="content-image-right">
+                <img src="../image/remotesensing.jpeg" alt="Satellite" class="content-image-right">
             </section>
 
-
             <section class="intro-microwave-remote-sensing">
-                <img src="/infi website/Microwave RS/Images/microwave-remote-sensing.avif" alt="Satellite" class="content-image-left">
+                <img src="../Microwave%20RS/Images/microwave-remote-sensing.avif" alt="Satellite" class="content-image-left">
                 <div class="content-right">
                     <h1>INTRODUCTION TO MICROWAVE REMOTE SENSING</h1>
                     <p>Microwave remote sensing is a subset of remote sensing that involves the use of microwave
@@ -128,7 +161,7 @@
                         (with wavelengths ranging from 1 millimeter to 1 meter) to gather information about the Earth's
                         surface and atmosphere. This type of remote sensing can penetrate clouds, rain, and vegetation.
                     </p>
-                    <a href="/infi website/HTML/microwave.html"><button class="explore-more">Learn More</button></a>
+                    <a href="microwave.html"><button class="explore-more">Learn More</button></a>
                 </div>
                 
             </section>
@@ -136,10 +169,10 @@
                 <div class="content-left">
                     <h2>INTRODUCTION TO OPTICAL REMOTE SENSING</h2>
                     <p>Optical remote sensing uses visible, infrared, and thermal radiation to capture images of the Earth's surface...</p>
-                    <a href="/infi website/HTML/optical.html"><button class="explore-more">Read More</button></a>
+                    <a href="optical.html"><button class="explore-more">Read More</button></a>
                 </div>
                 <div class="content-image-right">
-                    <img src="/infi website/Optical image/Optical image/optical1.jpg" alt="Optical Remote Sensing Image">
+                    <img src="../Optical%20image/Optical%20image/optical1.jpg" alt="Optical Remote Sensing Image">
                 </div>
             </div>
             
@@ -148,17 +181,13 @@
             <!-- FEATURED_SECTION_START -->
             <section class="featured-news">
                 <h1>LATEST NEWS <span class="live-indicator">LIVE</span></h1>
-                <div class="news-carousel">
-            <div id="news-track" class="news-track">
-              <div class="news-card">
-                <img src="https://via.placeholder.com/300x150" alt="News 1" />
-                <h3>Breaking: New Tech Unveiled</h3>
-                <p>
-                  Today, a new tech gadget was released that could change the
-                  game for mobile users...
-                </p>
-              </div>
-            </div>
+                <div class="news-items">
+                    <!-- News items will be dynamically loaded here -->
+                    <div class="loading-news">Loading latest news...</div>
+                </div>
+                <div class="bottom-center">
+                    <p><a href="event.html" class="explore-more">View All News</a></p>
+                </div>
             </section>
             <!-- FEATURED_SECTION_END -->
 
@@ -194,11 +223,10 @@
     </div>
 
     <!-- JavaScript Files -->
-    <script src="/infi website/Javascript/script.js"></script>
-    <script src="/infi website/Javascript/slider.js"></script>
-    <script type="module" src="/infi website/Javascript/navBar.js"></script>
-    <script src="/infi website/Javascript/homeNews.js"></script>
-    <!-- <script src="../Javascript/news-api.js"></script> -->
+    <script src="../Javascript/script.js"></script>
+    <script src="../Javascript/slider.js"></script>
+    <script src="../Javascript/news-api.js"></script>
+    <script type="module" src="../Javascript/navBar.js"></script>
 </body>
 
 </html>

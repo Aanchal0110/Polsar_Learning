@@ -1,230 +1,212 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Learn RS & MW</title>
-
-    <!-- Font Awesome CDN Link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-
-    <!-- Custom CSS File Link -->
-    <link rel="stylesheet" href="/infi website/CSS/style.css" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - Learn RS & MW</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="../CSS/style.css" />
     <style>
-      .navbar a.active {
-        color: red; /* Red color for active "Resources" */
-      }
-
-      .navbar a:hover {
-        color: #1e90ff;
-      }
-
+    .navbar a.active { color: red; }
+    .navbar a:hover { color: #1e90ff; }
       header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background: #002147; /* Navbar background color */
-      }
-
-      main {
-        margin-top: 80px; /* Add space to account for the navbar height */
-        padding: 20px;
-      }
-
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 2rem;
-        color: #333; /* Adjust color if needed */
-      }
-
-      /* Styling for the table */
-      .book-table {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        border-collapse: collapse;
-        background: #f7f7f7; /* Light background for the table */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-      }
-
-      .book-table thead {
-        background-color: #d6d6d6;
-        color: #000;
-      }
-
-      .book-table th,
-      .book-table td {
-        text-align: left;
-        padding: 1rem;
-        font-size: 1rem;
-        border-bottom: 1px solid #ccc;
-        color: #333;
-      }
-
-      .book-table th {
-        text-transform: uppercase;
-        font-weight: bold;
-      }
-
-      .book-table tr:hover {
-        background-color: #eaeaea;
-      }
-
-      .book-table td img {
-        width: 80px;
-        height: 100px;
-        object-fit: cover;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-
-      .book-table td a {
-        color: #1e90ff;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .book-table td a:hover {
-        text-decoration: underline;
-      }
-
-      .book-table td p {
-        margin: 0.8rem 0 0;
-        color: #666;
-        font-size: 0.9rem;
-      }
-
-      .search-form {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      /* .search-form input {
-        padding: 0.5rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 200px;
-      }
-
-      .search-form button {
-        background-color: #1e90ff;
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-      } */
-
-      .search-form button:hover {
-        background-color: #005bb5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+      background: #002147;
+    }
+    main { margin-top: 80px; padding: 20px; }
+    h1 { text-align: center; color: #333; margin-bottom: 20px; }
+    .search-bar { display: flex; justify-content: center; margin-bottom: 30px; }
+    .search-bar input {
+      padding: 0.5rem; font-size: 1rem; width: 300px;
+      border: 1px solid #ccc; border-radius: 5px;
+    }
+    .card-container {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 20px;
+    }
+    .card {
+      background: #fff; width: 280px;
+      border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: scale(1.02); }
+    .card img {
+      width: 100%; height: 180px; object-fit: cover;
+    }
+    .card-content { padding: 15px; flex: 1; display: flex; flex-direction: column; }
+    .card-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 8px; color: #002147; }
+    .card-author { font-size: 0.95rem; margin-bottom: 8px; color: #666; }
+    .card-desc { font-size: 0.9rem; color: #444; flex: 1; }
+    .read-more {
+      color: #1e90ff; cursor: pointer; font-weight: bold;
+      margin-top: 10px;
       }
     </style>
   </head>
-
   <body>
     <header>
-      <a href="#" class="logo">
-        <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img" />
-      </a>
-
+    <a href="#" class="logo"><img src="../image/logo.jpeg" alt="Logo" class="logo-img" /></a>
       <div id="menu" class="fas fa-bars"></div>
-
-      <nav id="navbar" class="navbar"></nav>
+      <nav class="navbar">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li class="dropdown">
+          <a href="#" class="dropbtn active">Resources</a>
+              <div class="dropdown-content">
+                  <a href="Fundamental.html">Fundamentals</a>
+                  <a href="Technical Paper.html">Technical Papers</a>
+                  <a href="Books.html">Books</a>
+                  <a href="Videos.html">Videos</a>
+              </div>
+          </li>
+          <li class="dropdown">
+              <a href="#" class="dropbtn">Domain Experts</a>
+              <div class="dropdown-content">
+                  <a href="academicians.html">Academicians</a>
+                  <a href="Industry Personnel.html">Industry Personnel</a>
+                  <a href="Researchers.html">Researchers</a>
+              </div>
+          </li>
+          <li class="dropdown">
+              <a href="#" class="dropbtn">Downloads</a>
+              <div class="dropdown-content">
+            <a href="datadownload.html">Data Download</a>
+                  <a href="opensource.html">Software</a>
+              </div>
+          </li>
+        <li class="dropdown"><a href="education.html" class="dropbtn">Education</a></li>
+        <li><a href="career.html">Career</a></li>
+        <li><a href="event.html">Events</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li>
+              <form class="search-form">
+            <input type="text" placeholder="Search..." required />
+                  <button type="submit"><i class="fas fa-search"></i></button>
+              </form>
+          </li>
+        <li><a href="login.html" class="login-icon"><i class="fas fa-user"></i> Login</a></li>
+      </ul>
+      </nav>
     </header>
-
-    <span id="navBarTracker">Nav bar tracker</span>
-
     <main>
       <h1>Books</h1>
-      <table class="book-table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody id="table_body">
-          <tr>
-            <td>
-              <img
-                src="/infi website/image/book1 Arthur P. Cracknell.jpg"
-                alt="Introduction to Remote Sensing"
-              />
-            </td>
-            <td><a href="#">Introduction to Remote Sensing</a></td>
-            <td>Arthur P. Cracknell</td>
-            <td>
-              Comprehensive introduction with applications across multiple
-              scientific domains.
-            </td>
-          </tr>
-          <!-- <tr>
-            <td>
-              <img
-                src="/infi website/image/book2BC panda.jpeg"
-                alt="Remote Sensing: Principles and Applications"
-              />
-            </td>
-            <td>
-              <a href="#">Remote Sensing: Principles and Applications</a>
-            </td>
-            <td>B C Panda</td>
-            <td>
-              Focus on principles and recent advancements in remote sensing.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img
-                src="/infi website/image/Book3 Bradley A. Shellito.jpg"
-                alt="Introduction to Geospatial Technologies"
-              />
-            </td>
-            <td><a href="#">Introduction to Geospatial Technologies</a></td>
-            <td>Bradley A. Shellito</td>
-            <td>Theoretical and hands-on GIS with cloud integration.</td>
-          </tr>
-          <tr>
-            <td>
-              <img
-                src="/infi website/image/book4.jpg"
-                alt="Remote Sensing and GIS"
-              />
-            </td>
-            <td><a href="#">Remote Sensing and GIS</a></td>
-            <td>Basudeb Bhatta</td>
-            <td>Covers optical, thermal, and microwave remote sensing.</td>
-          </tr>
-          <tr>
-            <td>
-              <img
-                src="/infi website/image/book5.jpg"
-                alt="Physical Fundamentals of Remote Sensing"
-              />
-            </td>
-            <td>
-              <a href="#">Physical Fundamentals of Remote Sensing</a>
-            </td>
-            <td>E. Schanda</td>
-            <td>Focus on electromagnetic radiation and natural objects.</td>
-          </tr> -->
-        </tbody>
-      </table>
-    </main>
-    <script src="/infi website/Javascript/navBar.js" type="module"></script>
-    <script type="module" src="/infi website/Javascript/book.js"></script>
-    <!-- <script type="module" src="/infi website/JavaScript/book_1.js"></script> -->
+    <div class="search-bar">
+      <input type="text" id="bookSearch" placeholder="Search by title, author, or keyword..." onkeyup="filterCards()" />
+    </div>
+    <div class="card-container" id="cardContainer">
+      <!-- Cards will be dynamically injected -->
+    </div>
+  </main>
+  <script>
+    const books = [
+      {
+        title: "Introduction to Remote Sensing",
+        author: "Arthur P. Cracknell",
+        desc: "Physical principles, satellite systems, lidar, SAR applications. A comprehensive guide to satellite remote sensing techniques, image interpretation, and current applications in Earth observation.",
+        img: "../BOOKS image/Introduction to remote sending.jpg"
+      },
+      {
+        title: "Remote Sensing: Principles and Applications",
+        author: "B C Panda",
+        desc: "Core principles, sensor technologies, data interpretation. Detailed exploration of electromagnetic theory, sensor design, and practical case studies across varied environments.",
+        img: "../BOOKS image/principle of remote sensing.jpg"
+      },
+      {
+        title: "Microwave Remote Sensing",
+        author: "Fawwaz Ulaby",
+        desc: "Comprehensive series on microwave sensing, radar backscatter models, and passive/active systems used in environmental observation and analysis.",
+        img: "../BOOKS image/Microwave Radar and Radiometric Remote Sensing.jpg"
+      },
+      {
+        title: "Fundamentals of Remote Sensing",
+        author: "George Joseph",
+        desc: "Basic concepts of remote sensing, data processing, sensor details, and its applications in Indian and global contexts.",
+        img: "../BOOKS image/Introduction to the physical and techniques.jpg"
+      },
+      {
+        title: "Remote Sensing and Image Interpretation",
+        author: "Lillesand, Kiefer, and Chipman",
+        desc: "Highly cited textbook covering the complete remote sensing workflow, image acquisition, processing, and interpretation techniques.",
+        img: "../BOOKS image/Remote Sensing Digital Image Analysis An Introduction.jpg"
+      },
+      {
+        title: "Synthetic Aperture Radar Remote Sensing",
+        author: "A. Moreira, D. Floricio",
+        desc: "Advanced book on SAR techniques, data processing, and applications in geosciences, disaster monitoring, and climate studies.",
+        img: "../BOOKS image/Introduction to Synthetic Aperture Radar (Sar) Polarimetry.jpg"
+      },
+      {
+        title: "Remote Sensing and GIS",
+        author: "B. Bhatta",
+        desc: "This book integrates remote sensing with GIS, focusing on applications in urban planning, land use analysis, and environmental monitoring.",
+        img: "../BOOKS image/Remote sensing and GIS.jpg"
+      },
+      {
+        title: "Understanding GPS: Principles and Applications",
+        author: "Elliott D. Kaplan, Christopher J. Hegarty",
+        desc: "Detailed explanation of GPS fundamentals, signal structures, receiver design, and global navigation satellite systems.",
+        img: "../BOOKS image/Applied Spatial Data Analysis with R.jpg"
+      },
+      {
+        title: "Digital Image Processing",
+        author: "Rafael C. Gonzalez, Richard E. Woods",
+        desc: "Fundamentals and techniques in image processing including enhancement, restoration, segmentation, and compression.",
+        img: "../BOOKS image/Introductory Digital Image Processing.jpg"
+      },
+      {
+        title: "Principles of Remote Sensing",
+        author: "C. S. Agrawal & P. K. Garg",
+        desc: "Introduces the theoretical foundations and applications of remote sensing in natural resource management and mapping.",
+        img: "../BOOKS image/principle of remote sensing.jpg"
+      },
+      {
+        title: "Hyperspectral Remote Sensing",
+        author: "Prem Chandra Pandey",
+        desc: "Explores advanced spectral imaging technologies and their applications in agriculture, forestry, and mineral exploration.",
+        img: "../BOOKS image/Hyperspectral rs.jpg"
+      }
+    ];
+
+    function generateCards() {
+      const container = document.getElementById('cardContainer');
+      container.innerHTML = books.map(book => `
+        <div class="card">
+          <img src="${book.img}" alt="${book.title}">
+          <div class="card-content">
+            <div class="card-title">${book.title}</div>
+            <div class="card-author">${book.author}</div>
+            <div class="card-desc">
+              ${book.desc.substring(0, 100)}<span class="more-text" style="display:none;">${book.desc.substring(100)}</span>
+            </div>
+            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
+          </div>
+      </div>
+      `).join('');
+    }
+
+    function toggleReadMore(el) {
+      const more = el.previousElementSibling.querySelector('.more-text');
+      if (!more) return;
+      more.style.display = (more.style.display === 'none') ? 'inline' : 'none';
+      el.textContent = (el.textContent === 'Read more') ? 'Read less' : 'Read more';
+    }
+
+    function filterCards() {
+      const term = document.getElementById('bookSearch').value.toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        const txt = card.textContent.toLowerCase();
+        card.style.display = txt.includes(term) ? 'flex' : 'none';
+      });
+    }
+
+    window.onload = generateCards;
+  </script>
+  <script src="../Javascript/script.js"></script>
+  <script type="module" src="../Javascript/navBar.js"></script>
   </body>
 </html>

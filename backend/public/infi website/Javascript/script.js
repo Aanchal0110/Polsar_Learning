@@ -68,9 +68,27 @@ document.querySelectorAll('.rating .fa-star').forEach(star => {
 });
 
 // Navbar Toggling for Mobile View
-// document.getElementById('menu').addEventListener('click', function () {
-//     console.log("I was clicked")
-//     const navbar = document.querySelector('.navbar');
-//     // const menu = document.getElementById("menu");
-//     navbar.classList.toggle('active');
-// });
+document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.getElementById('menu');
+    const navbar = document.querySelector('.navbar');
+    
+    if (menuBtn) {
+        menuBtn.addEventListener('click', function() {
+            navbar.classList.toggle('active');
+        });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navbar.contains(e.target) && !menuBtn.contains(e.target)) {
+            navbar.classList.remove('active');
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 800) {
+            navbar.classList.remove('active');
+        }
+    });
+});

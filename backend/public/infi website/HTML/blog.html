@@ -1,74 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - PolSAR</title>
 
     <!-- Font Awesome CDN Link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- Custom CSS File Link -->
-    <link rel="stylesheet" href="/infi website/CSS/blog.css" />
-    <link rel="stylesheet" href="/infi website/CSS/style.css" />
-  </head>
+    <link rel="stylesheet" href="../CSS/blog.css">
+</head>
 
-  <body>
+<body>
     <div class="container">
-      <header>
-        <a href="#" class="logo">
-          <img
-            src="/infi website/image/logo.jpeg"
-            alt="Logo"
-            class="logo-img"
-          />
-        </a>
+        <header>
+            <a href="#" class="logo">
+                <img src="../image/logo.jpeg" alt="Logo" class="logo-img">
+            </a>
 
-        <div id="menu" class="fas fa-bars"></div>
+            <div id="menu" class="fas fa-bars"></div>
 
-        <nav id="navbar" class="navbar"></nav>
-      </header>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Resources</a>
+                        <div class="dropdown-content">
+                            <a href="Fundamental.html">Fundamentals</a>
+                            <a href="Technical Paper.html">Technical Papers</a>
+                            <a href="Books.html">Books</a>
+                            <a href="Videos.html">Videos</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Domain Experts</a>
+                        <div class="dropdown-content">
+                            <a href="academicians.html">Academicians</a>
+                            <a href="Industry Personnel.html">Industry Personnel</a>
+                            <a href="Researchers.html">Researchers</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Downloads</a>
+                        <div class="dropdown-content">
+                            <a href="datadownload.html">Data Download</a>
+                            <a href="opensource.html">Software</a>
+                        </div>
+                    </li>
 
-      <span id="navBarTracker">Nav bar tracker</span>
-      <main>
-        <!-- Blog Header -->
-        <section class="blog-header">
-          <h1>The BLOGS</h1>
-          <p>
-            Stay updated with the latest articles, tutorials, and insights on
-            remote sensing and microwave remote sensing.
-          </p>
-          <button id="write_blog_btn" class="write-blog-btn">
-            Write Your Own Blog
-          </button>
-        </section>
+                    <li class="dropdown">
+                        <a href="education.html" class="dropbtn">Education</a>
+                       
+                    </li>
+                    <li><a href="career.html">Career</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li>
+                        <form class="search-form">
+                            <input type="text" placeholder="Search...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </li>
+                    <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <section id="blog-post" class="blog-posts"></section>
+        <main>
+            <!-- Blog Header -->
+            <section class="blog-header">
+                <h1>The BLOGS</h1>
+                <p>Stay updated with the latest articles, tutorials, and insights on remote sensing and microwave remote sensing.</p>
+                <a href="login.html" class="write-blog-btn">Write Your Own Blog</a>
+            </section>
 
-        <!-- Centered Pagination -->
-        <div class="pagination">
-          <a href="#">&laquo; Previous</a>
-          <a href="#">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">Next &raquo;</a>
-        </div>
+            <section class="blog-posts blog-grid">
+                <article class="blog-post">
+                    <h2>Understanding Remote Sensing Techniques</h2>
+                    <p>Published on August 15, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/r3.jpeg" alt="Remote Sensing Techniques Image" class="blog-image">
+                    <p>Remote sensing involves the use of various technologies to observe and measure objects without being in direct contact with them. This article explores different remote sensing techniques and their applications...</p>
+                    <a href="post1.html" class="read-more">Read More</a>
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
 
-        <!-- <section>
-          <h1>Comment Section</h1>
-        </section> -->
-      </main>
+                        <div class="rating">
+                            <div class="rating">
+                                <span>Rate this post:</span>
+                                <i class="fas fa-star" data-star="1"></i>
+                                <i class="fas fa-star" data-star="2"></i>
+                                <i class="fas fa-star" data-star="3"></i>
+                                <i class="fas fa-star" data-star="4"></i>
+                                <i class="fas fa-star" data-star="5"></i>
+                            </div>
+                            
+                    </div>
+                    
+                </article>
 
-      <footer>
-        <p style="text-align: center">Copyright © 2024 All rights reserved |</p>
-      </footer>
+                <article class="blog-post">
+                    <h2>The Future of Microwave Remote Sensing</h2>
+                    <p>Published on August 10, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/earth.png" alt="Microwave Remote Sensing Image" class="blog-image">
+                    <p>Microwave remote sensing is rapidly evolving, offering new insights into Earth's atmosphere and surface. Discover how advancements in this field are shaping the future of environmental monitoring...</p>
+                    <a href="post2.html" class="read-more">Read More</a>
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+
+                        <div class="rating">
+                            <span>Rate this post:</span>
+                            <i class="fas fa-star" data-star="1"></i>
+                            <i class="fas fa-star" data-star="2"></i>
+                            <i class="fas fa-star" data-star="3"></i>
+                            <i class="fas fa-star" data-star="4"></i>
+                            <i class="fas fa-star" data-star="5"></i>
+                        </div>
+                        
+                </article>
+
+                <!-- New Blog Post 1 -->
+                <article class="blog-post">
+                    <h2>Applications of Remote Sensing in Agriculture</h2>
+                    <p>Published on August 12, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/r3.jpeg" alt="Agriculture Remote Sensing Image" class="blog-image">
+                    <p>
+                        Remote sensing involves the use of various technologies to observe and measure objects without being in direct contact with them.
+                        <span class="more-content" style="display: none;">
+                            This article explores different remote sensing techniques and their applications. It also discusses how advancements in this field are helping to improve environmental monitoring and mapping processes.
+                        </span>
+                    </p>
+                    <a href="javascript:void(0);" class="read-more-btn">Read More</a>
+                    
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+
+                        <div class="rating">
+                            <span>Rate this post:</span>
+                            <i class="fas fa-star" data-star="1"></i>
+                            <i class="fas fa-star" data-star="2"></i>
+                            <i class="fas fa-star" data-star="3"></i>
+                            <i class="fas fa-star" data-star="4"></i>
+                            <i class="fas fa-star" data-star="5"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- New Blog Post 2 -->
+                <article class="blog-post">
+                    <h2>Challenges in Microwave Remote Sensing</h2>
+                    <p>Published on August 14, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/remotesensing.jpeg" alt="Challenges in Microwave Remote Sensing Image" class="blog-image">
+                    <p>
+                        Remote sensing involves the use of various technologies to observe and measure objects without being in direct contact with them.
+                        <span class="more-content" style="display: none;">
+                            This article explores different remote sensing techniques and their applications. It also discusses how advancements in this field are helping to improve environmental monitoring and mapping processes.
+                        </span>
+                    </p>
+                    <a href="javascript:void(0);" class="read-more-btn">Read More</a>
+                    
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+
+                        <div class="rating">
+                            <span>Rate this post:</span>
+                            <i class="fas fa-star" data-star="1"></i>
+                            <i class="fas fa-star" data-star="2"></i>
+                            <i class="fas fa-star" data-star="3"></i>
+                            <i class="fas fa-star" data-star="4"></i>
+                            <i class="fas fa-star" data-star="5"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- New Blog Post 3 -->
+                <article class="blog-post">
+                    <h2>Remote Sensing and Climate Change</h2>
+                    <p>Published on August 16, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/earth.png" alt="Climate Change Remote Sensing Image" class="blog-image">
+                   <p>
+    Remote sensing involves the use of various technologies to observe and measure objects without being in direct contact with them.
+    <span class="more-content" style="display: none;">
+        This article explores different remote sensing techniques and their applications. It also discusses how advancements in this field are helping to improve environmental monitoring and mapping processes.
+    </span>
+</p>
+<a href="javascript:void(0);" class="read-more-btn">Read More</a>
+
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+
+                        <div class="rating">
+                            <span>Rate this post:</span>
+                            <i class="fas fa-star" data-star="1"></i>
+                            <i class="fas fa-star" data-star="2"></i>
+                            <i class="fas fa-star" data-star="3"></i>
+                            <i class="fas fa-star" data-star="4"></i>
+                            <i class="fas fa-star" data-star="5"></i>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Centered Pagination -->
+            <div class="pagination">
+                <a href="#">&laquo; Previous</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Next &raquo;</a>
+            </div>
+        </main>
+
+        <footer>
+            <p style="text-align:center;">Copyright © 2024 All rights reserved |</p>
+        </footer>
     </div>
 
-    <script src="/infi website/Javascript/script.js"></script>
-    <script src="/infi website/Javascript/navBar.js" type="module"></script>
-    <script src="/infi website/Javascript/blog.js" type="module"></script>
-  </body>
+    <script src="../Javascript/script.js"></script>
+    <script type="module" src="../Javascript/navBar.js"></script>
+    <script src="../Javascript/blog.js"></script>
+</body>
 </html>
+
+<style>
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+@media (max-width: 1200px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 800px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.blog-post {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s;
+}
+.blog-post:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+.blog-image {
+    width: 100%;
+    max-width: 220px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.write-blog-btn {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.7rem 1.5rem;
+    background: #002147;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.write-blog-btn:hover {
+    background: #1e90ff;
+}
+main {
+    margin-top: 80px;
+}
+</style>
+

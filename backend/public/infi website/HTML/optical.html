@@ -5,12 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optical Remote Sensing</title>
-    <link rel="stylesheet" href="/infi website/CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!-- Custom CSS File Link -->
-    <!-- <link rel="stylesheet" href="/infi website/CSS/style.css"> -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
     <style>
         body,
         html {
@@ -25,18 +21,32 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 5px 20px;
             background: #003366;
             position: fixed;
             width: 100%;
             top: 0;
+            left: 0;
             z-index: 1000;
+            box-sizing: border-box;
+            height: 60px;
+            min-height: 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.10);
         }
 
-        /* .logo-img {
-            width: 80px;
-            height: auto;
-            border-radius: 30%;
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 0;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            margin: 0 20px;
+            height: 100%;
         }
 
         .navbar ul {
@@ -44,20 +54,57 @@
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 20px;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .navbar li {
+            position: relative;
         }
 
         .navbar a {
             text-decoration: none;
-            color: #fff;
-            font-size: 20px;
-            padding: 40px;
+            color: #fff !important;
+            font-size: 15px;
+            padding: 8px 12px;
+            display: block;
+            transition: color 0.2s ease;
+            white-space: nowrap;
         }
 
-        .navbar a:hover {
-            background: #555;
-            border-radius: 5px;
-        } */
+        .navbar a:hover, .navbar a.active {
+            background: none;
+            color: #ff4500 !important;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background: #fff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            z-index: 1001;
+            padding: 0;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        .dropdown-content a:hover {
+            background: #f1f1f1;
+            color: #ff4500;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
         .container {
             max-width: 1200px;
@@ -92,12 +139,16 @@
 
         .image-container {
             flex: 1 1 35%;
+            display: flex;
+            align-items: flex-start;
         }
 
         .image-container img {
             max-width: 100%;
+            height: auto;
             border-radius: 10px;
             object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .table-container {
@@ -140,31 +191,306 @@
                 max-width: 100%;
             }
         }
+
+        /* Right Items Styling */
+        .right-items {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            width: 200px;
+        }
+
+        .search-form input {
+            padding: 8px 12px;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .search-form button {
+            background: #ff4500;
+            border: none;
+            padding: 8px 12px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .login-icon {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .login-icon:hover {
+            background: #ff4500;
+            border-color: #ff4500;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                padding: 10px;
+            }
+            
+            .navbar {
+                order: 3;
+                width: 100%;
+                margin: 10px 0 0 0;
+            }
+            
+            .navbar ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+            }
+            
+            .right-items {
+                order: 2;
+                margin-left: auto;
+            }
+        }
+
+        /* Container adjustment for fixed header */
+        .container {
+            margin-top: 80px;
+            background-color: transparent;
+            padding: 0;
+            max-width: none;
+            box-shadow: none;
+            width: 100%;
+        }
+
+        /* Applications Section Styling */
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .application-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .application-card h3 {
+            color: #003366;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .application-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Timeline Styling */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #003366;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 4px solid #ff4500;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-year {
+            color: #ff4500;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <a href="home.html" class="logo">
-            <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img">
+        <a href="#" class="logo">
+            <img src="../image/logo.jpeg" alt="Logo" class="logo-img">
         </a>
-        <div id="menu" class="fas fa-bars"></div>
-        <nav id="navbar" class="navbar">
-        </nav>
-    </header>
 
-    <span id="navBarTracker">Nav bar tracker</span>
+        <div id="menu" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                   
+                    <div class="dropdown-content">
+                        <a href="Fundamental.html">Fundamentals</a>
+                        <a href="Technical Papers.html">Technical Papers</a>
+                        <a href="Books.html">Books</a>
+                        <a href="Videos.html">Videos</a>
+                        <a href="Relevant Links.html">Relevant Links</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    
+                    <div class="dropdown-content">
+                        <a href="academicians.html">Academicians</a>
+                        
+                        <a href="Industry Personnel.html">Industry Personnel</a>
+                        <a href="Researchers.html">Researchers/Scientists</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="downloads.html" class="dropbtn">Downloads</a>
+                    <div class="dropdown-content">
+                        <a href="#">Data Download</a>
+                        <a href="opensource.html">Opensource Software</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="education.html" class="dropbtn">Education</a>
+                    <div class="dropdown-content">
+                        <a href="Diploma.html">Diploma</a>
+                        <a href="Degree.html">Degree</a>
+                        <a href="Master.html">Masters</a>
+                        <a href="Ph.D.html">Ph.D.</a>
+                    </div>
+                </li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="news.html">Events</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="right-items">
+            <form class="search-form">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <a href="login.html" class="login-icon">
+                <i class="fas fa-user"></i>
+                <span>Login</span>
+            </a>
+        </div>
+    </header>
 
     <div class="container">
         <section class="section">
             <h2>Introduction to Optical Remote Sensing</h2>
             <div class="content">
-                <p>Optical remote sensing is a crucial technology that provides valuable insights into the Earth's surface by analyzing electromagnetic radiation across a wide spectrum. It primarily captures the reflected or emitted radiation from objects on the Earth’s surface in the visible, near-infrared (NIR), and short-wave infrared (SWIR) bands. The sensors used in optical remote sensing systems are typically passive, meaning they rely on natural light sources, such as the Sun, 
+                <p>Optical remote sensing is a crucial technology that provides valuable insights into the Earth's surface by analyzing electromagnetic radiation across a wide spectrum. It primarily captures the reflected or emitted radiation from objects on the Earth's surface in the visible, near-infrared (NIR), and short-wave infrared (SWIR) bands. The sensors used in optical remote sensing systems are typically passive, meaning they rely on natural light sources, such as the Sun, 
                     to illuminate the Earth's surface, though artificial light sources can also be used in specific cases. The collected data can be used for a range of applications, from environmental monitoring, where it helps track land-use changes, vegetation health, and water bodies, to agriculture, where it aids in crop health assessment and precision farming. Optical remote sensing also plays an important role in urban planning, helping in the analysis of urban growth, infrastructure development,
                     and pollution monitoring. Moreover, it contributes to disaster management by detecting floods, wildfires, and other natural disasters, and supports climate change research by monitoring the effects of temperature changes, glacier retreat, and deforestation. By leveraging the different wavelengths of light captured by optical sensors, researchers can extract detailed information about the Earth's surface, its vegetation, moisture content, and much more, making it an invaluable tool for decision-makers across various sectors.</p>
             </div>
             <div class="image-container">
-                <img src="/infi website/Optical image/Optical image/optical1.jpg" alt="Introduction to Optical Remote Sensing">
+                <img src="../Optical image/Optical image/optical1.jpg" alt="Introduction to Optical Remote Sensing">
             </div>
         </section>
 
@@ -190,7 +516,7 @@
                     </ul>
                 </div>
                 <div class="image-container">
-                    <img src="/infi website/Optical image/Optical image/S2B_MSIL2A_20241217T054139_N0511_R005_T43QBB_20241217T074201-ql.jpg" alt="Optical Remote Sensing Satellites">
+                    <img src="../Optical image/Optical image/S2B_MSIL2A_20241217T054139_N0511_R005_T43QBB_20241217T074201-ql.jpg" alt="Optical Remote Sensing Satellites">
                 </div>
             </div>
         </section>
@@ -245,152 +571,177 @@
         </style>
         <section class="section">
             <h2>Key Applications</h2>
-            <div class="content">
-                <ul>
-                    <li><strong>Land Use and Land Cover Mapping:</strong>Optical sensors help monitor urban expansion, deforestation, and land cover changes over time.</li>
-                    <li><strong>Agriculture:</strong>Used to assess crop health, soil moisture, and irrigation patterns. Vegetation indices like NDVI (Normalized Difference Vegetation Index) are derived from optical imagery.</li>
-                    <li><strong>Disaster Monitoring:</strong> Identifying the extent of floods, wildfires, and landslides.</li>
-                </ul>
-            </div>
-            <div class="image-container">
-                <img src="/infi website/Optical image/Optical image/Applications.png" alt="Optical Remote Sensing Applications">
+            <div class="applications-grid">
+                <div class="application-card">
+                    <h3>Land Use and Land Cover Mapping</h3>
+                    <p>Optical sensors help monitor urban expansion, deforestation, and land cover changes over time. This data is crucial for urban planning, environmental conservation, and resource management.</p>
+                </div>
+                <div class="application-card">
+                    <h3>Agriculture and Crop Monitoring</h3>
+                    <p>Used to assess crop health, soil moisture, and irrigation patterns. Vegetation indices like NDVI (Normalized Difference Vegetation Index) are derived from optical imagery to monitor crop growth and predict yields.</p>
+                </div>
+                <div class="application-card">
+                    <h3>Disaster Monitoring and Management</h3>
+                    <p>Identifying the extent of floods, wildfires, and landslides. Optical remote sensing provides crucial data for emergency response and disaster recovery efforts.</p>
+                </div>
+                <div class="application-card">
+                    <h3>Environmental Monitoring</h3>
+                    <p>Tracking changes in ecosystems, monitoring water quality, and assessing the impact of climate change on natural resources and biodiversity.</p>
+                </div>
+                <div class="application-card">
+                    <h3>Urban Planning and Development</h3>
+                    <p>Analyzing urban growth patterns, infrastructure development, and land use changes to support sustainable city planning and development.</p>
+                </div>
+                <div class="application-card">
+                    <h3>Forestry and Vegetation Analysis</h3>
+                    <p>Monitoring forest health, detecting deforestation, and analyzing vegetation patterns for conservation and management purposes.</p>
+                </div>
             </div>
         </section>
 
         <section class="section">
             <h2>Satellites Providing Optical Data</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Satellite/Mission</th>
-                        <th>Launch Year</th>
-                        <th>Country/Agency</th>
-                        <th>Application</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a href="https://landsat.gsfc.nasa.gov/satellites/landsat-1/">Landsat 1</a></td>
-                        <td>1972</td>
-                        <td>NASA/USGS</td>
-                        <td>Earth's surface imaging for agriculture, forestry, geology, and land use planning.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://earth.esa.int/eogateway/missions/spot-1/description">SPOT 1</a></td>
-                        <td>1986</td>
-                        <td>CNES (France)</td>
-                        <td>High-resolution optical imaging for cartography, land use, and environmental monitoring.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.isro.gov.in/IRS_1A.html?timeline=timeline">IRS-1A</a></td>
-                        <td>1988</td>
-                        <td>ISRO (India)</td>
-                        <td>Land and water resources management, agricultural monitoring, and urban planning.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://eospso.nasa.gov/missions/terra">Terra (EOS AM-1)</a></td>
-                        <td>1999</td>
-                        <td>NASA</td>
-                        <td>Multispectral imaging for climate research, vegetation analysis, and atmospheric studies.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://eospso.nasa.gov/missions/terra">IKONOS</a></td>
-                        <td>1999</td>
-                        <td>GeoEye (USA)</td>
-                        <td>High-resolution imagery for urban planning, disaster response, and environmental monitoring.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://earth.esa.int/eogateway/missions/quickbird-2">QuickBird</a></td>
-                        <td>2001</td>
-                        <td>DigitalGlobe (USA)</td>
-                        <td>High-resolution Earth imagery for mapping, agriculture, and urban development.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.satimagingcorp.com/satellite-sensors/other-satellite-sensors/formosat-2/">FORMOSAT-2</a></td>
-                        <td>2004</td>
-                        <td>NSPO (Taiwan)</td>
-                        <td>High-resolution imagery for disaster monitoring, environmental observation, and agricultural assessment.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://earth.esa.int/eogateway/missions/worldview-1">WorldView-1</a></td>
-                        <td>2007</td>
-                        <td>DigitalGlobe (USA)</td>
-                        <td>High-resolution imaging for defense, intelligence, and mapping applications.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.isro.gov.in/CARTOSAT_2_PSLVC40.html">Cartosat-2</a></td>
-                        <td>2007</td>
-                        <td>ISRO (India)</td>
-                        <td>High-resolution imagery for urban planning, rural development, and infrastructure monitoring.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://earth.esa.int/eogateway/missions/geoeye-1">GeoEye-1</a></td>
-                        <td>2008</td>
-                        <td>GeoEye (USA)</td>
-                        <td>High-resolution Earth imagery for mapping, agriculture, and urban planning.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1/">Pleiades-1A</a></td>
-                        <td>2011</td>
-                        <td>CNES (France)</td>
-                        <td>High-resolution optical imaging for defense, civil engineering, and environmental monitoring.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1b/">Pleiades-1B</a></td>
-                        <td>2012</td>
-                        <td>CNES (France)</td>
-                        <td>Complementing Pleiades-1A for increased coverage and revisit frequency.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.eoportal.org/satellite-missions/kompsat-3">Kompsat-3</a></td>
-                        <td>2012</td>
-                        <td>KARI (South Korea)</td>
-                        <td>High-resolution imagery for land use, disaster monitoring, and environmental observation.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.eoportal.org/satellite-missions/dubaisat-2#spacecraft">DubaiSat-2</a></td>
-                        <td>2013</td>
-                        <td>EIAST (UAE)</td>
-                        <td>High-resolution Earth imaging for urban planning, infrastructure development, and environmental monitoring.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.eoportal.org/satellite-missions/gaofen-1">Gaofen-1</a></td>
-                        <td>2013</td>
-                        <td>CNSA (China)</td>
-                        <td>High-resolution Earth observation for agricultural, disaster, and resource monitoring.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://en.wikipedia.org/wiki/Sentinel-2A">Sentinel-2A</a></td>
-                        <td>2015</td>
-                        <td>ESA (European Union)</td>
-                        <td>Multispectral imaging for land monitoring, agriculture, and disaster management.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://earth.esa.int/eogateway/missions/worldview-4">WorldView-4</a></td>
-                        <td>2016</td>
-                        <td>DigitalGlobe (USA)</td>
-                        <td>High-resolution imagery for mapping, land classification, and infrastructure planning.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.eoportal.org/satellite-missions/gaojing#spacecraft">SuperView-1</a></td>
-                        <td>2016</td>
-                        <td>Siwei Star Co. (China)</td>
-                        <td>High-resolution imagery for mapping, land use, and urban planning.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://en.wikipedia.org/wiki/Sentinel-2B">Sentinel-2B</a></td>
-                        <td>2017</td>
-                        <td>ESA (European Union)</td>
-                        <td>Continuation of Sentinel-2A's mission for enhanced coverage and data continuity.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://earth.esa.int/eogateway/missions/planetscope">PlanetScope</a></td>
-                        <td>2014-present</td>
-                        <td>Planet Labs (USA)</td>
-                        <td>Constellation of small satellites providing daily, high-resolution imagery for various applications, including agriculture, forestry, and disaster response.</td>
-                    </tr>
-                            </tbody>
-                </table>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1972</div>
+                        <div class="timeline-title"><a href="https://landsat.gsfc.nasa.gov/satellites/landsat-1/">Landsat 1</a></div>
+                        <div class="timeline-description">NASA/USGS - Earth's surface imaging for agriculture, forestry, geology, and land use planning.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1986</div>
+                        <div class="timeline-title"><a href="https://earth.esa.int/eogateway/missions/spot-1/description">SPOT 1</a></div>
+                        <div class="timeline-description">CNES (France) - High-resolution optical imaging for cartography, land use, and environmental monitoring.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1988</div>
+                        <div class="timeline-title"><a href="https://www.isro.gov.in/IRS_1A.html?timeline=timeline">IRS-1A</a></div>
+                        <div class="timeline-description">ISRO (India) - Land and water resources management, agricultural monitoring, and urban planning.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1999</div>
+                        <div class="timeline-title"><a href="https://eospso.nasa.gov/missions/terra">Terra (EOS AM-1)</a></div>
+                        <div class="timeline-description">NASA - Multispectral imaging for climate research, vegetation analysis, and atmospheric studies.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1999</div>
+                        <div class="timeline-title"><a href="https://eospso.nasa.gov/missions/terra">IKONOS</a></div>
+                        <div class="timeline-description">GeoEye (USA) - High-resolution imagery for urban planning, disaster response, and environmental monitoring.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2001</div>
+                        <div class="timeline-title"><a href="https://earth.esa.int/eogateway/missions/quickbird-2">QuickBird</a></div>
+                        <div class="timeline-description">DigitalGlobe (USA) - High-resolution Earth imagery for mapping, agriculture, and urban development.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2004</div>
+                        <div class="timeline-title"><a href="https://www.satimagingcorp.com/satellite-sensors/other-satellite-sensors/formosat-2/">FORMOSAT-2</a></div>
+                        <div class="timeline-description">NSPO (Taiwan) - High-resolution imagery for disaster monitoring, environmental observation, and agricultural assessment.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2007</div>
+                        <div class="timeline-title"><a href="https://earth.esa.int/eogateway/missions/worldview-1">WorldView-1</a></div>
+                        <div class="timeline-description">DigitalGlobe (USA) - High-resolution imaging for defense, intelligence, and mapping applications.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2007</div>
+                        <div class="timeline-title"><a href="https://www.isro.gov.in/CARTOSAT_2_PSLVC40.html">Cartosat-2</a></div>
+                        <div class="timeline-description">ISRO (India) - High-resolution imagery for urban planning, rural development, and infrastructure monitoring.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2008</div>
+                        <div class="timeline-title"><a href="https://earth.esa.int/eogateway/missions/geoeye-1">GeoEye-1</a></div>
+                        <div class="timeline-description">GeoEye (USA) - High-resolution Earth imagery for mapping, agriculture, and urban planning.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2011</div>
+                        <div class="timeline-title"><a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1/">Pleiades-1A</a></div>
+                        <div class="timeline-description">CNES (France) - High-resolution optical imaging for defense, civil engineering, and environmental monitoring.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2012</div>
+                        <div class="timeline-title"><a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1b/">Pleiades-1B</a></div>
+                        <div class="timeline-description">CNES (France) - Complementing Pleiades-1A for increased coverage and revisit frequency.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2012</div>
+                        <div class="timeline-title"><a href="https://www.eoportal.org/satellite-missions/kompsat-3">Kompsat-3</a></div>
+                        <div class="timeline-description">KARI (South Korea) - High-resolution imagery for land use, disaster monitoring, and environmental observation.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2013</div>
+                        <div class="timeline-title"><a href="https://www.eoportal.org/satellite-missions/dubaisat-2#spacecraft">DubaiSat-2</a></div>
+                        <div class="timeline-description">EIAST (UAE) - High-resolution Earth imaging for urban planning, infrastructure development, and environmental monitoring.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2013</div>
+                        <div class="timeline-title"><a href="https://www.eoportal.org/satellite-missions/gaofen-1">Gaofen-1</a></div>
+                        <div class="timeline-description">CNSA (China) - High-resolution Earth observation for agricultural, disaster, and resource monitoring.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-title"><a href="https://en.wikipedia.org/wiki/Sentinel-2A">Sentinel-2A</a></div>
+                        <div class="timeline-description">ESA (European Union) - Multispectral imaging for land monitoring, agriculture, and disaster management.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-title"><a href="https://earth.esa.int/eogateway/missions/worldview-4">WorldView-4</a></div>
+                        <div class="timeline-description">DigitalGlobe (USA) - High-resolution imagery for mapping, land classification, and infrastructure planning.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-title"><a href="https://www.eoportal.org/satellite-missions/gaojing#spacecraft">SuperView-1</a></div>
+                        <div class="timeline-description">Siwei Star Co. (China) - High-resolution imagery for mapping, land use, and urban planning.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-title"><a href="https://en.wikipedia.org/wiki/Sentinel-2B">Sentinel-2B</a></div>
+                        <div class="timeline-description">ESA (European Union) - Continuation of Sentinel-2A's mission for enhanced coverage and data continuity.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2014-present</div>
+                        <div class="timeline-title"><a href="https://earth.esa.int/eogateway/missions/planetscope">PlanetScope</a></div>
+                        <div class="timeline-description">Planet Labs (USA) - Constellation of small satellites providing daily, high-resolution imagery for various applications.</div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -398,7 +749,8 @@
     <footer>
         <p>Copyright &copy; 2024 All rights reserved</p>
     </footer>
-    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+    <script src="../Javascript/script.js"></script>
+    <script type="module" src="../Javascript/navBar.js"></script>
 </body>
 
 </html>
