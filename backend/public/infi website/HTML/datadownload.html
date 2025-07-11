@@ -1,513 +1,659 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Download</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../CSS/style.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f6fa;
-      color: #222;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Download</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f6fa;
+        color: #222;
+      }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: #002147;
-    }
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: #002147;
+      }
 
-    main {
-      margin-top: 80px;
-      padding: 20px;
-    }
+      main {
+        margin-top: 80px;
+        padding: 20px;
+      }
 
-    .tree-container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-    }
+      .tree-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+      }
 
-    .tree-container h1 {
-      color: #002147;
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.5em;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
+      .tree-container h1 {
+        color: #002147;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-    .tree {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+      .tree {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
 
-    .tree ul {
-      list-style: none;
-      padding-left: 30px;
-      margin: 0;
-    }
+      .tree ul {
+        list-style: none;
+        padding-left: 30px;
+        margin: 0;
+      }
 
-    .tree li {
-      margin: 15px 0;
-      position: relative;
-    }
+      .tree li {
+        margin: 15px 0;
+        position: relative;
+      }
 
-    .tree-item {
-      display: flex;
-      align-items: flex-start;
-      padding: 24px;
-      background: #f8fafc;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      transition: box-shadow 0.2s, border 0.2s, background 0.2s;
-      border: 1.5px solid #e0e6ed;
-    }
+      .tree-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 24px;
+        background: #f8fafc;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        transition:
+          box-shadow 0.2s,
+          border 0.2s,
+          background 0.2s;
+        border: 1.5px solid #e0e6ed;
+      }
 
-    .tree-item:hover {
-      box-shadow: 0 6px 18px rgba(0,123,255,0.10);
-      background: #f0f4f8;
-      border-color: #007BFF;
-    }
+      .tree-item:hover {
+        box-shadow: 0 6px 18px rgba(0, 123, 255, 0.1);
+        background: #f0f4f8;
+        border-color: #007bff;
+      }
 
-    .tree-item i {
-      margin-right: 20px;
-      color: #007BFF;
-      font-size: 1.5em;
-      background: rgba(0,123,255,0.08);
-      padding: 15px;
-      border-radius: 50%;
-    }
+      .tree-item i {
+        margin-right: 20px;
+        color: #007bff;
+        font-size: 1.5em;
+        background: rgba(0, 123, 255, 0.08);
+        padding: 15px;
+        border-radius: 50%;
+      }
 
-    .tree-item-content {
-      flex-grow: 1;
-      text-align: justify;
-    }
+      .tree-item-content {
+        flex-grow: 1;
+        text-align: justify;
+      }
 
-    .tree-item h3 {
-      margin: 0;
-      color: #002147;
-      font-size: 1.3em;
-      margin-bottom: 8px;
-      text-align: left;
-    }
+      .tree-item h3 {
+        margin: 0;
+        color: #002147;
+        font-size: 1.3em;
+        margin-bottom: 8px;
+        text-align: left;
+      }
 
-    .tree-item p {
-      margin: 5px 0 0;
-      color: #444;
-      font-size: 1em;
-      line-height: 1.6;
-      text-align: justify;
-    }
+      .tree-item p {
+        margin: 5px 0 0;
+        color: #444;
+        font-size: 1em;
+        line-height: 1.6;
+        text-align: justify;
+      }
 
-    .tree-item ul {
-      margin-top: 10px;
-      padding-left: 20px;
-    }
+      .tree-item ul {
+        margin-top: 10px;
+        padding-left: 20px;
+      }
 
-    .tree-item ul li {
-      color: #444;
-      margin: 5px 0;
-      font-size: 0.98em;
-      text-align: justify;
-    }
+      .tree-item ul li {
+        color: #444;
+        margin: 5px 0;
+        font-size: 0.98em;
+        text-align: justify;
+      }
 
-    .tree-item .button-group {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
+      .tree-item .button-group {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
 
-    .tree-item a,
-    .tree-item .guide-toggle {
-      display: inline-block;
-      min-width: 140px;
-      text-align: center;
-      color: #fff;
-      background: #007BFF;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 18px;
-      font-size: 1em;
-      font-weight: 500;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      box-shadow: 0 2px 6px rgba(0,123,255,0.07);
-      margin: 0;
-    }
+      .tree-item a,
+      .tree-item .guide-toggle {
+        display: inline-block;
+        min-width: 140px;
+        text-align: center;
+        color: #fff;
+        background: #007bff;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 18px;
+        font-size: 1em;
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          box-shadow 0.2s;
+        box-shadow: 0 2px 6px rgba(0, 123, 255, 0.07);
+        margin: 0;
+      }
 
-    .tree-item a:hover,
-    .tree-item .guide-toggle:hover {
-      background: #0056b3;
-      color: #fff;
-      box-shadow: 0 4px 12px rgba(0,123,255,0.13);
-      text-decoration: none;
-    }
+      .tree-item a:hover,
+      .tree-item .guide-toggle:hover {
+        background: #0056b3;
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.13);
+        text-decoration: none;
+      }
 
-    .tree-item .guide-toggle {
-      background: #fff;
-      color: #007BFF;
-      border: 1.5px solid #007BFF;
-      margin: 0;
-    }
+      .tree-item .guide-toggle {
+        background: #fff;
+        color: #007bff;
+        border: 1.5px solid #007bff;
+        margin: 0;
+      }
 
-    .tree-item .guide-toggle:hover {
-      background: #007BFF;
-      color: #fff;
-    }
+      .tree-item .guide-toggle:hover {
+        background: #007bff;
+        color: #fff;
+      }
 
-    .guide-content {
-      display: none;
-      margin-top: 15px;
-      padding: 15px;
-      background: #f0f4f8;
-      border-left: 4px solid #007BFF;
-      border-radius: 6px;
-      color: #333;
-      font-size: 0.98em;
-      line-height: 1.6;
-    }
+      .guide-content {
+        display: none;
+        margin-top: 15px;
+        padding: 15px;
+        background: #f0f4f8;
+        border-left: 4px solid #007bff;
+        border-radius: 6px;
+        color: #333;
+        font-size: 0.98em;
+        line-height: 1.6;
+      }
 
-    .category-header {
-      font-size: 1.8em;
-      color: #002147;
-      margin: 40px 0 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #007BFF;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
+      .category-header {
+        font-size: 1.8em;
+        color: #002147;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #007bff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
 
-    /* Custom scrollbar for dark theme */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
+      /* Custom scrollbar for dark theme */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
 
-    ::-webkit-scrollbar-track {
-      background: #f4f6fa;
-    }
+      ::-webkit-scrollbar-track {
+        background: #f4f6fa;
+      }
 
-    ::-webkit-scrollbar-thumb {
-      background: #007BFF;
-      border-radius: 5px;
-    }
+      ::-webkit-scrollbar-thumb {
+        background: #007bff;
+        border-radius: 5px;
+      }
 
-    ::-webkit-scrollbar-thumb:hover {
-      background: #0056b3;
-    }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #0056b3;
+      }
 
-    /* Search form styling */
-    .search-form input {
-      background: #f8fafc;
-      border: 1px solid #e0e6ed;
-      color: #222;
-      padding: 8px 15px;
-      border-radius: 5px;
-    }
+      /* Search form styling */
+      .search-form input {
+        background: #f8fafc;
+        border: 1px solid #e0e6ed;
+        color: #222;
+        padding: 8px 15px;
+        border-radius: 5px;
+      }
 
-    .search-form input::placeholder {
-      color: #888;
-    }
+      .search-form input::placeholder {
+        color: #888;
+      }
 
-    .search-form button {
-      background: #007BFF;
-      color: #ffffff;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
+      .search-form button {
+        background: #007bff;
+        color: #ffffff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
 
-    .search-form button:hover {
-      background: #0056b3;
-    }
+      .search-form button:hover {
+        background: #0056b3;
+      }
 
-    /* Login button styling */
-    .login-icon {
-      color: #ffffff !important;
-      background: #007BFF;
-      padding: 8px 15px;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
+      /* Login button styling */
+      .login-icon {
+        color: #ffffff !important;
+        background: #007bff;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
 
-    .login-icon:hover {
-      background: #0056b3;
-      text-decoration: none !important;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <a href="#" class="logo">
-      <img src="../image/logo.jpeg" alt="Logo" class="logo-img">
-    </a>
+      .login-icon:hover {
+        background: #0056b3;
+        text-decoration: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img" />
+      </a>
 
-    <div id="menu" class="fas fa-bars"></div>
+      <div id="menu" class="fas fa-bars"></div>
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li class="dropdown">
-          
-          <div class="dropdown-content">
-            <a href="Fundamental.html">Fundamentals</a>
-            <a href="Technical Paper.html">Technical Papers</a>
-            <a href="Books.html">Books</a>
-            <a href="Videos.html">Videos</a>
-          </div>
-        </li>
-        <li class="dropdown">
-        
-          <div class="dropdown-content">
-            <a href="academicians.html">Academicians</a>
-            <a href="Industry Personnel.html">Industry Personnel</a>
-            <a href="Researchers.html">Researchers/Scientists</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          
-          <div class="dropdown-content">
-            <a href="datadownload.html">Data Download</a>
-            <a href="opensource.html">Software</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="education.html" class="dropbtn">Education</a>
-        </li>
-        <li><a href="career.html">Career</a></li>
-        <li><a href="event.html">Events</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li>
-          <form class="search-form">
-            <input type="text" placeholder="Search..." required>
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </form>
-        </li>
-        <li><a href="login.html" class="login-icon"><i class="fas fa-user"></i> Login</a></li>
-      </ul>
-    </nav>
-  </header>
+      <nav id="navbar" class="navbar">
+        <!-- <ul>
+          <li><a href="home.html">Home</a></li>
+          <li class="dropdown">
+            <div class="dropdown-content">
+              <a href="Fundamental.html">Fundamentals</a>
+              <a href="Technical Paper.html">Technical Papers</a>
+              <a href="Books.html">Books</a>
+              <a href="Videos.html">Videos</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <div class="dropdown-content">
+              <a href="academicians.html">Academicians</a>
+              <a href="Industry Personnel.html">Industry Personnel</a>
+              <a href="Researchers.html">Researchers/Scientists</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <div class="dropdown-content">
+              <a href="datadownload.html">Data Download</a>
+              <a href="opensource.html">Software</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="education.html" class="dropbtn">Education</a>
+          </li>
+          <li><a href="career.html">Career</a></li>
+          <li><a href="event.html">Events</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li>
+            <form class="search-form">
+              <input type="text" placeholder="Search..." required />
+              <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+          </li>
+          <li>
+            <a href="login.html" class="login-icon"
+              ><i class="fas fa-user"></i> Login</a
+            >
+          </li>
+        </ul> -->
+      </nav>
+    </header>
 
-  <main>
-    <div class="tree-container">
-      <h1>Open Data Platforms</h1>
-      <ul class="tree">
-        <li>
-          <div class="tree-item">
-            <i class="fas fa-globe"></i>
-            <div class="tree-item-content">
-              <h3>USGS Earth Explorer</h3>
-              <p>The EarthExplorer (EE) user interface is an online search, discovery, and ordering tool developed by the United States Geological Survey (USGS). EE supports the searching of satellite, aircraft, and other remote sensing inventories through interactive and textual-based query capabilities.</p>
-              <button class="guide-toggle button-group">Show Datasets</button>
-              <ul class="guide-content">
-                <li>Aerial Imagery</li>
-                <li>AVHRR</li>
-                <li>CEOS Legacy</li>
-                <li>Commercial Satellites</li>
-                <li>Declassified Data</li>
-                <li>Digital Elevation</li>
-                <li>Digital Line Graphs</li>
-                <li>Digital Maps</li>
-                <li>EO-1</li>
-                <li>Global Fiducials</li>
-                <li>HCMM</li>
-                <li>ISERV</li>
-                <li>Land Cover</li>
-                <li>Landsat</li>
-                <li>LCMAP</li>
-                <li>Radar</li>
-                <li>UAS</li>
-                <li>Vegetation Monitoring</li>
-                <li>ISRO Resourcesat</li>
-              </ul>
-              <div class="button-group">
-                <a href="https://earthexplorer.usgs.gov/" target="_blank">Data Download</a>
-                <a href="https://www.usgs.gov/faqs/how-do-i-download-landsat-imagery" target="_blank" class="guide-toggle">Guide</a>
+    <main>
+      <div class="tree-container">
+        <h1>Open Data Platforms</h1>
+        <ul class="tree">
+          <li>
+            <div class="tree-item">
+              <i class="fas fa-globe"></i>
+              <div class="tree-item-content">
+                <h3>USGS Earth Explorer</h3>
+                <p>
+                  The EarthExplorer (EE) user interface is an online search,
+                  discovery, and ordering tool developed by the United States
+                  Geological Survey (USGS). EE supports the searching of
+                  satellite, aircraft, and other remote sensing inventories
+                  through interactive and textual-based query capabilities.
+                </p>
+                <button class="guide-toggle button-group">Show Datasets</button>
+                <ul class="guide-content">
+                  <li>Aerial Imagery</li>
+                  <li>AVHRR</li>
+                  <li>CEOS Legacy</li>
+                  <li>Commercial Satellites</li>
+                  <li>Declassified Data</li>
+                  <li>Digital Elevation</li>
+                  <li>Digital Line Graphs</li>
+                  <li>Digital Maps</li>
+                  <li>EO-1</li>
+                  <li>Global Fiducials</li>
+                  <li>HCMM</li>
+                  <li>ISERV</li>
+                  <li>Land Cover</li>
+                  <li>Landsat</li>
+                  <li>LCMAP</li>
+                  <li>Radar</li>
+                  <li>UAS</li>
+                  <li>Vegetation Monitoring</li>
+                  <li>ISRO Resourcesat</li>
+                </ul>
+                <div class="button-group">
+                  <a href="https://earthexplorer.usgs.gov/" target="_blank"
+                    >Data Download</a
+                  >
+                  <a
+                    href="https://www.usgs.gov/faqs/how-do-i-download-landsat-imagery"
+                    target="_blank"
+                    class="guide-toggle"
+                    >Guide</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="guide-content">USGS Earth Explorer: Download Free Landsat Imagery</div>
-        </li>
-        <li>
-          <div class="tree-item">
-            <i class="fas fa-satellite"></i>
-            <div class="tree-item-content">
-              <h3>Copernicus Browser</h3>
-              <p>The Copernicus Data Space Ecosystem Browser serves as a central hub for accessing, exploring and utilizing the wealth of Earth observation and environmental data provided by the Copernicus Sentinel constellations, contributing missions. Based on Sentinel Hub's EO Browser, users can visualise, compare and analyse and download all this data for a variety of applications, from environmental monitoring and disaster management to urban planning and agriculture.</p>
-              <button class="guide-toggle button-group">Show Datasets</button>
-              <ul class="guide-content">
-                <li>SENTINEL-1</li>
-                <li>SENTINEL-2</li>
-                <li>SENTINEL-3</li>
-                <li>SENTINEL-5P</li>
-                <li>SENTINEL-6</li>
-                <li>CCM Optical</li>
-                <li>CCM DEM</li>
-                <li>CCM SAR</li>
-                <li>GLOBAL-MOSAICS</li>
-              </ul>
-              <div class="button-group">
-                <a href="https://dataspace.copernicus.eu/browser/" target="_blank">Data Download</a>
-                <a href="https://www.gisgeography.com/download-free-sentinel-satellite-data/" target="_blank" class="guide-toggle">Guide</a>
+            <div class="guide-content">
+              USGS Earth Explorer: Download Free Landsat Imagery
+            </div>
+          </li>
+          <li>
+            <div class="tree-item">
+              <i class="fas fa-satellite"></i>
+              <div class="tree-item-content">
+                <h3>Copernicus Browser</h3>
+                <p>
+                  The Copernicus Data Space Ecosystem Browser serves as a
+                  central hub for accessing, exploring and utilizing the wealth
+                  of Earth observation and environmental data provided by the
+                  Copernicus Sentinel constellations, contributing missions.
+                  Based on Sentinel Hub's EO Browser, users can visualise,
+                  compare and analyse and download all this data for a variety
+                  of applications, from environmental monitoring and disaster
+                  management to urban planning and agriculture.
+                </p>
+                <button class="guide-toggle button-group">Show Datasets</button>
+                <ul class="guide-content">
+                  <li>SENTINEL-1</li>
+                  <li>SENTINEL-2</li>
+                  <li>SENTINEL-3</li>
+                  <li>SENTINEL-5P</li>
+                  <li>SENTINEL-6</li>
+                  <li>CCM Optical</li>
+                  <li>CCM DEM</li>
+                  <li>CCM SAR</li>
+                  <li>GLOBAL-MOSAICS</li>
+                </ul>
+                <div class="button-group">
+                  <a
+                    href="https://dataspace.copernicus.eu/browser/"
+                    target="_blank"
+                    >Data Download</a
+                  >
+                  <a
+                    href="https://www.gisgeography.com/download-free-sentinel-satellite-data/"
+                    target="_blank"
+                    class="guide-toggle"
+                    >Guide</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="guide-content">How to Download Free Sentinel Satellite Data - GIS Geography</div>
-        </li>
-        <li>
-          <div class="tree-item">
-            <i class="fas fa-rocket"></i>
-            <div class="tree-item-content">
-              <h3>NASA Earthdata Search</h3>
-              <p>NASA's Earthdata Search is a comprehensive platform for accessing Earth science datasets, offering an extensive collection of satellite imagery and analysis-ready products. It supports studies of the biosphere, cryosphere, hydrosphere, and atmosphere, with data sourced from NASA's Distributed Active Archive Centers (DAACs). Beyond standard datasets, it provides specialized land cover data, such as permafrost maps and wetland types, enabling in-depth environmental analysis. Designed for researchers, educators, and policymakers, Earthdata Search simplifies data discovery and promotes a deeper understanding of global processes, making it an indispensable resource for addressing climate change, ecosystem monitoring, and other critical Earth science challenges.</p>
-              <div class="button-group">
-                <a href="https://search.earthdata.nasa.gov/" target="_blank">Data Download</a>
-                <a href="https://www.youtube.com/watch?v=QnkaXqY6e6g" target="_blank" class="guide-toggle">Guide</a>
+            <div class="guide-content">
+              How to Download Free Sentinel Satellite Data - GIS Geography
+            </div>
+          </li>
+          <li>
+            <div class="tree-item">
+              <i class="fas fa-rocket"></i>
+              <div class="tree-item-content">
+                <h3>NASA Earthdata Search</h3>
+                <p>
+                  NASA's Earthdata Search is a comprehensive platform for
+                  accessing Earth science datasets, offering an extensive
+                  collection of satellite imagery and analysis-ready products.
+                  It supports studies of the biosphere, cryosphere, hydrosphere,
+                  and atmosphere, with data sourced from NASA's Distributed
+                  Active Archive Centers (DAACs). Beyond standard datasets, it
+                  provides specialized land cover data, such as permafrost maps
+                  and wetland types, enabling in-depth environmental analysis.
+                  Designed for researchers, educators, and policymakers,
+                  Earthdata Search simplifies data discovery and promotes a
+                  deeper understanding of global processes, making it an
+                  indispensable resource for addressing climate change,
+                  ecosystem monitoring, and other critical Earth science
+                  challenges.
+                </p>
+                <div class="button-group">
+                  <a href="https://search.earthdata.nasa.gov/" target="_blank"
+                    >Data Download</a
+                  >
+                  <a
+                    href="https://www.youtube.com/watch?v=QnkaXqY6e6g"
+                    target="_blank"
+                    class="guide-toggle"
+                    >Guide</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="guide-content">Discover and Access Earth Science Data Using Earthdata Search - YouTube</div>
-        </li>
-        <li>
-          <div class="tree-item">
-            <i class="fas fa-snowflake"></i>
-            <div class="tree-item-content">
-              <h3>Alaska Satellite Facility</h3>
-              <p>The Alaska Satellite Facility (ASF) is a data processing facility and satellite-tracking ground station within the Geophysical Institute at the University of Alaska Fairbanks. Its mission is to make remote-sensing data accessible. Its work is central to polar processes research, including wetlands, glaciers, sea ice, climate change, permafrost, flooding, and land cover, such as changes in the Amazon rainforest.</p>
-              <button class="guide-toggle button-group">Show Datasets</button>
-              <ul class="guide-content">
-                <li>Main Dataset</li>
-                <li>Sentinel-1</li>
-                <li>ALOS PALSAR</li>
-                <li>AIRSAR</li>
-                <li>ERS-1</li>
-                <li>ERS-2</li>
-                <li>JERS-1</li>
-                <li>RADARSAT-1</li>
-                <li>Seasat</li>
-                <li>SIR-C</li>
-                <li>OPERA</li>
-                <li>Sentinel-1 Bursts</li>
-                <li>ALOS PALSAR Radiometric Terrain Correction</li>
-                <li>ARIA Sentinel-1 Geocoded Unwrapped Interferograms</li>
-                <li>Global Ice Sheet Mapping Orbiter (GISMO)</li>
-                <li>Glacier Speed</li>
-                <li>International Polar Year 2007-2009</li>
-                <li>RADARSAT-1 Antarctic Mapping Project (RAMP)</li>
-                <li>Sea Ice MEaSUREs</li>
-                <li>Sentinel-1 Interferometric Coherence and Backscatter</li>
-                <li>Terrestrial Ecology</li>
-                <li>Wetlands MEaSUREs</li>
-                <li>ALOS AVNIR-2 (Optical Data)</li>
-              </ul>
-              <div class="button-group">
-                <a href="https://asf.alaska.edu/data-sets/" target="_blank">Data Download</a>
-                <a href="https://www.asf.alaska.edu/how-to/data-tools-tutorials/" target="_blank" class="guide-toggle">Guide</a>
+            <div class="guide-content">
+              Discover and Access Earth Science Data Using Earthdata Search -
+              YouTube
+            </div>
+          </li>
+          <li>
+            <div class="tree-item">
+              <i class="fas fa-snowflake"></i>
+              <div class="tree-item-content">
+                <h3>Alaska Satellite Facility</h3>
+                <p>
+                  The Alaska Satellite Facility (ASF) is a data processing
+                  facility and satellite-tracking ground station within the
+                  Geophysical Institute at the University of Alaska Fairbanks.
+                  Its mission is to make remote-sensing data accessible. Its
+                  work is central to polar processes research, including
+                  wetlands, glaciers, sea ice, climate change, permafrost,
+                  flooding, and land cover, such as changes in the Amazon
+                  rainforest.
+                </p>
+                <button class="guide-toggle button-group">Show Datasets</button>
+                <ul class="guide-content">
+                  <li>Main Dataset</li>
+                  <li>Sentinel-1</li>
+                  <li>ALOS PALSAR</li>
+                  <li>AIRSAR</li>
+                  <li>ERS-1</li>
+                  <li>ERS-2</li>
+                  <li>JERS-1</li>
+                  <li>RADARSAT-1</li>
+                  <li>Seasat</li>
+                  <li>SIR-C</li>
+                  <li>OPERA</li>
+                  <li>Sentinel-1 Bursts</li>
+                  <li>ALOS PALSAR Radiometric Terrain Correction</li>
+                  <li>ARIA Sentinel-1 Geocoded Unwrapped Interferograms</li>
+                  <li>Global Ice Sheet Mapping Orbiter (GISMO)</li>
+                  <li>Glacier Speed</li>
+                  <li>International Polar Year 2007-2009</li>
+                  <li>RADARSAT-1 Antarctic Mapping Project (RAMP)</li>
+                  <li>Sea Ice MEaSUREs</li>
+                  <li>Sentinel-1 Interferometric Coherence and Backscatter</li>
+                  <li>Terrestrial Ecology</li>
+                  <li>Wetlands MEaSUREs</li>
+                  <li>ALOS AVNIR-2 (Optical Data)</li>
+                </ul>
+                <div class="button-group">
+                  <a href="https://asf.alaska.edu/data-sets/" target="_blank"
+                    >Data Download</a
+                  >
+                  <a
+                    href="https://www.asf.alaska.edu/how-to/data-tools-tutorials/"
+                    target="_blank"
+                    class="guide-toggle"
+                    >Guide</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="guide-content">Download SAR Data (Sentinel-1, ALOS PALSAR, UAV SAR, RADARSAT-1) from Alaska Satellite Facility</div>
-        </li>
-        <li>
-          <div class="tree-item">
-            <i class="fas fa-map-marked-alt"></i>
-            <div class="tree-item-content">
-              <h3>Bhuvan Indian Geo-Platform of ISRO</h3>
-              <p>Bhuvan is an Indian web-based utility which allows users to explore a set of geographic content prepared by the Indian Space Research Organisation. The content which the utility serves is mostly restricted to within Indian boundaries and is offered in four regional languages. The content includes thematic maps related to disasters, agriculture, water resources, land cover, and processed satellite data generated by ISRO.</p>
-              <button class="guide-toggle button-group">Show Datasets</button>
-              <ul class="guide-content">
-                <li>Cartosat-1</li>
-                <li>Cartosat-2</li>
-                <li>LISS III</li>
-                <li>AWiFS</li>
-                <li>NDVI (Normalized Difference Vegetation Index)</li>
-                <li>Ocean Heat Content (OHC)</li>
-                <li>Digital Elevation Models (DEM)</li>
-                <li>Seasonal datasets from Resourcesat</li>
-                <li>Disaster management maps</li>
-                <li>Agricultural monitoring maps</li>
-                <li>Land use and land cover maps</li>
-              </ul>
-              <div class="button-group">
-                <a href="https://bhuvan.nrsc.gov.in/" target="_blank">Data Download</a>
-                <a href="https://www.nrsc.gov.in/Bhuvan_User_Guide" target="_blank" class="guide-toggle">Guide</a>
+            <div class="guide-content">
+              Download SAR Data (Sentinel-1, ALOS PALSAR, UAV SAR, RADARSAT-1)
+              from Alaska Satellite Facility
+            </div>
+          </li>
+          <li>
+            <div class="tree-item">
+              <i class="fas fa-map-marked-alt"></i>
+              <div class="tree-item-content">
+                <h3>Bhuvan Indian Geo-Platform of ISRO</h3>
+                <p>
+                  Bhuvan is an Indian web-based utility which allows users to
+                  explore a set of geographic content prepared by the Indian
+                  Space Research Organisation. The content which the utility
+                  serves is mostly restricted to within Indian boundaries and is
+                  offered in four regional languages. The content includes
+                  thematic maps related to disasters, agriculture, water
+                  resources, land cover, and processed satellite data generated
+                  by ISRO.
+                </p>
+                <button class="guide-toggle button-group">Show Datasets</button>
+                <ul class="guide-content">
+                  <li>Cartosat-1</li>
+                  <li>Cartosat-2</li>
+                  <li>LISS III</li>
+                  <li>AWiFS</li>
+                  <li>NDVI (Normalized Difference Vegetation Index)</li>
+                  <li>Ocean Heat Content (OHC)</li>
+                  <li>Digital Elevation Models (DEM)</li>
+                  <li>Seasonal datasets from Resourcesat</li>
+                  <li>Disaster management maps</li>
+                  <li>Agricultural monitoring maps</li>
+                  <li>Land use and land cover maps</li>
+                </ul>
+                <div class="button-group">
+                  <a href="https://bhuvan.nrsc.gov.in/" target="_blank"
+                    >Data Download</a
+                  >
+                  <a
+                    href="https://www.nrsc.gov.in/Bhuvan_User_Guide"
+                    target="_blank"
+                    class="guide-toggle"
+                    >Guide</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="guide-content">How to download Satellite Data/Images (Cartosat-1) from ISRO Bhuvan Geoportal</div>
-        </li>
-        <li>
-          <div class="tree-item">
-            <i class="fas fa-satellite-dish"></i>
-            <div class="tree-item-content">
-              <h3>JAXA</h3>
-              <p>JAXA is responsible for research, technology development and launch of satellites into orbit, and is involved in many more advanced missions such as asteroid exploration and possible human exploration of the Moon.</p>
-              <button class="guide-toggle button-group">Show Datasets</button>
-              <ul class="guide-content">
-                <li>Alos-1</li>
-                <li>Alos-2</li>
-                <li>Alos-3</li>
-                <li>Alos-4</li>
-                <li>JERS-1</li>
-                <li>Global SAR Mosaic and Forest/Non-Forest Map</li>
-                <li>K&C Mosaic</li>
-                <li>Precise Global Digital 3D Map</li>
-                <li>High Resolution Land-Use and Land-Cover Map</li>
-                <li>Global Mangrove Watch</li>
-                <li>JICA-JAXA Forest Early Warning System in the Tropics (JJ-FAST)</li>
-                <li>ALOS Ortho Rectified Image Product</li>
-                <li>IPY Dataset</li>
-                <li>Glacial Lake Inventory of Bhutan</li>
-                <li>ALOS series Open and Free Data</li>
-                <li>High-Resolution map of forest above-ground carbon storage Products</li>
-              </ul>
-              <div class="button-group">
-                <a href="https://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm" target="_blank">Data Download</a>
-                <a href="https://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm" target="_blank" class="guide-toggle">Guide</a>
+            <div class="guide-content">
+              How to download Satellite Data/Images (Cartosat-1) from ISRO
+              Bhuvan Geoportal
+            </div>
+          </li>
+          <li>
+            <div class="tree-item">
+              <i class="fas fa-satellite-dish"></i>
+              <div class="tree-item-content">
+                <h3>JAXA</h3>
+                <p>
+                  JAXA is responsible for research, technology development and
+                  launch of satellites into orbit, and is involved in many more
+                  advanced missions such as asteroid exploration and possible
+                  human exploration of the Moon.
+                </p>
+                <button class="guide-toggle button-group">Show Datasets</button>
+                <ul class="guide-content">
+                  <li>Alos-1</li>
+                  <li>Alos-2</li>
+                  <li>Alos-3</li>
+                  <li>Alos-4</li>
+                  <li>JERS-1</li>
+                  <li>Global SAR Mosaic and Forest/Non-Forest Map</li>
+                  <li>K&C Mosaic</li>
+                  <li>Precise Global Digital 3D Map</li>
+                  <li>High Resolution Land-Use and Land-Cover Map</li>
+                  <li>Global Mangrove Watch</li>
+                  <li>
+                    JICA-JAXA Forest Early Warning System in the Tropics
+                    (JJ-FAST)
+                  </li>
+                  <li>ALOS Ortho Rectified Image Product</li>
+                  <li>IPY Dataset</li>
+                  <li>Glacial Lake Inventory of Bhutan</li>
+                  <li>ALOS series Open and Free Data</li>
+                  <li>
+                    High-Resolution map of forest above-ground carbon storage
+                    Products
+                  </li>
+                </ul>
+                <div class="button-group">
+                  <a
+                    href="https://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm"
+                    target="_blank"
+                    >Data Download</a
+                  >
+                  <a
+                    href="https://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm"
+                    target="_blank"
+                    class="guide-toggle"
+                    >Guide</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="guide-content">Dataset｜ALOS@EORC</div>
-        </li>
-        <li>
-          <div class="tree-item">
-            <i class="fas fa-water"></i>
-            <div class="tree-item-content">
-              <h3>NOAA CLASS</h3>
-              <p>The National Oceanic and Atmospheric Administration (abbreviated as NOAA) is an American scientific and regulatory agency charged with forecasting weather, monitoring oceanic and atmospheric conditions, charting the seas, conducting deep-sea exploration, and managing fishing and protection of marine mammals and endangered species in the US exclusive economic zone.</p>
-              <div class="button-group">
-                <a href="https://www.class.noaa.gov/" target="_blank">Data Download</a>
-                <a href="https://www.class.noaa.gov/saa/products/welcome" target="_blank" class="guide-toggle">Guide</a>
+            <div class="guide-content">Dataset｜ALOS@EORC</div>
+          </li>
+          <li>
+            <div class="tree-item">
+              <i class="fas fa-water"></i>
+              <div class="tree-item-content">
+                <h3>NOAA CLASS</h3>
+                <p>
+                  The National Oceanic and Atmospheric Administration
+                  (abbreviated as NOAA) is an American scientific and regulatory
+                  agency charged with forecasting weather, monitoring oceanic
+                  and atmospheric conditions, charting the seas, conducting
+                  deep-sea exploration, and managing fishing and protection of
+                  marine mammals and endangered species in the US exclusive
+                  economic zone.
+                </p>
+                <div class="button-group">
+                  <a href="https://www.class.noaa.gov/" target="_blank"
+                    >Data Download</a
+                  >
+                  <a
+                    href="https://www.class.noaa.gov/saa/products/welcome"
+                    target="_blank"
+                    class="guide-toggle"
+                    >Guide</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="guide-content">NOAA's Comprehensive Large Array-data Stewardship System</div>
-        </li>
-      </ul>
-    </div>
-  </main>
+            <div class="guide-content">
+              NOAA's Comprehensive Large Array-data Stewardship System
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
 
-  <script>
-    document.querySelectorAll('.guide-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        content.style.display = content.style.display === "block" ? "none" : "block";
+    <script>
+      document.querySelectorAll(".guide-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+          const content = button.nextElementSibling;
+          content.style.display =
+            content.style.display === "block" ? "none" : "block";
+        });
       });
-    });
-  </script>
-  <script src="../Javascript/script.js"></script>
-  <script type="module" src="../Javascript/navBar.js"></script>
-</body>
+    </script>
+    <script src="/infi website/Javascript/script.js"></script>
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+  </body>
 </html>

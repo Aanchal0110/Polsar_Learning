@@ -1,288 +1,349 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Interactive Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Dashboard.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../CSS/Dashboard.css" />
     <style>
-        .profile-container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 40px auto;
-            display: none;
-            /* Initially hidden */
-            font-family: Arial, sans-serif;
-        }
+      .profile-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: 40px auto;
+        display: none;
+        /* Initially hidden */
+        font-family: Arial, sans-serif;
+      }
 
-        .profile-container img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            float: left;
-            margin-right: 20px;
-            border: 3px solid #007bff;
-        }
+      .profile-container img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        float: left;
+        margin-right: 20px;
+        border: 3px solid #007bff;
+      }
 
-        .profile-container h2 {
-            margin-bottom: 20px;
-            color: #333;
-            font-size: 1.8rem;
-            margin-top: 0;
-        }
+      .profile-container h2 {
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 1.8rem;
+        margin-top: 0;
+      }
 
-        .profile-container .upload-link {
-            color: #007bff;
-            font-size: 0.9rem;
-            cursor: pointer;
-            text-decoration: underline;
-        }
+      .profile-container .upload-link {
+        color: #007bff;
+        font-size: 0.9rem;
+        cursor: pointer;
+        text-decoration: underline;
+      }
 
-        .profile-container p.note {
-            font-size: 0.8rem;
-            color: #777;
-            margin-top: 5px;
-            clear: both;
-        }
+      .profile-container p.note {
+        font-size: 0.8rem;
+        color: #777;
+        margin-top: 5px;
+        clear: both;
+      }
 
-        .form-group {
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
+      .form-group {
+        margin-bottom: 15px;
+        overflow: hidden;
+      }
 
-        .input-group {
-            float: left;
-            width: 48%;
-            margin-right: 4%;
-        }
+      .input-group {
+        float: left;
+        width: 48%;
+        margin-right: 4%;
+      }
 
-        .input-group:last-child {
-            margin-right: 0;
-        }
+      .input-group:last-child {
+        margin-right: 0;
+      }
 
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+      .input-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
 
-        .profile-container input[type="text"],
-        .profile-container input[type="email"] {
-            width: calc(100% - 10px);
-            padding: 10px 5px;
-            margin: 5px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+      .profile-container input[type="text"],
+      .profile-container input[type="email"] {
+        width: calc(100% - 10px);
+        padding: 10px 5px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
 
-        .profile-container .form-actions {
-            text-align: right;
-        }
+      .profile-container .form-actions {
+        text-align: right;
+      }
 
-        .profile-container .save-button,
-        .profile-container .reset-button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
+      .profile-container .save-button,
+      .profile-container .reset-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
 
-        .profile-container .reset-button {
-            background-color: #6c757d;
-        }
+      .profile-container .reset-button {
+        background-color: #6c757d;
+      }
 
-        .profile-container .save-button:hover {
-            background-color: #0056b3;
-        }
+      .profile-container .save-button:hover {
+        background-color: #0056b3;
+      }
 
-        .profile-container .reset-button:hover {
-            background-color: #5a6268;
-        }
+      .profile-container .reset-button:hover {
+        background-color: #5a6268;
+      }
 
-        .search-bar {
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      .search-bar {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .search-bar input[type="text"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px 0 0 5px;
-            flex: 1;
-        }
+      .search-bar input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px 0 0 5px;
+        flex: 1;
+      }
 
-        .search-bar button {
-            padding: 10px;
-            border: 1px solid #007bff;
-            background-color: #007bff;
-            color: white;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-        }
+      .search-bar button {
+        padding: 10px;
+        border: 1px solid #007bff;
+        background-color: #007bff;
+        color: white;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+      }
 
-        .search-bar button:hover {
-            background-color: #0056b3;
-        }
+      .search-bar button:hover {
+        background-color: #0056b3;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="dashboard">
-        <aside class="sidebar">
-            <div class="profile">
-                <img src="../image/varshaT.jpeg" alt="Profile" id="dashboardProfileImage">
-                <h2 id="dashboardDisplayName">Dr. Varsha Turkar</h2>
+      <aside class="sidebar">
+        <div class="profile">
+          <img
+            src="/infi website/image/varshaT.jpeg"
+            alt="Profile"
+            id="dashboardProfileImage"
+          />
+          <h2 id="dashboardDisplayName">Dr. Varsha Turkar</h2>
+        </div>
+        <nav id="navbar" class="menu">
+          <!-- <ul>
+            <li>
+              <a href="home.html" id="HomePageLink"
+                ><i class="fas fa-users"></i> Home Page</a
+              >
+            </li>
+            <li>
+              <a href="resources.html" id="exploreProductsLink"
+                ><i class="fas fa-box-open"></i> Explore Resources</a
+              >
+            </li>
+            <li>
+              <a href="#" id="myCoursesLink"
+                ><i class="fas fa-book-open"></i> My Courses</a
+              >
+            </li>
+            <li>
+              <a href="blog.html" id="Link"
+                ><i class="fas fa-calendar-alt"></i> Blogs</a
+              >
+            </li>
+            <li>
+              <a href="#" id="subscriptionsLink"
+                ><i class="fas fa-wallet"></i> Subscriptions</a
+              >
+            </li>
+            <li>
+              <a href="#" id="transactionsLink"
+                ><i class="fas fa-file-invoice"></i> Transactions</a
+              >
+            </li>
+            <li>
+              <a href="#" id="certificatesLink"
+                ><i class="fas fa-certificate"></i> Certificates</a
+              >
+            </li>
+            <li>
+              <a href="#" id="profileLink"
+                ><i class="fas fa-user"></i> Profile</a
+              >
+            </li>
+          </ul> -->
+        </nav>
+      </aside>
+      <main class="content">
+        <div id="mainContent">
+          <h1>Welcome to Your Dashboard</h1>
+          <div class="search-bar">
+            <input type="text" placeholder="Search..." />
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <p>Select an option from the sidebar to get started.</p>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-container" id="profileContent">
+          <img
+            src="/infi website/image/varshaT.jpeg"
+            alt="Profile Picture"
+            id="profileImage"
+          />
+          <div>
+            <h2 id="displayName">Dr. Varsha Turkar</h2>
+            <label for="uploadImage" class="upload-link">Upload image</label>
+            <input type="file" id="uploadImage" style="display: none" />
+          </div>
+          <p class="note">
+            Allowed formats: .JPG, .PNG, .JPEG, .SVG and Maximum size: 1MB.
+          </p>
+
+          <div class="form-group">
+            <div class="input-group">
+              <label for="firstName">First name:</label>
+              <input type="text" id="firstName" value="Dr. Varsha" />
             </div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="home.html" id="HomePageLink"><i class="fas fa-users"></i> Home Page</a></li>
-                    <li><a href="resources.html" id="exploreProductsLink"><i class="fas fa-box-open"></i> Explore Resources</a></li>
-                    <li><a href="#" id="myCoursesLink"><i class="fas fa-book-open"></i> My Courses</a></li>
-                    <li><a href="blog.html" id="Link"><i class="fas fa-calendar-alt"></i> Blogs</a></li>
-                    <li><a href="#" id="subscriptionsLink"><i class="fas fa-wallet"></i> Subscriptions</a></li>
-                    <li><a href="#" id="transactionsLink"><i class="fas fa-file-invoice"></i> Transactions</a></li>
-                    <li><a href="#" id="certificatesLink"><i class="fas fa-certificate"></i> Certificates</a></li>
-                    <li><a href="#" id="profileLink"><i class="fas fa-user"></i> Profile</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="content">
-            <div id="mainContent">
-                <h1>Welcome to Your Dashboard</h1>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-                <p>Select an option from the sidebar to get started.</p>
+            <div class="input-group">
+              <label for="lastName">Last name:</label>
+              <input type="text" id="lastName" value="Turkar" />
             </div>
+          </div>
 
-            <!-- Profile Section -->
-            <div class="profile-container" id="profileContent">
-                <img src="../image/varshaT.jpeg" alt="Profile Picture" id="profileImage">
-                <div>
-                    <h2 id="displayName">Dr. Varsha Turkar</h2>
-                    <label for="uploadImage" class="upload-link">Upload image</label>
-                    <input type="file" id="uploadImage" style="display: none;">
-                </div>
-                <p class="note">Allowed formats: .JPG, .PNG, .JPEG, .SVG and Maximum size: 1MB.</p>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value="varshaturkar@gmail.com"
+              readonly
+            />
+          </div>
 
-                <div class="form-group">
-                    <div class="input-group">
-                        <label for="firstName">First name:</label>
-                        <input type="text" id="firstName" value="Dr. Varsha">
-                    </div>
-                    <div class="input-group">
-                        <label for="lastName">Last name:</label>
-                        <input type="text" id="lastName" value="Turkar">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" value="varshaturkar@gmail.com" readonly>
-                </div>
-
-                <div class="form-group">
-                    <div class="input-group">
-                        <label for="designation">Designation:</label>
-                        <input type="text" id="designation" value="Professor">
-                    </div>
-                    <div class="input-group">
-                        <label for="workSchool">Work/School Name:</label>
-                        <input type="text" id="workSchool" value="XYZ University">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <input type="text" id="description" value="Expert in Remote Sensing">
-                </div>
-
-                <div class="form-group">
-                    <label for="phoneNumber">Phone Number:</label>
-                    <input type="text" id="phoneNumber" value="+1234567890">
-                </div>
-
-                <div class="form-actions">
-                    <button class="save-button" id="saveProfile">Save changes</button>
-                    <button class="reset-button" id="resetProfile">Reset</button>
-                </div>
+          <div class="form-group">
+            <div class="input-group">
+              <label for="designation">Designation:</label>
+              <input type="text" id="designation" value="Professor" />
             </div>
-        </main>
+            <div class="input-group">
+              <label for="workSchool">Work/School Name:</label>
+              <input type="text" id="workSchool" value="XYZ University" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <input
+              type="text"
+              id="description"
+              value="Expert in Remote Sensing"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" value="+1234567890" />
+          </div>
+
+          <div class="form-actions">
+            <button class="save-button" id="saveProfile">Save changes</button>
+            <button class="reset-button" id="resetProfile">Reset</button>
+          </div>
+        </div>
+      </main>
     </div>
 
     <script>
-        // Store initial values for reset functionality
-        const initialFirstName = document.getElementById('firstName').value;
-        const initialLastName = document.getElementById('lastName').value;
-        const initialDesignation = document.getElementById('designation').value;
-        const initialWorkSchool = document.getElementById('workSchool').value;
-        const initialDescription = document.getElementById('description').value;
-        const initialPhoneNumber = document.getElementById('phoneNumber').value;
-        const initialProfileImage = document.getElementById('profileImage').src;
+      // Store initial values for reset functionality
+      const initialFirstName = document.getElementById("firstName").value;
+      const initialLastName = document.getElementById("lastName").value;
+      const initialDesignation = document.getElementById("designation").value;
+      const initialWorkSchool = document.getElementById("workSchool").value;
+      const initialDescription = document.getElementById("description").value;
+      const initialPhoneNumber = document.getElementById("phoneNumber").value;
+      const initialProfileImage = document.getElementById("profileImage").src;
 
-    
-        document.getElementById('uploadImage').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const newImageURL = e.target.result;
-                    document.getElementById('profileImage').src = newImageURL;
-                    document.getElementById('dashboardProfileImage').src = newImageURL;
-                };
-                reader.readAsDataURL(file);
-            }
+      document
+        .getElementById("uploadImage")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const newImageURL = e.target.result;
+              document.getElementById("profileImage").src = newImageURL;
+              document.getElementById("dashboardProfileImage").src =
+                newImageURL;
+            };
+            reader.readAsDataURL(file);
+          }
         });
 
+      // Save Profile Functionality
+      document
+        .getElementById("saveProfile")
+        .addEventListener("click", function () {
+          const firstName = document.getElementById("firstName").value;
+          const lastName = document.getElementById("lastName").value;
+          const designation = document.getElementById("designation").value;
+          const workSchool = document.getElementById("workSchool").value;
+          const description = document.getElementById("description").value;
+          const phoneNumber = document.getElementById("phoneNumber").value;
 
-        // Save Profile Functionality
-        document.getElementById('saveProfile').addEventListener('click', function () {
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const designation = document.getElementById('designation').value;
-            const workSchool = document.getElementById('workSchool').value;
-            const description = document.getElementById('description').value;
-            const phoneNumber = document.getElementById('phoneNumber').value;
+          // Reflect changes in the dashboard
+          document.getElementById("dashboardDisplayName").innerText =
+            `${firstName} ${lastName}`;
+          document.getElementById("profileImage").src =
+            document.getElementById("profileImage").src;
 
-            // Reflect changes in the dashboard
-            document.getElementById('dashboardDisplayName').innerText = `${firstName} ${lastName}`;
-            document.getElementById('profileImage').src = document.getElementById('profileImage').src;
-
-            // Add logic to save profile data to a database or server if needed
+          // Add logic to save profile data to a database or server if needed
         });
 
-        // Reset Profile Functionality
-        document.getElementById('resetProfile').addEventListener('click', function () {
-            document.getElementById('firstName').value = initialFirstName;
-            document.getElementById('lastName').value = initialLastName;
-            document.getElementById('designation').value = initialDesignation;
-            document.getElementById('workSchool').value = initialWorkSchool;
-            document.getElementById('description').value = initialDescription;
-            document.getElementById('phoneNumber').value = initialPhoneNumber;
-            document.getElementById('profileImage').src = initialProfileImage;
-            document.getElementById('dashboardProfileImage').src = initialProfileImage;
+      // Reset Profile Functionality
+      document
+        .getElementById("resetProfile")
+        .addEventListener("click", function () {
+          document.getElementById("firstName").value = initialFirstName;
+          document.getElementById("lastName").value = initialLastName;
+          document.getElementById("designation").value = initialDesignation;
+          document.getElementById("workSchool").value = initialWorkSchool;
+          document.getElementById("description").value = initialDescription;
+          document.getElementById("phoneNumber").value = initialPhoneNumber;
+          document.getElementById("profileImage").src = initialProfileImage;
+          document.getElementById("dashboardProfileImage").src =
+            initialProfileImage;
         });
 
-            
-        // Add logic to display profile section when profile link is clicked
-        document.getElementById('profileLink').addEventListener('click', function () {
-            document.getElementById('profileContent').style.display = 'block';
-            document.getElementById('mainContent').style.display = 'none';
+      // Add logic to display profile section when profile link is clicked
+      document
+        .getElementById("profileLink")
+        .addEventListener("click", function () {
+          document.getElementById("profileContent").style.display = "block";
+          document.getElementById("mainContent").style.display = "none";
         });
     </script>
-    <script src="../Javascript/script.js"></script>
-    <script type="module" src="../Javascript/navBar.js"></script>
-</body>
-
+    <script src="/infi website/Javascript/script.js"></script>
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+  </body>
 </html>

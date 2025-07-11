@@ -1,398 +1,587 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PolSARLearn - Fundamentals</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../CSS/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PolSARLearn - Fundamentals</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
 
     <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f5f5f5;
+      }
 
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-      background: #002147;
-            padding: 10px 0;
-        }
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: #002147;
+        padding: 10px 0;
+      }
 
-    .navbar a.active {
-      color: red;
-    }
+      .navbar a.active {
+        color: red;
+      }
 
-    .navbar a:hover {
-      color: #1e90ff;
-        }
+      .navbar a:hover {
+        color: #1e90ff;
+      }
 
-        main {
-      margin-top: 80px;
-            padding: 20px;
-        }
+      main {
+        margin-top: 80px;
+        padding: 20px;
+      }
 
-        h1 {
-            text-align: center;
-      color: #002147;
-      margin-bottom: 30px;
-        }
+      h1 {
+        text-align: center;
+        color: #002147;
+        margin-bottom: 30px;
+      }
 
-        .search-bar {
-            display: flex;
-            justify-content: center;
-      margin-bottom: 30px;
-        }
+      .search-bar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
 
-        .search-bar input {
-            padding: 0.5rem;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 300px;
-        }
+      .search-bar input {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 300px;
+      }
 
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
 
-    .card {
-      background: #ffffff;
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s;
-    }
+      .card {
+        background: #ffffff;
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s;
+      }
 
-    .card:hover {
-      transform: scale(1.02);
-    }
+      .card:hover {
+        transform: scale(1.02);
+      }
 
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
 
-    .card-content {
-      padding: 15px;
-    }
+      .card-content {
+        padding: 15px;
+      }
 
-    .card-title {
-      font-size: 1.2rem;
-      color: #002147;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
+      .card-title {
+        font-size: 1.2rem;
+        color: #002147;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
 
-    .card-description {
-      font-size: 0.95rem;
-      color: #444;
-    }
+      .card-description {
+        font-size: 0.95rem;
+        color: #444;
+      }
 
-    .read-more {
-      color: #1e90ff;
-            cursor: pointer;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 10px;
-    }
+      .read-more {
+        color: #1e90ff;
+        cursor: pointer;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-  <div id="navbar"></div>
-  <div id="navBarTracker"></div>
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <img src="/infi website/image/logo.jpeg" alt="Logo" class="logo-img" />
+      </a>
 
-  <main>
-    <h1>Fundamentals</h1>
-<div class="search-bar">
-      <input type="text" id="search" placeholder="Search topics..." onkeyup="filterCards()">
-    </div>
+      <div id="menu" class="fas fa-bars"></div>
 
-    <div class="card-container" id="cardContainer">
+      <nav class="navbar" id="navbar">
+        <!-- <ul>
+              <li><a href="home.html" class="active">Home</a></li>
+              <li class="dropdown">
+                  <a href="#" class="dropbtn">Resources</a>
+                  <div class="dropdown-content">
+                      <a href="Fundamental.html">Fundamentals</a>
+                      <a href="Technical Paper.html">Technical Papers</a>
+                      <a href="Books.html">Books</a>
+                      <a href="Videos.html">Videos</a>
+                  </div>
+              </li>
+              <li class="dropdown">
+                  <a href="#" class="dropbtn">Domain Experts</a>
+                  <div class="dropdown-content">
+                      <a href="academicians.html">Academicians</a>
+                      <a href="Industry Personnel.html">Industry Personnel</a>
+                      <a href="Researchers.html">Researchers</a>
+                  </div>
+              </li>
+              <li class="dropdown">
+                  <a href="#" class="dropbtn">Downloads</a>
+                  <div class="dropdown-content">
+                      <a href="datadownload.html">Data Download</a>
+                      <a href="opensource.html">Software</a>
+                  </div>
+              </li>
 
-      <!-- 1 -->
-      <div class="card">
-        <img src="../BOOKS image/Introduction to Synthetic Aperture Radar (Sar) Polarimetry.jpg" alt="SAR Image">
-        <div class="card-content">
-          <div class="card-title">Synthetic Aperture Radar (SAR)</div>
-          <div class="card-description">
-            SAR uses a small antenna to transmit radar pulses, creating a synthetic aperture by combining multiple echoes.
-            <span class="more-text" style="display: none;">
-              SAR systems simulate a large antenna by integrating echoes from multiple positions. It enables high-resolution imaging in all-weather conditions, ideal for remote sensing.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
+              <li class="dropdown">
+                  <a href="education.html" class="dropbtn">Education</a>
+                 
+              </li>
+              <li><a href="career.html">Career</a></li>
+              <li><a href="event.html">Events</a></li>
+              <li><a href="blog.html">Blog</a></li> Blog link added
+              <li><a href="contact.html">Contact Us</a></li> Contact Us link added
+              <li>
+                  <form class="search-form">
+                      <input type="text" placeholder="Search...">
+                      <button type="submit"><i class="fas fa-search"></i></button>
+                  </form>
+              </li>
+              <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
+          </ul>-->
+      </nav>
+    </header>
+    <div id="navBarTracker"></div>
 
-      <!-- 2 -->
-      <div class="card">
-        <img src="../BOOKS image/Radar Interferometry. Data Interpretation and Error Analysis.jpg" alt="Range Azimuth Swath">
-        <div class="card-content">
-          <div class="card-title">Range, Azimuth, and Swath</div>
-          <div class="card-description">
-            Range is perpendicular to the flight path, azimuth is parallel, and swath is the imaged area on Earth's surface.
-            <span class="more-text" style="display: none;">
-              The range direction measures distance based on time delay, while azimuth depends on Doppler frequency shifts. Swath width varies with wavelength and platform altitude.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="card">
-        <img src="../BOOKS image/Radar Polarimetry for Geoscience Applications.jpg" alt="Backscattering">
-        <div class="card-content">
-          <div class="card-title">Backscattering</div>
-          <div class="card-description">
-            Reflection of radar signals toward the sensor; it depends on surface roughness, wavelength, and polarization.
-            <span class="more-text" style="display: none;">
-              Backscatter is influenced by dielectric properties and surface geometry. Stronger backscatter often indicates rough or wet surfaces.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="card">
-        <img src="../BOOKS image/Polarimetric Radar Imaging From Basics to Applications.jpg" alt="Types of Backscattering">
-        <div class="card-content">
-          <div class="card-title">Types of Backscattering</div>
-          <div class="card-description">
-            Includes single bounce (smooth surfaces), double bounce (man-made structures), and volume bounce (vegetation).
-            <span class="more-text" style="display: none;">
-              These scattering types help differentiate surface types. For example, double bounce is strong between buildings and the ground.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
+    <main>
+      <h1>Fundamentals</h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search topics..."
+          onkeyup="filterCards()"
+        />
       </div>
 
-      <!-- 5 -->
-      <div class="card">
-        <img src="../BOOKS image/Synthetic Aperture Radar Polarimetry.jpg" alt="PolSAR">
-        <div class="card-content">
-          <div class="card-title">Polarimetric SAR (PolSAR)</div>
-          <div class="card-description">
-            PolSAR transmits and receives in multiple polarizations (HH, VV, HV, VH) for detailed target analysis.
-            <span class="more-text" style="display: none;">
-              It allows discrimination of land features and scattering mechanisms, making PolSAR powerful for vegetation, urban, and soil studies.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
+      <div class="card-container" id="cardContainer">
+        <!-- 1 -->
+        <div class="card">
+          <img
+            src="/infi website/BOOKS image/Introduction to Synthetic Aperture Radar (Sar) Polarimetry.jpg"
+            alt="SAR Image"
+          />
+          <div class="card-content">
+            <div class="card-title">Synthetic Aperture Radar (SAR)</div>
+            <div class="card-description">
+              SAR uses a small antenna to transmit radar pulses, creating a
+              synthetic aperture by combining multiple echoes.
+              <span class="more-text" style="display: none">
+                SAR systems simulate a large antenna by integrating echoes from
+                multiple positions. It enables high-resolution imaging in
+                all-weather conditions, ideal for remote sensing.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 6 -->
-      <div class="card">
-        <img src="../BOOKS image/Polarisation Applications.jpg" alt="Polarization Types">
-        <div class="card-content">
-          <div class="card-title">Types of Polarization</div>
-          <div class="card-description">
-            Includes single, dual, and quad polarization for capturing different scattering properties.
-            <span class="more-text" style="display: none;">
-              Single uses one polarization; dual uses two (e.g., HH and HV); quad uses all four combinations (HH, VV, HV, VH) for advanced analysis.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
+        <!-- 2 -->
+        <div class="card">
+          <img
+            src="/infi website/BOOKS image/Radar Interferometry. Data Interpretation and Error Analysis.jpg"
+            alt="Range Azimuth Swath"
+          />
+          <div class="card-content">
+            <div class="card-title">Range, Azimuth, and Swath</div>
+            <div class="card-description">
+              Range is perpendicular to the flight path, azimuth is parallel,
+              and swath is the imaged area on Earth's surface.
+              <span class="more-text" style="display: none">
+                The range direction measures distance based on time delay, while
+                azimuth depends on Doppler frequency shifts. Swath width varies
+                with wavelength and platform altitude.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 7 -->
-      <div class="card">
-        <img src="../BOOKS image/Processing of Synthetic Aperture Radar (Sar) Images.jpg" alt="Polarization Correlation">
-        <div class="card-content">
-          <div class="card-title">Polarization Correlation</div>
-          <div class="card-description">
-            Examines relationships between polarization states: co-pol (HH, VV) and cross-pol (HV, VH).
-            <span class="more-text" style="display: none;">
-              High correlation between HH and VV often indicates smooth or homogeneous surfaces, while low correlation can suggest vegetation or rough terrain.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
+        <!-- 3 -->
+        <div class="card">
+          <img
+            src="/infi website/BOOKS image/Radar Polarimetry for Geoscience Applications.jpg"
+            alt="Backscattering"
+          />
+          <div class="card-content">
+            <div class="card-title">Backscattering</div>
+            <div class="card-description">
+              Reflection of radar signals toward the sensor; it depends on
+              surface roughness, wavelength, and polarization.
+              <span class="more-text" style="display: none">
+                Backscatter is influenced by dielectric properties and surface
+                geometry. Stronger backscatter often indicates rough or wet
+                surfaces.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 8 -->
-      <div class="card">
-        <img src="../BOOKS image/Radargrammetric Image Processing.png" alt="Scattering Matrix">
-        <div class="card-content">
-          <div class="card-title">Scattering Matrix</div>
-          <div class="card-description">
-            A 2×2 matrix describing how radar signals change polarization after interacting with a target.
-            <span class="more-text" style="display: none;">
-              It contains four elements: SHH, SHV, SVH, SVV, representing transmission and reception in horizontal/vertical polarizations.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
+        <!-- 4 -->
+        <div class="card">
+          <img
+            src="/infi website/BOOKS image/Polarimetric Radar Imaging From Basics to Applications.jpg"
+            alt="Types of Backscattering"
+          />
+          <div class="card-content">
+            <div class="card-title">Types of Backscattering</div>
+            <div class="card-description">
+              Includes single bounce (smooth surfaces), double bounce (man-made
+              structures), and volume bounce (vegetation).
+              <span class="more-text" style="display: none">
+                These scattering types help differentiate surface types. For
+                example, double bounce is strong between buildings and the
+                ground.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 9 -->
-      <div class="card">
-        <img src="../BOOKS image/Multi-purposeful Application of Geospatial Data.png" alt="Covariance Matrix">
-        <div class="card-content">
-          <div class="card-title">Covariance Matrix</div>
-          <div class="card-description">
-            Used in PolSAR systems to analyze statistical relationships between polarization channels.
-            <span class="more-text" style="display: none;">
-              It helps in understanding the power and correlation between different polarimetric components. It's essential for classification and decomposition techniques.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
+        <!-- 5 -->
+        <div class="card">
+          <img
+            src="/infi website/BOOKS image/Synthetic Aperture Radar Polarimetry.jpg"
+            alt="PolSAR"
+          />
+          <div class="card-content">
+            <div class="card-title">Polarimetric SAR (PolSAR)</div>
+            <div class="card-description">
+              PolSAR transmits and receives in multiple polarizations (HH, VV,
+              HV, VH) for detailed target analysis.
+              <span class="more-text" style="display: none">
+                It allows discrimination of land features and scattering
+                mechanisms, making PolSAR powerful for vegetation, urban, and
+                soil studies.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
           </div>
         </div>
-      </div>
-  
-      <!-- 10 -->
-      <div class="card">
-        <img src="../BOOKS image/A New Target Detector Based on Geometrical Perturbation Filters for Polarimetric Synthetic Aperture Radar (POL-SAR.jpg" alt="Decomposition">
-        <div class="card-content">
-          <div class="card-title">Decomposition</div>
-          <div class="card-description">
-            Breaks down radar signals into surface, double-bounce, and volume scattering components.
-            <span class="more-text" style="display: none;">
-              These components help identify and classify land cover types and surface features in PolSAR imagery using models like Freeman-Durden or Cloude-Pottier.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
-  
-      <!-- 11 -->
-      <div class="card">
-        <img src="../BOOKS image/Radar Interferometry. Data Interpretation and Error Analysis.jpg" alt="Interferometry">
-        <div class="card-content">
-          <div class="card-title">Interferometry (InSAR)</div>
-          <div class="card-description">
-            Uses phase differences between radar images to measure surface deformation and topography.
-            <span class="more-text" style="display: none;">
-              By comparing two SAR images taken at different times, InSAR can detect ground movement, such as landslides or subsidence, and produce high-resolution elevation maps.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
-  
-      <!-- 12 -->
-      <div class="card">
-        <img src="../BOOKS image/Photogrammetry, GIS & Remote Sensing.jpg" alt="Digital Elevation Model">
-        <div class="card-content">
-          <div class="card-title">Digital Elevation Model (DEM)</div>
-          <div class="card-description">
-            A 3D representation of Earth's surface created using SAR or InSAR data.
-            <span class="more-text" style="display: none;">
-              DEMs are widely used in topographic analysis, flood simulation, urban planning, and geoscience. InSAR-derived DEMs provide highly accurate terrain data.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
-  
-      <!-- 13 -->
-      <div class="card">
-        <img src="../BOOKS image/Introductory Digital Image Processing.jpg" alt="Speckle Filtering">
-        <div class="card-content">
-          <div class="card-title">Speckle Filtering</div>
-          <div class="card-description">
-            Reduces noise in SAR images while preserving important features and edges.
-            <span class="more-text" style="display: none;">
-              Speckle is a granular noise inherent to coherent imaging systems. Filters like Lee, Frost, and Gamma MAP are used to improve image clarity and analysis quality.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
-  
-      <!-- 14 -->
-      <div class="card">
-        <img src="../BOOKS image/Remote Sensing Spatial Domain.jpg" alt="Co-registration">
-        <div class="card-content">
-          <div class="card-title">Co-registration</div>
-          <div class="card-description">
-            Aligns multiple SAR images for accurate change detection and interferometric analysis.
-            <span class="more-text" style="display: none;">
-              It ensures that corresponding pixels from different dates or sensors represent the same ground point. This step is crucial for time series analysis and InSAR.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
-  
-      <!-- 15 -->
-      <div class="card">
-        <img src="../BOOKS image/Remote Sensing in Hydrology and Water Management.jpg" alt="Geo-coding">
-        <div class="card-content">
-          <div class="card-title">Geo-coding</div>
-          <div class="card-description">
-            Transforms radar image coordinates into geographic coordinates using projection and correction.
-            <span class="more-text" style="display: none;">
-              Geo-coding enables integration of SAR data with GIS and other spatial datasets, allowing accurate overlay and analysis in real-world map projections.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
-  
-      <!-- 16 -->
-      <div class="card">
-        <img src="../BOOKS image/Remote Sensing of Impervious Surfaces.jpg" alt="Radiometric Calibration">
-        <div class="card-content">
-          <div class="card-title">Radiometric Calibration</div>
-          <div class="card-description">
-            Corrects SAR data for system noise and geometry to represent true surface reflectivity.
-            <span class="more-text" style="display: none;">
-              Radiometric calibration standardizes radar measurements across sensors, scenes, and acquisition times, making quantitative analysis and comparison possible.
-            </span>
-            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
-          </div>
-        </div>
-      </div>
-  
-    </div>
-  </main>
 
-<script>
-    function toggleReadMore(element) {
-      const moreText = element.previousElementSibling;
-      if (moreText.style.display === "none") {
-        moreText.style.display = "inline";
-        element.textContent = "Read less";
+        <!-- 6 -->
+        <div class="card">
+          <img
+            src="/infi website/BOOKS image/Polarisation Applications.jpg"
+            alt="Polarization Types"
+          />
+          <div class="card-content">
+            <div class="card-title">Types of Polarization</div>
+            <div class="card-description">
+              Includes single, dual, and quad polarization for capturing
+              different scattering properties.
+              <span class="more-text" style="display: none">
+                Single uses one polarization; dual uses two (e.g., HH and HV);
+                quad uses all four combinations (HH, VV, HV, VH) for advanced
+                analysis.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card">
+          <img
+            src="/infi website/BOOKS image/Processing of Synthetic Aperture Radar (Sar) Images.jpg"
+            alt="Polarization Correlation"
+          />
+          <div class="card-content">
+            <div class="card-title">Polarization Correlation</div>
+            <div class="card-description">
+              Examines relationships between polarization states: co-pol (HH,
+              VV) and cross-pol (HV, VH).
+              <span class="more-text" style="display: none">
+                High correlation between HH and VV often indicates smooth or
+                homogeneous surfaces, while low correlation can suggest
+                vegetation or rough terrain.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+          <img
+            src="/infi website/BOOKS image/Radargrammetric Image Processing.png"
+            alt="Scattering Matrix"
+          />
+          <div class="card-content">
+            <div class="card-title">Scattering Matrix</div>
+            <div class="card-description">
+              A 2×2 matrix describing how radar signals change polarization
+              after interacting with a target.
+              <span class="more-text" style="display: none">
+                It contains four elements: SHH, SHV, SVH, SVV, representing
+                transmission and reception in horizontal/vertical polarizations.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="card">
+          <img
+            src="../BOOKS image/Multi-purposeful Application of Geospatial Data.png"
+            alt="Covariance Matrix"
+          />
+          <div class="card-content">
+            <div class="card-title">Covariance Matrix</div>
+            <div class="card-description">
+              Used in PolSAR systems to analyze statistical relationships
+              between polarization channels.
+              <span class="more-text" style="display: none">
+                It helps in understanding the power and correlation between
+                different polarimetric components. It's essential for
+                classification and decomposition techniques.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="card">
+          <img
+            src="../BOOKS image/A New Target Detector Based on Geometrical Perturbation Filters for Polarimetric Synthetic Aperture Radar (POL-SAR.jpg"
+            alt="Decomposition"
+          />
+          <div class="card-content">
+            <div class="card-title">Decomposition</div>
+            <div class="card-description">
+              Breaks down radar signals into surface, double-bounce, and volume
+              scattering components.
+              <span class="more-text" style="display: none">
+                These components help identify and classify land cover types and
+                surface features in PolSAR imagery using models like
+                Freeman-Durden or Cloude-Pottier.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="card">
+          <img
+            src="../BOOKS image/Radar Interferometry. Data Interpretation and Error Analysis.jpg"
+            alt="Interferometry"
+          />
+          <div class="card-content">
+            <div class="card-title">Interferometry (InSAR)</div>
+            <div class="card-description">
+              Uses phase differences between radar images to measure surface
+              deformation and topography.
+              <span class="more-text" style="display: none">
+                By comparing two SAR images taken at different times, InSAR can
+                detect ground movement, such as landslides or subsidence, and
+                produce high-resolution elevation maps.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="card">
+          <img
+            src="../BOOKS image/Photogrammetry, GIS & Remote Sensing.jpg"
+            alt="Digital Elevation Model"
+          />
+          <div class="card-content">
+            <div class="card-title">Digital Elevation Model (DEM)</div>
+            <div class="card-description">
+              A 3D representation of Earth's surface created using SAR or InSAR
+              data.
+              <span class="more-text" style="display: none">
+                DEMs are widely used in topographic analysis, flood simulation,
+                urban planning, and geoscience. InSAR-derived DEMs provide
+                highly accurate terrain data.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="card">
+          <img
+            src="../BOOKS image/Introductory Digital Image Processing.jpg"
+            alt="Speckle Filtering"
+          />
+          <div class="card-content">
+            <div class="card-title">Speckle Filtering</div>
+            <div class="card-description">
+              Reduces noise in SAR images while preserving important features
+              and edges.
+              <span class="more-text" style="display: none">
+                Speckle is a granular noise inherent to coherent imaging
+                systems. Filters like Lee, Frost, and Gamma MAP are used to
+                improve image clarity and analysis quality.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="card">
+          <img
+            src="../BOOKS image/Remote Sensing Spatial Domain.jpg"
+            alt="Co-registration"
+          />
+          <div class="card-content">
+            <div class="card-title">Co-registration</div>
+            <div class="card-description">
+              Aligns multiple SAR images for accurate change detection and
+              interferometric analysis.
+              <span class="more-text" style="display: none">
+                It ensures that corresponding pixels from different dates or
+                sensors represent the same ground point. This step is crucial
+                for time series analysis and InSAR.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="card">
+          <img
+            src="../BOOKS image/Remote Sensing in Hydrology and Water Management.jpg"
+            alt="Geo-coding"
+          />
+          <div class="card-content">
+            <div class="card-title">Geo-coding</div>
+            <div class="card-description">
+              Transforms radar image coordinates into geographic coordinates
+              using projection and correction.
+              <span class="more-text" style="display: none">
+                Geo-coding enables integration of SAR data with GIS and other
+                spatial datasets, allowing accurate overlay and analysis in
+                real-world map projections.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="card">
+          <img
+            src="../BOOKS image/Remote Sensing of Impervious Surfaces.jpg"
+            alt="Radiometric Calibration"
+          />
+          <div class="card-content">
+            <div class="card-title">Radiometric Calibration</div>
+            <div class="card-description">
+              Corrects SAR data for system noise and geometry to represent true
+              surface reflectivity.
+              <span class="more-text" style="display: none">
+                Radiometric calibration standardizes radar measurements across
+                sensors, scenes, and acquisition times, making quantitative
+                analysis and comparison possible.
+              </span>
+              <span class="read-more" onclick="toggleReadMore(this)"
+                >Read more</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function toggleReadMore(element) {
+        const moreText = element.previousElementSibling;
+        if (moreText.style.display === "none") {
+          moreText.style.display = "inline";
+          element.textContent = "Read less";
         } else {
-        moreText.style.display = "none";
-        element.textContent = "Read more";
+          moreText.style.display = "none";
+          element.textContent = "Read more";
         }
-    }
+      }
 
-    function filterCards() {
+      function filterCards() {
         let input = document.getElementById("search").value.toLowerCase();
-      let cards = document.querySelectorAll(".card");
+        let cards = document.querySelectorAll(".card");
 
-      cards.forEach((card) => {
-        let title = card.querySelector(".card-title").textContent.toLowerCase();
-        let desc = card.querySelector(".card-description").textContent.toLowerCase();
+        cards.forEach((card) => {
+          let title = card
+            .querySelector(".card-title")
+            .textContent.toLowerCase();
+          let desc = card
+            .querySelector(".card-description")
+            .textContent.toLowerCase();
 
-        if (title.includes(input) || desc.includes(input)) {
-          card.style.display = "flex";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
-</script>
-<script type="module" src="../Javascript/navBar.js"></script>
-</body>
+          if (title.includes(input) || desc.includes(input)) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+    </script>
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+  </body>
 </html>

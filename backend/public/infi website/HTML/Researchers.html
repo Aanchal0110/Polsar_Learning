@@ -1,244 +1,336 @@
-Here's the updated content as per your request. I have added the provided content while keeping the existing structure intact:
-
-```html
-<!DOCTYPE html>
+Here's the updated content as per your request. I have added the provided
+content while keeping the existing structure intact: ```html
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Researchers</title>
 
     <!-- Font Awesome CDN Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <!-- Custom CSS File Link -->
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="/infi website/CSS/style.css" />
     <style>
+      .academician-item {
+        border: 1px solid #ccc;
+        margin: 17px 0;
+        padding: 17px;
+        border-radius: 8px;
+      }
+      p {
+        text-align: justify;
+      }
+      .academician-img {
+        width: 100%;
+        max-width: 150px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+      }
+      .academician-item h2 {
+        margin-top: 50px;
+        color: black;
+      }
+      .academician-item img {
+        width: 150px; /* Set the desired size */
+        height: 150px;
+        object-fit: cover; /* Ensures the image fits the container without distortion */
+        border-radius: 50%; /* Makes the image circular */
+        display: block;
+        margin: 0 auto; /* Centers the image */
+      }
 
-        .academician-item {
-            border: 1px solid #ccc;
-            margin: 17px 0;
-            padding: 17px;
-            border-radius: 8px;
-        }
-        p {
-            text-align: justify;
-        }
-        .academician-img {
-            width: 100%;
-            max-width: 150px;
-            border-radius: 50%;
-            display: block;
-            margin: 0 auto;
-        }
-        .academician-item h2 {
-            margin-top: 50px;
-            color: black;
-        }
-        .academician-item img {
-            width: 150px; /* Set the desired size */
-            height: 150px;
-            object-fit: cover; /* Ensures the image fits the container without distortion */
-            border-radius: 50%; /* Makes the image circular */
-            display: block;
-            margin: 0 auto; /* Centers the image */
-        }
+      .read-more-content {
+        display: none;
+        margin-top: 10px;
+        color: black; /* Make the text color black */
+        text-align: justify; /* Justify the text */
+      }
 
-        .read-more-content {
-            display: none;
-            margin-top: 10px;
-            color: black; /* Make the text color black */
-            text-align: justify; /* Justify the text */
-        }
+      .read-more-content a {
+        display: block; /* Makes the link block-level, so it can be centered */
+        text-align: center; /* Centers the text */
+        margin-top: 10px; /* Adds spacing from the content above */
+      }
 
-        .read-more-content a {
-            display: block; /* Makes the link block-level, so it can be centered */
-            text-align: center; /* Centers the text */
-            margin-top: 10px; /* Adds spacing from the content above */
-        }
+      .read-more-content ul {
+        list-style-type: none; /* Remove default bullet points */
+        padding-left: 0;
+      }
 
-        .read-more-content ul {
-            list-style-type: none; /* Remove default bullet points */
-            padding-left: 0;
-        }
+      .read-more-content li {
+        margin-bottom: 10px; /* Space between list items */
+      }
 
-        .read-more-content li {
-            margin-bottom: 10px; /* Space between list items */
-        }
+      .linkedin-link {
+        color: #6a4c9c;
+        font-weight: bold;
+        text-decoration: underline;
+      }
 
-        .linkedin-link {
-            color: #6a4c9c;
-            font-weight: bold;
-            text-decoration: underline;
-        }
+      .linkedin-link:hover {
+        text-decoration: underline;
+      }
 
-        .linkedin-link:hover {
-            text-decoration: underline;
-        }
+      .read-more-btn {
+        color: #0077b5;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .read-more-content a.website-link {
+        color: #6a4c9c; /* Purple color */
+        text-decoration: underline; /* Underlined link */
+        font-weight: bold; /* Bold text */
+      }
 
-        .read-more-btn {
-            color: #0077b5;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .read-more-content a.website-link {
-            color: #6a4c9c; /* Purple color */
-            text-decoration: underline; /* Underlined link */
-            font-weight: bold; /* Bold text */
-        }
-
-        .read-more-content a.website-link:hover {
-            color: #4b2e83; /* Darker purple on hover */
-            text-decoration: underline; /* Keep underline on hover */
-        }
-        /* Example CSS for fixing text visibility */
-
+      .read-more-content a.website-link:hover {
+        color: #4b2e83; /* Darker purple on hover */
+        text-decoration: underline; /* Keep underline on hover */
+      }
+      /* Example CSS for fixing text visibility */
     </style>
-</head>
-<body>
-    <div id="navbar"></div>
-    <div id="navBarTracker"></div>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <a href="#" class="logo">
-                <img src="../image/logo.jpeg" alt="Logo" class="logo-img">
-            </a>
+      <header>
+        <a href="#" class="logo">
+          <img
+            src="/infi website/image/logo.jpeg"
+            alt="Logo"
+            class="logo-img"
+          />
+        </a>
 
-            <div id="menu" class="fas fa-bars"></div>
+        <div id="menu" class="fas fa-bars"></div>
 
-            <nav class="navbar">
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li class="dropdown">
-                        
-                        <div class="dropdown-content">
-                            <a href="Fundamental.html">Fundamentals</a>
-                            <a href="Technical Papers.html">Technical Papers</a>
-                            <a href="Books.html">Books</a>
-                            <a href="Videos.html">Videos</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                       
-                        <div class="dropdown-content">
-                            <a href="academicians.html">Academicians</a>
-                            <a href="Industry Personnel.html">Industry Personnel</a>
-                            <a href="Researchers.html">Researchers/Scientists</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                       
-                        <div class="dropdown-content">
-                            <a href="datadownload.html">Data Download</a>
-                            <a href="opensource.html">Software</a>
-                        </div>
-                    </li>
+        <nav id="navbar" class="navbar">
+          <!-- <ul>
+            <li><a href="home.html">Home</a></li>
+            <li class="dropdown">
+              <div class="dropdown-content">
+                <a href="Fundamental.html">Fundamentals</a>
+                <a href="Technical Papers.html">Technical Papers</a>
+                <a href="Books.html">Books</a>
+                <a href="Videos.html">Videos</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <div class="dropdown-content">
+                <a href="academicians.html">Academicians</a>
+                <a href="Industry Personnel.html">Industry Personnel</a>
+                <a href="Researchers.html">Researchers/Scientists</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <div class="dropdown-content">
+                <a href="datadownload.html">Data Download</a>
+                <a href="opensource.html">Software</a>
+              </div>
+            </li>
 
-                    <li class="dropdown">
-                        <a href="education.html" class="dropbtn">Education</a>
-                        
-                    </li>
-                    <li><a href="career.html">Career</a></li>
-                    <li><a href="news.html">Events</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li>
-                        <form class="search-form">
-                            <input type="text" placeholder="Search..." required>
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    </li>
-                    <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
-                </ul>
-            </nav>
-        </header>
+            <li class="dropdown">
+              <a href="education.html" class="dropbtn">Education</a>
+            </li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="news.html">Events</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li>
+              <form class="search-form">
+                <input type="text" placeholder="Search..." required />
+                <button type="submit"><i class="fas fa-search"></i></button>
+              </form>
+            </li>
+            <li>
+              <a href="login.html" class="dropbtn login-icon"
+                ><i class="fas fa-user"></i> Login</a
+              >
+            </li>
+          </ul> -->
+        </nav>
+      </header>
 
-        <main>
-            <section class="academicians">
-                <div class="academicians-items" style="text-align: center;">
-                    <!-- Dr. Shiv Mohan -->
-<div class="academician-item">
-    <img src="../image/Dr. Shiv Mohan.jpeg" alt="Dr. Shiv Mohan" class="academician-img">
-    <h2>Dr. Shiv Mohan (Space Application Centre, Ahmedabad)</h2>
-    <p>Dr. Shiv Mohan, a pioneer in microwave remote sensing, played a key role in India's SAR programs, including RISAT and Chandrayaan SAR missions. He has 320+ research papers, guided PhD students, and received the IEEE GRSS Outstanding Service Award (2022). He also contributed to IEEE GRSS initiatives in India.</p>
-    <a href="https://linkedin.com/in/shiv-mohan-1a009234" class="linkedin-link" target="_blank">LinkedIn</a>
-</div>
+      <main>
+        <section class="academicians">
+          <div class="academicians-items" style="text-align: center">
+            <!-- Dr. Shiv Mohan -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Shiv Mohan.jpeg"
+                alt="Dr. Shiv Mohan"
+                class="academician-img"
+              />
+              <h2>Dr. Shiv Mohan (Space Application Centre, Ahmedabad)</h2>
+              <p>
+                Dr. Shiv Mohan, a pioneer in microwave remote sensing, played a
+                key role in India's SAR programs, including RISAT and
+                Chandrayaan SAR missions. He has 320+ research papers, guided
+                PhD students, and received the IEEE GRSS Outstanding Service
+                Award (2022). He also contributed to IEEE GRSS initiatives in
+                India.
+              </p>
+              <a
+                href="https://linkedin.com/in/shiv-mohan-1a009234"
+                class="linkedin-link"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
 
-<!-- Dr. Anup Das -->
-<div class="academician-item">
-    <img src="../image/Dr. Anup Das.jpeg" alt="Dr. Anup Das" class="academician-img">
-    <h2>Dr. Anup Das (Space Application Centre, Ahmedabad-ISRO)</h2>
-    <p>Dr. Anup Das specializes in SAR applications for geosciences and planetary studies. He is involved in major SAR missions like RISAT-1, Chandrayaan SAR, and NISAR. He received the 'Green Asia Award' (2017) for SAR-based forest biomass studies.</p>
-    <a href="https://linkedin.com/in/anup-das-51880327" class="linkedin-link" target="_blank">LinkedIn</a>
-</div>
+            <!-- Dr. Anup Das -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Dr. Anup Das.jpeg"
+                alt="Dr. Anup Das"
+                class="academician-img"
+              />
+              <h2>Dr. Anup Das (Space Application Centre, Ahmedabad-ISRO)</h2>
+              <p>
+                Dr. Anup Das specializes in SAR applications for geosciences and
+                planetary studies. He is involved in major SAR missions like
+                RISAT-1, Chandrayaan SAR, and NISAR. He received the 'Green Asia
+                Award' (2017) for SAR-based forest biomass studies.
+              </p>
+              <a
+                href="https://linkedin.com/in/anup-das-51880327"
+                class="linkedin-link"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
 
-<!-- Dr. Sujata Dash -->
-<div class="academician-item">
-    <img src="../image/profile.png" alt="Dr. Sujata Dash" class="academician-img">
-    <h2>Dr. Sujata Dash (DTRL, DRDO, New Delhi)</h2>
-    <p>Dr. Sujata Dash specializes in geospatial applications for defense and SAR-based terrain modeling. She has 35+ research papers and has received multiple awards, including 'Scientist of the Year' (2006).</p>
-    <a href="https://www.linkedin.com/in/sujata-dash-422971a3" class="linkedin-link" target="_blank">LinkedIn</a>
-</div>
+            <!-- Dr. Sujata Dash -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/profile.png"
+                alt="Dr. Sujata Dash"
+                class="academician-img"
+              />
+              <h2>Dr. Sujata Dash (DTRL, DRDO, New Delhi)</h2>
+              <p>
+                Dr. Sujata Dash specializes in geospatial applications for
+                defense and SAR-based terrain modeling. She has 35+ research
+                papers and has received multiple awards, including 'Scientist of
+                the Year' (2006).
+              </p>
+              <a
+                href="https://www.linkedin.com/in/sujata-dash-422971a3"
+                class="linkedin-link"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
 
-<!-- Dr. Paul Rosen -->
-<div class="academician-item">
-    <img src="../image/Paul Rosen.jpeg" alt="Dr. Paul Rosen" class="academician-img">
-    <h2>Dr. Paul Rosen (Jet Propulsion Laboratory-NASA)</h2>
-    <p>Dr. Paul Rosen leads SAR research at NASA's JPL. He played a key role in SRTM and planetary SAR applications. He has received NASA's Exceptional Service Medal (2001) and authored 30+ journal papers.</p>
-    <a href="https://www.linkedin.com/in/paul-rosen-4052b8b" class="linkedin-link" target="_blank">LinkedIn</a>
-</div>
+            <!-- Dr. Paul Rosen -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Paul Rosen.jpeg"
+                alt="Dr. Paul Rosen"
+                class="academician-img"
+              />
+              <h2>Dr. Paul Rosen (Jet Propulsion Laboratory-NASA)</h2>
+              <p>
+                Dr. Paul Rosen leads SAR research at NASA's JPL. He played a key
+                role in SRTM and planetary SAR applications. He has received
+                NASA's Exceptional Service Medal (2001) and authored 30+ journal
+                papers.
+              </p>
+              <a
+                href="https://www.linkedin.com/in/paul-rosen-4052b8b"
+                class="linkedin-link"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
 
-<!-- Dr. Sujata Ghosh -->
-<div class="academician-item">
-    <img src="../image/profile.png" alt="Dr. Sujata Ghosh" class="academician-img">
-    <h2>Dr. Sujata Ghosh (ADRIN, Hyderabad)</h2>
-    <p>Dr. Sujata Ghosh has expertise in government and remote sensing applications, with prior experience at ISRO.</p>
-    <a href="https://linkedin.com/in/sujata-ghosh-7b338a8" class="linkedin-link" target="_blank">LinkedIn</a>
-</div>
+            <!-- Dr. Sujata Ghosh -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/profile.png"
+                alt="Dr. Sujata Ghosh"
+                class="academician-img"
+              />
+              <h2>Dr. Sujata Ghosh (ADRIN, Hyderabad)</h2>
+              <p>
+                Dr. Sujata Ghosh has expertise in government and remote sensing
+                applications, with prior experience at ISRO.
+              </p>
+              <a
+                href="https://linkedin.com/in/sujata-ghosh-7b338a8"
+                class="linkedin-link"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
 
-<!-- Dr. Pratima Pandey -->
-<div class="academician-item">
-    <img src="../image/pratima_pandey.jpg" alt="Dr. Pratima Pandey" class="academician-img">
-    <h2>Dr. Pratima Pandey (IIRS, Dehradun)</h2>
-    <p>Expertise: Glaciology, Optical and SAR applications for cryosphere studies.</p>
-    <a href="https://www.linkedin.com/in/pratima-pandey-209b181b3" class="linkedin-link" target="_blank">LinkedIn</a>
-</div>
+            <!-- Dr. Pratima Pandey -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/pratima_pandey.jpg"
+                alt="Dr. Pratima Pandey"
+                class="academician-img"
+              />
+              <h2>Dr. Pratima Pandey (IIRS, Dehradun)</h2>
+              <p>
+                Expertise: Glaciology, Optical and SAR applications for
+                cryosphere studies.
+              </p>
+              <a
+                href="https://www.linkedin.com/in/pratima-pandey-209b181b3"
+                class="linkedin-link"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
 
-<!-- Dr. Varsha Turkar -->
-<div class="academician-item">
-    <img src="../image/Varsha-Turkar.png" alt="Dr. Varsha Turkar" class="academician-img">
-    <h2>Dr. Varsha Turkar (VIT, Mumbai)</h2>
-    <p>Expert in SAR image classification and microwave remote sensing.</p>
-    <p>Strong research background in data analysis and machine learning.</p>
-    <a href="https://varsha.turkar.in/" target="_blank">Website</a> |
-    <a href="https://linkedin.com/in/varshaturkar" target="_blank">LinkedIn</a>
-</div>
+            <!-- Dr. Varsha Turkar -->
+            <div class="academician-item">
+              <img
+                src="/infi website/image/Varsha-Turkar.png"
+                alt="Dr. Varsha Turkar"
+                class="academician-img"
+              />
+              <h2>Dr. Varsha Turkar (VIT, Mumbai)</h2>
+              <p>
+                Expert in SAR image classification and microwave remote sensing.
+              </p>
+              <p>
+                Strong research background in data analysis and machine
+                learning.
+              </p>
+              <a href="https://varsha.turkar.in/" target="_blank">Website</a> |
+              <a href="https://linkedin.com/in/varshaturkar" target="_blank"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
 
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>Copyright © 2024 All rights reserved |</p>
-        </footer>
+      <footer>
+        <p>Copyright © 2024 All rights reserved |</p>
+      </footer>
     </div>
 
     <!-- JavaScript File -->
-    <script src="../Javascript/script.js"></script>
+    <script src="/infi website/Javascript/script.js"></script>
     <script>
-        function toggleReadMore(button) {
-            var content = button.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-                button.textContent = "Read More";
-            } else {
-                content.style.display = "block";
-                button.textContent = "Read Less";
-            }
+      function toggleReadMore(button) {
+        var content = button.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          button.textContent = "Read More";
+        } else {
+          content.style.display = "block";
+          button.textContent = "Read Less";
         }
+      }
     </script>
-    <script type="module" src="../Javascript/navBar.js"></script>
-</body>
-
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+  </body>
 </html>
