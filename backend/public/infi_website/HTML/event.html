@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geo-Spatial Tech Pulse | Live Updates</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+    <style>
+      /* Only keep event-specific styles that do not conflict with the main site layout */
+      :root {
+        --tech-blue: #1a237e;
+        --microwave-red: #b71c1c;
+        --innovation-green: #2e7d32;
+        --dark-bg: #0f172a;
+        --text-light: #f8fafc;
+      }
+      main {
+        margin-top: 80px;
+        padding: 20px;
+      }
+      .event-title {
+        text-align: center;
+        margin-top: 20px;
+        color: #002147;
+      }
+      .agency-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 1.5rem 0 2rem 0;
+      }
+      .agency-button {
+        background-color: var(--tech-blue);
+        color: var(--text-light);
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .agency-button:hover {
+        background-color: var(--innovation-green);
+        transform: translateY(-2px);
+      }
+      /* Retain event-specific card/grid styles as needed, but remove body/header overrides */
+      .nav-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        flex-wrap: wrap;
+      }
+      .nav-tab {
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+      .nav-tab.active {
+        background: var(--tech-blue);
+        border-color: var(--innovation-green);
+      }
+      .main-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        padding: 2rem 5%;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+      .tech-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        animation: fadeIn 0.5s ease-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .tech-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+      .sensor-type {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+      .live-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--microwave-red);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .live-pulse {
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        border-radius: 50%;
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .last-updated {
+        text-align: center;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      /* ...other event-specific styles as needed... */
+      body {
+        background: #fff !important;
+        color: #111 !important;
+      }
+      main,
+      .main-grid,
+      .refresh-container,
+      .nav-tabs {
+        background: transparent !important;
+        color: inherit !important;
+      }
+      .tech-card {
+        background: #fff !important;
+        color: #111 !important;
+        border: 2px solid #002147 !important;
+        box-shadow: 0 2px 8px rgba(0, 33, 71, 0.07);
+      }
+      .sensor-type,
+      .live-badge {
+        background: #002147 !important;
+        color: #fff !important;
+      }
+      .nav-tabs {
+        background: #f4f6fa !important;
+      }
+      .nav-tab {
+        color: #002147 !important;
+        border: 1px solid #002147 !important;
+        background: #fff !important;
+      }
+      .nav-tab.active {
+        background: #002147 !important;
+        color: #fff !important;
+      }
+      .refresh-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .refresh-button {
+        background: #002147 !important;
+        color: #fff !important;
+        margin: 0 auto;
+      }
+      .refresh-button:hover {
+        background: #111 !important;
+      }
+      .agency-button {
+        background: #002147 !important;
+        color: #fff !important;
+      }
+      .agency-button:hover {
+        background: #111 !important;
+      }
+      .last-updated {
+        color: #444 !important;
+      }
+      .live-badge {
+        background: #b71c1c !important;
+        color: #fff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <img src="/infi_website/image/logo.jpeg" alt="Logo" class="logo-img" />
+      </a>
+
+      <div id="menu" class="fas fa-bars"></div>
+
+      <nav id="navbar" class="navbar">
+        <!-- <ul>
+                <li><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="resources.html" class="dropbtn">Resources</a>
+                    <div class="dropdown-content">
+                        <a href="Fundamental.html">Fundamentals</a>
+                        <a href="Technical Paper.html">Technical Papers</a>
+                        <a href="Books.html">Books</a>
+                        <a href="Videos.html">Videos</a>
+                        
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="domain-expert.html" class="dropbtn">Domain Experts</a>
+                    <div class="dropdown-content">
+                        <a href="academicians.html">Academicians</a>
+                        <a href="Industry Personnel.html">Industry Personnel</a>
+                        <a href="Researchers.html">Researchers</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="datadownload.html" class="dropbtn">Downloads</a>
+                    <div class="dropdown-content">
+                        <a href="datadownload.html">Data Download</a>
+                        <a href="opensource.html">Software</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="education.html" class="dropbtn">Education</a>
+                   
+                </li>
+            </li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="event.html">Events</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li>
+                <form class="search-form">
+                    <input type="text" placeholder="Search..." required>
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </li>
+            <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
+            </ul> -->
+      </nav>
+    </header>
+    <main>
+      <h1 class="event-title">🌐 Geo-Spatial Tech Pulse</h1>
+      <p style="text-align: center">
+        Live updates in Remote Sensing, Microwave Tech & Satellite Innovations
+      </p>
+      <div class="agency-buttons">
+        <a href="https://www.nasa.gov" target="_blank" class="agency-button"
+          >NASA</a
+        >
+        <a href="https://www.isro.gov.in" target="_blank" class="agency-button"
+          >ISRO</a
+        >
+        <a href="https://www.ieee.org" target="_blank" class="agency-button"
+          >IEEE</a
+        >
+        <a href="https://www.esa.int" target="_blank" class="agency-button"
+          >ESA</a
+        >
+        <a href="https://spacenews.com" target="_blank" class="agency-button"
+          >SpaceNews</a
+        >
+        <a href="https://www.scmp.com" target="_blank" class="agency-button"
+          >SCMP</a
+        >
+        <a
+          href="https://www.globaltimes.cn"
+          target="_blank"
+          class="agency-button"
+          >Global Times</a
+        >
+        <a href="https://www.cgtn.com" target="_blank" class="agency-button"
+          >CGTN</a
+        >
+      </div>
+      <nav class="nav-tabs">
+        <div class="nav-tab active" data-category="all">All</div>
+        <div class="nav-tab" data-category="remote-sensing">Remote Sensing</div>
+        <div class="nav-tab" data-category="microwave">Microwave RS</div>
+        <div class="nav-tab" data-category="satellite">Satellite Tech</div>
+        <div class="nav-tab" data-category="innovation">New Innovations</div>
+        <div class="nav-tab" data-category="live">Live Updates</div>
+      </nav>
+      <div class="refresh-container">
+        <button id="refresh-button" class="refresh-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M23 4v6h-6"></path>
+            <path d="M1 20v-6h6"></path>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"></path>
+            <path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"></path>
+          </svg>
+          Refresh Now
+          <div id="loading-indicator" class="loading"></div>
+        </button>
+        <div class="auto-refresh">
+          <input type="checkbox" id="auto-refresh" checked />
+          <label for="auto-refresh">Auto-refresh every</label>
+          <select id="refresh-interval">
+            <option value="30">30 sec</option>
+            <option value="60" selected>1 min</option>
+            <option value="300">5 min</option>
+            <option value="600">10 min</option>
+          </select>
+        </div>
+      </div>
+      <div class="last-updated" id="last-updated"></div>
+      <section>
+        <div class="main-grid" id="news-container">
+          <!-- Tech Cards will be populated by JavaScript -->
+        </div>
+        <div class="breaking-news" id="breaking-news">
+          <div id="breaking-news-content"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="partner-logos">
+        <img src="nasa-logo.svg" alt="NASA" width="80" />
+        <img src="esa-logo.svg" alt="ESA" width="80" />
+        <img src="ieee-logo.svg" alt="IEEE" width="80" />
+      </div>
+      <p>
+        © 2025 Geo-Spatial Tech Pulse | Data Sources: NASA EOSDIS, ESA Earth
+        Online, IEEE GRSS
+      </p>
+    </footer>
+    <script src="/infi_website/Javascript/script.js"></script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script>
+      // News database with various categories
+      const newsDatabase = {
+        "remote-sensing": [
+          {
+            title: "New Hyperspectral Satellite Launched",
+            sensorType: "Hyperspectral",
+            specs: {
+              bands: "256 channels",
+              resolution: "5m spatial",
+              spectralRange: "400-2500nm",
+              coverage: "30km swath",
+            },
+            summary:
+              "The latest hyperspectral imaging satellite provides unprecedented spectral resolution for environmental monitoring...",
+            bandHighlights: ["VNIR", "SWIR", "TIR"],
+            sources: ["ESA Earth Online", "NASA Earth Observatory"],
+          },
+          {
+            title: "AI Enhances Atmospheric Correction",
+            sensorType: "Multispectral",
+            specs: {
+              algorithm: "Deep Learning",
+              accuracy: "95%",
+              processing: "Real-time",
+              compatible: "Sentinel-2, Landsat-9",
+            },
+            summary:
+              "New AI-powered atmospheric correction algorithm significantly improves image quality for coastal monitoring...",
+            bandHighlights: ["Blue", "Green", "NIR"],
+            sources: ["Remote Sensing Journal", "IEEE GRSS"],
+          },
+        ],
+        microwave: [
+          {
+            title: "Advanced SAR System Deployed",
+            sensorType: "SAR",
+            specs: {
+              frequency: "X-band",
+              resolution: "0.5m",
+              polarization: "Quad-pol",
+              swath: "40km",
+            },
+            summary:
+              "New synthetic aperture radar system provides all-weather, day-night imaging capabilities...",
+            bandHighlights: ["X-band", "VV+VH", "ScanSAR"],
+            sources: ["SpaceNews", "Microwave Journal"],
+          },
+          {
+            title: "Millimeter-Wave Radar Breakthrough",
+            sensorType: "mmWave",
+            specs: {
+              frequency: "94GHz",
+              accuracy: "±2cm",
+              coverage: "15km swath",
+              resolution: "50cm",
+            },
+            summary:
+              "Experimental W-band radar system revolutionizes 3D city modeling and autonomous navigation...",
+            bandHighlights: ["W-band", "Ka-band", "FMCW"],
+            sources: ["NASA Tech Briefs", "IEEE Transactions"],
+          },
+        ],
+        satellite: [
+          {
+            title: "Next-Gen Earth Observation Constellation",
+            sensorType: "Small Sat",
+            specs: {
+              satellites: "24",
+              resolution: "1m",
+              revisit: "30 minutes",
+              lifespan: "5 years",
+            },
+            summary:
+              "Commercial constellation provides unprecedented temporal resolution for dynamic Earth monitoring...",
+            bandHighlights: ["Optical", "NIR", "SWIR"],
+            sources: ["SpaceNews", "Satellite Today"],
+          },
+          {
+            title: "Quantum Communication Satellite Tested",
+            sensorType: "GEO",
+            specs: {
+              altitude: "35,786km",
+              technology: "Quantum Key",
+              security: "Unhackable",
+              applications: "Government, Finance",
+            },
+            summary:
+              "Breakthrough in secure satellite communications using quantum entanglement principles...",
+            bandHighlights: ["Quantum", "Laser", "RF"],
+            sources: ["Nature", "Science Daily"],
+          },
+        ],
+        innovation: [
+          {
+            title: "Quantum Lidar for Forest Mapping",
+            sensorType: "Lidar",
+            specs: {
+              pulseFrequency: "1.2MHz",
+              pointDensity: "32 pts/m²",
+              penetration: "Canopy+ground",
+              precision: "±3cm",
+            },
+            summary:
+              "Researchers demonstrate quantum-enhanced lidar technology that dramatically improves canopy penetration...",
+            bandHighlights: ["NIR", "Green", "UV"],
+            sources: ["Nature Photonics", "IEEE GRSS"],
+          },
+          {
+            title: "THz Imaging for Planetary Exploration",
+            sensorType: "THz",
+            specs: {
+              frequency: "0.3-3THz",
+              resolution: "Sub-mm",
+              penetration: "Up to 10cm",
+              application: "Subsurface analysis",
+            },
+            summary:
+              "Terahertz imaging technology enables non-destructive subsurface analysis for upcoming Mars missions...",
+            bandHighlights: ["THz", "Sub-mm", "Far-IR"],
+            sources: ["ESA Science", "NASA JPL"],
+          },
+        ],
+      };
+
+      // Live news snippets that can appear randomly
+      const liveNewsSnippets = [
+        "Breaking: New satellite imagery reveals unprecedented deforestation in the Amazon",
+        "Alert: Solar flare activity may disrupt satellite communications temporarily",
+        "Update: International Space Station captures rare atmospheric phenomenon",
+        "News Flash: Private company achieves first successful microwave satellite launch",
+        "Emergency: Earthquake detected via InSAR data, magnitude 6.7 in Pacific region",
+        "Development: AI algorithm detects illegal fishing activity in real-time",
+        "Discovery: New mineral deposits identified through hyperspectral analysis",
+        "Warning: Severe weather system developing, visible on latest geostationary images",
+      ];
+
+      // Function to generate a random news item
+      function generateRandomNews() {
+        const categories = Object.keys(newsDatabase);
+        const randomCategory =
+          categories[Math.floor(Math.random() * categories.length)];
+        const categoryNews = newsDatabase[randomCategory];
+        const randomNews =
+          categoryNews[Math.floor(Math.random() * categoryNews.length)];
+
+        const sources = randomNews.sources;
+        const randomSource =
+          sources[Math.floor(Math.random() * sources.length)];
+
+        return {
+          title: randomNews.title,
+          category: randomCategory,
+          sensorType: randomNews.sensorType,
+          publishedAt: new Date().toISOString(),
+          specs: randomNews.specs,
+          summary: randomNews.summary,
+          bandHighlights: randomNews.bandHighlights,
+          source: randomSource,
+          url: "#",
+        };
+      }
+
+      // Function to show a breaking news alert
+      function showBreakingNews() {
+        const breakingNews = document.getElementById("breaking-news");
+        const content = document.getElementById("breaking-news-content");
+
+        const randomSnippet =
+          liveNewsSnippets[Math.floor(Math.random() * liveNewsSnippets.length)];
+        content.textContent = randomSnippet;
+
+        breakingNews.style.display = "block";
+
+        // Hide after 5 seconds
+        setTimeout(() => {
+          breakingNews.style.display = "none";
+        }, 5000);
+      }
+
+      // Function to add a random live news item
+      function addLiveNewsItem() {
+        const container = document.getElementById("news-container");
+        const newItem = generateRandomNews();
+
+        const card = document.createElement("article");
+        card.className = "tech-card";
+        card.dataset.category = newItem.category;
+
+        let bandDetailHTML = "";
+        if (newItem.bandHighlights && newItem.bandHighlights.length > 0) {
+          bandDetailHTML = `
+                    <div class="band-details">
+                        ${newItem.bandHighlights
+                          .map(
+                            (band) => `
+                            <div class="band-item">${band}</div>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                `;
+        }
+
+        const publishedDate = new Date(newItem.publishedAt);
+        const formattedDate = publishedDate.toLocaleString();
+
+        card.innerHTML = `
+                <span class="sensor-type">${newItem.sensorType}</span>
+                <span class="live-badge"><div class="live-pulse"></div> LIVE</span>
+                <h2>${newItem.title}</h2>
+                <div class="technical-specs">
+                    ${Object.entries(newItem.specs)
+                      .map(
+                        ([key, val]) => `
+                        <div class="spec-item">
+                            <strong>${key}:</strong> ${val}
+                        </div>
+                    `
+                      )
+                      .join("")}
+                </div>
+                <p>${newItem.summary}</p>
+                ${bandDetailHTML}
+                <div class="time-info">
+                    <span>${formattedDate}</span>
+                    <span class="news-source">Source: ${newItem.source}</span>
+                </div>
+                ${
+                  newItem.url
+                    ? `
+                    <a href="${newItem.url}" target="_blank" rel="noopener noreferrer" class="read-more">Read more →</a>
+                `
+                    : ""
+                }
+            `;
+
+        // Insert at the top
+        if (container.firstChild) {
+          container.insertBefore(card, container.firstChild);
+        } else {
+          container.appendChild(card);
+        }
+
+        // Limit to 20 items max
+        if (container.children.length > 20) {
+          container.removeChild(container.lastChild);
+        }
+
+        // Randomly show breaking news (30% chance)
+        if (Math.random() < 0.3) {
+          showBreakingNews();
+        }
+      }
+
+      // Function to update the last refreshed time
+      function updateLastRefreshed() {
+        const lastUpdatedElement = document.getElementById("last-updated");
+        const now = new Date();
+        lastUpdatedElement.textContent = `Last updated: ${now.toLocaleTimeString()}`;
+      }
+
+      // Tab Functionality
+      document.querySelectorAll(".nav-tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          document
+            .querySelectorAll(".nav-tab")
+            .forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+
+          const category = tab.dataset.category;
+          document.querySelectorAll(".tech-card").forEach((card) => {
+            card.style.display =
+              category === "all" || card.dataset.category === category
+                ? "block"
+                : "none";
+          });
+        });
+      });
+
+      // Refresh button functionality
+      document
+        .getElementById("refresh-button")
+        .addEventListener("click", () => {
+          addLiveNewsItem();
+          updateLastRefreshed();
+        });
+
+      // Auto-refresh functionality
+      let refreshInterval = null;
+      let liveUpdateInterval = null;
+
+      function setupAutoRefresh() {
+        clearInterval(refreshInterval);
+        clearInterval(liveUpdateInterval);
+
+        if (document.getElementById("auto-refresh").checked) {
+          const intervalSeconds = parseInt(
+            document.getElementById("refresh-interval").value
+          );
+          refreshInterval = setInterval(() => {
+            addLiveNewsItem();
+            updateLastRefreshed();
+          }, intervalSeconds * 1000);
+
+          // Separate faster interval for live updates (every 10-30 seconds)
+          liveUpdateInterval = setInterval(
+            () => {
+              if (Math.random() < 0.7) {
+                // 70% chance of update
+                addLiveNewsItem();
+              }
+            },
+            Math.random() * 20000 + 10000
+          ); // Random between 10-30 seconds
+        }
+      }
+
+      document
+        .getElementById("auto-refresh")
+        .addEventListener("change", setupAutoRefresh);
+      document
+        .getElementById("refresh-interval")
+        .addEventListener("change", setupAutoRefresh);
+
+      // Initialize with some news
+      function initializeNews() {
+        // Add 5 initial news items
+        for (let i = 0; i < 5; i++) {
+          addLiveNewsItem();
+        }
+        updateLastRefreshed();
+        setupAutoRefresh();
+      }
+
+      window.addEventListener("load", initializeNews);
+    </script>
+  </body>
+</html>

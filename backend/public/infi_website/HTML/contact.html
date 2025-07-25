@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - PolSARLearn</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("../image/contact_bg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        color: #333;
+      }
+      .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 400px;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        margin-bottom: 15px;
+        color: #5a2360;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background: #5a2360;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        margin-top: 15px;
+      }
+      button:hover {
+        background: #3d1747;
+      }
+      .contact-info {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+    <a href="#" class="logo">
+        <img src="/infi_website/image/POLSAR.png" alt="Logo" class="logo-img">
+    </a>
+    <div id="menu" class="fas fa-bars"></div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li class="dropdown">
+                <a href="resources.html" class="dropbtn">Resources</a>
+                <div class="dropdown-content">
+                    <a href="Fundamental.html">Fundamentals</a>
+                    <a href="Technical Papers.html">Technical Papers</a>
+                    <a href="Books.html">Books</a>
+                    <a href="Videos.html">Videos</a>
+                    <a href="Relevant Links.html">Relevant Links</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="domain-expert.html" class="dropbtn">Domain Experts</a>
+                <div class="dropdown-content">
+                    <a href="academicians.html">Academicians</a>
+                    <a href="scientists.html">Scientists</a>
+                    <a href="Industry Personnel.html">Industry Personnel</a>
+                    <a href="Researchers.html">Researchers</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="downloads.html" class="dropbtn">Downloads</a>
+                <div class="dropdown-content">
+                    <a href="#">Data Download</a>
+                    <a href="opensource.html">Opensource Software</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="education.html" class="dropbtn">Education</a>
+                
+                </div>
+            </li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="news.html">Events</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="right-items">
+        <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+        <a href="login.html" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+        </a>
+    </div>
+</header>
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form action="submit_form.php" method="POST">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="message">Message:</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Write your message here"
+          required
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <p><strong>Email:</strong> contact@polsarlearn.com</p>
+        <p><strong>Phone:</strong> +91 98******10</p>
+        <p><strong>Address:</strong> India</p>
+      </div>
+    </div>
+    <link rel="stylesheet" href="/infi_website/CSS/style.css">
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+  </body>
+</html>

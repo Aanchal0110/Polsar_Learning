@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+
+    <style>
+      :root {
+        --main-blue: #3a5ca8;
+        --card-bg: #fff;
+        --card-border: #b3c6e0;
+        --accent-blue: #5b8def;
+        --hover-blue: #2d4373;
+        --text-dark: #1a2a2a;
+        --text-light: #f9f9f9;
+      }
+      body {
+        background: linear-gradient(135deg, #eaf1fb 0%, var(--main-blue) 100%);
+        color: var(--text-dark);
+        font-family: 'Segoe UI', Arial, sans-serif;
+      }
+      header {
+        background: var(--main-blue);
+      }
+      h1 {
+        text-align: center;
+        font-size: 2.2rem;
+        color: var(--main-blue);
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+      .edu-type-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        margin: 32px 0 24px 0;
+      }
+      .toggle-btn {
+        background: var(--main-blue);
+        color: #fff;
+        border: none;
+        border-radius: 10px 10px 0 0;
+        padding: 18px 48px;
+        font-size: 1.25rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        outline: none;
+        box-shadow: 0 2px 8px rgba(58, 92, 168, 0.07);
+        letter-spacing: 0.5px;
+      }
+      .toggle-btn.active,
+      .toggle-btn:hover {
+        background: #4e7ad1;
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(58, 92, 168, 0.10);
+        /* Subtle shadow, lighter blue */
+        transition: background 0.2s, box-shadow 0.2s;
+      }
+      .edu-list {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto 0 auto;
+        padding: 0;
+        list-style: none;
+        display: block;
+      }
+      .edu-list li {
+        margin-bottom: 28px;
+        border: 1.5px solid var(--card-border);
+        border-radius: 10px;
+        background: var(--card-bg);
+        box-shadow: 0 2px 8px rgba(58, 92, 168, 0.07);
+        padding: 0;
+        transition: box-shadow 0.2s, transform 0.2s;
+        position: relative;
+      }
+      .edu-list li:hover {
+        box-shadow: 0 6px 18px rgba(58, 92, 168, 0.13);
+        transform: translateY(-2px) scale(1.01);
+      }
+      .edu-toggle {
+        width: 100%;
+        text-align: left;
+        background: var(--main-blue);
+        color: #fff;
+        font-size: 1.13rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px 10px 0 0;
+        padding: 16px 22px;
+        cursor: pointer;
+        outline: none;
+        transition: background 0.2s;
+        letter-spacing: 0.5px;
+      }
+      .edu-toggle:hover,
+      .edu-toggle.active {
+        background: var(--hover-blue);
+      }
+      .edu-details {
+        display: none;
+        padding: 18px 24px 16px 24px;
+        color: var(--text-dark);
+        background: var(--card-bg);
+        border-radius: 0 0 10px 10px;
+        border-top: 1px solid var(--card-border);
+        text-align: left;
+        line-height: 1.7;
+        font-size: 1.08rem;
+      }
+      .edu-details strong {
+        color: var(--main-blue);
+        display: block;
+        margin-bottom: 4px;
+      }
+      .view-site-btn {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 8px 20px;
+        background: var(--accent-blue);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(91, 141, 239, 0.07);
+      }
+      .view-site-btn:hover {
+        background: var(--hover-blue);
+        color: #fff;
+      }
+      @media (max-width: 900px) {
+        .edu-list {
+          max-width: 98vw;
+        }
+        .toggle-btn {
+          padding: 14px 18px;
+          font-size: 1.05rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+        <a href="#" class="logo">
+            <img src="/infi_website/image/logo.jpeg" alt="Logo" class="logo-img">
+        </a>
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="resources.html" class="dropbtn">Resources</a>
+                    <div class="dropdown-content">
+                        <a href="Fundamental.html">Fundamentals</a>
+                        <a href="Technical Papers.html">Technical Papers</a>
+                        <a href="Books.html">Books</a>
+                        <a href="Videos.html">Videos</a>
+                        <a href="Relevant Links.html">Relevant Links</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="domain-expert.html" class="dropbtn">Domain Experts</a>
+                    <div class="dropdown-content">
+                        <a href="academicians.html">Academicians</a>
+                        <a href="scientists.html">Scientists</a>
+                        <a href="Industry Personnel.html">Industry Personnel</a>
+                        <a href="Researchers.html">Researchers</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="downloads.html" class="dropbtn">Downloads</a>
+                    <div class="dropdown-content">
+                        <a href="#">Data Download</a>
+                        <a href="opensource.html">Opensource Software</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="education.html" class="dropbtn">Education</a>
+                    
+                    </div>
+                </li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="news.html">Events</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="right-items">
+            <form class="search-form">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <a href="login.html" class="login-icon">
+                <i class="fas fa-user"></i>
+                <span>Login</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+      <h1>Education</h1>
+      <div class="edu-type-toggle">
+        <button id="gov-btn" class="toggle-btn active">Government</button>
+        <button id="priv-btn" class="toggle-btn">Private</button>
+      </div>
+      <ol class="edu-list" id="gov-list">
+        <li>
+          <button class="edu-toggle">
+            Indian Institute of Remote Sensing, Dehradun
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech in Remote Sensing and GIS, M.Sc. in Geo-information Science & Earth Observation, Post-Graduate Diploma in Remote Sensing & GIS<br />
+            <strong>Certificate Courses:</strong> Includes GIS and Remote Sensing (6 months), Remote Sensing of Geological Hazards, etc.<br />
+            <strong>Research Areas:</strong> Applications of remote sensing in water resources management, Urban studies, regional planning, Environmental monitoring and disaster management, Satellite image analysis and photogrammetry, and Agriculture analytics through multidisciplinary programs with data analytics applications.
+            <a href="https://www.iirs.gov.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            IIT Bombay - Indian Institute of Technology Bombay, Maharashtra
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech, PhD<br />
+            <strong>Research Areas:</strong> Focuses on applications of remote sensing in urban planning, disaster management, and environmental monitoring.
+            <a href="https://www.iitb.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            IIT Roorkee - Indian Institute of Technology Roorkee, Uttarakhand
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech in Geoinformatics, Ph.D. in Remote Sensing.<br />
+            <strong>Research Areas:</strong> Focuses on geospatial technologies for infrastructure development and environmental studies.
+            <a href="https://www.iitr.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            IIT Kharagpur - Indian Institute of Technology Kharagpur, West Bengal
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech in Geoinformatics, Ph.D. in Remote Sensing.<br />
+            <strong>Research Areas:</strong> Emphasis on satellite data analysis, land use/land cover change, and environmental modeling.
+            <a href="https://www.iitkgp.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            IIT Kanpur - Indian Institute of Technology Kanpur, Uttar Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech in Geoinformatics, DIIT, M.S., PhD<br />
+            <strong>Research Areas:</strong> Applications of remote sensing for water resources management and urban studies.
+            <a href="https://www.iitk.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            IIT Madras - Indian Institute of Technology Madras, Chennai
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.S., M. Tech, PG Diploma, PhD
+            <a href="https://www.iitm.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            IIT Tirupati - Indian Institute of Technology Tirupati, Andhra Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> MS by Research Geoinformatics and Remote Sensing<br />
+            <strong>Research Areas:</strong> Advanced research in geoinformatics applications and remote sensing technologies.
+            <a href="https://www.iittp.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            IIT BHU - Indian Institute Of Technology Banaras Hindu University Varanasi, Uttar Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M. Tech Geoscience Engineering
+            <a href="https://www.iitbh.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            University of Allahabad, Uttar Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Sc. in Geography with GIS specialization.<br />
+            <strong>Research Areas:</strong> Focus on spatial analysis for social sciences and environmental studies.
+            <a href="https://www.uoa.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Atal Bihari Vajpayee Hindi Vishwavidyalaya, Madhya Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Sc. in Geography with Remote Sensing and GIS specialization<br />
+            <strong>Research Areas:</strong> Environmental monitoring using remote sensing technologies, Land use and land cover change analysis.
+            <a href="https://www.abviu.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Jiwaji University, Madhya Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Sc. in Geography with Remote Sensing and GIS<br />
+            <strong>Research Areas:</strong> Remote sensing applications in agriculture and forestry, Spatial data analysis for regional planning.
+            <a href="https://www.ju.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">Kuvempu University, Karnataka</button>
+          <div class="edu-details">
+            <strong>Programs  Offered:</strong> M.Sc. Degree in Earth Sciences & Resource Management (ESRM), M.Sc Degree in Remote Sensing and GIS Application (MSRA), M.Phil. Degree in Earth Science & Resource Management & Remote Sensing and GIS Applications, PhD<br />
+            <strong>Research Areas:</strong> Use of remote sensing for environmental monitoring and disaster management, Urban planning and infrastructure development.
+            <a href="https://www.kuvempu.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Maharshi Dayanand Saraswati University, Rajasthan
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M. Sc. Remote Sensing and Geoinformatics <br />
+            <strong>Research Areas:</strong> Remote sensing for environmental assessment and planning, Disaster management applications.
+            <a href="https://www.mdsu.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Mahatma Gandhi Chitrakoot Gramoday Vishwavidyalay, Madhya Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Sc. in Rural Development with a focus on Remote Sensing<br />
+            <strong>Research Areas:</strong> Use of remote sensing for rural development projects and monitoring natural resources in rural areas.
+            <a href="https://www.mgcv.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Sant Gadge Baba Amravati University, Maharashtra
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Sc. Geology, P.G. Diploma, PhD in Geology<br />
+            <strong>Research Areas:</strong> Environmental monitoring and resource management through remote sensing, Applications of GIS in social sciences.
+            <a href="https://www.sgsau.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            University of Jammu, Jammu and Kashmir
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Sc. Remote Sensing and GIS, PhD<br />
+            <strong>Research Areas:</strong> Use of remote sensing for ecological studies, Land-use planning and management through geospatial technologies.
+            <a href="https://www.uojc.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Banaras Hindu University, Varanasi, Uttar Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M. Tech Geoscience Engineering <br />
+            <strong>Research Areas:</strong> Geoscience applications in environmental studies and resource management.
+            <a href="https://www.bhu.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Anna University, Regional Campus, Tirunelveli
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech Remote Sensing<br />
+            <strong>Research Areas:</strong> Applications of remote sensing in environmental monitoring and resource management.
+            <a href="https://www.annauniv.edu/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            NIT Warangal - National Institute of Technology Warangal, Telangana
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M. Tech Remote Sensing and Geoinformation System <br />
+            <strong>Research Areas:</strong> Geospatial analysis and applications in urban planning and environmental studies.
+            <a href="https://www.nitw.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            NIT Surathkal (NITK) - National Institute Of Technology Karnataka Surathkal, Karnataka
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M. Tech by Research in Remote Sensing and GIS
+            <a href="https://www.nitk.edu.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Andhra University College of Engineering, Visakhapatnam
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech Remote Sensing<br />
+            <strong>Research Areas:</strong> Environmental monitoring and spatial data analysis.
+            <a href="https://www.andhrauniversity.edu.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            MNNIT Allahbad - Motilal Nehru National Institute Of Technology Allahabad Prayagraj, Uttar Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M. Tech GIS and Remote Sensing <br />
+            <strong>Research Areas:</strong> Applications of GIS and remote sensing in environmental science and planning.
+            <a href="https://www.mnnit.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Rajiv Gandhi Institute Of Petroleum Technology, Amethi
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> B.Tech Geoscience and Engineering<br />
+            <strong>Research Areas:</strong> Applications of geoscience in petroleum exploration and environmental studies.
+            <a href="https://www.rjit.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Jawaharlal Nehru Technological University, Kakinada, Andhra Pradesh
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech Remote Sensing
+            <a href="https://www.jntuk.edu.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Chaudhary Charan Singh University, Meerut
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> PG Diploma in GIS and Remote Sensing
+            <a href="https://www.ccsuniversity.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            University of Calcutta, West Bengal, Kolkata
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M. Sc., PhD
+            <a href="https://www.caluniv.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+      </ol>
+      <ol class="edu-list" id="priv-list" style="display: none">
+        <li>
+          <button class="edu-toggle">
+            Symbiosis Institute of Geoinformatics, Pune
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Sc. in Geoinformatics.<br />
+            <strong>Research Areas:</strong> Practical applications of GIS and remote sensing in urban planning and resource management.
+            <a href="https://www.sig.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Bharathidasan University, Tiruchirappalli
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Sc. in Environmental Science with GIS and Remote Sensing components.<br />
+            <strong>Research Areas:</strong> Environmental monitoring and management using remote sensing technologies.
+            <a href="https://www.bdu.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Birla Institute Of Technology, Mesra, Rajasthan
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> B.Tech and M.Tech in Geoinformatics.<br />
+            <strong>Research Areas:</strong> Applications of GIS and remote sensing in agriculture and natural resource management.
+            <a href="https://www.bitmesra.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            National Power Training Institute, Faridabad
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> Specialized training programs incorporating GIS for power sector applications.
+            <a href="https://www.npti.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Amrita Vishwa Vidyapeetham, Tamil Nadu
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> B. Tech, M. Tech
+            <a href="https://www.amrita.edu/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Sharda University, Greater Noida
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech Remote Sensing and GIS
+            <a href="https://www.sharda.edu/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Amity University, Noida
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M. Tech Geoinformatics and Remote Sensing
+            <a href="https://www.amity.edu/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Banasthali Vidyapith, Rajasthan
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech Remote Sensing
+            <a href="https://www.banasthali.org/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+        <li>
+          <button class="edu-toggle">
+            Sam Higginbottom Institute of Agriculture Technology and Science, Allahabad
+          </button>
+          <div class="edu-details">
+            <strong>Programs Offered:</strong> M.Tech Remote Sensing and Geographical Information System
+            <a href="https://www.shias.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          </div>
+        </li>
+      </ol>
+    </main>
+    <script>
+      function setupDropdowns(listId) {
+        document.querySelectorAll(`#${listId} .edu-toggle`).forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const details = this.nextElementSibling;
+            const isOpen = details.style.display === "block";
+            document
+              .querySelectorAll(`#${listId} .edu-details`)
+              .forEach((d) => (d.style.display = "none"));
+            document
+              .querySelectorAll(`#${listId} .edu-toggle`)
+              .forEach((b) => b.classList.remove("active"));
+            if (!isOpen) {
+              details.style.display = "block";
+              this.classList.add("active");
+            }
+          });
+        });
+      }
+      setupDropdowns("gov-list");
+      setupDropdowns("priv-list");
+
+      document.getElementById("gov-btn").onclick = function () {
+        this.classList.add("active");
+        document.getElementById("priv-btn").classList.remove("active");
+        document.getElementById("gov-list").style.display = "";
+        document.getElementById("priv-list").style.display = "none";
+      };
+      document.getElementById("priv-btn").onclick = function () {
+        this.classList.add("active");
+        document.getElementById("gov-btn").classList.remove("active");
+        document.getElementById("gov-list").style.display = "none";
+        document.getElementById("priv-list").style.display = "";
+      };
+    </script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script>
+document.getElementById('menu').onclick = function() {
+  document.querySelector('.navbar').classList.toggle('active');
+};
+document.querySelectorAll('.navbar a').forEach(link => {
+  link.onclick = () => document.querySelector('.navbar').classList.remove('active');
+});
+</script>
+  </body>
+</html>

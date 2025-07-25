@@ -39,7 +39,7 @@ app.use("/proxy", proxyRoute);
 app.use("/resource", resourceRoute);
 app.get("/", (req, res) => {
   // res.send("Server is working...");
-  res.sendFile(path.join(__dirname, "public/infi website/HTML/home.html"))
+  res.sendFile(path.join(__dirname, "public/infi_website/HTML/home.html"))
 });
 
 app.listen(PORT, () => {
