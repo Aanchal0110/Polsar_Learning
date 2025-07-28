@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
     <style>
       .navbar a.active {
         color: red;
@@ -100,60 +100,11 @@
   </head>
   <body>
     <header>
-        <a href="#" class="logo">
-            <img src="/infi_website/image/POLSAR.png" alt="Logo" class="logo-img">
-        </a>
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="resources.html" class="dropbtn">Resources</a>
-                    <div class="dropdown-content">
-                        <a href="Fundamental.html">Fundamentals</a>
-                        <a href="Technical Papers.html">Technical Papers</a>
-                        <a href="Books.html">Books</a>
-                        <a href="Videos.html">Videos</a>
-                        <a href="Relevant Links.html">Relevant Links</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="domain-expert.html" class="dropbtn">Domain Experts</a>
-                    <div class="dropdown-content">
-                        <a href="academicians.html">Academicians</a>
-                        <a href="scientists.html">Scientists</a>
-                        <a href="Industry Personnel.html">Industry Personnel</a>
-                        <a href="Researchers.html">Researchers</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="downloads.html" class="dropbtn">Downloads</a>
-                    <div class="dropdown-content">
-                        <a href="#">Data Download</a>
-                        <a href="opensource.html">Opensource Software</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="education.html" class="dropbtn">Education</a>
-                    
-                    </div>
-                </li>
-                <li><a href="career.html">Career</a></li>
-                <li><a href="news.html">Events</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="right-items">
-            <form class="search-form">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
-            <a href="login.html" class="login-icon">
-                <i class="fas fa-user"></i>
-                <span>Login</span>
-            </a>
-        </div>
+      <a href="#" class="logo">
+        <img src="/infi_website/image/POLSAR.png" alt="Logo" class="logo-img" />
+      </a>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar"></div>
     </header>
     <main>
       <h1>Books</h1>
@@ -174,90 +125,101 @@
         {
           title: "Introduction to Remote Sensing",
           author: "Arthur P. Cracknell",
-          beginnerNote: "Perfect for those new to remote sensing. Starts with the basics, uses clear language and real-world examples. No advanced math required. You'll learn what remote sensing is, how satellites and sensors work, and how scientists use images to study the Earth.",
+          beginnerNote:
+            "Perfect for those new to remote sensing. Starts with the basics, uses clear language and real-world examples. No advanced math required. You'll learn what remote sensing is, how satellites and sensors work, and how scientists use images to study the Earth.",
           desc: "Physical principles, satellite systems, lidar, SAR applications. A comprehensive guide to satellite remote sensing techniques, image interpretation, and current applications in Earth observation.",
           img: "../BOOKS image/Introduction to remote sending.jpg",
-          link: "https://www.goodreads.com/book/show/1814302.Introduction_to_Remote_Sensing"
+          link: "https://www.goodreads.com/book/show/1814302.Introduction_to_Remote_Sensing",
         },
         {
           title: "Remote Sensing: Principles and Applications",
           author: "B C Panda",
-          beginnerNote: "A great introduction for students and professionals. Explains the core ideas behind remote sensing with simple language and practical examples. No prior experience needed.",
+          beginnerNote:
+            "A great introduction for students and professionals. Explains the core ideas behind remote sensing with simple language and practical examples. No prior experience needed.",
           desc: "Core principles, sensor technologies, data interpretation. Detailed exploration of electromagnetic theory, sensor design, and practical case studies across varied environments.",
           img: "../BOOKS image/principle of remote sensing.jpg",
-          link: "https://www.goodreads.com/book/show/15728213-remote-sensing"
+          link: "https://www.goodreads.com/book/show/15728213-remote-sensing",
         },
         {
           title: "Microwave Remote Sensing",
           author: "Fawwaz Ulaby",
-          beginnerNote: "Best for those who want to understand microwave sensing. The book is detailed but starts from the basics, making it accessible to motivated beginners interested in radar and environmental applications.",
+          beginnerNote:
+            "Best for those who want to understand microwave sensing. The book is detailed but starts from the basics, making it accessible to motivated beginners interested in radar and environmental applications.",
           desc: "Comprehensive series on microwave sensing, radar backscatter models, and passive/active systems used in environmental observation and analysis.",
           img: "../BOOKS image/Microwave Radar and Radiometric Remote Sensing.jpg",
-          link: "https://www.goodreads.com/book/show/1804307.Microwave_Remote_Sensing"
+          link: "https://www.goodreads.com/book/show/1804307.Microwave_Remote_Sensing",
         },
         {
           title: "Fundamentals of Remote Sensing",
           author: "George Joseph",
-          beginnerNote: "Covers the basics of remote sensing, data processing, and sensors. Written in a clear style, it's suitable for undergraduates and anyone curious about how remote sensing works in India and globally.",
+          beginnerNote:
+            "Covers the basics of remote sensing, data processing, and sensors. Written in a clear style, it's suitable for undergraduates and anyone curious about how remote sensing works in India and globally.",
           desc: "Basic concepts of remote sensing, data processing, sensor details, and its applications in Indian and global contexts.",
           img: "../BOOKS image/Introduction to the physical and techniques.jpg",
-          link: "https://www.goodreads.com/book/show/15728212-fundamentals-of-remote-sensing"
+          link: "https://www.goodreads.com/book/show/15728212-fundamentals-of-remote-sensing",
         },
         {
           title: "Remote Sensing and Image Interpretation",
           author: "Lillesand, Kiefer, and Chipman",
-          beginnerNote: "A classic textbook for beginners. Explains the entire remote sensing workflow with lots of images and examples. No advanced background required—just an interest in learning!",
+          beginnerNote:
+            "A classic textbook for beginners. Explains the entire remote sensing workflow with lots of images and examples. No advanced background required—just an interest in learning!",
           desc: "Highly cited textbook covering the complete remote sensing workflow, image acquisition, processing, and interpretation techniques.",
           img: "../BOOKS image/Remote Sensing Digital Image Analysis An Introduction.jpg",
-          link: "https://www.goodreads.com/book/show/1814303.Remote_Sensing_and_Image_Interpretation"
+          link: "https://www.goodreads.com/book/show/1814303.Remote_Sensing_and_Image_Interpretation",
         },
         {
           title: "Synthetic Aperture Radar Remote Sensing",
           author: "A. Moreira, D. Floricio",
-          beginnerNote: "Good for those interested in advanced radar techniques. Starts with the basics of SAR, so motivated beginners can follow, especially if interested in geosciences or climate studies.",
+          beginnerNote:
+            "Good for those interested in advanced radar techniques. Starts with the basics of SAR, so motivated beginners can follow, especially if interested in geosciences or climate studies.",
           desc: "Advanced book on SAR techniques, data processing, and applications in geosciences, disaster monitoring, and climate studies.",
           img: "../BOOKS image/Introduction to Synthetic Aperture Radar (Sar) Polarimetry.jpg",
-          link: "https://www.goodreads.com/book/show/15728214-synthetic-aperture-radar-remote-sensing"
+          link: "https://www.goodreads.com/book/show/15728214-synthetic-aperture-radar-remote-sensing",
         },
         {
           title: "Remote Sensing and GIS",
           author: "B. Bhatta",
-          beginnerNote: "Covers both remote sensing and GIS from the ground up. Uses simple language, diagrams, and real-life case studies. Great for undergraduates and beginners in mapping and environmental monitoring.",
+          beginnerNote:
+            "Covers both remote sensing and GIS from the ground up. Uses simple language, diagrams, and real-life case studies. Great for undergraduates and beginners in mapping and environmental monitoring.",
           desc: "This book integrates remote sensing with GIS, focusing on applications in urban planning, land use analysis, and environmental monitoring.",
           img: "../BOOKS image/Remote sensing and GIS.jpg",
-          link: "https://www.goodreads.com/book/show/15728215-remote-sensing-and-gis"
+          link: "https://www.goodreads.com/book/show/15728215-remote-sensing-and-gis",
         },
         {
           title: "Understanding GPS: Principles and Applications",
           author: "Elliott D. Kaplan, Christopher J. Hegarty",
-          beginnerNote: "Explains GPS in a way that's accessible to beginners. You'll learn how GPS works, why it's important, and how it's used in navigation and mapping.",
+          beginnerNote:
+            "Explains GPS in a way that's accessible to beginners. You'll learn how GPS works, why it's important, and how it's used in navigation and mapping.",
           desc: "Detailed explanation of GPS fundamentals, signal structures, receiver design, and global navigation satellite systems.",
           img: "../BOOKS image/Applied Spatial Data Analysis with R.jpg",
-          link: "https://www.goodreads.com/book/show/1814304.Understanding_GPS"
+          link: "https://www.goodreads.com/book/show/1814304.Understanding_GPS",
         },
         {
           title: "Digital Image Processing",
           author: "Rafael C. Gonzalez, Richard E. Woods",
-          beginnerNote: "A foundational book for anyone interested in image processing. Starts with the basics and builds up, with clear explanations and practical examples.",
+          beginnerNote:
+            "A foundational book for anyone interested in image processing. Starts with the basics and builds up, with clear explanations and practical examples.",
           desc: "Fundamentals and techniques in image processing including enhancement, restoration, segmentation, and compression.",
           img: "../BOOKS image/Introductory Digital Image Processing.jpg",
-          link: "https://www.goodreads.com/book/show/1814305.Digital_Image_Processing"
+          link: "https://www.goodreads.com/book/show/1814305.Digital_Image_Processing",
         },
         {
           title: "Principles of Remote Sensing",
           author: "C. S. Agrawal & P. K. Garg",
-          beginnerNote: "Introduces the theory and applications of remote sensing in a way that's easy for beginners to follow. No prior knowledge required.",
+          beginnerNote:
+            "Introduces the theory and applications of remote sensing in a way that's easy for beginners to follow. No prior knowledge required.",
           desc: "Introduces the theoretical foundations and applications of remote sensing in natural resource management and mapping.",
           img: "../BOOKS image/principle of remote sensing.jpg",
-          link: "https://www.goodreads.com/book/show/15728216-principles-of-remote-sensing"
+          link: "https://www.goodreads.com/book/show/15728216-principles-of-remote-sensing",
         },
         {
           title: "Hyperspectral Remote Sensing",
           author: "Prem Chandra Pandey",
-          beginnerNote: "Explains hyperspectral imaging from the basics, making it accessible to those new to the topic. Good for beginners interested in agriculture, forestry, or mineral exploration.",
+          beginnerNote:
+            "Explains hyperspectral imaging from the basics, making it accessible to those new to the topic. Good for beginners interested in agriculture, forestry, or mineral exploration.",
           desc: "Explores advanced spectral imaging technologies and their applications in agriculture, forestry, and mineral exploration.",
           img: "../BOOKS image/Hyperspectral rs.jpg",
-          link: "https://www.goodreads.com/book/show/15728217-hyperspectral-remote-sensing"
+          link: "https://www.goodreads.com/book/show/15728217-hyperspectral-remote-sensing",
         },
       ];
 

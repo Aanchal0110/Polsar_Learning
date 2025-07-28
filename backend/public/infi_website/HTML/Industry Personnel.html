@@ -12,7 +12,7 @@
     />
 
     <!-- Custom CSS File Link -->
-    <link rel="stylesheet" href="/infi_website/CSS/style.css">
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
     <style>
       .academician-item {
         border: 1px solid #ccc;
@@ -103,7 +103,8 @@
           />
         </a>
         <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
+        <div id="navBar"></div>
+        <!-- <nav class="navbar">
           <ul>
             <li><a href="home.html">Home</a></li>
             <li class="dropdown">
@@ -152,7 +153,7 @@
             <i class="fas fa-user"></i>
             <span>Login</span>
           </a>
-        </div>
+        </div> -->
       </header>
 
       <main>
@@ -313,11 +314,12 @@
       });
     </script>
     <script>
-      document.getElementById('menu').onclick = function() {
-        document.querySelector('.navbar').classList.toggle('active');
+      document.getElementById("menu").onclick = function () {
+        document.querySelector(".navbar").classList.toggle("active");
       };
-      document.querySelectorAll('.navbar a').forEach(link => {
-        link.onclick = () => document.querySelector('.navbar').classList.remove('active');
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        link.onclick = () =>
+          document.querySelector(".navbar").classList.remove("active");
       });
     </script>
   </body>

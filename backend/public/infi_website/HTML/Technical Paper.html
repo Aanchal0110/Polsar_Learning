@@ -140,62 +140,26 @@
 
       <div id="menu" class="fas fa-bars"></div>
 
-      <nav class="navbar" id="navbar">
-        <!-- <ul>
-              <li><a href="home.html" class="active">Home</a></li>
-              <li class="dropdown">
-                  <a href="#" class="dropbtn">Resources</a>
-                  <div class="dropdown-content">
-                      <a href="Fundamental.html">Fundamentals</a>
-                      <a href="Technical Paper.html">Technical Papers</a>
-                      <a href="Books.html">Books</a>
-                      <a href="Videos.html">Videos</a>
-                  </div>
-              </li>
-              <li class="dropdown">
-                  <a href="#" class="dropbtn">Domain Experts</a>
-                  <div class="dropdown-content">
-                      <a href="academicians.html">Academicians</a>
-                      <a href="Industry Personnel.html">Industry Personnel</a>
-                      <a href="Researchers.html">Researchers</a>
-                  </div>
-              </li>
-              <li class="dropdown">
-                  <a href="#" class="dropbtn">Downloads</a>
-                  <div class="dropdown-content">
-                      <a href="datadownload.html">Data Download</a>
-                      <a href="opensource.html">Software</a>
-                  </div>
-              </li>
-
-              <li class="dropdown">
-                  <a href="education.html" class="dropbtn">Education</a>
-                 
-              </li>
-              <li><a href="career.html">Career</a></li>
-              <li><a href="event.html">Events</a></li>
-              <li><a href="blog.html">Blog</a></li> Blog link added
-              <li><a href="contact.html">Contact Us</a></li> Contact Us link added
-              <li>
-                  <form class="search-form">
-                      <input type="text" placeholder="Search...">
-                      <button type="submit"><i class="fas fa-search"></i></button>
-                  </form>
-              </li>
-              <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
-          </ul>-->
-      </nav>
+      <div id="navBar"></div>
     </header>
     <div id="navBarTracker"></div>
     <main>
       <div class="tech-papers-header">
         <h1>Technical Papers & Research</h1>
-        <input type="text" id="paperSearch" placeholder="Search by title, keyword, or author...">
+        <input
+          type="text"
+          id="paperSearch"
+          placeholder="Search by title, keyword, or author..."
+        />
       </div>
       <div id="papersContainer">
         <!-- Example paper card, repeat for each paper -->
         <div class="paper-card">
-          <a href="#" class="paper-title" target="_blank">Remote sensing satellite sensor information retrieval and visualization based on SensorML | IEEE Conference Publication | IEEE Xplore</a>
+          <a href="#" class="paper-title" target="_blank"
+            >Remote sensing satellite sensor information retrieval and
+            visualization based on SensorML | IEEE Conference Publication | IEEE
+            Xplore</a
+          >
           <div class="paper-meta">
             <span class="paper-authors">Author(s): Not specified</span>
             <span class="paper-keyword">Satellites</span>
@@ -207,12 +171,33 @@
             <span class="paper-keyword">Information services</span>
           </div>
           <button class="toggle-abstract">Show Abstract</button>
-          <div class="paper-abstract" style="display:none;">
-            <em>Abstract:</em> In the era of high-frequency occurrence of natural disasters, users are more urgently concerned with the sharing of the satellite sensor resources information and coordinating the complement of sensor observation. However, the capacity of discovering, retrieving and visualizing the sensor resource information accurately based on heterogeneous sensors over sensor network is very limited. This paper proposes the system architecture for effectively managing those heterogeneous and multiple sensors and their information, which is inspired by the Open Geospatial Consortium (OGC) Sensor Web Enablement (SWE) Initiative and based on one of its information model- Sensor Model Language (SensorML) of which Process Model is the core. The prototype "SensorModel VI. 0" is designed and implemented used to construct the standard model for unified management of multiple remote sensing satellite sensor resources information and demonstrate the model-based retrieval and visualization of related remote sensors and their information, which promotes the comprehensive accessing and collaborative planning/controlling the available remote sensor's information in time-critical disaster emergency.
+          <div class="paper-abstract" style="display: none">
+            <em>Abstract:</em> In the era of high-frequency occurrence of
+            natural disasters, users are more urgently concerned with the
+            sharing of the satellite sensor resources information and
+            coordinating the complement of sensor observation. However, the
+            capacity of discovering, retrieving and visualizing the sensor
+            resource information accurately based on heterogeneous sensors over
+            sensor network is very limited. This paper proposes the system
+            architecture for effectively managing those heterogeneous and
+            multiple sensors and their information, which is inspired by the
+            Open Geospatial Consortium (OGC) Sensor Web Enablement (SWE)
+            Initiative and based on one of its information model- Sensor Model
+            Language (SensorML) of which Process Model is the core. The
+            prototype "SensorModel VI. 0" is designed and implemented used to
+            construct the standard model for unified management of multiple
+            remote sensing satellite sensor resources information and
+            demonstrate the model-based retrieval and visualization of related
+            remote sensors and their information, which promotes the
+            comprehensive accessing and collaborative planning/controlling the
+            available remote sensor's information in time-critical disaster
+            emergency.
           </div>
         </div>
         <div class="paper-card">
-          <a href="#" class="paper-title" target="_blank">(PDF) Remote Sensing Platforms and Sensors</a>
+          <a href="#" class="paper-title" target="_blank"
+            >(PDF) Remote Sensing Platforms and Sensors</a
+          >
           <div class="paper-meta">
             <span class="paper-authors">Author(s): Not specified</span>
             <span class="paper-keyword">Remote sensing</span>
@@ -222,12 +207,22 @@
             <span class="paper-keyword">Data acquisition</span>
           </div>
           <button class="toggle-abstract">Show Abstract</button>
-          <div class="paper-abstract" style="display:none;">
-            <em>Abstract:</em> Remote sensing is the acquisition of information about an object without coming in physical contact of that object. And ‘sensor’ is a device that helps in gathering of information (amount of EMR emitted or reflected by the object). In other words, ‘sensor’ is the remote sensing device that records wavelengths of energy. Generally, these sensors are mounted or fixed with a ‘platform’. Therefore, ‘platform’ is termed as a vehicle that carries remote sensing device.
+          <div class="paper-abstract" style="display: none">
+            <em>Abstract:</em> Remote sensing is the acquisition of information
+            about an object without coming in physical contact of that object.
+            And ‘sensor’ is a device that helps in gathering of information
+            (amount of EMR emitted or reflected by the object). In other words,
+            ‘sensor’ is the remote sensing device that records wavelengths of
+            energy. Generally, these sensors are mounted or fixed with a
+            ‘platform’. Therefore, ‘platform’ is termed as a vehicle that
+            carries remote sensing device.
           </div>
         </div>
         <div class="paper-card">
-          <a href="#" class="paper-title" target="_blank">A Study of Types of Sensors used in Remote Sensing | International Journal of Electronics and Telecommunication</a>
+          <a href="#" class="paper-title" target="_blank"
+            >A Study of Types of Sensors used in Remote Sensing | International
+            Journal of Electronics and Telecommunication</a
+          >
           <div class="paper-meta">
             <span class="paper-authors">Author(s): Not specified</span>
             <span class="paper-keyword">Disaster Management</span>
@@ -236,8 +231,19 @@
             <span class="paper-keyword">Remote Sensing</span>
           </div>
           <button class="toggle-abstract">Show Abstract</button>
-          <div class="paper-abstract" style="display:none;">
-            <em>Abstract:</em> Of late, the science of Remote Sensing has been gaining a lot of interest and attention due to its wide variety of applications. Remotely sensed data can be used in various fields such as medicine, agriculture, engineering, weather forecasting, military tactics, disaster management etc. only to name a few. This article presents a study of the two categories of sensors namely optical and microwave which are used for remotely sensing the occurrence of disasters such as earthquakes, floods, landslides, avalanches, tropical cyclones and suspicious movements. The remotely sensed data acquired either through satellites or through ground based- synthetic aperture radar systems could be used to avert or mitigate a disaster or to perform a post-disaster analysis.
+          <div class="paper-abstract" style="display: none">
+            <em>Abstract:</em> Of late, the science of Remote Sensing has been
+            gaining a lot of interest and attention due to its wide variety of
+            applications. Remotely sensed data can be used in various fields
+            such as medicine, agriculture, engineering, weather forecasting,
+            military tactics, disaster management etc. only to name a few. This
+            article presents a study of the two categories of sensors namely
+            optical and microwave which are used for remotely sensing the
+            occurrence of disasters such as earthquakes, floods, landslides,
+            avalanches, tropical cyclones and suspicious movements. The remotely
+            sensed data acquired either through satellites or through ground
+            based- synthetic aperture radar systems could be used to avert or
+            mitigate a disaster or to perform a post-disaster analysis.
           </div>
         </div>
         <!-- Repeat for all other papers, following the same structure -->
@@ -338,9 +344,11 @@
         font-size: 1.05rem;
         border: 1.5px solid #009688;
         margin-top: -1px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
         background: #f6fffa;
-        transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+        transition:
+          max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.3s;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
@@ -350,7 +358,10 @@
         max-height: 2000px;
         opacity: 1;
         padding: 20px 24px;
-        transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s, opacity 0.3s;
+        transition:
+          max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+          padding 0.3s,
+          opacity 0.3s;
       }
 
       .career-toggle {
@@ -539,7 +550,7 @@
       .paper-card {
         background: #fff;
         border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
         margin: 1rem auto;
         padding: 1.5rem;
         max-width: 700px;
@@ -547,7 +558,7 @@
         text-align: justify;
       }
       .paper-card:hover {
-        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
       }
       .paper-title {
         font-size: 1.2rem;
@@ -589,39 +600,40 @@
 
       toggles.forEach((btn, idx) => {
         // Add arrow span if not present
-        if (!btn.querySelector('.arrow')) {
-          const arrow = document.createElement('span');
-          arrow.className = 'arrow';
-          arrow.innerHTML = '▶';
+        if (!btn.querySelector(".arrow")) {
+          const arrow = document.createElement("span");
+          arrow.className = "arrow";
+          arrow.innerHTML = "▶";
           btn.appendChild(arrow);
         }
         btn.addEventListener("click", function () {
-          const isOpen = details[idx].classList.contains('open');
-          details.forEach((d) => d.classList.remove('open'));
+          const isOpen = details[idx].classList.contains("open");
+          details.forEach((d) => d.classList.remove("open"));
           toggles.forEach((b) => b.classList.remove("active"));
           if (!isOpen) {
-            details[idx].classList.add('open');
+            details[idx].classList.add("open");
             this.classList.add("active");
           }
         });
       });
 
       // Search functionality
-      const searchInput = document.getElementById('paperSearch');
-      searchInput.addEventListener('input', function() {
+      const searchInput = document.getElementById("paperSearch");
+      searchInput.addEventListener("input", function () {
         const query = this.value.toLowerCase();
-        document.querySelectorAll('.paper-card').forEach(card => {
+        document.querySelectorAll(".paper-card").forEach((card) => {
           const text = card.textContent.toLowerCase();
-          card.style.display = text.includes(query) ? '' : 'none';
+          card.style.display = text.includes(query) ? "" : "none";
         });
       });
       // Abstract toggle
       function setupAbstractToggles() {
-        document.querySelectorAll('.toggle-abstract').forEach(btn => {
-          btn.addEventListener('click', function() {
+        document.querySelectorAll(".toggle-abstract").forEach((btn) => {
+          btn.addEventListener("click", function () {
             const abs = this.nextElementSibling;
-            abs.style.display = abs.style.display === 'none' ? 'block' : 'none';
-            this.textContent = abs.style.display === 'none' ? 'Show Abstract' : 'Hide Abstract';
+            abs.style.display = abs.style.display === "none" ? "block" : "none";
+            this.textContent =
+              abs.style.display === "none" ? "Show Abstract" : "Hide Abstract";
           });
         });
       }
