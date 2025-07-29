@@ -100,17 +100,21 @@ const navbar = `<nav class="navbar">
                     <li><a href="/infi_website/HTML/event.html">Events</a></li>
                     <li><a href="/infi_website/HTML/blog.html">Blog</a></li>
                     <li><a href="/infi_website/HTML/contact.html">Contact Us</a></li>
+                    <li>
+                        <form class="search-form">
+                            <input type="text" placeholder="Search...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </li>
+                    <a href="login.html" class="login-icon">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
                 </ul>
+                
             </nav>
-            <div class="right-items">
-                <form class="search-form">
-                    <input type="text" placeholder="Search...">
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
-                <a href="login.html" class="login-icon">
-                    <i class="fas fa-user"></i>
-                    <span>Login</span>
-                </a>
+            <div class="right-ite">
+                
             </div>`
 if (navBar) {
   navBar.innerHTML = navbar;

@@ -181,8 +181,22 @@ header {
 }
 
 #navBar {
-  display: flex;
   width: 100vw;
+  /* display: grid; */
+  /* grid-template-columns: 1fr; */
+  /* grid-template-rows: 1fr 3fr; */
+  display: flex;
+  /* border: 1px solid black; */
+  justify-items: center;
+  align-items: center;
+}
+
+#navBar ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 15px;
 }
 
 /* --- Responsive Breakpoints --- */
@@ -246,10 +260,12 @@ header {
     padding-right: 1vw;
   }
   .right-items {
-    width: 100vw;
+    /* width: ; */
+    width: 30%;
     justify-content: flex-end;
     margin: 0;
     height: auto;
+    border: 1px solid black;
   }
   .dropdown-content {
     position: static;
