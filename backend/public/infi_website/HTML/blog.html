@@ -11,14 +11,99 @@
 
     <!-- Custom CSS File Link -->
     <link rel="stylesheet" href="/infi_website/CSS/style.css">
+
+    <style>
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 1rem;
+    padding: 10px;
+}
+@media (max-width: 1200px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 800px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.blog-post {
+    background: #ffffffc4;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.2s;
+    color: black;
+}
+.blog-post:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+.blog-image {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.write-blog-btn {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.7rem 1.5rem;
+    background: #002147;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.write-blog-btn:hover {
+    background: #1e90ff;
+}
+main {
+    margin-top: 80px;
+}
+
+.comment-section textarea{
+    width: 100%;
+    border: 2px solid white;
+    height: 100px;
+}
+
+#blog_section_1{
+    width: 90vw;
+    /* border: 1px solid black; */
+    position: relative;
+    /* top: ; */
+    background-color: #fff;
+    color: black;
+    justify-self: center;
+    margin-top: -70px;
+    /* top: -100%; */
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#write_btn{
+    position: relative;
+    left: 80%;
+}
+</style>
 </head>
 
 <body>
     <div class="container">
         <header>
-            <a href="#" class="logo">
+            <!-- <a href="#" class="logo">
                 <img src="/infi_website/image/POLSAR.png" alt="Logo" class="logo-img">
-            </a>
+            </a> -->
             <div id="menu" class="fas fa-bars"></div>
             <div id="navBar">
             </div>
@@ -26,10 +111,10 @@
 
         <main>
             <!-- Blog Header -->
-            <section class="blog-header">
-                <h1>The BLOGS</h1>
-                <p>Stay updated with the latest articles, tutorials, and insights on remote sensing and microwave remote sensing.</p>
-                <a href="login.html" class="write-blog-btn">Write Your Own Blog</a>
+            <section id="blog_section_1" class="blog-header">
+                <h1 style="font-size: 40px; color: #002147;">The BLOGS</h1>
+                <p style="font-size: 20px;">Stay updated with the latest articles, tutorials, and insights on remote sensing and microwave remote sensing.</p>
+                <a href="login.html" id="write_btn" class="write-blog-btn">Write Your Own Blog</a>
             </section>
 
             <section class="blog-posts blog-grid">
@@ -203,61 +288,4 @@
     <script src="/infi_website/Javascript/blog.js"></script>
 </body>
 </html>
-
-<style>
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin: 2rem 0;
-}
-@media (max-width: 1200px) {
-    .blog-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 800px) {
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
-}
-.blog-post {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: box-shadow 0.2s;
-}
-.blog-post:hover {
-    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
-}
-.blog-image {
-    width: 100%;
-    max-width: 220px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-.write-blog-btn {
-    display: inline-block;
-    margin: 1rem 0;
-    padding: 0.7rem 1.5rem;
-    background: #002147;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.2s;
-}
-.write-blog-btn:hover {
-    background: #1e90ff;
-}
-main {
-    margin-top: 80px;
-}
-</style>
 

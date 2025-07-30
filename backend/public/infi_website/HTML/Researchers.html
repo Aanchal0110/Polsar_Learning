@@ -98,68 +98,16 @@ content while keeping the existing structure intact: ```html
   <body>
     <div class="container">
       <header>
-        <a href="#" class="logo">
+        <!-- <a href="#" class="logo">
           <img
             src="../image/logo.jpeg"
             alt="Logo"
             class="logo-img"
           />
-        </a>
+        </a> -->
         <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-          <ul>
-            <li><a href="home.html">Home</a></li>
-            <li class="dropdown">
-              <a href="resources.html" class="dropbtn">Resources</a>
-              <div class="dropdown-content">
-                <a href="Fundamental.html">Fundamentals</a>
-                <a href="Technical Papers.html">Technical Papers</a>
-                <a href="Books.html">Books</a>
-                <a href="Videos.html">Videos</a>
-                <a href="Relevant Links.html">Relevant Links</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="domain-expert.html" class="dropbtn">Domain Experts</a>
-              <div class="dropdown-content">
-                <a href="academicians.html">Academicians</a>
-                <a href="scientists.html">Scientists</a>
-                <a href="Industry Personnel.html">Industry Personnel</a>
-                <a href="Researchers.html">Researchers</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="downloads.html" class="dropbtn">Downloads</a>
-              <div class="dropdown-content">
-                <a href="#">Data Download</a>
-                <a href="opensource.html">Opensource Software</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="education.html" class="dropbtn">Education</a>
-              <div class="dropdown-content">
-                <a href="Diploma.html">Diploma</a>
-                <a href="Degree.html">Degree</a>
-                <a href="Master.html">Masters</a>
-                <a href="Ph.D.html">Ph.D.</a>
-              </div>
-            </li>
-            <li><a href="career.html">Career</a></li>
-            <li><a href="news.html">Events</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </nav>
-        <div class="right-items">
-          <form class="search-form">
-            <input type="text" placeholder="Search...">
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </form>
-          <a href="login.html" class="login-icon">
-            <i class="fas fa-user"></i>
-            <span>Login</span>
-          </a>
-        </div>
+        <!-- <div id="menu" class="fas fa-bars"></div> -->
+        <div id="navBar"></div>
       </header>
 
       <main>
@@ -339,13 +287,14 @@ content while keeping the existing structure intact: ```html
       }
     </script>
     <script>
-document.getElementById('menu').onclick = function() {
-  document.querySelector('.navbar').classList.toggle('active');
-};
-document.querySelectorAll('.navbar a').forEach(link => {
-  link.onclick = () => document.querySelector('.navbar').classList.remove('active');
-});
-</script>
+      document.getElementById("menu").onclick = function () {
+        document.querySelector(".navbar").classList.toggle("active");
+      };
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        link.onclick = () =>
+          document.querySelector(".navbar").classList.remove("active");
+      });
+    </script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
   </body>
 </html>

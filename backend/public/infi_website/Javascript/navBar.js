@@ -60,8 +60,13 @@ try {
 //                     <li> <a href="/infi_website/HTML/login.html" >${x}</a></li>
 //                 </ul>
 // `
-
+//
+{/* <a href="/infi_website/HTML/Relevant Links.html">Relevant Links</a> */ }
+{/* <a href="/infi_website/HTML/scientists.html">Scientists</a> */}
 const navbar = `<nav class="navbar">
+<a href="#" class="logo">
+                <img src="/infi_website/image/logo.jpeg" alt="Logo" class="logo-img">
+            </a>
                 <ul>
                     <li><a href="/infi_website/HTML/home.html">Home</a></li>
                     <li class="dropdown">
@@ -71,14 +76,13 @@ const navbar = `<nav class="navbar">
                             <a href="/infi_website/HTML/Technical Paper.html">Technical Papers</a>
                             <a href="/infi_website/HTML/Books.html">Books</a>
                             <a href="/infi_website/HTML/Videos.html">Videos</a>
-                            <a href="/infi_website/HTML/Relevant Links.html">Relevant Links</a>
+                            
                         </div>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropbtn">Domain Experts</a>
                         <div class="dropdown-content">
                             <a href="/infi_website/HTML/academicians.html">Academicians</a>
-                            <a href="/infi_website/HTML/scientists.html">Scientists</a>
                             <a href="/infi_website/HTML/Industry Personnel.html">Industry Personnel</a>
                             <a href="/infi_website/HTML/Researchers.html">Researchers</a>
                         </div>
