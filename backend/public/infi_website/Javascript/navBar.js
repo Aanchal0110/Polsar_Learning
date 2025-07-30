@@ -106,7 +106,7 @@ const navbar = `<nav class="navbar">
                             <button type="submit"><i class="fas fa-search"></i></button>
                         </form>
                     </li>
-                    <a href="login.html" class="login-icon">
+                    <a href="/infi_website/HTML/login.html" class="login-icon">
                         <i class="fas fa-user"></i>
                         <span>Login</span>
                     </a>

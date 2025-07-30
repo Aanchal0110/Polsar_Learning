@@ -338,3 +338,6 @@
 {"level":"info","message":"Database connection established","timestamp":"2025-06-11 11:12:37"}
 {"level":"info","message":"Client removed from pool","timestamp":"2025-06-11 11:13:38"}
 {"level":"info","message":"Database connection established","timestamp":"2025-06-11 11:13:50"}
+{"error":"Connection terminated unexpectedly","level":"error","message":"Query execution error:","params":["Admin_01","addu2012005@gmail.com","$2b$10$o2P6goCvY02W1SU64TRmJe7e395tM8VT.4Nr6VeaA/Fvs8VJsPDSq"],"text":"INSERT INTO \"User\" (UserName, Email, Password) VALUES ($1, $2, $3) RETURNING Uid, UserName, Email","timestamp":"2025-07-30 14:25:19"}
+{"error":"Connection terminated unexpectedly","level":"error","message":"Query execution error:","params":["addu2012005@gmail.com"],"text":"SELECT * FROM \"User\" WHERE Email = $1","timestamp":"2025-07-30 14:25:56"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Query execution error:","params":["addu2012005@gmail.com"],"text":"SELECT * FROM \"User\" WHERE Email = $1","timestamp":"2025-07-30 14:29:35"}

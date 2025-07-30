@@ -34,7 +34,7 @@
         color: #960d0d;
       }
 
-      #text {
+      .text {
         height: 30px;
         border-radius: 5px;
         padding: 10px;
@@ -46,7 +46,7 @@
         background-color: #fff;
       }
 
-      #button {
+      .button {
         padding: 12px 20px;
         width: 100%;
         color: white;
@@ -139,7 +139,7 @@
       <div id="loginForm" class="form-container active">
         <form method="post">
           <input
-            id="text"
+            class="text"
             type="text"
             name="user_name"
             placeholder="Enter User Name"
@@ -147,14 +147,14 @@
           />
           <br />
           <input
-            id="text"
+            class="text"
             type="password"
             name="password"
             placeholder="Enter Password"
             required
           />
           <br />
-          <input id="button" type="submit" value="Login" />
+          <input id="login_button" class="button" type="submit" value="Login" />
           <br />
         </form>
         <a id="showSignup">Click to Signup</a>
@@ -165,7 +165,8 @@
       <div id="signupForm" class="form-container">
         <form method="post">
           <input
-            id="text"
+            id="signup_first_name"
+            class="text"
             type="text"
             name="first_name"
             placeholder="Enter First Name"
@@ -173,7 +174,8 @@
           />
           <br />
           <input
-            id="text"
+            id="signup_last_name"
+            class="text"
             type="text"
             name="last_name"
             placeholder="Enter Last Name"
@@ -181,7 +183,8 @@
           />
           <br />
           <input
-            id="text"
+            id="signup_email"
+            class="text"
             type="email"
             name="email"
             placeholder="Enter Email"
@@ -189,7 +192,7 @@
           />
           <br />
           <input
-            id="text"
+            class="text"
             type="tel"
             name="phone"
             placeholder="Enter Phone"
@@ -199,7 +202,8 @@
           />
           <br />
           <input
-            id="text"
+            id="signup_password_1"
+            class="text"
             type="password"
             name="password"
             placeholder="Enter Password"
@@ -209,7 +213,7 @@
             title="Must contain at least one number, one uppercase and lowercase letter, and one special character."
           />
           <br />
-          <input id="button" type="submit" value="Signup" />
+          <input id="signup_btn" class="button" type="submit" value="Signup" />
           <br />
         </form>
         <a id="showLogin">Click to Login</a>
@@ -308,7 +312,9 @@
           document.getElementById("formTitle").innerText = "Login";
         });
     </script>
-    <script src="/infi website/Javascript/script.js"></script>
-    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+    <!-- <script src="/infi_website/Javascript/script.js"></script> -->
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script type="module" src="/infi_website/Javascript/authLogin.js"></script>
+    <script type="module" src="/infi_website/Javascript/authSignup.js"></script>
   </body>
 </html>
