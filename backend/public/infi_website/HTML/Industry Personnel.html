@@ -159,6 +159,9 @@
       <main>
         <section class="academicians">
           <h1>Industry Professionals</h1>
+          <div style="text-align: center; margin-bottom: 20px; color: #666; font-style: italic;">
+            <p>Last Updated: <span id="lastUpdated"></span></p>
+          </div>
           <div class="academicians-items" style="text-align: center">
             <div class="academician-item">
               <img
@@ -265,13 +268,42 @@
                 >
               </div>
             </div>
+
+            <!-- Dr. Varsha Turkar -->
+            <div class="academician-item">
+              <img
+                src="/infi_website/image/Varsha-Turkar.png"
+                alt="Dr. Varsha Turkar"
+                class="academician-img"
+                style="display: block; margin: 0 auto"
+              />
+              <h2>Dr. Varsha Turkar (InfiCorridor Solutions Pvt. Ltd., Mumbai)</h2>
+              <p>
+                Dr. Varsha Turkar is a leading expert in SAR image classification and microwave remote sensing with over two decades of experience in research and industry applications. She specializes in data analysis, machine learning, and has a strong background in developing innovative solutions for remote sensing challenges.
+              </p>
+              <span class="read-more-btn" onclick="toggleReadMore(this)">Read More</span>
+              <div class="read-more-content">
+                <p>
+                  With extensive experience in both academia and industry, Dr. Turkar has contributed significantly to the field of microwave remote sensing. Her expertise spans across SAR polarimetry, image processing, and machine learning applications for Earth observation.
+                </p>
+                <p style="text-align: justify">Key Areas of Expertise:</p>
+                <ol>
+                  <li>SAR Image Classification</li>
+                  <li>Microwave Remote Sensing</li>
+                  <li>Machine Learning & AI</li>
+                  <li>Data Analysis & Processing</li>
+                  <li>PolSAR Applications</li>
+                  <li>Environmental Monitoring</li>
+                </ol>
+                <a href="https://varsha.turkar.in/" target="_blank" class="website-link">Website</a> |
+                <a href="https://linkedin.com/in/varshaturkar" target="_blank" class="linkedin-link">LinkedIn</a>
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
-      <!-- <footer>
-        <p>Copyright © 2024 All rights reserved |</p>
-      </footer> -->
+      <!--  -->
     </div>
 
     <!-- JavaScript File -->
@@ -320,6 +352,20 @@
       document.querySelectorAll(".navbar a").forEach((link) => {
         link.onclick = () =>
           document.querySelector(".navbar").classList.remove("active");
+      });
+    </script>
+    <script>
+      // Display today's date
+      document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date();
+        const options = { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric',
+          weekday: 'long'
+        };
+        const formattedDate = today.toLocaleDateString('en-US', options);
+        document.getElementById('lastUpdated').textContent = formattedDate;
       });
     </script>
   </body>

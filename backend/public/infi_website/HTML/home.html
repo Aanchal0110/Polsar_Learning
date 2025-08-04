@@ -21,6 +21,53 @@
             100% { color: #ff4500; } /* Back to orange-red */
         }
 
+        /* LinkedIn Icon Styling */
+        .contact-icons .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #0077b5;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .contact-icons .icon:hover {
+            background: #005885;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+        }
+
+        .contact-icons .icon i {
+            font-size: 24px;
+        }
+
+        /* Justified text for better readability */
+        #about-contact p {
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Center the contact information section */
+        #about-contact h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #about-contact .contact-info {
+            text-align: center;
+        }
+
+        #about-contact .contact-info p {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
         body {
             background: url('/infi_website/Cover image/cover images/Earth.png') no-repeat center center fixed;
             background-size: cover;
@@ -57,7 +104,7 @@
 <body>
     <div class="container">
         <header>
-            <!-- <div id="navbar" class="fas fa-bars"></div> -->
+            <div id="menu" class="fas fa-bars"></div>
              <div id="navBar"></div>
         </header>
 
@@ -112,7 +159,7 @@
                         (with wavelengths ranging from 1 millimeter to 1 meter) to gather information about the Earth's
                         surface and atmosphere. This type of remote sensing can penetrate clouds, rain, and vegetation.
                     </p>
-                    <a href="/infi_website/HTML/microwave.html"><button class="explore-more">Learn More</button></a>
+                    <a href="/infi_website/HTML/microwave.html"><button class="explore-more">Start Exploring</button></a>
                 </div>
                 
             </section>
@@ -120,7 +167,7 @@
                 <div class="content-left">
                     <h2>INTRODUCTION TO OPTICAL REMOTE SENSING</h2>
                     <p>Optical remote sensing uses visible, infrared, and thermal radiation to capture images of the Earth's surface...</p>
-                    <a href="/infi_website/HTML/optical.html"><button class="explore-more">Read More</button></a>
+                    <a href="/infi_website/HTML/optical.html"><button class="explore-more">Start Exploring</button></a>
                 </div>
                 <div class="content-image-right">
                     <img src="/infi_website/Optical image/Optical image/optical1.jpg" alt="Optical Remote Sensing Image">
@@ -131,7 +178,7 @@
 
             <!-- FEATURED_SECTION_START -->
             <section class="featured-news">
-                <h1>LATEST NEWS <span class="live-indicator">LIVE</span></h1>
+                <h1>LATEST NEWS</h1>
                 <div class="news-items">
                     <!-- News items will be dynamically loaded here -->
                     <div class="loading-news">Loading latest news...</div>
@@ -144,47 +191,32 @@
 
             <section id="about-contact">
                 <h1>ABOUT US</h1>
-                <p>Welcome to our website, your one-stop destination for all your educational needs. Our mission is to
-                    provide
-                    high-quality online courses that are accessible, affordable, and engaging. Whether you are looking
-                    to develop
-                    new skills, advance your career, or simply explore a new hobby, our website offers a wide range of
-                    courses
-                    taught by industry experts.</p>
+                <p>Welcome to our comprehensive Remote Sensing and Microwave Learning Platform, developed by InfiCorridor Solutions Pvt. Ltd. Our mission is to make advanced geospatial technology education accessible to researchers, students, and professionals worldwide. We specialize in Polarimetric Synthetic Aperture Radar (PolSAR), microwave remote sensing, and optical remote sensing technologies. Our platform provides cutting-edge resources, connects you with domain experts, and offers the latest tools and datasets for Earth observation research. Whether you're a beginner exploring remote sensing or an advanced researcher working with NISAR data, our platform serves as your gateway to the world of geospatial intelligence and environmental monitoring.</p>
                 <hr>
-                <h2>CONTACT US</h2>
-                <!-- <p>Phone: +123-456-7890</p> -->
-                <p>Email: <a href="mailto:studysmart@gmail.com">inficorridor@gmail.com</a></p>
-                <p>Address: Mumbai, India</p>
+                <h2>Contact Information</h2>
+               
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:scientific@inficorridor.in">scientific@inficorridor.in</a></p>
+                    <p>Address: Mumbai,Maharashtra,India</p>
 
-                <!-- Social Media and Contact Icons -->
-                <div class="contact-icons">
-                    <a href="mailto:studysmart@gmail.com" class="icon"><i class="fas fa-envelope"></i></a>
-                    <a href="https://twitter.com" class="icon"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com" class="icon"><i class="fab fa-instagram"></i></a>
-                    <a href="tel:+1234567890" class="icon"><i class="fas fa-phone"></i></a>
+                    <!-- LinkedIn Link -->
+                    <div class="contact-icons">
+                        <a href="https://www.linkedin.com/company/inficorridor-solutions-pvt-ltd/?viewAsMember=true" class="icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
             </section>
             
         </main>
 
-        <footer>
-            <!-- <p>Copyright © 2024 All rights reserved |</p> -->
-        </footer>
+
     </div>
 
     <!-- JavaScript Files -->
     <script src="/infi_website/Javascript/script.js"></script>
     <script src="/infi_website/Javascript/slider.js"></script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
-    <script>
-document.getElementById('menu').onclick = function() {
-  document.querySelector('.navbar').classList.toggle('active');
-};
-document.querySelectorAll('.navbar a').forEach(link => {
-  link.onclick = () => document.querySelector('.navbar').classList.remove('active');
-});
-</script>
 </body>
 
 </html>

@@ -85,10 +85,30 @@
     font-weight: bold; /* Bold text */
 }
 
-.read-more-content a.website-link:hover {
-    color: #4b2e83; /* Darker purple on hover */
-    text-decoration: underline; /* Keep underline on hover */
-}
+        .read-more-content a.website-link:hover {
+            color: #4b2e83; /* Darker purple on hover */
+            text-decoration: underline; /* Keep underline on hover */
+        }
+
+        /* Handle missing images gracefully */
+        .academician-img:not([src]), 
+        .academician-img[src=""], 
+        .academician-img[src*="undefined"] {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .academician-img:not([src])::after, 
+        .academician-img[src=""]::after, 
+        .academician-img[src*="undefined"]::after {
+            content: "Profile Image\nNot Available";
+        }
 
     </style>
 </head>
@@ -105,6 +125,9 @@
         <main>
             <section class="academicians">
                 <h1>Academicians</h1>
+                <div style="text-align: center; margin-bottom: 20px; color: #666; font-style: italic;">
+                    <p>Last Updated: <span id="lastUpdated"></span></p>
+                </div>
                 <div class="academicians-items" style="text-align: center;">
                     
                     <!-- Dr. Dharmendra Singh -->
@@ -142,19 +165,11 @@
                         <a href="https://linkedin.com/in/avik-bhattacharya-b66015137" target="_blank">LinkedIn</a>
                     </div>
 
-                    <!-- Dr. Varsha Turkar -->
-                    <div class="academician-item">
-                        <img src="../image/Dr. Varsha Turkar.jpg" alt="Dr. Varsha Turkar" class="academician-img">
-                        <h2>Dr. Varsha Turkar (Vidyalankar Institute of Technology, Mumbai)</h2>
-                        <p>Over two decades in academics and research. Skilled in SAR, image processing, data analysis, and Matlab. Ph.D. in Microwave remote sensing from IIT Bombay.</p>
-                        <p><b>Research Interests:</b> Digital Image Processing, Machine Learning.</p>
-                        <a href="#" target="_blank">Website</a> |
-                        <a href="https://linkedin.com/in/varshaturkar" target="_blank">LinkedIn</a>
-                    </div>
+
 
                     <!-- Dr. Sanjay S. Shitole -->
                     <div class="academician-item">
-                        <img src="../image/Dr. Sanjay Shitole.jpeg" alt="Dr. Sanjay S. Shitole" class="academician-img">
+                        <img src="/infi_website/image/Dr. Sanjay Shitole.jpeg" alt="Dr. Sanjay S. Shitole" class="academician-img">
                         <h2>Dr. Sanjay S. Shitole (UMIT, Mumbai)</h2>
                         <p>Active in research and teaching. Led NASA-ISRO funded projects on SAR and machine learning. Mentors Ph.D. students in remote sensing and image processing.</p>
                         <p><b>Expertise:</b> Remote Sensing, Image Processing, Machine Learning, LaTeX, Digital Marketing.</p>
@@ -164,7 +179,7 @@
 
                     <!-- Dr. Amiya Kumar Tripathy -->
                     <div class="academician-item">
-                        <img src="../image/Dr. Amiya Kumar Tripathy.jpeg" alt="Dr. Amiya Kumar Tripathy" class="academician-img">
+                        <img src="/infi_website/image/Dr. Amiya Kumar Tripathy.jpeg" alt="Dr. Amiya Kumar Tripathy" class="academician-img">
                         <h2>Dr. Amiya Kumar Tripathy (DBIT, Mumbai)</h2>
                         <p>Professor in Data Science, experienced in academia, research, and industry. Ph.D. in Data Mining & Sensor Network from IIT Bombay.</p>
                         <p><b>Research Interests:</b> AI, Data Science, Embedded Systems, IoT, Machine Learning, Geo-ICT for Agriculture.</p>
@@ -174,7 +189,7 @@
 
                     <!-- Dr. Chandrakanta Ojha -->
                     <div class="academician-item">
-                        <img src="../image/Dr. Chandrakanta Ojha.jpeg" alt="Dr. Chandrakanta Ojha" class="academician-img">
+                        <img src="/infi_website/image/Dr. Chandrakanta Ojha.jpeg" alt="Dr. Chandrakanta Ojha" class="academician-img">
                         <h2>Dr. Chandrakanta Ojha (IISER Mohali)</h2>
                         <p>Geodesist specializing in microwave remote sensing and satellite-based Earth deformation monitoring. Develops methods for SAR and InSAR analysis.</p>
                         <p><b>Research Areas:</b> Microwave Remote Sensing, Satellite radar interferometry, Crustal deformation, Groundwater, Parallel computing.</p>
@@ -183,7 +198,7 @@
 
                     <!-- Dr. Unmesh Khati -->
                     <div class="academician-item">
-                        <img src="../image/Dr. Ummesh Khati.jpeg" alt="Dr. Unmesh Khati" class="academician-img">
+                        <img src="/infi_website/image/Dr. Ummesh Khati.jpeg" alt="Dr. Unmesh Khati" class="academician-img">
                         <h2>Dr. Unmesh Khati (IIT Indore)</h2>
                         <p>Faculty at IIT Indore, former NASA-JPL researcher. Develops SAR remote sensing algorithms for ecosystems, agriculture, and asset monitoring.</p>
                         <p><b>Research Interests:</b> Radar polarimetry, PolInSAR, Change detection, Machine learning, Data fusion, Lidar, SAR Tomography.</p>
@@ -192,7 +207,7 @@
 
                     <!-- Dr. Rishikesh Bharti -->
                     <div class="academician-item">
-                        <img src="../image/Dr. Rishikesh Bharti.jpeg" alt="Dr. Rishikesh Bharti" class="academician-img">
+                        <img src="/infi_website/image/Dr. Rishikesh Bharti.jpeg" alt="Dr. Rishikesh Bharti" class="academician-img">
                         <h2>Dr. Rishikesh Bharti (IIT Guwahati)</h2>
                         <p>Researcher in snow/glacier studies, tectonic geomorphology, micro-climate modeling, and GPR-based subsurface investigation.</p>
                         <a href="https://linkedin.com/in/rishikesh-bharti-831ab8118" target="_blank">LinkedIn</a>
@@ -200,17 +215,17 @@
 
                     <!-- Dr. Vineet Kumar -->
                     <div class="academician-item">
-                        <img src="../image/Dr. Vineet Kumar.jpg" alt="Dr. Vineet Kumar" class="academician-img">
-                        <h2>Dr. Vineet Kumar (TISS, Mumbai)</h2>
-                        <p>Assistant Professor, TISS Mumbai. Former Geospatial data expert at FAO-UN, Rome. Focuses on earth observation for sustainability and disaster studies.</p>
-                        <p><b>Research Interests:</b> SAR polarimetry, Land use/cover change, Geoinformatics for disasters.</p>
-                        <a href="#" target="_blank">Website</a> |
+                        <img src="/infi_website/image/Dr. Vineet Kumar.jpeg" alt="Dr. Vineet Kumar" class="academician-img">
+                        <h2>Dr. Vineet Kumar (IHE Delft Institute for Water Education)</h2>
+                        <p>Expert in Remote Sensing, Synthetic Aperture Radar, and Earth observations with specialization in Remote Sensing of Vegetation. Currently affiliated with IHE Delft Institute for Water Education in Delft, South Holland, Netherlands.</p>
+                        <p><b>Research Interests:</b> Remote Sensing, Synthetic Aperture Radar (SAR), Earth observations, Remote Sensing of Vegetation, Water resources monitoring, Environmental applications.</p>
+                        <p><b>Education:</b> Indian Institute of Technology, Bombay</p>
                         <a href="https://linkedin.com/in/vineet-kumar-6537b420" target="_blank">LinkedIn</a>
                     </div>
 
                     <!-- Dr. Mugdha Agarwadkar -->
                     <div class="academician-item">
-                        <img src="../image/Dr. Mugdha Agarwadkar.jpg" alt="Dr. Mugdha Agarwadkar" class="academician-img">
+                        <img src="/infi_website/image/Dr. Mughda agarwadkar.jpeg" alt="Dr. Mugdha Agarwadkar" class="academician-img">
                         <h2>Dr. Mugdha Agarwadkar (A P Shah Institute of Technology)</h2>
                         <p>Associate Professor, Civil Engineering. Ph.D. in Groundwater Hydrology from IIT Bombay. Focuses on groundwater, water resources, and environmental monitoring.</p>
                         <p><b>Interest Areas:</b> Groundwater hydrology, Water Resources, Environmental Health, Remote Sensing, GIS, Climate Change, Disaster Management.</p>
@@ -219,7 +234,7 @@
 
                     <!-- Dr. Mousmi Chaurasia -->
                     <div class="academician-item">
-                        <img src="../image/Dr. Mousmi Chaurasia.jpg" alt="Dr. Mousmi Chaurasia" class="academician-img">
+                        <img src="/infi_website/image/Dr. Mousmi Chaurasia.jpeg" alt="Dr. Mousmi Chaurasia" class="academician-img">
                         <h2>Dr. Mousmi Chaurasia (Muffakham Jah College of Engineering and Technology, Hyderabad)</h2>
                         <p>Professor and Head, IT Dept. Published 28+ papers, 5 patents, international experience. IEEE Senior Member and awardee.</p>
                         <p><b>Research Interests:</b> Artificial Intelligence, Geoscience & Remote Sensing, Computational Intelligence.</p>
@@ -227,16 +242,14 @@
                     </div>
                 </div>
             </section>
-            
+
             </section>
         </main>
 
-        <footer>
-            <p>Copyright © 2024 All rights reserved |</p>
-        </footer>
+
     </div>
 
-    <!-- JavaScript File -->
+        <!-- JavaScript File -->
     <script src="/infi_website/Javascript/script.js"></script>
     <script>
         function toggleReadMore(button) {
@@ -249,7 +262,32 @@
                 button.textContent = "Read Less";
             }
         }
-        </script>
+
+        // Handle image loading errors
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.academician-img');
+            images.forEach(function(img) {
+                img.addEventListener('load', function() {
+                    console.log('Image loaded successfully:', img.src);
+                    this.style.opacity = '1';
+                });
+                img.addEventListener('error', function() {
+                    console.error('Image failed to load:', img.src);
+                    this.style.opacity = '0.7';
+                    this.style.border = '2px dashed #dc3545';
+                    this.style.background = '#fff5f5';
+                    // Create a fallback text
+                    const fallback = document.createElement('div');
+                    fallback.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#dc3545;font-size:12px;text-align:center;pointer-events:none;';
+                    fallback.textContent = 'Profile Image\nNot Available';
+                    this.parentNode.style.position = 'relative';
+                    this.parentNode.appendChild(fallback);
+                });
+                img.style.opacity = '0.9';
+                img.style.transition = 'opacity 0.3s ease';
+            });
+        });
+    </script>
         
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -282,6 +320,20 @@ document.getElementById('menu').onclick = function() {
 document.querySelectorAll('.navbar a').forEach(link => {
   link.onclick = () => document.querySelector('.navbar').classList.remove('active');
 });
+</script>
+<script>
+  // Display today's date
+  document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const options = { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric',
+      weekday: 'long'
+    };
+    const formattedDate = today.toLocaleDateString('en-US', options);
+    document.getElementById('lastUpdated').textContent = formattedDate;
+  });
 </script>
 </body>
 

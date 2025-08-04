@@ -309,41 +309,9 @@
         <div class="nav-tab" data-category="microwave">Microwave RS</div>
         <div class="nav-tab" data-category="satellite">Satellite Tech</div>
         <div class="nav-tab" data-category="innovation">New Innovations</div>
-        <div class="nav-tab" data-category="live">Live Updates</div>
+        <div class="nav-tab" data-category="satellite">Satellite Tech</div>
+        <div class="nav-tab" data-category="innovation">New Innovations</div>
       </nav>
-      <div class="refresh-container">
-        <button id="refresh-button" class="refresh-button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M23 4v6h-6"></path>
-            <path d="M1 20v-6h6"></path>
-            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"></path>
-            <path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"></path>
-          </svg>
-          Refresh Now
-          <div id="loading-indicator" class="loading"></div>
-        </button>
-        <div class="auto-refresh">
-          <input type="checkbox" id="auto-refresh" checked />
-          <label for="auto-refresh">Auto-refresh every</label>
-          <select id="refresh-interval">
-            <option value="30">30 sec</option>
-            <option value="60" selected>1 min</option>
-            <option value="300">5 min</option>
-            <option value="600">10 min</option>
-          </select>
-        </div>
-      </div>
-      <div class="last-updated" id="last-updated"></div>
       <section>
         <div class="main-grid" id="news-container">
           <!-- Tech Cards will be populated by JavaScript -->
@@ -353,17 +321,7 @@
         </div>
       </section>
     </main>
-    <footer>
-      <div class="partner-logos">
-        <img src="nasa-logo.svg" alt="NASA" width="80" />
-        <img src="esa-logo.svg" alt="ESA" width="80" />
-        <img src="ieee-logo.svg" alt="IEEE" width="80" />
-      </div>
-      <p>
-        © 2025 Geo-Spatial Tech Pulse | Data Sources: NASA EOSDIS, ESA Earth
-        Online, IEEE GRSS
-      </p>
-    </footer>
+
     <script src="/infi_website/Javascript/script.js"></script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
     <script>
@@ -621,13 +579,6 @@
         }
       }
 
-      // Function to update the last refreshed time
-      function updateLastRefreshed() {
-        const lastUpdatedElement = document.getElementById("last-updated");
-        const now = new Date();
-        lastUpdatedElement.textContent = `Last updated: ${now.toLocaleTimeString()}`;
-      }
-
       // Tab Functionality
       document.querySelectorAll(".nav-tab").forEach((tab) => {
         tab.addEventListener("click", () => {
@@ -646,59 +597,12 @@
         });
       });
 
-      // Refresh button functionality
-      document
-        .getElementById("refresh-button")
-        .addEventListener("click", () => {
-          addLiveNewsItem();
-          updateLastRefreshed();
-        });
-
-      // Auto-refresh functionality
-      let refreshInterval = null;
-      let liveUpdateInterval = null;
-
-      function setupAutoRefresh() {
-        clearInterval(refreshInterval);
-        clearInterval(liveUpdateInterval);
-
-        if (document.getElementById("auto-refresh").checked) {
-          const intervalSeconds = parseInt(
-            document.getElementById("refresh-interval").value
-          );
-          refreshInterval = setInterval(() => {
-            addLiveNewsItem();
-            updateLastRefreshed();
-          }, intervalSeconds * 1000);
-
-          // Separate faster interval for live updates (every 10-30 seconds)
-          liveUpdateInterval = setInterval(
-            () => {
-              if (Math.random() < 0.7) {
-                // 70% chance of update
-                addLiveNewsItem();
-              }
-            },
-            Math.random() * 20000 + 10000
-          ); // Random between 10-30 seconds
-        }
-      }
-
-      document
-        .getElementById("auto-refresh")
-        .addEventListener("change", setupAutoRefresh);
-      document
-        .getElementById("refresh-interval")
-        .addEventListener("change", setupAutoRefresh);
-
       // Initialize with some news
       function initializeNews() {
         // Add 5 initial news items
         for (let i = 0; i < 5; i++) {
           addLiveNewsItem();
         }
-        updateLastRefreshed();
-        setupAutoRefresh();
       }
 
       window.addEventListener("load", initializeNews);

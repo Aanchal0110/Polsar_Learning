@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Optical Remote Sensing</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <title>Optical Remote Sensing - PolSARLearn</title>
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Custom CSS File Link -->
     <link rel="stylesheet" href="/infi_website/CSS/style.css" />
     <style>
       body,
@@ -15,147 +14,125 @@
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
-        background: #f4f4f4;
+        background: #f8f9fa;
         color: #333;
       }
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 20px;
-        background: #003366;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        box-sizing: border-box;
-        height: 60px;
-        min-height: 60px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .logo-img {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        margin-right: 0;
-      }
-
-      .navbar {
-        display: flex;
-        align-items: center;
-        flex: 1;
-        margin: 0 20px;
-        height: 100%;
-      }
-
-      .navbar ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 30px;
-        align-items: center;
-      }
-
-      .navbar li {
-        position: relative;
-      }
-
-      .navbar a {
-        text-decoration: none;
-        color: #fff !important;
-        font-size: 15px;
-        padding: 8px 12px;
-        display: block;
-        transition: color 0.2s ease;
-        white-space: nowrap;
-      }
-
-      .navbar a:hover,
-      .navbar a.active {
-        background: none;
-        color: #ff4500 !important;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        left: 0;
-        top: 100%;
-        background: #fff;
-        min-width: 200px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
-        z-index: 1001;
-        padding: 0;
-      }
-
-      .dropdown-content a {
-        color: #333;
-        padding: 12px 16px;
-        font-size: 14px;
-        background: #fff;
-      }
-
-      .dropdown-content a:hover {
-        background: #f1f1f1;
-        color: #ff4500;
-      }
-
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-
+      /* Container adjustment for fixed header */
       .container {
         max-width: 1200px;
         margin: 100px auto 20px auto;
         padding: 20px;
-        background: #fff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background: transparent;
+        box-shadow: none;
       }
 
       .section {
-        margin-bottom: 40px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
+        margin-bottom: 50px;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       }
 
       .section h2 {
-        width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         color: #003366;
+        font-size: 2.2em;
+        border-bottom: 3px solid #ff4500;
+        padding-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .section h2 i {
+        color: #ff4500;
       }
 
       .content {
-        flex: 1 1 60%;
-        margin-bottom: 20px;
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        margin-bottom: 30px;
       }
 
       .content img {
-        max-width: 100%;
-        border-radius: 10px;
+        max-width: 40%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        flex-shrink: 0;
+      }
+
+      .content p {
+        line-height: 1.8;
+        font-size: 1.1em;
+        color: #444;
+        text-align: justify;
+        margin: 0;
+      }
+
+      .content-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .content-text {
+        flex: 1;
+        min-width: 60%;
+      }
+
+      .content-text h3 {
+        color: #003366;
+        margin-bottom: 15px;
+        font-size: 1.4em;
+        border-left: 4px solid #ff4500;
+        padding-left: 15px;
+      }
+
+      .content-text ul {
+        padding-left: 20px;
+        margin: 15px 0;
+      }
+
+      .content-text li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+        color: #555;
+      }
+
+      .content-text strong {
+        color: #003366;
       }
 
       .image-container {
-        flex: 1 1 35%;
+        flex: 1;
+        min-width: 35%;
         display: flex;
+        justify-content: center;
         align-items: flex-start;
       }
 
       .image-container img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
+        width: 100%;
+        max-width: 400px;
+        border-radius: 15px;
         object-fit: cover;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .image-container img:hover {
+        transform: scale(1.02);
       }
 
       .table-container {
         overflow-x: auto;
+        margin: 30px 0;
       }
 
       table {
@@ -164,154 +141,73 @@
         margin-top: 20px;
         text-align: left;
         background: #f9f9f9;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       }
 
       th,
       td {
         border: 1px solid #ddd;
-        padding: 10px;
+        padding: 15px;
+        font-size: 1em;
       }
 
       th {
         background: #003366;
         color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
-      footer {
-        background: #003366;
-        color: #fff;
-        text-align: center;
-        padding: 15px 0;
+      tr:nth-child(even) {
+        background: #f2f2f2;
       }
 
-      @media (max-width: 768px) {
-        .content,
-        .image-container {
-          flex: 1 1 100%;
-        }
-
-        .content img {
-          max-width: 100%;
-        }
-      }
-
-      /* Right Items Styling */
-      .right-items {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .search-form {
-        display: flex;
-        align-items: center;
-        background: #fff;
-        border-radius: 4px;
-        overflow: hidden;
-        width: 200px;
-      }
-
-      .search-form input {
-        padding: 8px 12px;
-        border: none;
-        outline: none;
-        width: 100%;
-        font-size: 14px;
-      }
-
-      .search-form button {
-        background: #ff4500;
-        border: none;
-        padding: 8px 12px;
-        color: white;
-        cursor: pointer;
-      }
-
-      .login-icon {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        padding: 8px 15px;
-        background: transparent;
-        border: 1px solid #fff;
-        border-radius: 4px;
-        color: #fff;
-        transition: all 0.3s ease;
-      }
-
-      .login-icon:hover {
-        background: #ff4500;
-        border-color: #ff4500;
-      }
-
-      @media (max-width: 768px) {
-        header {
-          height: auto;
-          padding: 10px;
-        }
-
-        .navbar {
-          order: 3;
-          width: 100%;
-          margin: 10px 0 0 0;
-        }
-
-        .navbar ul {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .dropdown-content {
-          position: static;
-          box-shadow: none;
-          display: none;
-        }
-
-        .right-items {
-          order: 2;
-          margin-left: auto;
-        }
-      }
-
-      /* Container adjustment for fixed header */
-      .container {
-        margin-top: 80px;
-        background-color: transparent;
-        padding: 0;
-        max-width: none;
-        box-shadow: none;
-        width: 100%;
+      tr:hover {
+        background: #e8f4f8;
       }
 
       /* Applications Section Styling */
       .applications-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 30px;
         margin: 40px 0;
       }
 
       .application-card {
-        background: #fff;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         padding: 25px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         transition: transform 0.3s ease;
+        border-left: 5px solid #003366;
       }
 
       .application-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       }
 
       .application-card h3 {
         color: #003366;
         margin-bottom: 15px;
-        font-size: 1.2em;
+        font-size: 1.3em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .application-card h3 i {
+        color: #ff4500;
       }
 
       .application-card p {
-        color: #666;
+        color: #555;
         line-height: 1.6;
+        margin: 0;
       }
 
       /* Timeline Styling */
@@ -326,11 +222,12 @@
         content: "";
         position: absolute;
         width: 4px;
-        background-color: #003366;
+        background: linear-gradient(to bottom, #003366, #ff4500);
         top: 0;
         bottom: 0;
         left: 50%;
         margin-left: -2px;
+        border-radius: 2px;
       }
 
       .timeline-item {
@@ -338,6 +235,7 @@
         position: relative;
         width: 50%;
         box-sizing: border-box;
+        margin-bottom: 30px;
       }
 
       .timeline-item:nth-child(odd) {
@@ -358,6 +256,7 @@
         border-radius: 50%;
         top: 15px;
         z-index: 1;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       }
 
       .timeline-item:nth-child(odd)::after {
@@ -369,206 +268,306 @@
       }
 
       .timeline-content {
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       }
 
       .timeline-year {
         color: #ff4500;
         font-weight: bold;
-        font-size: 1.2em;
+        font-size: 1.3em;
         margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .timeline-year i {
+        font-size: 1.1em;
       }
 
       .timeline-title {
         color: #003366;
         font-weight: bold;
         margin-bottom: 10px;
+        font-size: 1.1em;
+      }
+
+      .timeline-title a {
+        color: #003366;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .timeline-title a:hover {
+        color: #ff4500;
+        text-decoration: underline;
       }
 
       .timeline-description {
-        color: #666;
+        color: #555;
         line-height: 1.6;
+        margin: 0;
+      }
+
+      /* New content sections */
+      .spectrum-section {
+        background: linear-gradient(135deg, #003366 0%, #004080 100%);
+        color: white;
+        padding: 40px 30px;
+        border-radius: 15px;
+        margin: 40px 0;
+      }
+
+      .spectrum-section h2 {
+        color: white;
+        border-bottom: 2px solid #ff4500;
+      }
+
+      .spectrum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .spectrum-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid #ff4500;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+      }
+
+      .spectrum-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .spectrum-card h3 {
+        color: #ff4500;
+        margin-bottom: 15px;
+        font-size: 1.3em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .spectrum-card p {
+        color: #e9ecef;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .resolution-section {
+        background: #f8f9fa;
+        padding: 40px 30px;
+        border-radius: 15px;
+        margin: 40px 0;
+      }
+
+      .resolution-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .resolution-card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-top: 4px solid #ff4500;
+        transition: transform 0.3s ease;
+      }
+
+      .resolution-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      }
+
+      .resolution-card h3 {
+        color: #003366;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .resolution-card h3 i {
+        color: #ff4500;
+      }
+
+      .resolution-card p {
+        color: #555;
+        line-height: 1.6;
+        margin: 0;
       }
 
       @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+          align-items: center;
+        }
+        .content img {
+          max-width: 100%;
+        }
+        .content-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .content-text,
+        .image-container {
+          min-width: 100%;
+        }
+        .applications-grid {
+          grid-template-columns: 1fr;
+        }
+        .spectrum-grid,
+        .resolution-grid {
+          grid-template-columns: 1fr;
+        }
         .timeline::after {
           left: 31px;
         }
-
         .timeline-item {
           width: 100%;
           padding-left: 70px;
           padding-right: 25px;
         }
-
         .timeline-item:nth-child(even) {
           left: 0;
         }
-
         .timeline-item::after {
           left: 21px;
         }
-
         .timeline-item:nth-child(odd)::after {
           right: auto;
+        }
+        .section {
+          padding: 20px;
+        }
+        .section h2 {
+          font-size: 1.8em;
         }
       }
     </style>
   </head>
 
   <body>
+    <!-- Include Navbar -->
     <header>
-      <a href="#" class="logo">
-        <img src="/infi_website/image/logo.jpeg" alt="Logo" class="logo-img" />
-      </a>
-
       <div id="menu" class="fas fa-bars"></div>
-
-      <nav class="navbar" id="navbar">
-        <!-- <ul>
-                    <li><a href="home.html" class="active">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Resources</a>
-                        <div class="dropdown-content">
-                            <a href="Fundamental.html">Fundamentals</a>
-                            <a href="Technical Paper.html">Technical Papers</a>
-                            <a href="Books.html">Books</a>
-                            <a href="Videos.html">Videos</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Domain Experts</a>
-                        <div class="dropdown-content">
-                            <a href="academicians.html">Academicians</a>
-                            <a href="Industry Personnel.html">Industry Personnel</a>
-                            <a href="Researchers.html">Researchers</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Downloads</a>
-                        <div class="dropdown-content">
-                            <a href="datadownload.html">Data Download</a>
-                            <a href="opensource.html">Software</a>
-                        </div>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="education.html" class="dropbtn">Education</a>
-                       
-                    </li>
-                    <li><a href="career.html">Career</a></li>
-                    <li><a href="event.html">Events</a></li>
-                    <li><a href="blog.html">Blog</a></li> Blog link added
-                    <li><a href="contact.html">Contact Us</a></li> Contact Us link added
-                    <li>
-                        <form class="search-form">
-                            <input type="text" placeholder="Search...">
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    </li>
-                    <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
-                </ul>-->
-      </nav>
+      <div id="navBar"></div>
     </header>
 
     <div class="container">
       <section class="section">
-        <h2>Introduction to Optical Remote Sensing</h2>
+        <h2><i class="fas fa-sun"></i> Introduction to Optical Remote Sensing</h2>
         <div class="content">
           <p>
-            Optical remote sensing is a crucial technology that provides
-            valuable insights into the Earth's surface by analyzing
-            electromagnetic radiation across a wide spectrum. It primarily
-            captures the reflected or emitted radiation from objects on the
-            Earth's surface in the visible, near-infrared (NIR), and short-wave
-            infrared (SWIR) bands. The sensors used in optical remote sensing
-            systems are typically passive, meaning they rely on natural light
-            sources, such as the Sun, to illuminate the Earth's surface, though
-            artificial light sources can also be used in specific cases. The
-            collected data can be used for a range of applications, from
-            environmental monitoring, where it helps track land-use changes,
-            vegetation health, and water bodies, to agriculture, where it aids
-            in crop health assessment and precision farming. Optical remote
-            sensing also plays an important role in urban planning, helping in
-            the analysis of urban growth, infrastructure development, and
-            pollution monitoring. Moreover, it contributes to disaster
-            management by detecting floods, wildfires, and other natural
-            disasters, and supports climate change research by monitoring the
-            effects of temperature changes, glacier retreat, and deforestation.
-            By leveraging the different wavelengths of light captured by optical
-            sensors, researchers can extract detailed information about the
-            Earth's surface, its vegetation, moisture content, and much more,
-            making it an invaluable tool for decision-makers across various
-            sectors.
+            Optical remote sensing is a fundamental technology that provides comprehensive insights into the Earth's surface by analyzing electromagnetic radiation across the visible and near-infrared spectrum. This advanced sensing technique primarily captures reflected or emitted radiation from terrestrial objects in the visible (400-700 nm), near-infrared (NIR, 700-1400 nm), and short-wave infrared (SWIR, 1400-3000 nm) bands.
           </p>
-        </div>
-        <div class="image-container">
           <img
             src="/infi_website/Optical image/Optical image/optical1.jpg"
             alt="Introduction to Optical Remote Sensing"
           />
         </div>
+        <p>
+          The sensors used in optical remote sensing systems are typically passive, relying on natural light sources such as solar radiation to illuminate the Earth's surface. However, artificial light sources can also be employed for specific applications like nighttime imaging or specialized studies. The collected data enables a wide range of applications, from environmental monitoring and agricultural assessment to urban planning and disaster management.
+        </p>
       </section>
 
       <section class="section">
-        <h2>Key Concepts of Optical Remote Sensing</h2>
+        <h2><i class="fas fa-atom"></i> Electromagnetic Spectrum in Optical Remote Sensing</h2>
+        <div class="spectrum-section">
+          <h2><i class="fas fa-chart-line"></i> Spectral Bands and Their Applications</h2>
+          <div class="spectrum-grid">
+            <div class="spectrum-card">
+              <h3><i class="fas fa-eye"></i> Visible Light (400-700 nm)</h3>
+              <p>This region of the spectrum is detectable by the human eye and enables true color imaging. Different materials reflect varying amounts of red, green, and blue light, allowing for detailed surface analysis and natural color representation.</p>
+            </div>
+            <div class="spectrum-card">
+              <h3><i class="fas fa-leaf"></i> Near-Infrared (700-1400 nm)</h3>
+              <p>Beyond the visible spectrum, NIR is particularly valuable for vegetation analysis and soil moisture assessment. Healthy vegetation strongly reflects NIR radiation, making it ideal for crop health monitoring and forest studies.</p>
+            </div>
+            <div class="spectrum-card">
+              <h3><i class="fas fa-thermometer-half"></i> Shortwave Infrared (1400-3000 nm)</h3>
+              <p>SWIR bands are essential for detecting moisture levels, differentiating rock types, and identifying materials based on their unique reflectance patterns. This band is crucial for geological studies and mineral exploration.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><i class="fas fa-cogs"></i> Resolution Types in Optical Remote Sensing</h2>
+        <div class="resolution-section">
+          <h2><i class="fas fa-search"></i> Four Fundamental Resolution Types</h2>
+          <div class="resolution-grid">
+            <div class="resolution-card">
+              <h3><i class="fas fa-expand-arrows-alt"></i> Spatial Resolution</h3>
+              <p>The smallest possible area that a sensor can distinguish on the ground. Higher spatial resolution provides more detailed images, enabling precise feature identification and mapping applications.</p>
+            </div>
+            <div class="resolution-card">
+              <h3><i class="fas fa-palette"></i> Spectral Resolution</h3>
+              <p>The ability of the sensor to distinguish between various wavelengths of light. High spectral resolution allows for precise wavelength identification and detailed material characterization.</p>
+            </div>
+            <div class="resolution-card">
+              <h3><i class="fas fa-clock"></i> Temporal Resolution</h3>
+              <p>The frequency with which a sensor captures imagery of the same location. High temporal resolution is crucial for monitoring dynamic changes such as vegetation growth, urban development, and disaster events.</p>
+            </div>
+            <div class="resolution-card">
+              <h3><i class="fas fa-adjust"></i> Radiometric Resolution</h3>
+              <p>The ability to discern small-scale differences in energy intensity or brightness. High radiometric resolution captures subtle changes in reflectance, enabling detailed environmental monitoring.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><i class="fas fa-key"></i> Key Concepts of Optical Remote Sensing</h2>
         <div class="content-container">
-          <div class="content">
-            <h3>Electromagnetic Spectrum:</h3>
+          <div class="content-text">
+            <h3>Electromagnetic Spectrum Understanding</h3>
             <p>
-              Optical remote sensing generally operates in the visible range of
-              near infrared and shortwave infrared regions within the
-              electromagnetic spectrum.
+              Optical remote sensing operates within specific regions of the electromagnetic spectrum, each offering unique capabilities for Earth observation and analysis.
             </p>
             <ul>
               <li>
-                <strong>Visible Light (400-700 nm):</strong> This region of the
-                spectrum can be seen by the naked eye. Light falling upon many
-                materials at the surface can reflect various amounts of red,
-                green, and blue light, enabling true color images.
+                <strong>Visible Light (400-700 nm):</strong> Enables true color imaging and natural visual interpretation of Earth's surface features.
               </li>
               <li>
-                <strong>Near-Infrared (700-1400 nm):</strong> Beyond the
-                visible, NIR is very useful for analyzing vegetation and water
-                content in soil.
+                <strong>Near-Infrared (700-1400 nm):</strong> Essential for vegetation health assessment, crop monitoring, and soil moisture analysis.
               </li>
               <li>
-                <strong>Shortwave Infrared (1400-3000 nm):</strong> SWIR is used
-                to detect moisture levels, differentiate rock types, and
-                identify materials based on their unique reflectance patterns.
+                <strong>Shortwave Infrared (1400-3000 nm):</strong> Critical for geological studies, mineral identification, and moisture content detection.
               </li>
             </ul>
 
-            <h3>Resolution in Optical Remote Sensing:</h3>
+            <h3>Advanced Sensing Capabilities</h3>
             <p>
-              Resolution in optical remote sensing refers to the level of detail
-              that can be sensed. There are four basic types:
+              Modern optical remote sensing systems provide comprehensive data collection capabilities that support various scientific and commercial applications.
             </p>
             <ul>
               <li>
-                <strong>Spatial Resolution:</strong> The smallest possible area
-                that a sensor can distinguish on the ground. Higher spatial
-                resolution provides more detailed images.
+                <strong>Multispectral Imaging:</strong> Captures data across multiple wavelength bands simultaneously for comprehensive surface analysis.
               </li>
               <li>
-                <strong>Spectral Resolution:</strong> The ability of the sensor
-                to distinguish between various wavelengths of light. High
-                spectral resolution allows for more precise wavelength
-                identification.
+                <strong>Hyperspectral Imaging:</strong> Provides extremely detailed spectral information for precise material identification and classification.
               </li>
               <li>
-                <strong>Temporal Resolution:</strong> The frequency with which a
-                sensor captures imagery of the same location. High temporal
-                resolution is important for monitoring dynamic changes such as
-                growth or disasters.
-              </li>
-              <li>
-                <strong>Radiometric Resolution:</strong> The ability to discern
-                small-scale differences in energy intensity or brightness. High
-                radiometric resolution captures subtle changes in reflectance.
+                <strong>High-Resolution Imaging:</strong> Enables detailed feature identification and mapping for urban planning and infrastructure monitoring.
               </li>
             </ul>
           </div>
@@ -581,392 +580,282 @@
         </div>
       </section>
 
-      <style>
-        .content-container {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 20px;
-          justify-content: space-between;
-        }
-
-        .content {
-          flex: 1;
-          min-width: 60%;
-          margin-bottom: 20px;
-        }
-
-        .content h3 {
-          color: #003366;
-        }
-
-        .content ul {
-          padding-left: 20px;
-        }
-
-        .image-container {
-          flex: 1;
-          min-width: 35%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .image-container img {
-          width: 100%;
-          border-radius: 10px;
-          object-fit: cover;
-        }
-
-        @media (max-width: 768px) {
-          .content-container {
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .content,
-          .image-container {
-            min-width: 100%;
-          }
-        }
-      </style>
       <section class="section">
-        <h2>Key Applications</h2>
+        <h2><i class="fas fa-globe"></i> Key Applications</h2>
         <div class="applications-grid">
           <div class="application-card">
-            <h3>Land Use and Land Cover Mapping</h3>
+            <h3><i class="fas fa-map"></i> Land Use and Land Cover Mapping</h3>
             <p>
-              Optical sensors help monitor urban expansion, deforestation, and
-              land cover changes over time. This data is crucial for urban
-              planning, environmental conservation, and resource management.
+              Optical sensors provide comprehensive monitoring of urban expansion, deforestation patterns, and land cover changes over time. This data is essential for urban planning, environmental conservation, and sustainable resource management strategies.
             </p>
           </div>
           <div class="application-card">
-            <h3>Agriculture and Crop Monitoring</h3>
+            <h3><i class="fas fa-seedling"></i> Agriculture and Crop Monitoring</h3>
             <p>
-              Used to assess crop health, soil moisture, and irrigation
-              patterns. Vegetation indices like NDVI (Normalized Difference
-              Vegetation Index) are derived from optical imagery to monitor crop
-              growth and predict yields.
+              Advanced optical systems assess crop health, soil moisture levels, and irrigation patterns. Vegetation indices like NDVI (Normalized Difference Vegetation Index) are derived from optical imagery to monitor crop growth stages and predict agricultural yields.
             </p>
           </div>
           <div class="application-card">
-            <h3>Disaster Monitoring and Management</h3>
+            <h3><i class="fas fa-exclamation-triangle"></i> Disaster Monitoring and Management</h3>
             <p>
-              Identifying the extent of floods, wildfires, and landslides.
-              Optical remote sensing provides crucial data for emergency
-              response and disaster recovery efforts.
+              Optical remote sensing identifies the extent and severity of floods, wildfires, landslides, and other natural disasters. This technology provides crucial data for emergency response coordination and disaster recovery planning.
             </p>
           </div>
           <div class="application-card">
-            <h3>Environmental Monitoring</h3>
+            <h3><i class="fas fa-leaf"></i> Environmental Monitoring</h3>
             <p>
-              Tracking changes in ecosystems, monitoring water quality, and
-              assessing the impact of climate change on natural resources and
-              biodiversity.
+              Continuous tracking of ecosystem changes, water quality assessment, and evaluation of climate change impacts on natural resources and biodiversity. Essential for conservation efforts and environmental policy development.
             </p>
           </div>
           <div class="application-card">
-            <h3>Urban Planning and Development</h3>
+            <h3><i class="fas fa-city"></i> Urban Planning and Development</h3>
             <p>
-              Analyzing urban growth patterns, infrastructure development, and
-              land use changes to support sustainable city planning and
-              development.
+              Analysis of urban growth patterns, infrastructure development, and land use changes to support sustainable city planning and development initiatives. Critical for smart city implementation and urban sustainability.
             </p>
           </div>
           <div class="application-card">
-            <h3>Forestry and Vegetation Analysis</h3>
+            <h3><i class="fas fa-tree"></i> Forestry and Vegetation Analysis</h3>
             <p>
-              Monitoring forest health, detecting deforestation, and analyzing
-              vegetation patterns for conservation and management purposes.
+              Comprehensive monitoring of forest health, deforestation detection, and vegetation pattern analysis for conservation and management purposes. Supports forest inventory and biodiversity assessment.
+            </p>
+          </div>
+          <div class="application-card">
+            <h3><i class="fas fa-water"></i> Water Resource Management</h3>
+            <p>
+              Monitoring of water bodies, assessment of water quality, and tracking of hydrological changes. Essential for watershed management and water resource planning.
+            </p>
+          </div>
+          <div class="application-card">
+            <h3><i class="fas fa-mountain"></i> Geological and Mineral Exploration</h3>
+            <p>
+              Identification of geological structures, mineral deposits, and rock type differentiation using spectral analysis. Critical for natural resource exploration and geological mapping.
             </p>
           </div>
         </div>
       </section>
 
       <section class="section">
-        <h2>Satellites Providing Optical Data</h2>
+        <h2><i class="fas fa-satellite"></i> Satellites Providing Optical Data</h2>
+        <p>Below is a comprehensive timeline of optical remote sensing satellites that have revolutionized our ability to observe and understand Earth's surface. Each satellite has contributed significantly to various applications and scientific research.</p>
+        
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">1972</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 1972</div>
               <div class="timeline-title">
-                <a href="https://landsat.gsfc.nasa.gov/satellites/landsat-1/"
-                  >Landsat 1</a
-                >
+                <a href="https://landsat.gsfc.nasa.gov/satellites/landsat-1/" target="_blank">Landsat 1</a>
               </div>
               <div class="timeline-description">
-                NASA/USGS - Earth's surface imaging for agriculture, forestry,
-                geology, and land use planning.
+                NASA/USGS - Pioneering Earth observation satellite providing systematic surface imaging for agriculture, forestry, geology, and land use planning. Launched the era of civilian Earth observation.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">1986</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 1986</div>
               <div class="timeline-title">
-                <a
-                  href="https://earth.esa.int/eogateway/missions/spot-1/description"
-                  >SPOT 1</a
-                >
+                <a href="https://earth.esa.int/eogateway/missions/spot-1/description" target="_blank">SPOT 1</a>
               </div>
               <div class="timeline-description">
-                CNES (France) - High-resolution optical imaging for cartography,
-                land use, and environmental monitoring.
+                CNES (France) - High-resolution optical imaging system for cartography, land use analysis, and environmental monitoring. Introduced stereo imaging capabilities.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">1988</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 1988</div>
               <div class="timeline-title">
-                <a href="https://www.isro.gov.in/IRS_1A.html?timeline=timeline"
-                  >IRS-1A</a
-                >
+                <a href="https://www.isro.gov.in/IRS_1A.html?timeline=timeline" target="_blank">IRS-1A</a>
               </div>
               <div class="timeline-description">
-                ISRO (India) - Land and water resources management, agricultural
-                monitoring, and urban planning.
+                ISRO (India) - India's first operational remote sensing satellite for land and water resources management, agricultural monitoring, and urban planning applications.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">1999</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 1999</div>
               <div class="timeline-title">
-                <a href="https://eospso.nasa.gov/missions/terra"
-                  >Terra (EOS AM-1)</a
-                >
+                <a href="https://eospso.nasa.gov/missions/terra" target="_blank">Terra (EOS AM-1)</a>
               </div>
               <div class="timeline-description">
-                NASA - Multispectral imaging for climate research, vegetation
-                analysis, and atmospheric studies.
+                NASA - Flagship Earth Observing System satellite providing multispectral imaging for climate research, vegetation analysis, and comprehensive atmospheric studies.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">1999</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 1999</div>
               <div class="timeline-title">
-                <a href="https://eospso.nasa.gov/missions/terra">IKONOS</a>
+                <a href="https://en.wikipedia.org/wiki/IKONOS" target="_blank">IKONOS</a>
               </div>
               <div class="timeline-description">
-                GeoEye (USA) - High-resolution imagery for urban planning,
-                disaster response, and environmental monitoring.
+                GeoEye (USA) - First commercial high-resolution satellite providing 1-meter resolution imagery for urban planning, disaster response, and environmental monitoring.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2001</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2001</div>
               <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/quickbird-2"
-                  >QuickBird</a
-                >
+                <a href="https://earth.esa.int/eogateway/missions/quickbird-2" target="_blank">QuickBird</a>
               </div>
               <div class="timeline-description">
-                DigitalGlobe (USA) - High-resolution Earth imagery for mapping,
-                agriculture, and urban development.
+                DigitalGlobe (USA) - High-resolution Earth imagery system for detailed mapping, precision agriculture, and urban development applications.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2004</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2004</div>
               <div class="timeline-title">
-                <a
-                  href="https://www.satimagingcorp.com/satellite-sensors/other-satellite-sensors/formosat-2/"
-                  >FORMOSAT-2</a
-                >
+                <a href="https://www.satimagingcorp.com/satellite-sensors/other-satellite-sensors/formosat-2/" target="_blank">FORMOSAT-2</a>
               </div>
               <div class="timeline-description">
-                NSPO (Taiwan) - High-resolution imagery for disaster monitoring,
-                environmental observation, and agricultural assessment.
+                NSPO (Taiwan) - High-resolution imagery system for disaster monitoring, environmental observation, and agricultural assessment with daily revisit capability.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2007</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2007</div>
               <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/worldview-1"
-                  >WorldView-1</a
-                >
+                <a href="https://earth.esa.int/eogateway/missions/worldview-1" target="_blank">WorldView-1</a>
               </div>
               <div class="timeline-description">
-                DigitalGlobe (USA) - High-resolution imaging for defense,
-                intelligence, and mapping applications.
+                DigitalGlobe (USA) - Ultra-high resolution imaging system for defense, intelligence, and detailed mapping applications with 0.5-meter resolution.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2007</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2007</div>
               <div class="timeline-title">
-                <a href="https://www.isro.gov.in/CARTOSAT_2_PSLVC40.html"
-                  >Cartosat-2</a
-                >
+                <a href="https://www.isro.gov.in/CARTOSAT_2_PSLVC40.html" target="_blank">Cartosat-2</a>
               </div>
               <div class="timeline-description">
-                ISRO (India) - High-resolution imagery for urban planning, rural
-                development, and infrastructure monitoring.
+                ISRO (India) - High-resolution imagery system for urban planning, rural development, and infrastructure monitoring with stereo imaging capabilities.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2008</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2008</div>
               <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/geoeye-1"
-                  >GeoEye-1</a
-                >
+                <a href="https://earth.esa.int/eogateway/missions/geoeye-1" target="_blank">GeoEye-1</a>
               </div>
               <div class="timeline-description">
-                GeoEye (USA) - High-resolution Earth imagery for mapping,
-                agriculture, and urban planning.
+                GeoEye (USA) - High-resolution Earth imagery system for mapping, agriculture, and urban planning with 0.41-meter resolution capabilities.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2011</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2011</div>
               <div class="timeline-title">
-                <a
-                  href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1/"
-                  >Pleiades-1A</a
-                >
+                <a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1/" target="_blank">Pleiades-1A</a>
               </div>
               <div class="timeline-description">
-                CNES (France) - High-resolution optical imaging for defense,
-                civil engineering, and environmental monitoring.
+                CNES (France) - High-resolution optical imaging system for defense applications, civil engineering, and environmental monitoring with 0.5-meter resolution.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2012</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2012</div>
               <div class="timeline-title">
-                <a
-                  href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1b/"
-                  >Pleiades-1B</a
-                >
+                <a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1b/" target="_blank">Pleiades-1B</a>
               </div>
               <div class="timeline-description">
-                CNES (France) - Complementing Pleiades-1A for increased coverage
-                and revisit frequency.
+                CNES (France) - Complementing Pleiades-1A for increased coverage and improved revisit frequency, enhancing operational capabilities.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2012</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2012</div>
               <div class="timeline-title">
-                <a href="https://www.eoportal.org/satellite-missions/kompsat-3"
-                  >Kompsat-3</a
-                >
+                <a href="https://www.eoportal.org/satellite-missions/kompsat-3" target="_blank">Kompsat-3</a>
               </div>
               <div class="timeline-description">
-                KARI (South Korea) - High-resolution imagery for land use,
-                disaster monitoring, and environmental observation.
+                KARI (South Korea) - High-resolution imagery system for land use analysis, disaster monitoring, and environmental observation with multispectral capabilities.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2013</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2013</div>
               <div class="timeline-title">
-                <a
-                  href="https://www.eoportal.org/satellite-missions/dubaisat-2#spacecraft"
-                  >DubaiSat-2</a
-                >
+                <a href="https://www.eoportal.org/satellite-missions/dubaisat-2#spacecraft" target="_blank">DubaiSat-2</a>
               </div>
               <div class="timeline-description">
-                EIAST (UAE) - High-resolution Earth imaging for urban planning,
-                infrastructure development, and environmental monitoring.
+                EIAST (UAE) - High-resolution Earth imaging system for urban planning, infrastructure development, and environmental monitoring in the Middle East region.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2013</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2013</div>
               <div class="timeline-title">
-                <a href="https://www.eoportal.org/satellite-missions/gaofen-1"
-                  >Gaofen-1</a
-                >
+                <a href="https://www.eoportal.org/satellite-missions/gaofen-1" target="_blank">Gaofen-1</a>
               </div>
               <div class="timeline-description">
-                CNSA (China) - High-resolution Earth observation for
-                agricultural, disaster, and resource monitoring.
+                CNSA (China) - High-resolution Earth observation system for agricultural monitoring, disaster assessment, and natural resource management.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2015</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2015</div>
               <div class="timeline-title">
-                <a href="https://en.wikipedia.org/wiki/Sentinel-2A"
-                  >Sentinel-2A</a
-                >
+                <a href="https://en.wikipedia.org/wiki/Sentinel-2A" target="_blank">Sentinel-2A</a>
               </div>
               <div class="timeline-description">
-                ESA (European Union) - Multispectral imaging for land
-                monitoring, agriculture, and disaster management.
+                ESA (European Union) - Multispectral imaging system for comprehensive land monitoring, agricultural applications, and disaster management with 10-meter resolution.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2016</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2016</div>
               <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/worldview-4"
-                  >WorldView-4</a
-                >
+                <a href="https://earth.esa.int/eogateway/missions/worldview-4" target="_blank">WorldView-4</a>
               </div>
               <div class="timeline-description">
-                DigitalGlobe (USA) - High-resolution imagery for mapping, land
-                classification, and infrastructure planning.
+                DigitalGlobe (USA) - Ultra-high resolution imagery system for detailed mapping, land classification, and infrastructure planning with 0.31-meter resolution.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2016</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2016</div>
               <div class="timeline-title">
-                <a
-                  href="https://www.eoportal.org/satellite-missions/gaojing#spacecraft"
-                  >SuperView-1</a
-                >
+                <a href="https://www.eoportal.org/satellite-missions/gaojing#spacecraft" target="_blank">SuperView-1</a>
               </div>
               <div class="timeline-description">
-                Siwei Star Co. (China) - High-resolution imagery for mapping,
-                land use, and urban planning.
+                Siwei Star Co. (China) - High-resolution imagery system for mapping, land use analysis, and urban planning with commercial applications.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2017</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2017</div>
               <div class="timeline-title">
-                <a href="https://en.wikipedia.org/wiki/Sentinel-2B"
-                  >Sentinel-2B</a
-                >
+                <a href="https://en.wikipedia.org/wiki/Sentinel-2B" target="_blank">Sentinel-2B</a>
               </div>
               <div class="timeline-description">
-                ESA (European Union) - Continuation of Sentinel-2A's mission for
-                enhanced coverage and data continuity.
+                ESA (European Union) - Continuation of Sentinel-2A's mission for enhanced coverage and data continuity, providing 5-day revisit capability.
               </div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">2014-present</div>
+              <div class="timeline-year"><i class="fas fa-rocket"></i> 2014-present</div>
               <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/planetscope"
-                  >PlanetScope</a
-                >
+                <a href="https://earth.esa.int/eogateway/missions/planetscope" target="_blank">PlanetScope</a>
               </div>
               <div class="timeline-description">
-                Planet Labs (USA) - Constellation of small satellites providing
-                daily, high-resolution imagery for various applications.
+                Planet Labs (USA) - Revolutionary constellation of small satellites providing daily, high-resolution imagery for various applications with global coverage.
               </div>
             </div>
           </div>
@@ -974,9 +863,6 @@
       </section>
     </div>
 
-    <footer>
-      <p>Copyright &copy; 2024 All rights reserved</p>
-    </footer>
     <script src="/infi_website/Javascript/script.js"></script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
   </body>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Learn RS & MW</title>
+    <title>Videos - Learn RS & MW</title>
 
     <!-- Font Awesome CDN Link -->
     <link
@@ -30,172 +30,138 @@
       }
 
       main {
-        margin-top: 25px; /* Add space to account for the navbar height */
-        padding: 15px;
+        margin-top: 70px; /* Adjusted to match other pages */
+        padding: 20px;
+        background: #f5f5f5;
       }
 
       h1 {
         text-align: center;
         margin-bottom: 20px;
-        font-size: 2rem;
-        color: #333; /* Adjust color if needed */
+        font-size: 2.5rem;
+        color: #333;
+        font-weight: bold;
       }
 
       .video-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 25px;
         padding: 20px;
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 0 auto;
       }
 
       .video-item {
-        background: #f7f7f7;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         text-align: center;
         padding-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .video-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       }
 
       .video-item h3 {
         color: #002147;
-        margin: 15px 10px 5px 10px;
-        font-size: 1.2rem;
+        margin: 15px 15px 8px 15px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 1.4;
       }
 
       .video-item p {
-        color: #555;
-        font-size: 0.9rem;
+        color: #666;
+        font-size: 1rem;
         margin-bottom: 15px;
+        font-weight: 500;
       }
 
       .video-item iframe {
         width: 100%;
-        height: 200px; /* Adjust height as needed */
+        height: 220px;
         border: none;
+        border-radius: 8px;
+      }
+
+      .search-container {
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .search-input {
+        padding: 15px 25px;
+        width: 60%;
+        max-width: 500px;
+        border: 2px solid #002147;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .search-input:focus {
+        border-color: #1e90ff;
+        box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+      }
+
+      .video-item.hidden {
+        display: none;
       }
 
       @media (max-width: 768px) {
         .video-grid {
           grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 15px;
+        }
+        
+        .search-input {
+          width: 80%;
+          font-size: 1rem;
+        }
+        
+        h1 {
+          font-size: 2rem;
         }
       }
 
-      /* Styling for the table */
-      .book-table {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        border-collapse: collapse;
-        background: #f7f7f7; /* Light background for the table */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-      }
-
-      .book-table thead {
-        background-color: #d6d6d6;
-        color: #000;
-      }
-
-      .book-table th,
-      .book-table td {
-        text-align: left;
-        padding: 1rem;
-        font-size: 1rem;
-        border-bottom: 1px solid #ccc;
-        color: #333;
-      }
-
-      .book-table th {
-        text-transform: uppercase;
-        font-weight: bold;
-      }
-
-      .book-table tr:hover {
-        background-color: #eaeaea;
-      }
-
-      .book-table td img {
-        width: 80px;
-        height: 100px;
-        object-fit: cover;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-
-      .book-table td a {
-        color: #1e90ff;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .book-table td a:hover {
-        text-decoration: underline;
-      }
-
-      .book-table td p {
-        margin: 0.8rem 0 0;
-        color: #666;
-        font-size: 0.9rem;
-      }
-
-      .search-form {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .search-form input {
-        padding: 0.5rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 200px;
-      }
-
-      .search-form button {
-        background-color: #1e90ff;
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .search-form button:hover {
-        background-color: #005bb5;
+      @media (max-width: 480px) {
+        main {
+          padding: 15px;
+        }
+        
+        .video-grid {
+          padding: 10px;
+        }
+        
+        .video-item h3 {
+          font-size: 1.1rem;
+        }
       }
     </style>
   </head>
 
   <body>
     <header>
-      <!-- <a href="#" class="logo">
-        <img src="/infi_website/image/POLSAR.png" alt="Logo" class="logo-img" />
-      </a> -->
       <div id="menu" class="fas fa-bars"></div>
       <div id="navBar"></div>
     </header>
 
     <main>
-      <h1>Video</h1>
+      <h1>Videos</h1>
 
-      <div style="text-align: center; margin: 20px 0">
+      <div class="search-container">
         <input
           type="text"
           id="videoSearch"
-          placeholder="Search videos..."
-          style="
-            padding: 12px 20px;
-            width: 60%;
-            max-width: 500px;
-            border: 2px solid #002147;
-            border-radius: 25px;
-            font-size: 1rem;
-          "
+          class="search-input"
+          placeholder="Search videos by title or instructor..."
         />
       </div>
 
@@ -207,6 +173,7 @@
             src="https://www.youtube.com/embed/yqvYwBFXOuU"
             frameborder="0"
             allowfullscreen
+            title="Introduction to Microwave Remote Sensing"
           ></iframe>
         </div>
 
@@ -217,6 +184,7 @@
             src="https://www.youtube.com/embed/videoseries?list=PL5a4cu_cmV4s0TzPJNQhlfLuwAnn_Oe-w"
             frameborder="0"
             allowfullscreen
+            title="Satellite Image Processing using PolSAR Pro"
           ></iframe>
         </div>
 
@@ -227,6 +195,7 @@
             src="https://www.youtube.com/embed/videoseries?list=PLJppV38XUsNjKTP6Sm-yztCxjXezqLYVi"
             frameborder="0"
             allowfullscreen
+            title="Remote Sensing and Image Processing Tutorials"
           ></iframe>
         </div>
 
@@ -237,6 +206,7 @@
             src="https://www.youtube.com/embed/videoseries?list=PLOzRYVm0a65cD8A9tJpU-vOoz1LDQ-UjD"
             frameborder="0"
             allowfullscreen
+            title="Remote Sensing: Principles and Applications"
           ></iframe>
         </div>
 
@@ -247,16 +217,18 @@
             src="https://www.youtube.com/embed/videoseries?list=PLwdnzlV3ogoUdLSIGNmXpnDLrnEqcNbaI"
             frameborder="0"
             allowfullscreen
+            title="Remote Sensing and GIS"
           ></iframe>
         </div>
 
         <div class="video-item">
-          <h3>Remote Sensing and GIS for rural development</h3>
+          <h3>Remote Sensing and GIS for Rural Development</h3>
           <p>Instructor: NPTEL IIT Bombay (January 2023)</p>
           <iframe
             src="https://www.youtube.com/embed/videoseries?list=PLOzRYVm0a65cD8A9tJpU-vOoz1LDQ-UjD"
             frameborder="0"
             allowfullscreen
+            title="Remote Sensing and GIS for Rural Development"
           ></iframe>
         </div>
 
@@ -267,6 +239,7 @@
             src="https://www.youtube.com/embed/videoseries?list=PLwdnzlV3ogoUdLSIGNmXpnDLrnEqcNbaI"
             frameborder="0"
             allowfullscreen
+            title="Advances in Microwave Remote Sensing"
           ></iframe>
         </div>
 
@@ -274,9 +247,10 @@
           <h3>SAR Remote Sensing: Principles and Applications</h3>
           <p>Instructor: Dr. Avik Bhattacharya</p>
           <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLwdnzlV3ogoW10BfQv13M5mX4hX1u2z2L"
+            src="https://www.youtube.com/embed/videoseries?list=PL5a4cu_cmV4s0TzPJNQhlfLuwAnn_Oe-w"
             frameborder="0"
             allowfullscreen
+            title="SAR Remote Sensing: Principles and Applications"
           ></iframe>
         </div>
 
@@ -284,9 +258,10 @@
           <h3>Introduction to SAR Remote Sensing</h3>
           <p>Instructor: ISRO (November 2023)</p>
           <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLwdnzlV3ogoW10BfQv13M5mX4hX1u2z2L"
+            src="https://www.youtube.com/embed/videoseries?list=PLJppV38XUsNjKTP6Sm-yztCxjXezqLYVi"
             frameborder="0"
             allowfullscreen
+            title="Introduction to SAR Remote Sensing"
           ></iframe>
         </div>
 
@@ -294,26 +269,78 @@
           <h3>SAR Data Processing with SNAP</h3>
           <p>Instructor: European Space Agency (ESA)</p>
           <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLwdnzlV3ogoW10BfQv13M5mX4hX1u2z2L"
+            src="https://www.youtube.com/embed/videoseries?list=PLOzRYVm0a65cD8A9tJpU-vOoz1LDQ-UjD"
             frameborder="0"
             allowfullscreen
+            title="SAR Data Processing with SNAP"
+          ></iframe>
+        </div>
+
+        <div class="video-item">
+          <h3>Digital Image Processing for Remote Sensing</h3>
+          <p>Instructor: NPTEL IIT Kharagpur</p>
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=PLOzRYVm0a65cD8A9tJpU-vOoz1LDQ-UjD"
+            frameborder="0"
+            allowfullscreen
+            title="Digital Image Processing for Remote Sensing"
+          ></iframe>
+        </div>
+
+        <div class="video-item">
+          <h3>Hyperspectral Remote Sensing</h3>
+          <p>Instructor: NPTEL IIT Bombay</p>
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=PLwdnzlV3ogoUdLSIGNmXpnDLrnEqcNbaI"
+            frameborder="0"
+            allowfullscreen
+            title="Hyperspectral Remote Sensing"
+          ></iframe>
+        </div>
+
+        <div class="video-item">
+          <h3>Remote Sensing and Microwave Technology</h3>
+          <p>Instructor: NPTEL IIT Bombay</p>
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=PLOzRYVm0a65dbzLZE-Y4Uh2QhVA7TBLXN"
+            frameborder="0"
+            allowfullscreen
+            title="Remote Sensing and Microwave Technology"
           ></iframe>
         </div>
       </div>
     </main>
 
     <script>
-      document
-        .getElementById("videoSearch")
-        .addEventListener("keyup", function () {
-          const searchTerm = this.value.toLowerCase();
-          const rows = document.querySelectorAll(".book-table tbody tr");
+      // Video search functionality
+      document.getElementById("videoSearch").addEventListener("keyup", function () {
+        const searchTerm = this.value.toLowerCase();
+        const videoItems = document.querySelectorAll(".video-item");
 
-          rows.forEach((row) => {
-            const text = row.textContent.toLowerCase();
-            row.style.display = text.includes(searchTerm) ? "" : "none";
-          });
+        videoItems.forEach((item) => {
+          const title = item.querySelector("h3").textContent.toLowerCase();
+          const instructor = item.querySelector("p").textContent.toLowerCase();
+          const text = title + " " + instructor;
+
+          if (text.includes(searchTerm)) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
         });
+      });
+
+      // Add loading state for iframes
+      document.addEventListener('DOMContentLoaded', function() {
+        const iframes = document.querySelectorAll('iframe');
+        iframes.forEach(iframe => {
+          iframe.addEventListener('load', function() {
+            this.style.opacity = '1';
+          });
+          iframe.style.opacity = '0.8';
+          iframe.style.transition = 'opacity 0.3s ease';
+        });
+      });
     </script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
   </body>

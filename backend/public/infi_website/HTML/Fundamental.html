@@ -3,838 +3,748 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PolSARLearn - Fundamentals</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <title>POLARIMETRY - PolSARLearn</title>
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Custom CSS File Link -->
     <link rel="stylesheet" href="/infi_website/CSS/style.css" />
-
     <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
-        background-color: #f5f5f5;
+        padding: 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #333;
+        line-height: 1.6;
       }
 
-      header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background: #002147;
-        padding: 10px 0;
-      }
-
-      .navbar a.active {
-        color: red;
-      }
-
-      .navbar a:hover {
-        color: #1e90ff;
-      }
-
-      main {
-        margin-top: 80px;
+      /* Container adjustment for fixed header */
+      .container {
+        max-width: 1400px;
+        margin: 100px auto 20px auto;
         padding: 20px;
+        background: transparent;
       }
 
-      h1 {
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(135deg, #003366 0%, #004080 100%);
+        color: white;
+        padding: 60px 40px;
+        border-radius: 20px;
         text-align: center;
-        color: #002147;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       }
 
-      .search-bar {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
+      .hero-section h1 {
+        font-size: 3.5em;
+        margin: 0 0 20px 0;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        letter-spacing: 2px;
       }
 
-      .search-bar input {
-        padding: 0.5rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 300px;
+      .hero-section p {
+        font-size: 1.3em;
+        margin: 0;
+        opacity: 0.9;
+        max-width: 800px;
+        margin: 0 auto;
       }
 
-      .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
+      /* Search Section */
+      .search-section {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .search-container {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 1.1em;
+        border: 2px solid #e1e5e9;
+        border-radius: 50px;
+        outline: none;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .search-input:focus {
+        border-color: #003366;
+        box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+      }
+
+      .search-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+        font-size: 1.2em;
+      }
+
+      /* Cards Grid */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
       }
 
       .card {
-        background: #ffffff;
-        width: 300px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.2s;
+        transition: all 0.3s ease;
+        border: 1px solid #e1e5e9;
       }
 
       .card:hover {
-        transform: scale(1.02);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
       }
 
-      .card img {
+      .card-image {
         width: 100%;
-        height: 180px;
+        height: 250px;
         object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover .card-image {
+        transform: scale(1.05);
       }
 
       .card-content {
-        padding: 15px;
-        text-align: justify;
+        padding: 30px;
       }
 
       .card-title {
-        font-size: 1.2rem;
-        color: #002147;
-        margin-bottom: 10px;
-        font-weight: bold;
-        text-align: justify;
+        font-size: 1.4em;
+        color: #003366;
+        margin: 0 0 15px 0;
+        font-weight: 600;
+        line-height: 1.3;
+        border-bottom: 3px solid #ff4500;
+        padding-bottom: 10px;
+        display: inline-block;
       }
 
       .card-description {
-        font-size: 0.95rem;
-        color: #444;
-        text-align: justify;
+        color: #555;
+        font-size: 1em;
+        line-height: 1.7;
+        margin-bottom: 20px;
       }
 
-      .read-more {
-        color: #1e90ff;
+      .card-description.expanded {
+        display: block;
+      }
+
+      .card-description.collapsed {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .read-more-btn {
+        background: linear-gradient(135deg, #003366 0%, #004080 100%);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 25px;
         cursor: pointer;
-        font-weight: bold;
-        display: inline-block;
-        margin-top: 10px;
+        font-size: 0.95em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
       }
 
-      .more-text {
-        text-align: justify;
-        display: none;
+      .read-more-btn:hover {
+        background: linear-gradient(135deg, #004080 0%, #0056b3 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+      }
+
+      .read-more-btn i {
+        font-size: 0.9em;
+        transition: transform 0.3s ease;
+      }
+
+      .read-more-btn:hover i {
+        transform: translateX(3px);
+      }
+
+      /* Category Filters */
+      .category-filters {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background: white;
+        border: 2px solid #e1e5e9;
+        color: #555;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 0.95em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: #003366;
+        color: white;
+        border-color: #003366;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 40px 20px;
+        }
+
+        .hero-section h1 {
+          font-size: 2.5em;
+        }
+
+        .hero-section p {
+          font-size: 1.1em;
+        }
+
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .card-content {
+          padding: 20px;
+        }
+
+        .category-filters {
+          gap: 10px;
+        }
+
+        .filter-btn {
+          padding: 8px 16px;
+          font-size: 0.9em;
+        }
+
+        .search-input {
+          padding: 12px 16px;
+          font-size: 1em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 10px;
+        }
+
+        .hero-section {
+          padding: 30px 15px;
+        }
+
+        .hero-section h1 {
+          font-size: 2em;
+        }
+
+        .search-section {
+          padding: 20px;
+        }
+      }
+
+      /* Animation for cards */
+      .card {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .card:nth-child(1) { animation-delay: 0.1s; }
+      .card:nth-child(2) { animation-delay: 0.2s; }
+      .card:nth-child(3) { animation-delay: 0.3s; }
+      .card:nth-child(4) { animation-delay: 0.4s; }
+      .card:nth-child(5) { animation-delay: 0.5s; }
+      .card:nth-child(6) { animation-delay: 0.6s; }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Page Title Styling */
+      .page-title {
+        font-size: 3.5em;
+        color: #003366;
+        text-align: center;
+        margin: 0 0 30px 0;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #003366 0%, #004080 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        padding: 20px 0;
+      }
+
+      .page-title i {
+        margin-right: 15px;
+        color: #ff4500;
+        -webkit-text-fill-color: #ff4500;
+      }
+
+      /* Loading state */
+      .loading {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+      }
+
+      .loading i {
+        font-size: 2em;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
     </style>
   </head>
 
   <body>
+    <!-- Include Navbar -->
     <header>
-      <!-- <a href="#" class="logo">
-        <img src="/infi_website/image/logo.jpeg" alt="Logo" class="logo-img" />
-      </a> -->
-
       <div id="menu" class="fas fa-bars"></div>
-
-      <nav id="navBar">
-        <!-- <ul>
-              <li><a href="home.html" class="active">Home</a></li>
-              <li class="dropdown">
-                  <a href="#" class="dropbtn">Resources</a>
-                  <div class="dropdown-content">
-                      <a href="Fundamental.html">Fundamentals</a>
-                      <a href="Technical Paper.html">Technical Papers</a>
-                      <a href="Books.html">Books</a>
-                      <a href="Videos.html">Videos</a>
-                  </div>
-              </li>
-              <li class="dropdown">
-                  <a href="#" class="dropbtn">Domain Experts</a>
-                  <div class="dropdown-content">
-                      <a href="academicians.html">Academicians</a>
-                      <a href="Industry Personnel.html">Industry Personnel</a>
-                      <a href="Researchers.html">Researchers</a>
-                  </div>
-              </li>
-              <li class="dropdown">
-                  <a href="#" class="dropbtn">Downloads</a>
-                  <div class="dropdown-content">
-                      <a href="datadownload.html">Data Download</a>
-                      <a href="opensource.html">Software</a>
-                  </div>
-              </li>
-
-              <li class="dropdown">
-                  <a href="education.html" class="dropbtn">Education</a>
-                 
-              </li>
-              <li><a href="career.html">Career</a></li>
-              <li><a href="event.html">Events</a></li>
-              <li><a href="blog.html">Blog</a></li> Blog link added
-              <li><a href="contact.html">Contact Us</a></li> Contact Us link added
-              <li>
-                  <form class="search-form">
-                      <input type="text" placeholder="Search...">
-                      <button type="submit"><i class="fas fa-search"></i></button>
-                  </form>
-              </li>
-              <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
-          </ul>-->
-      </nav>
+      <div id="navBar"></div>
     </header>
-    <div id="navBarTracker"></div>
 
-    <main>
-      <h1>Fundamentals</h1>
-      <div class="search-bar">
+      
+
+              <!-- Search Section -->
+        <section class="search-section">
+          <h1 class="page-title"><i class="fas fa-atom"></i> FUNDAMENTALS</h1>
+          <div class="search-container">
         <input
           type="text"
-          id="search"
-          placeholder="Search topics..."
+            class="search-input" 
+            id="searchInput" 
+            placeholder="Search polarimetry concepts..."
           onkeyup="filterCards()"
         />
+          <i class="fas fa-search search-icon"></i>
       </div>
 
-      <div class="card-container" id="cardContainer">
-        <!-- 1 -->
-        <div class="card">
-          <img
-            src="/infi_website/BOOKS image/Introduction to Synthetic Aperture Radar (Sar) Polarimetry.jpg"
-            alt="SAR Image"
-          />
+        <!-- Category Filters -->
+        <div class="category-filters">
+          <button class="filter-btn active" onclick="filterByCategory('all')">All Topics</button>
+          <button class="filter-btn" onclick="filterByCategory('radar')">Radar Basics</button>
+          <button class="filter-btn" onclick="filterByCategory('polarization')">Polarization</button>
+          <button class="filter-btn" onclick="filterByCategory('processing')">Processing</button>
+          <button class="filter-btn" onclick="filterByCategory('applications')">Applications</button>
+        </div>
+      </section>
+
+      <!-- Cards Grid -->
+      <div class="cards-grid" id="cardsGrid">
+        <!-- Card 1: Synthetic Aperture Radar (SAR) -->
+        <div class="card" data-category="radar">
           <div class="card-content">
-            <div class="card-title">Synthetic Aperture Radar (SAR)</div>
-            <div class="card-description">
-              SAR uses a small antenna to transmit radar pulses, creating a
-              synthetic aperture by combining multiple echoes.
-              <span class="more-text" style="display: none">
-                Synthetic Aperture Radar (SAR) systems employ a small physical
-                antenna that transmits radar pulses from multiple points as the
-                platform moves, creating a synthetic aperture by combining the
-                pulse echoes into a single pulse. An aperture is an opening that
-                collects energy after reflection—it is akin to the shutter of a
-                camera or the antenna of a radar system. SAR provides better
-                spatial resolution than traditional real aperture radars because
-                it electronically simulates a much larger antenna. The spatial
-                resolution of SAR is independent of the platform's altitude, so
-                the imaging can be at fine resolutions regardless of the height
-                at which the sensor is mounted. High-resolution SAR images also
-                allow appropriate post-processing that brings out important data
-                that may be recovered, making SAR highly effective in
-                applications requiring such detailed surface observations.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Synthetic Aperture Radar (SAR)</h3>
+            <div class="card-description collapsed" id="desc1">
+              The azimuth resolution of conventional real aperture radar depends on the dimension of the antenna and on the distance from the target. To achieve very high resolution in azimuth, a very narrow beam is required.
             </div>
+            <div class="card-description expanded" id="desc1-full" style="display: none;">
+              The azimuth resolution of conventional real aperture radar depends on the dimension of the antenna and on the distance from the target. To achieve very high resolution in azimuth, a very narrow beam is required. To get a very narrow beam, extremely long physical antenna is necessary. It is very difficult to build an antenna of several kilometers in length and operate from space. Therefore, Synthetic Aperture Radar (SAR) was developed to overcome the limitation of keeping long antenna in space.<br /><br />
+              SAR systems use an antenna of much smaller physical dimensions, which sends pulses from different positions as the platform advances, simulating a synthetic aperture by integrating the pulse echoes into a composite signal. Aperture means the opening used to collect the reflected energy that is used to form an image. In the case of a camera, this would be the shutter opening, for radar it is the antenna. SAR can provide better resolution than conventional real aperture radars.<br /><br />
+              By proper post processing important information can be extracted from the high resolution images acquired by SAR. The advantage of using Synthetic Aperture Radar (SAR) is that the spatial resolution is independent of platform altitude. Therefore, fine resolution can be achieved. Generally images are acquired in strips as the sensor moves along its flight path. These strips are called as swaths (the area illuminated by the antenna which is elongated and elliptical in shape). To separate the objects in the range direction (perpendicular to flight path), radar echoes are separated using the time delay between echoes that are backscattered from the different scatterers. To separate the objects in azimuth direction (parallel to the flight path) Doppler frequency is used. Since time delay and Doppler frequency is used to separate the objects on the Earth surface, the resolution is independent of the distance between the radar and the target.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(1)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 2 -->
-        <div class="card">
-          <img
-            src="/infi_website/BOOKS image/Radar Interferometry. Data Interpretation and Error Analysis.jpg"
-            alt="Range Azimuth Swath"
-          />
+        <!-- Card 2: Range, Azimuth, and Swath -->
+        <div class="card" data-category="radar">
           <div class="card-content">
-            <div class="card-title">Range, Azimuth, and Swath</div>
-            <div class="card-description">
-              Range is perpendicular to the flight path, azimuth is parallel,
-              and swath is the imaged area on Earth's surface.
-              <span class="more-text" style="display: none">
-                <b>Range:</b> The direction perpendicular to an orbit or flight
-                path.<br />
-                <b>Azimuth:</b> The direction parallel to the flight path of an
-                aircraft or orbit of a satellite.<br />
-                <b>Swath:</b> The area imaged on Earth’s surface by one pass of
-                an aircraft or satellite.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Range, Azimuth, and Swath</h3>
+            <div class="card-description collapsed" id="desc2">
+              Range: The direction perpendicular to an orbit or flight path. Azimuth: The direction parallel to the flight path of an aircraft or orbit of a satellite. Swath: The area imaged on Earth's surface by one pass of an aircraft or satellite.
             </div>
+            <div class="card-description expanded" id="desc2-full" style="display: none;">
+              <strong>Range:</strong> The direction perpendicular to an orbit or flight path.<br /><br />
+              <strong>Azimuth:</strong> The direction parallel to the flight path of an aircraft or orbit of a satellite.<br /><br />
+              <strong>Swath:</strong> The area imaged on Earth's surface by one pass of an aircraft or satellite.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(2)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 3 -->
-        <div class="card">
-          <img
-            src="/infi_website/BOOKS image/Radar Polarimetry for Geoscience Applications.jpg"
-            alt="Backscattering"
-          />
+        <!-- Card 3: Backscattering -->
+        <div class="card" data-category="radar">
           <div class="card-content">
-            <div class="card-title">Backscattering</div>
-            <div class="card-description">
-              Reflection of radar signals toward the sensor; it depends on
-              surface roughness, wavelength, and polarization.
-              <span class="more-text" style="display: none">
-                Backscattering is the part of the radar signal that reflects
-                toward the sensor after interacting with Earth's surface. The
-                backscattering phenomenon contains all the essential information
-                on surface features, such as roughness, geometric structure, and
-                material composition. The physical and dielectric properties of
-                the surface, as well as the radar wavelength, polarization, and
-                angle of incidence, are all factors that govern the intensity
-                and nature of the backscattering.<br /><br />
-                <b>Types of Backscattering:</b><br />
-                <b>Single bounce:</b> Occurs when the radar signal bounces off a
-                smooth or moderately rough surface like still water, bare soil,
-                or flat ground.<br />
-                <b>Double bounce:</b> Occurs when the signal bounces back
-                between two surfaces, like ground and a vertical object, for
-                example, a building wall, tree, and so on.<br />
-                <b>Volume bounce:</b> This can take place in heterogeneous or
-                layered materials, like vegetation, and forest canopies wherein
-                the radar signal propagates and interacts with buried
-                contents.<br /><br />
-                <b>Backscattering Dependencies:</b><br />
-                <ul>
-                  <li>
-                    <b>Nature of the Surface:</b> Scattering behavior depends on
-                    roughness, texture, and homogeneity of the surface. For
-                    smooth surfaces, specular reflection is observed; with rough
-                    surfaces, a great amount of diffuse scattering.
-                  </li>
-                  <li>
-                    <b>Angle of Incidence:</b> The angle at which the radar
-                    signal hits the surface significantly affects the magnitude
-                    of the return.
-                  </li>
-                  <li>
-                    <b>Wavelength:</b> Longer wavelengths (L-band) can penetrate
-                    more into the soil and vegetation whereas smaller wavelength
-                    (X-band) tends to be highly sensitive to minute details.
-                  </li>
-                  <li>
-                    <b>Electric Properties:</b> Energy absorption, transmission,
-                    or reflection depends on the dielectric constant and
-                    material conductivity.
-                  </li>
-                  <li>
-                    <b
-                      >Orientation angle of the target w.r.t the radar’s Line of
-                      Sight (LOS):</b
-                    >
-                    The spatial orientation of the target relative to the radar
-                    system affects both the trajectory and magnitude of
-                    scattering.
-                  </li>
-                  <li>
-                    <b>Polarization:</b> The direction of travel of the
-                    wave—horizontally, vertically, or cross-polarized—affects
-                    the interaction of the wave with the surface and how much it
-                    will be scattered back to the sensor.
-                  </li>
-                  <li>
-                    <b>Structure of the Target:</b> Complex geometries like
-                    plant canopies, buildings, or layered surfaces that produce
-                    multiple scattering mechanisms like single bounce, volume
-                    scattering, or double bounce.
-                  </li>
-                </ul>
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Backscattering</h3>
+            <div class="card-description collapsed" id="desc3">
+              When the EM waves interact with matter, reflection, refraction and absorption may take place. After interaction of EM waves with the target the backscattering energy is quantified by backscattering coefficient.
             </div>
+            <div class="card-description expanded" id="desc3-full" style="display: none;">
+              When the EM waves interact with matter, reflection, refraction and absorption may take place. After interaction of EM waves with the target the backscattering energy is quantified by backscattering coefficient σ° which is defined as radar cross section per unit area. The backscattering energy depends on the nature of the surface with which the EM waves interact. There are mainly three types of scattering that can take place at the surface.<br /><br />
+              If the surface is smooth (calm water or roads), then the reflection will be like a mirror (specular reflection). The energy is reflected only in one single outgoing direction. For the rough surface, the reflected energy will be less and diffuse reflection (the ray is reflected at many angles rather than just at one angle) will be more. For very rough surfaces, reflection will be in an upward direction from the surface.<br /><br />
+              The backscattering coefficient depends upon the angle of incidence, wavelength, electrical properties (complex dielectric constant), and orientation angle of the target with respect to radar line of sight, polarization and structure of the target. As the incidence angle increases, σ° decreases. For smaller angles, the penetration of EM waves into a medium is more and thereby giving more information about the target.<br /><br />
+              Dielectric constant gives the information about the reflectivity and conductivity of the various materials. If the target is more conductive (moisture or water content is more), then the return will be stronger. Water, especially saline water, is very conductive and has a very high value of dielectric constant whereas the dry targets (dry soil) gives very less value of dielectric constant. Trees and plants have more moisture and act as good reflectors. The moisture content of vegetation differs depending on the atmospheric condition. Metals are good conductors and hence the metal objects like bridges, rails, and electric poles give high returns and appears as bright features in the images. Whenever there is no backscatter, features appear as dark in the image, like the case of specular reflection at calm water surface.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(3)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 4 -->
-        <div class="card">
-          <img
-            src="/infi_website/BOOKS image/Polarimetric Radar Imaging From Basics to Applications.jpg"
-            alt="Types of Backscattering"
-          />
+        <!-- Card 4: Types of Backscattering -->
+        <div class="card" data-category="radar">
           <div class="card-content">
-            <div class="card-title">Types of Backscattering</div>
-            <div class="card-description">
-              Includes single bounce (smooth surfaces), double bounce (man-made
-              structures), and volume bounce (vegetation).
-              <span class="more-text" style="display: none">
-                <b>Single bounce:</b> Occurs when the radar signal bounces off a
-                smooth or moderately rough surface like still water, bare soil,
-                or flat ground.<br />
-                <b>Double bounce:</b> Occurs when the signal bounces back
-                between two surfaces, like ground and a vertical object, for
-                example, a building wall, tree, and so on.<br />
-                <b>Volume bounce:</b> This can take place in heterogeneous or
-                layered materials, like vegetation, and forest canopies wherein
-                the radar signal propagates and interacts with buried contents.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Types of Backscattering</h3>
+            <div class="card-description collapsed" id="desc4">
+              When an EM wave incident on the Earth surface, it can have three types of interaction depending upon the structure of a target. It can be single (surface or odd) bounce, double (even) bounce and volume bounce.
             </div>
+            <div class="card-description expanded" id="desc4-full" style="display: none;">
+              When an EM wave incident on the Earth surface, it can have three types of interaction depending upon the structure of a target. It can be single (surface or odd) bounce, double (even) bounce and volume bounce. Single or surface bounce occurs generally due to the interaction with smooth surfaces, double bounce occurs due to man-made objects like buildings and volume bounce due to forest (or any vegetation). If the EM wave has simple interaction (single or double bounce) with a target, the scattered energy retains the original polarization of the incident signal. If the incident wave undergoes multiple scattering events in the medium, then the original polarization of the incident wave will not be retained. This is known as depolarization of incident waves. It generally happens due to thick forest, extremely rough surfaces and randomly oriented dense settlement which is not perpendicular to radar line of sight.<br /><br />
+              For smooth surface, σ° of HH and VV is strong and σ° for HV is weak. For rough surfaces or isotropic vegetation, backscattering coefficient for all the three polarization and σ° for HH and VV are almost equal. The surface roughness is relative to the wavelength of the EM wave. If the surface variation is very small compared to wavelength then the surface appears to be smooth in the image and if variation is comparable (more) with respective to wavelength, then the surface appears to be rough in the image. Smooth surface gives specular reflection and therefore appears dark in the image. The rough surface scatters the energy in all directions and gives maximum energy back to the radar and therefore appears bright in the image.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(4)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 5 -->
-        <div class="card">
-          <img
-            src="/infi_website/BOOKS image/Synthetic Aperture Radar Polarimetry.jpg"
-            alt="PolSAR"
-          />
+        <!-- Card 5: Polarimetric SAR (PolSAR) -->
+        <div class="card" data-category="polarization">
           <div class="card-content">
-            <div class="card-title">Polarimetric SAR (PolSAR)</div>
-            <div class="card-description">
-              PolSAR transmits and receives in multiple polarizations (HH, VV,
-              HV, VH) for detailed target analysis.
-              <span class="more-text" style="display: none">
-                Polarimetric Synthetic Aperture Radar (PolSAR) revolutionized
-                radar remote sensing by providing detailed insights into the
-                characteristics of objects and terrain through their scattering
-                properties. In comparison with the traditional systems which
-                were based on single-polarization information, the main feature
-                of PolSAR was its capability to both transmit and receive
-                microwave signals in multiple polarizations, such as vertical
-                (V), horizontal (H), and cross-polarizations (HV or VH). This
-                technology allows the PolSAR to gain the total polarimetric
-                scattering information, namely the amplitude and the phase of
-                the received signal to conduct a detailed analysis of the
-                scattering process. As a result, PolSAR improves the
-                differentiation capability between various target types, such as
-                vegetation, man-made structures, and natural features, making it
-                a versatile tool for applications in agriculture, forestry, and
-                land cover classification. With the launch of dedicated PolSAR
-                satellites, the technology has become more accessible and
-                widespread, enabling global monitoring and comprehensive earth
-                observation. Ongoing research continues to refine PolSAR
-                processing techniques, enhancing its capabilities in fields like
-                terrain analysis, environmental assessment, and target
-                recognition. As it evolves, PolSAR remains at the forefront of
-                radar remote sensing, providing a valuable perspective on our
-                planet's dynamic features and complex environments.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Polarimetric SAR (PolSAR)</h3>
+            <div class="card-description collapsed" id="desc5">
+              Polarimetric Synthetic Aperture Radar (PolSAR) revolutionized radar remote sensing by providing detailed insights into the characteristics of objects and terrain through their scattering properties.
             </div>
+            <div class="card-description expanded" id="desc5-full" style="display: none;">
+              Polarimetric Synthetic Aperture Radar (PolSAR) revolutionized radar remote sensing by providing detailed insights into the characteristics of objects and terrain through their scattering properties. In comparison with the traditional systems which were based on single-polarization information, the main feature of PolSAR was its capability to both transmit and receive microwave signals in multiple polarizations, such as vertical (V), horizontal (H), and cross-polarizations (HV or VH). This technology allows the PolSAR to gain the total polarimetric scattering information, namely the amplitude and the phase of the received signal to conduct a detailed analysis of the scattering process. As a result, PolSAR improves the differentiation capability between various target types, such as vegetation, man-made structures, and natural features, making it a versatile tool for applications in agriculture, forestry, and land cover classification. With the launch of dedicated PolSAR satellites, the technology has become more accessible and widespread, enabling global monitoring and comprehensive earth observation. Ongoing research continues to refine PolSAR processing techniques, enhancing its capabilities in fields like terrain analysis, environmental assessment, and target recognition. As it evolves, PolSAR remains at the forefront of radar remote sensing, providing a valuable perspective on our planet's dynamic features and complex environments.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(5)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 6 -->
-        <div class="card">
-          <img
-            src="/infi_website/BOOKS image/Polarisation Applications.jpg"
-            alt="Polarization Types"
-          />
+        <!-- Card 6: Types of Polarization -->
+        <div class="card" data-category="polarization">
           <div class="card-content">
-            <div class="card-title">Types of Polarization</div>
-            <div class="card-description">
-              Includes single, dual, and quad polarization for capturing
-              different scattering properties.
-              <span class="more-text" style="display: none">
-                Polarimetric Synthetic Aperture Radar works by transmitting and
-                receiving radar signals along different polarization states with
-                the aim of gaining comprehensive insight into the scattering
-                characteristics of the targets.<br /><br />
-                <b>Single Polarization (Single-Pol):</b> This uses either single
-                transmit and receive polarizations of H or V; which gives single
-                polarization basic scattering information.<br />
-                <b>Dual Polarization (Dual-Pol):</b> It transmits in one
-                polarization, and receives in two, for example, HH and HV or VV
-                and VH, therefore providing more information about scattering
-                mechanisms.<br />
-                <b>Quad Polarization (Quad-Pol):</b> It transmits and receives
-                in both horizontal and vertical polarizations and captures all
-                combinations (HH, HV, VH, VV) for comprehensive polarimetric
-                data.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Types of Polarization</h3>
+            <div class="card-description collapsed" id="desc6">
+              Polarimetric Synthetic Aperture Radar works by transmitting and receiving radar signals along different polarization states with the aim of gaining comprehensive insight into the scattering characteristics of the targets.
             </div>
+            <div class="card-description expanded" id="desc6-full" style="display: none;">
+              Polarimetric Synthetic Aperture Radar works by transmitting and receiving radar signals along different polarization states with the aim of gaining comprehensive insight into the scattering characteristics of the targets.<br /><br />
+              <strong>Single Polarization (Single-Pol):</strong> This uses either single transmit and receive polarizations of H or V; which gives single polarization basic scattering information.<br /><br />
+              <strong>Dual Polarization (Dual-Pol):</strong> It transmits in one polarization, and receives in two, for example, HH and HV or VV and VH, therefore providing more information about scattering mechanisms.<br /><br />
+              <strong>Quad Polarization (Quad-Pol):</strong> It transmits and receives in both horizontal and vertical polarizations and captures all combinations (HH, HV, VH, VV) for comprehensive polarimetric data.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(6)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 7 -->
-        <div class="card">
-          <img
-            src="/infi_website/BOOKS image/Processing of Synthetic Aperture Radar (Sar) Images.jpg"
-            alt="Polarization Correlation"
-          />
+        <!-- Card 7: Polarization Correlation -->
+        <div class="card" data-category="polarization">
           <div class="card-content">
-            <div class="card-title">Polarization Correlation</div>
-            <div class="card-description">
-              Examines relationships between polarization states: co-pol (HH,
-              VV) and cross-pol (HV, VH).
-              <span class="more-text" style="display: none">
-                Polarization correlation in polarimetry explains the degree of
-                correlation or relation between the polarization states of the
-                radar waves. Within the context of the polarimetric synthetic
-                aperture radar, known as PolSAR, polarization correlation is a
-                fundamental concept explaining all relations among combinations
-                of polarization states. Polarization correlation is further
-                divided into two forms: co-polarization and
-                cross-polarization.<br /><br />
-                <b>Co-polarization</b> is the relationship between horizontal
-                (H) and vertical (V) polarization states of the radar waves. In
-                PolSAR, HH is horizontal transmit and horizontal receive, and VV
-                is vertical transmit and vertical receive. These are
-                co-polarized signals. High co-polarization means that the radar
-                waves maintain a strong correlation in their polarization
-                states.<br /><br />
-                <b>Cross-polarization</b> is the correlation between horizontal
-                transmission and vertical reception (HV) or between vertical
-                transmission and horizontal reception (VH). These channels
-                represent cross-polarized signals. Low cross-polarization
-                indicates that the polarization states are uncorrelated, which
-                indicates to surface or volume scattering.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Polarization Correlation</h3>
+            <div class="card-description collapsed" id="desc7">
+              Polarization correlation in polarimetry explains the degree of correlation or relation between the polarization states of the radar waves.
             </div>
+            <div class="card-description expanded" id="desc7-full" style="display: none;">
+              Polarization correlation in polarimetry explains the degree of correlation or relation between the polarization states of the radar waves. Within the context of the polarimetric synthetic aperture radar, known as PolSAR, polarization correlation is a fundamental concept explaining all relations among combinations of polarization states. Polarization correlation is further divided into two forms: co-polarization and cross-polarization.<br /><br />
+              <strong>Co-polarization</strong> is the relationship between horizontal (H) and vertical (V) polarization states of the radar waves. In PolSAR, HH is horizontal transmit and horizontal receive, and VV is vertical transmit and vertical receive. These are co-polarized signals. High co-polarization means that the radar waves maintain a strong correlation in their polarization states.<br /><br />
+              <strong>Cross-polarization</strong> is the correlation between horizontal transmission and vertical reception (HV) or between vertical transmission and horizontal reception (VH). These channels represent cross-polarized signals. Low cross-polarization indicates that the polarization states are uncorrelated, which indicates to surface or volume scattering.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(7)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 8 -->
-        <div class="card">
-          <img
-            src="/infi_website/BOOKS image/Radargrammetric Image Processing.png"
-            alt="Scattering Matrix"
-          />
+                <!-- Card 8: Scattering Matrix -->
+        <div class="card" data-category="processing">
           <div class="card-content">
-            <div class="card-title">Scattering Matrix</div>
-            <div class="card-description">
-              A 2×2 matrix describing how radar signals change polarization
-              after interacting with a target.
-              <span class="more-text" style="display: none">
-                A fundamental idea in the field of remote sensing is the
-                scattering matrix, often known as the (S-matrix). It is a
-                mathematical representation, usually in the form of a 2x2
-                matrix, which shows how the polarization states of the radar
-                waves change as they interact with the target.<br /><br />
+            <h3 class="card-title">Scattering Matrix</h3>
+            <div class="card-description collapsed" id="desc8">
+              A fundamental idea in the field of remote sensing is the scattering matrix, often known as the (S-matrix). It is a mathematical representation, usually in the form of a 2x2 matrix.
+            </div>
+            <div class="card-description expanded" id="desc8-full" style="display: none;">
+              A fundamental idea in the field of remote sensing is the scattering matrix, often known as the (S-matrix). It is a mathematical representation, usually in the form of a 2x2 matrix, which shows how the polarization states of the radar waves change as they interact with the target.<br /><br />
                 <code>S = [ S11 S12 ; S21 S22 ]</code><br /><br />
-                From the matrix, S11 represents the co-polarized return
-                amplitude for the same polarization state (HH or VV). S22
-                represents the co-polarized return amplitude for the orthogonal
-                polarization state (HH or VV). S12 represents the
-                cross-polarized return amplitude from HH to VV or VV to HH. S21
-                represents the cross-polarized return amplitude from HV to VH or
-                VH to HV.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+              From the matrix, S11 represents the co-polarized return amplitude for the same polarization state (HH or VV). S22 represents the co-polarized return amplitude for the orthogonal polarization state (HH or VV). S12 represents the cross-polarized return amplitude from HH to VV or VV to HH. S21 represents the cross-polarized return amplitude from HV to VH or VH to HV.
             </div>
+            <button class="read-more-btn" onclick="toggleDescription(8)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 9 -->
-        <div class="card">
-          <img
-            src="../BOOKS image/Multi-purposeful Application of Geospatial Data.png"
-            alt="Covariance Matrix"
-          />
+        <!-- Additional cards for more comprehensive coverage -->
+        <!-- Card 9: Covariance Matrix -->
+        <div class="card" data-category="processing">
           <div class="card-content">
-            <div class="card-title">Covariance Matrix</div>
-            <div class="card-description">
-              Used in PolSAR systems to analyze statistical relationships
-              between polarization channels.
-              <span class="more-text" style="display: none">
-                The C2 matrix is used in dual-polarization PolSAR systems. It
-                represents the statistical relationships between the two
-                measured polarimetric channels (e.g., HH and HV or VV and VH).
-                The general form of the C2 matrix is:<br /><br />
+            <h3 class="card-title">Covariance Matrix</h3>
+            <div class="card-description collapsed" id="desc9">
+              The C2 matrix is used in dual-polarization PolSAR systems. It represents the statistical relationships between the two measured polarimetric channels (e.g., HH and HV or VV and VH).
+            </div>
+            <div class="card-description expanded" id="desc9-full" style="display: none;">
+              The C2 matrix is used in dual-polarization PolSAR systems. It represents the statistical relationships between the two measured polarimetric channels (e.g., HH and HV or VV and VH). The general form of the C2 matrix is:<br /><br />
                 <code>C = [ C11 C12 ; C21 C22 ]</code><br /><br />
-                In the above matrix, C11 and C22 are the diagonal elements. C11
-                is the element that gives the power of the HH
-                (horizontal-horizontal) polarization return, capturing the
-                intensity of the radar signal in the HH polarization. C22
-                represents an element that corresponds to the power of the VV
-                (vertical-vertical) polarization return, capturing the intensity
-                of the VV polarization. C12 and C21 give complex covariance
-                between the HH and VV polarizations. They carry both magnitude
-                and phase information to provide even a sense of the
-                co-polarized HH and VV radar returns' cross-correlation.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+              In the above matrix, C11 and C22 are the diagonal elements. C11 is the element that gives the power of the HH (horizontal-horizontal) polarization return, capturing the intensity of the radar signal in the HH polarization. C22 represents an element that corresponds to the power of the VV (vertical-vertical) polarization return, capturing the intensity of the VV polarization. C12 and C21 give complex covariance between the HH and VV polarizations. They carry both magnitude and phase information to provide even a sense of the co-polarized HH and VV radar returns' cross-correlation.
             </div>
+            <button class="read-more-btn" onclick="toggleDescription(9)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 10 -->
-        <div class="card">
-          <img
-            src="../BOOKS image/A New Target Detector Based on Geometrical Perturbation Filters for Polarimetric Synthetic Aperture Radar (POL-SAR.jpg"
-            alt="Decomposition"
-          />
+        <!-- Card 10: Decomposition -->
+        <div class="card" data-category="processing">
           <div class="card-content">
-            <div class="card-title">Decomposition</div>
-            <div class="card-description">
-              Breaks down radar signals into surface, double-bounce, and volume
-              scattering components.
-              <span class="more-text" style="display: none">
-                Decomposition in microwave remote sensing is the methodological
-                approach that decomposes and explains the scattering processes
-                involved with radar signals as they interact with the Earth's
-                surface. It breaks down the incoming radar signals into separate
-                constituents, which usually represent surface scattering,
-                double-bounce scattering, and volume scattering. Surface
-                scattering happens to flat, smooth surfaces—like bodies of
-                water, or bare soil. Double bounce scattering happens when there
-                is a vertical structure such as buildings or tree trunks.
-                Lastly, volume is due to complex media, for example, vegetation
-                or snow. Decomposition techniques and model-based and
-                eigenvalue-based methods give much-needed information about the
-                physical, and geometric properties of the target. These
-                methodologies have applications in the analysis of PolSAR data,
-                facilitating uses such as land cover classification, estimation
-                of forest biomass, urban mapping, and environmental
-                surveillance. Decomposition contributes to a deeper
-                comprehension of the radar scene observed by differentiating
-                various scattering behaviors and enhances the precision of
-                interpretations across diverse scientific and practical domains.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Decomposition</h3>
+            <div class="card-description collapsed" id="desc10">
+              The target decomposition was first introduced by Chandrasekhar 1960 and later applied to polarized microwave by Huynen 1970. Coherent decomposition theorems use [S] matrix and considers [S] as a linear combination of several other scatterers.
             </div>
+            <div class="card-description expanded" id="desc10-full" style="display: none;">
+              The target decomposition was first introduced by Chandrasekhar 1960 and later applied to polarized microwave by Huynen 1970. Coherent decomposition theorems use [S] matrix and considers [S] as a linear combination of several other scatterers. A method for coherent target decomposition was presented by Krogager, 1988. His approach was based on the observation that any complex, symmetric scattering matrix can be decomposed into three components, as if the scattering were due to a sphere, a diplane and a right or left rotating helix.<br /><br />
+              van Zyl 1989 describes the use of an imaging radar polarimetric data for unsupervised classification of scattering behavior by comparing the polarization properties of each pixel in an image to that of simple classes of scattering such as even number of reflections, odd number of reflections, and diffuse scattering. Coherent target decomposition methods can only be applied to coherent scattering. Generally, the scattered wave is partially polarized and the user might be interested in the extraction of geophysical parameters from an area that exhibits significant natural variability in the scattering properties van Zyl 1992.<br /><br />
+              Cloude et al. 1995 and Cloude et al.1996 suggested the H-A-alpha target decomposition theorem. A three-component scattering model for polarimetric SAR data is proposed by Freeman and Durden 1998. After applying different target decomposition methods to the polarimetric SAR data, Alberga et al. 2004 classified the images using minimum distance, maximum likelihood and parallelepiped classifiers. A four-component scattering model was proposed by Yamaguichi et al. 2005 to decompose polarimetric synthetic aperture radar images. Circular polarization power is added as the fourth component to the three component scattering model which describes surface, double bounce, and volume scattering. This circular polarization term takes into account the co-pol and the cross-pol correlations which generally appear in complex urban area scattering and disappear for natural distributed scatterers.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(10)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 11 -->
-        <div class="card">
-          <img
-            src="../BOOKS image/Radar Interferometry. Data Interpretation and Error Analysis.jpg"
-            alt="Interferometry"
-          />
+        <!-- Card 11: Interferometry (InSAR) -->
+        <div class="card" data-category="applications">
           <div class="card-content">
-            <div class="card-title">Interferometry (InSAR)</div>
-            <div class="card-description">
-              Uses phase differences between radar images to measure surface
-              deformation and topography.
-              <span class="more-text" style="display: none">
-                Interferometry is a remote sensing technique by the imagery of
-                radar for measuring deformation or topography at the surface
-                through the interpretation of phase differences between two or
-                more radar images of the same scene acquired from almost
-                adjacent positions or at different times. The phase of a radar
-                signal contains information about the distance between the radar
-                sensor and the target surface. An interferogram results from
-                comparing the phase values generated from two radar signals: the
-                interferogram exhibits a change in distance from the sensor to
-                ground for each of its corresponding images. This phase
-                difference responds very sensitively to any kind of slight
-                displacement resulting from earthquakes, landslides, or
-                subsidence as well as to variations in elevation. Factors that
-                contribute to the quality of phase information include
-                wavelength, baseline distance, or the distance between the
-                sensor positions, and the surface roughness. Interferometry is
-                sensitive; minute changes on Earth's surface that are
-                millimeters in distance can be measured, therefore it is a
-                powerful tool in understanding Earth's dynamics.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Interferometry (InSAR)</h3>
+            <div class="card-description collapsed" id="desc11">
+              Interferometry is a remote sensing technique by the imagery of radar for measuring deformation or topography at the surface through the interpretation of phase differences between two or more radar images.
             </div>
+            <div class="card-description expanded" id="desc11-full" style="display: none;">
+              Interferometry is a remote sensing technique by the imagery of radar for measuring deformation or topography at the surface through the interpretation of phase differences between two or more radar images of the same scene acquired from almost adjacent positions or at different times. The phase of a radar signal contains information about the distance between the radar sensor and the target surface. An interferogram results from comparing the phase values generated from two radar signals: the interferogram exhibits a change in distance from the sensor to ground for each of its corresponding images. This phase difference responds very sensitively to any kind of slight displacement resulting from earthquakes, landslides, or subsidence as well as to variations in elevation. Factors that contribute to the quality of phase information include wavelength, baseline distance, or the distance between the sensor positions, and the surface roughness. Interferometry is sensitive; minute changes on Earth's surface that are millimeters in distance can be measured, therefore it is a powerful tool in understanding Earth's dynamics.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(11)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 12 -->
-        <div class="card">
-          <img
-            src="../BOOKS image/Photogrammetry, GIS & Remote Sensing.jpg"
-            alt="Digital Elevation Model"
-          />
+        <!-- Card 12: Digital Elevation Model (DEM) -->
+        <div class="card" data-category="applications">
           <div class="card-content">
-            <div class="card-title">Digital Elevation Model (DEM)</div>
-            <div class="card-description">
-              A 3D representation of Earth's surface created using SAR or InSAR
-              data.
-              <span class="more-text" style="display: none">
-                Digital Elevation Model (DEM) is a 3D representation of the
-                earth's surface, capturing the elevation data over a
-                geographically defined area. DEMs are usually produced based on
-                remote sensing techniques; in this case, this may be Synthetic
-                Aperture Radar or Interferometric SAR (InSAR). These
-                technologies use a radar signal to measure the distance between
-                the sensor and the Earth's surface, enabling the creation of
-                detailed elevation maps. DEMs are represented as a grid of
-                regularly spaced points with elevation values assigned to each
-                point. The quality and resolution of a DEM depend upon the
-                source data, sensor characteristics, and processing techniques
-                applied. InSAR computes elevation differences based on phase
-                information of radar signals compared from two slightly
-                different perspectives and produces highly accurate DEMs. DEMs
-                are essential tools for understanding the surface geometry of
-                slopes, contours, and topographic features and underlie much of
-                geospatial analysis.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Digital Elevation Model (DEM)</h3>
+            <div class="card-description collapsed" id="desc12">
+              Digital Elevation Model (DEM) is a 3D representation of the earth's surface, capturing the elevation data over a geographically defined area.
             </div>
+            <div class="card-description expanded" id="desc12-full" style="display: none;">
+              Digital Elevation Model (DEM) is a 3D representation of the earth's surface, capturing the elevation data over a geographically defined area. DEMs are usually produced based on remote sensing techniques; in this case, this may be Synthetic Aperture Radar or Interferometric SAR (InSAR). These technologies use a radar signal to measure the distance between the sensor and the Earth's surface, enabling the creation of detailed elevation maps. DEMs are represented as a grid of regularly spaced points with elevation values assigned to each point. The quality and resolution of a DEM depend upon the source data, sensor characteristics, and processing techniques applied. InSAR computes elevation differences based on phase information of radar signals compared from two slightly different perspectives and produces highly accurate DEMs. DEMs are essential tools for understanding the surface geometry of slopes, contours, and topographic features and underlie much of geospatial analysis.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(12)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 13 -->
-        <div class="card">
-          <img
-            src="../BOOKS image/Introductory Digital Image Processing.jpg"
-            alt="Speckle Filtering"
-          />
+        <!-- Card 13: Speckle Filtering -->
+        <div class="card" data-category="processing">
           <div class="card-content">
-            <div class="card-title">Speckle Filtering</div>
-            <div class="card-description">
-              Reduces noise in SAR images while preserving important features
-              and edges.
-              <span class="more-text" style="display: none">
-                Speckle filtering is one of the essential steps in SAR image
-                analysis. The step aims at filtering speckle noise in SAR images
-                while preserving all the relevant information and features
-                within the data. Speckle noise is inherent granular noise in SAR
-                images. It occurs from the random constructive and destructive
-                interference of waves scattered from multiple scatterers in a
-                single-resolution cell. While speckle carries some information
-                about surface texture, its presence can obscure meaningful
-                patterns and reduce the interpretability of SAR images. Speckle
-                filtering is a process of applying a mathematical algorithm for
-                smoothing of speckle that maintains the edges, structure, and
-                radiometric detail of the image.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Speckle Filtering</h3>
+            <div class="card-description collapsed" id="desc13">
+              Speckle filtering is one of the essential steps in SAR image analysis. The step aims at filtering speckle noise in SAR images while preserving all the relevant information and features within the data.
             </div>
+            <div class="card-description expanded" id="desc13-full" style="display: none;">
+              Speckle filtering is one of the essential steps in SAR image analysis. The step aims at filtering speckle noise in SAR images while preserving all the relevant information and features within the data. Speckle noise is inherent granular noise in SAR images. It occurs from the random constructive and destructive interference of waves scattered from multiple scatterers in a single-resolution cell. While speckle carries some information about surface texture, its presence can obscure meaningful patterns and reduce the interpretability of SAR images. Speckle filtering is a process of applying a mathematical algorithm for smoothing of speckle that maintains the edges, structure, and radiometric detail of the image.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(13)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 14 -->
-        <div class="card">
-          <img
-            src="../BOOKS image/Remote Sensing Spatial Domain.jpg"
-            alt="Co-registration"
-          />
+        <!-- Card 14: Co-registration -->
+        <div class="card" data-category="processing">
           <div class="card-content">
-            <div class="card-title">Co-registration</div>
-            <div class="card-description">
-              Aligns multiple SAR images for accurate change detection and
-              interferometric analysis.
-              <span class="more-text" style="display: none">
-                Co-registration is the process of overlaying several images of
-                the same scene taken with radar to the point that corresponding
-                pixels represent the same ground location. It is essential for
-                applications like interferometry, time-series analysis, and
-                change detection, where accurate pixel-to-pixel correspondence
-                is critical. The process involves an initial rough alignment
-                using metadata, followed by fine alignment using
-                feature-matching techniques, such as cross-correlation or mutual
-                information, to achieve sub-pixel accuracy. Proper
-                co-registration minimizes errors and artifacts, ensuring
-                reliable comparisons of phase and intensity across images. It is
-                a foundational step in radar remote sensing, enabling precise
-                analysis of surface deformation, elevation, and temporal
-                changes.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Co-registration</h3>
+            <div class="card-description collapsed" id="desc14">
+              Co-registration is the process of overlaying several images of the same scene taken with radar to the point that corresponding pixels represent the same ground location.
             </div>
+            <div class="card-description expanded" id="desc14-full" style="display: none;">
+              Co-registration is the process of overlaying several images of the same scene taken with radar to the point that corresponding pixels represent the same ground location. It is essential for applications like interferometry, time-series analysis, and change detection, where accurate pixel-to-pixel correspondence is critical. The process involves an initial rough alignment using metadata, followed by fine alignment using feature-matching techniques, such as cross-correlation or mutual information, to achieve sub-pixel accuracy. Proper co-registration minimizes errors and artifacts, ensuring reliable comparisons of phase and intensity across images. It is a foundational step in radar remote sensing, enabling precise analysis of surface deformation, elevation, and temporal changes.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(14)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 15 -->
-        <div class="card">
-          <img
-            src="../BOOKS image/Remote Sensing in Hydrology and Water Management.jpg"
-            alt="Geo-coding"
-          />
+        <!-- Card 15: Geo-coding -->
+        <div class="card" data-category="processing">
           <div class="card-content">
-            <div class="card-title">Geo-coding</div>
-            <div class="card-description">
-              Transforms radar image coordinates into geographic coordinates
-              using projection and correction.
-              <span class="more-text" style="display: none">
-                Geo-coding is the process of bringing radar images into a
-                standard map coordinate system, this can be latitude and
-                longitude or in a projected coordinate system, such as Universal
-                Transverse Mercator (UTM). This allows for a registration
-                against geographic maps or other geospatial products so spatial
-                analysis can occur at precision. Geo-coding is important for
-                overlaying radar data over other spatial data layers like
-                satellite imagery, vector maps, or GIS datasets. Overlay in such
-                a manner facilitates easy analysis and interpretation of the
-                radar data over real geography, hence the possible application
-                in the urban planning area, disaster management, and
-                environmental monitoring areas.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Geo-coding</h3>
+            <div class="card-description collapsed" id="desc15">
+              Geo-coding is the process of bringing radar images into a standard map coordinate system, this can be latitude and longitude or in a projected coordinate system, such as Universal Transverse Mercator (UTM).
             </div>
+            <div class="card-description expanded" id="desc15-full" style="display: none;">
+              Geo-coding is the process of bringing radar images into a standard map coordinate system, this can be latitude and longitude or in a projected coordinate system, such as Universal Transverse Mercator (UTM). This allows for a registration against geographic maps or other geospatial products so spatial analysis can occur at precision. Geo-coding is important for overlaying radar data over other spatial data layers like satellite imagery, vector maps, or GIS datasets. Overlay in such a manner facilitates easy analysis and interpretation of the radar data over real geography, hence the possible application in the urban planning area, disaster management, and environmental monitoring areas.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(15)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 16 -->
-        <div class="card">
-          <img
-            src="../BOOKS image/Remote Sensing of Impervious Surfaces.jpg"
-            alt="Radiometric Calibration"
-          />
+        <!-- Card 16: Radiometric Calibration -->
+        <div class="card" data-category="processing">
           <div class="card-content">
-            <div class="card-title">Radiometric Calibration</div>
-            <div class="card-description">
-              Corrects SAR data for system noise and geometry to represent true
-              surface reflectivity.
-              <span class="more-text" style="display: none">
-                Radiometric calibration is the process of correcting Synthetic
-                Aperture Radar (SAR) data to ensure that the recorded radar
-                signal accurately represents the reflectivity, or backscatter,
-                of the observed targets. This step is crucial because raw SAR
-                data can be influenced by factors such as sensor
-                characteristics, acquisition geometry, atmospheric conditions,
-                and system noise, all of which can distort the true radar return
-                from the Earth's surface. The calibration process involves
-                referencing the radar data against known standards, such as
-                corner reflectors or homogeneous surfaces with
-                well-characterized backscatter values. System-specific
-                calibration parameters, provided by the radar's manufacturer or
-                mission, are also applied. Accurate radiometric calibration is
-                essential for quantitative analyses, such as land cover
-                classification, biomass estimation, and soil moisture retrieval,
-                ensuring that SAR data is consistent, comparable across
-                acquisitions, and reliable for scientific and operational
-                applications.
-              </span>
-              <span class="read-more" onclick="toggleReadMore(this)"
-                >Read more</span
-              >
+            <h3 class="card-title">Radiometric Calibration</h3>
+            <div class="card-description collapsed" id="desc16">
+              Radiometric calibration is the process of correcting Synthetic Aperture Radar (SAR) data to ensure that the recorded radar signal accurately represents the reflectivity, or backscatter, of the observed targets.
             </div>
+            <div class="card-description expanded" id="desc16-full" style="display: none;">
+              Radiometric calibration is the process of correcting Synthetic Aperture Radar (SAR) data to ensure that the recorded radar signal accurately represents the reflectivity, or backscatter, of the observed targets. This step is crucial because raw SAR data can be influenced by factors such as sensor characteristics, acquisition geometry, atmospheric conditions, and system noise, all of which can distort the true radar return from the Earth's surface. The calibration process involves referencing the radar data against known standards, such as corner reflectors or homogeneous surfaces with well-characterized backscatter values. System-specific calibration parameters, provided by the radar's manufacturer or mission, are also applied. Accurate radiometric calibration is essential for quantitative analyses, such as land cover classification, biomass estimation, and soil moisture retrieval, ensuring that SAR data is consistent, comparable across acquisitions, and reliable for scientific and operational applications.
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription(16)">
+              <span>Read more</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
       </div>
-    </main>
+    </div>
 
     <script>
-      function toggleReadMore(element) {
-        const moreText = element.previousElementSibling;
-        if (moreText.style.display === "none") {
-          moreText.style.display = "inline";
-          element.textContent = "Read less";
+      // Toggle description visibility
+      function toggleDescription(cardId) {
+        const collapsedDesc = document.getElementById(`desc${cardId}`);
+        const expandedDesc = document.getElementById(`desc${cardId}-full`);
+        const button = event.target.closest('.read-more-btn');
+        const buttonText = button.querySelector('span');
+        const buttonIcon = button.querySelector('i');
+
+        if (expandedDesc.style.display === 'none') {
+          collapsedDesc.style.display = 'none';
+          expandedDesc.style.display = 'block';
+          buttonText.textContent = 'Read less';
+          buttonIcon.className = 'fas fa-chevron-up';
         } else {
-          moreText.style.display = "none";
-          element.textContent = "Read more";
+          collapsedDesc.style.display = 'block';
+          expandedDesc.style.display = 'none';
+          buttonText.textContent = 'Read more';
+          buttonIcon.className = 'fas fa-chevron-down';
         }
       }
 
+      // Filter cards by search
       function filterCards() {
-        let input = document.getElementById("search").value.toLowerCase();
-        let cards = document.querySelectorAll(".card");
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const cards = document.querySelectorAll('.card');
 
-        cards.forEach((card) => {
-          let title = card
-            .querySelector(".card-title")
-            .textContent.toLowerCase();
-          let desc = card
-            .querySelector(".card-description")
-            .textContent.toLowerCase();
-
-          if (title.includes(input) || desc.includes(input)) {
-            card.style.display = "flex";
+        cards.forEach(card => {
+          const title = card.querySelector('.card-title').textContent.toLowerCase();
+          const description = card.querySelector('.card-description').textContent.toLowerCase();
+          
+          if (title.includes(searchTerm) || description.includes(searchTerm)) {
+            card.style.display = 'block';
           } else {
-            card.style.display = "none";
+            card.style.display = 'none';
           }
         });
       }
+
+      // Filter by category
+      function filterByCategory(category) {
+        const cards = document.querySelectorAll('.card');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        cards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      // Add smooth scrolling and animations
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animate cards on scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+          observer.observe(card);
+        });
+      });
     </script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
   </body>
