@@ -49,6 +49,10 @@
         list-style: none;
         padding: 0;
         margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
       }
 
       .tree ul {
@@ -64,6 +68,7 @@
 
       .tree-item {
         display: flex;
+        height: 90%;
         align-items: flex-start;
         padding: 24px;
         background: #f8fafc;
@@ -74,6 +79,7 @@
           border 0.2s,
           background 0.2s;
         border: 1.5px solid #e0e6ed;
+        margin-bottom: 20px;
       }
 
       .tree-item:hover {
@@ -92,8 +98,12 @@
       }
 
       .tree-item-content {
-        flex-grow: 1;
+        /* flex-grow: 1; */
         text-align: justify;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
       }
 
       .tree-item h3 {
@@ -258,56 +268,9 @@
   </head>
   <body>
     <header>
-      <!-- <a href="#" class="logo">
-        <img src="/infi_website/image/logo.jpeg" alt="Logo" class="logo-img" />
-      </a> -->
-
       <div id="menu" class="fas fa-bars"></div>
 
-      <div id="navBar">
-        <!-- <ul>
-          <li><a href="home.html">Home</a></li>
-          <li class="dropdown">
-            <div class="dropdown-content">
-              <a href="Fundamental.html">Fundamentals</a>
-              <a href="Technical Paper.html">Technical Papers</a>
-              <a href="Books.html">Books</a>
-              <a href="Videos.html">Videos</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <div class="dropdown-content">
-              <a href="academicians.html">Academicians</a>
-              <a href="Industry Personnel.html">Industry Personnel</a>
-              <a href="Researchers.html">Researchers/Scientists</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <div class="dropdown-content">
-              <a href="datadownload.html">Data Download</a>
-              <a href="opensource.html">Software</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <a href="education.html" class="dropbtn">Education</a>
-          </li>
-          <li><a href="career.html">Career</a></li>
-          <li><a href="event.html">Events</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li>
-            <form class="search-form">
-              <input type="text" placeholder="Search..." required />
-              <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
-          </li>
-          <li>
-            <a href="login.html" class="login-icon"
-              ><i class="fas fa-user"></i> Login</a
-            >
-          </li>
-        </ul> -->
-      </div>
+      <div id="navBar"></div>
     </header>
 
     <main>
@@ -318,14 +281,16 @@
             <div class="tree-item">
               <i class="fas fa-globe"></i>
               <div class="tree-item-content">
-                <h3>USGS Earth Explorer</h3>
-                <p>
-                  The EarthExplorer (EE) user interface is an online search,
-                  discovery, and ordering tool developed by the United States
-                  Geological Survey (USGS). EE supports the searching of
-                  satellite, aircraft, and other remote sensing inventories
-                  through interactive and textual-based query capabilities.
-                </p>
+                <div>
+                  <h3>USGS Earth Explorer</h3>
+                  <p>
+                    The EarthExplorer (EE) user interface is an online search,
+                    discovery, and ordering tool developed by the United States
+                    Geological Survey (USGS). EE supports the searching of
+                    satellite, aircraft, and other remote sensing inventories
+                    through interactive and textual-based query capabilities.
+                  </p>
+                </div>
                 <button class="guide-toggle button-group">Show Datasets</button>
                 <ul class="guide-content">
                   <li>Aerial Imagery</li>
@@ -369,18 +334,23 @@
             <div class="tree-item">
               <i class="fas fa-satellite"></i>
               <div class="tree-item-content">
-                <h3>Copernicus Browser</h3>
-                <p>
-                  The Copernicus Data Space Ecosystem Browser serves as a
-                  central hub for accessing, exploring and utilizing the wealth
-                  of Earth observation and environmental data provided by the
-                  Copernicus Sentinel constellations, contributing missions.
-                  Based on Sentinel Hub's EO Browser, users can visualise,
-                  compare and analyse and download all this data for a variety
-                  of applications, from environmental monitoring and disaster
-                  management to urban planning and agriculture.
-                </p>
-                <button class="guide-toggle button-group">Show Datasets</button>
+                <div>
+                  <h3>Copernicus Browser</h3>
+                  <p>
+                    The Copernicus Data Space Ecosystem Browser serves as a
+                    central hub for accessing, exploring and utilizing the
+                    wealth of Earth observation and environmental data provided
+                    by the Copernicus Sentinel constellations, contributing
+                    missions. Based on Sentinel Hub's EO Browser, users can
+                    visualise, compare and analyse and download all this data
+                    for a variety of applications, from environmental monitoring
+                    and disaster management to urban planning and agriculture.
+                  </p>
+
+                  <button class="guide-toggle button-group">
+                    Show Datasets
+                  </button>
+                </div>
                 <ul class="guide-content">
                   <li>SENTINEL-1</li>
                   <li>SENTINEL-2</li>
@@ -415,23 +385,25 @@
             <div class="tree-item">
               <i class="fas fa-rocket"></i>
               <div class="tree-item-content">
-                <h3>NASA Earthdata Search</h3>
-                <p>
-                  NASA's Earthdata Search is a comprehensive platform for
-                  accessing Earth science datasets, offering an extensive
-                  collection of satellite imagery and analysis-ready products.
-                  It supports studies of the biosphere, cryosphere, hydrosphere,
-                  and atmosphere, with data sourced from NASA's Distributed
-                  Active Archive Centers (DAACs). Beyond standard datasets, it
-                  provides specialized land cover data, such as permafrost maps
-                  and wetland types, enabling in-depth environmental analysis.
-                  Designed for researchers, educators, and policymakers,
-                  Earthdata Search simplifies data discovery and promotes a
-                  deeper understanding of global processes, making it an
-                  indispensable resource for addressing climate change,
-                  ecosystem monitoring, and other critical Earth science
-                  challenges.
-                </p>
+                <div>
+                  <h3>NASA Earthdata Search</h3>
+                  <p>
+                    NASA's Earthdata Search is a comprehensive platform for
+                    accessing Earth science datasets, offering an extensive
+                    collection of satellite imagery and analysis-ready products.
+                    It supports studies of the biosphere, cryosphere,
+                    hydrosphere, and atmosphere, with data sourced from NASA's
+                    Distributed Active Archive Centers (DAACs). Beyond standard
+                    datasets, it provides specialized land cover data, such as
+                    permafrost maps and wetland types, enabling in-depth
+                    environmental analysis. Designed for researchers, educators,
+                    and policymakers, Earthdata Search simplifies data discovery
+                    and promotes a deeper understanding of global processes,
+                    making it an indispensable resource for addressing climate
+                    change, ecosystem monitoring, and other critical Earth
+                    science challenges.
+                  </p>
+                </div>
                 <div class="button-group">
                   <a href="https://search.earthdata.nasa.gov/" target="_blank"
                     >Data Download</a
@@ -454,17 +426,19 @@
             <div class="tree-item">
               <i class="fas fa-snowflake"></i>
               <div class="tree-item-content">
-                <h3>Alaska Satellite Facility</h3>
-                <p>
-                  The Alaska Satellite Facility (ASF) is a data processing
-                  facility and satellite-tracking ground station within the
-                  Geophysical Institute at the University of Alaska Fairbanks.
-                  Its mission is to make remote-sensing data accessible. Its
-                  work is central to polar processes research, including
-                  wetlands, glaciers, sea ice, climate change, permafrost,
-                  flooding, and land cover, such as changes in the Amazon
-                  rainforest.
-                </p>
+                <div>
+                  <h3>Alaska Satellite Facility</h3>
+                  <p>
+                    The Alaska Satellite Facility (ASF) is a data processing
+                    facility and satellite-tracking ground station within the
+                    Geophysical Institute at the University of Alaska Fairbanks.
+                    Its mission is to make remote-sensing data accessible. Its
+                    work is central to polar processes research, including
+                    wetlands, glaciers, sea ice, climate change, permafrost,
+                    flooding, and land cover, such as changes in the Amazon
+                    rainforest.
+                  </p>
+                </div>
                 <button class="guide-toggle button-group">Show Datasets</button>
                 <ul class="guide-content">
                   <li>Main Dataset</li>
@@ -513,17 +487,19 @@
             <div class="tree-item">
               <i class="fas fa-map-marked-alt"></i>
               <div class="tree-item-content">
-                <h3>Bhuvan Indian Geo-Platform of ISRO</h3>
-                <p>
-                  Bhuvan is an Indian web-based utility which allows users to
-                  explore a set of geographic content prepared by the Indian
-                  Space Research Organisation. The content which the utility
-                  serves is mostly restricted to within Indian boundaries and is
-                  offered in four regional languages. The content includes
-                  thematic maps related to disasters, agriculture, water
-                  resources, land cover, and processed satellite data generated
-                  by ISRO.
-                </p>
+                <div>
+                  <h3>Bhuvan Indian Geo-Platform of ISRO</h3>
+                  <p>
+                    Bhuvan is an Indian web-based utility which allows users to
+                    explore a set of geographic content prepared by the Indian
+                    Space Research Organisation. The content which the utility
+                    serves is mostly restricted to within Indian boundaries and
+                    is offered in four regional languages. The content includes
+                    thematic maps related to disasters, agriculture, water
+                    resources, land cover, and processed satellite data
+                    generated by ISRO.
+                  </p>
+                </div>
                 <button class="guide-toggle button-group">Show Datasets</button>
                 <ul class="guide-content">
                   <li>Cartosat-1</li>
@@ -560,13 +536,15 @@
             <div class="tree-item">
               <i class="fas fa-satellite-dish"></i>
               <div class="tree-item-content">
-                <h3>JAXA</h3>
-                <p>
-                  JAXA is responsible for research, technology development and
-                  launch of satellites into orbit, and is involved in many more
-                  advanced missions such as asteroid exploration and possible
-                  human exploration of the Moon.
-                </p>
+                <div>
+                  <h3>JAXA</h3>
+                  <p>
+                    JAXA is responsible for research, technology development and
+                    launch of satellites into orbit, and is involved in many
+                    more advanced missions such as asteroid exploration and
+                    possible human exploration of the Moon.
+                  </p>
+                </div>
                 <button class="guide-toggle button-group">Show Datasets</button>
                 <ul class="guide-content">
                   <li>Alos-1</li>
@@ -613,16 +591,18 @@
             <div class="tree-item">
               <i class="fas fa-water"></i>
               <div class="tree-item-content">
-                <h3>NOAA CLASS</h3>
-                <p>
-                  The National Oceanic and Atmospheric Administration
-                  (abbreviated as NOAA) is an American scientific and regulatory
-                  agency charged with forecasting weather, monitoring oceanic
-                  and atmospheric conditions, charting the seas, conducting
-                  deep-sea exploration, and managing fishing and protection of
-                  marine mammals and endangered species in the US exclusive
-                  economic zone.
-                </p>
+                <div>
+                  <h3>NOAA CLASS</h3>
+                  <p>
+                    The National Oceanic and Atmospheric Administration
+                    (abbreviated as NOAA) is an American scientific and
+                    regulatory agency charged with forecasting weather,
+                    monitoring oceanic and atmospheric conditions, charting the
+                    seas, conducting deep-sea exploration, and managing fishing
+                    and protection of marine mammals and endangered species in
+                    the US exclusive economic zone.
+                  </p>
+                </div>
                 <div class="button-group">
                   <a href="https://www.class.noaa.gov/" target="_blank"
                     >Data Download</a

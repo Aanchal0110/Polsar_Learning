@@ -13,49 +13,51 @@
 
     <!-- Custom CSS File Link -->
     <link rel="stylesheet" href="/infi_website/CSS/style.css" />
-    
+
     <style>
       .software-section {
         margin: 20px 0;
         padding: 20px;
         background: #fff;
         border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
-      
+
       .software-section h2 {
         color: #003366;
         border-bottom: 2px solid #003366;
         padding-bottom: 10px;
         margin-bottom: 20px;
       }
-      
+
       .software-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
         margin-top: 20px;
       }
-      
+
       .software-card {
         background: #f8f9fa;
         border: 1px solid #e9ecef;
         border-radius: 8px;
         padding: 20px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
       }
-      
+
       .software-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       }
-      
+
       .software-header {
         display: flex;
         align-items: center;
         margin-bottom: 15px;
       }
-      
+
       .software-logo {
         width: 60px;
         height: 60px;
@@ -67,27 +69,27 @@
         padding: 5px;
         border: 1px solid #e9ecef;
       }
-      
+
       .software-title {
         font-size: 1.2em;
         font-weight: bold;
         color: #003366;
         margin: 0;
       }
-      
+
       .software-description {
         color: #555;
         line-height: 1.6;
         margin-bottom: 15px;
         text-align: justify;
       }
-      
+
       .software-links {
         display: flex;
         flex-direction: column;
         gap: 8px;
       }
-      
+
       .software-link {
         display: inline-flex;
         align-items: center;
@@ -99,18 +101,19 @@
         transition: all 0.3s ease;
         font-size: 0.9em;
       }
-      
+
       .software-link:hover {
         background: #007bff;
         color: white;
         text-decoration: none;
       }
-      
+
       .software-link i {
         margin-right: 8px;
       }
-      
+
       .proprietary-badge {
+        display: none;
         background: #dc3545;
         color: white;
         padding: 4px 8px;
@@ -118,7 +121,7 @@
         font-size: 0.8em;
         margin-left: 10px;
       }
-      
+
       .opensource-badge {
         background: #28a745;
         color: white;
@@ -126,24 +129,25 @@
         border-radius: 4px;
         font-size: 0.8em;
         margin-left: 10px;
+        display: none;
       }
-      
+
       @media (max-width: 768px) {
         .software-grid {
           grid-template-columns: 1fr;
         }
-        
+
         .software-header {
           flex-direction: column;
           text-align: center;
         }
-        
+
         .software-logo {
           margin-right: 0;
           margin-bottom: 10px;
         }
       }
-      
+
       /* Ensure images are visible */
       .software-logo {
         min-width: 60px;
@@ -151,9 +155,9 @@
         max-width: 80px;
         max-height: 80px;
       }
-      
+
       /* Fallback for missing images */
-      .software-logo:not([src]), 
+      .software-logo:not([src]),
       .software-logo[src=""],
       .software-logo[src*="undefined"] {
         background: #f8f9fa;
@@ -165,8 +169,8 @@
         font-size: 12px;
         text-align: center;
       }
-      
-      .software-logo:not([src])::after, 
+
+      .software-logo:not([src])::after,
       .software-logo[src=""]::after,
       .software-logo[src*="undefined"]::after {
         content: "Logo";
@@ -182,122 +186,46 @@
 
     <main>
       <h1>Remote Sensing Software</h1>
-      
-      <!-- Proprietary Software Section -->
-      <section class="software-section">
-        <h2>Proprietary Software</h2>
-        <div class="software-grid">
-          
-          <!-- ERDAS Imagine -->
-          <div class="software-card">
-            <div class="software-header">
-              <img src="/infi_website/image/edras.png" alt="ERDAS Imagine" class="software-logo">
-              <div>
-                <h3 class="software-title">ERDAS Imagine</h3>
-                <span class="proprietary-badge">Proprietary</span>
-              </div>
-            </div>
-            <p class="software-description">
-              ERDAS Imagine is ranked as the #1 remote sensing and image analysis software suite. Developed by Hexagon Geospatial, it can handle virtually any type of geospatial data, including satellite imagery, aerial photography, LiDAR point clouds, digital elevation models, and other GIS data.
-            </p>
-            <div class="software-links">
-              <a href="https://www.hexagongeospatial.com/products/erdas-imagine" class="software-link" target="_blank">
-                <i class="fas fa-external-link-alt"></i>
-                Visit Website
-              </a>
-            </div>
-          </div>
 
-          <!-- ENVI -->
-          <div class="software-card">
-            <div class="software-header">
-              <img src="/infi_website/image/ENVI.png" alt="ENVI" class="software-logo">
-              <div>
-                <h3 class="software-title">ENVI (NV5 Geospatial)</h3>
-                <span class="proprietary-badge">Proprietary</span>
-              </div>
-            </div>
-            <p class="software-description">
-              ENVI is an advanced remote sensing software platform from NV5 Geospatial. With ENVI, users can quickly extract information from satellite, airborne, and other types of imagery by leveraging the latest in image processing technology. It provides support for a wide range of data formats and offers powerful automation capabilities through ENVI modeler.
-            </p>
-            <div class="software-links">
-              <a href="https://www.nv5geospatialsoftware.com/envi" class="software-link" target="_blank">
-                <i class="fas fa-external-link-alt"></i>
-                Visit Website
-              </a>
-            </div>
-          </div>
-
-          <!-- PCI Geomatica -->
-          <div class="software-card">
-            <div class="software-header">
-              <img src="/infi_website/image/catalyst.png" alt="PCI Geomatica" class="software-logo">
-              <div>
-                <h3 class="software-title">PCI Geomatica (Catalyst)</h3>
-                <span class="proprietary-badge">Proprietary</span>
-              </div>
-            </div>
-            <p class="software-description">
-              PCI Geomatica is an advanced remote sensing software suite used by scientists, researchers, and GIS professionals around the world. Developed by Canadian company PCI Geomatics, users can access and analyze satellite imagery, aerial photography, and other types of remotely sensed data including SAR and InSAR data.
-            </p>
-            <div class="software-links">
-              <a href="https://www.catalyst.earth/catalyst-professional" class="software-link" target="_blank">
-                <i class="fas fa-external-link-alt"></i>
-                Visit Website
-              </a>
-              <a href="https://www.catalyst.earth/download" class="software-link" target="_blank">
-                <i class="fas fa-download"></i>
-                Download Manual
-              </a>
-            </div>
-          </div>
-
-          <!-- ArcGIS Pro -->
-          <div class="software-card">
-            <div class="software-header">
-              <img src="/infi_website/image/esri.png" alt="ArcGIS Pro" class="software-logo">
-              <div>
-                <h3 class="software-title">ArcGIS Pro</h3>
-                <span class="proprietary-badge">Proprietary</span>
-              </div>
-            </div>
-            <p class="software-description">
-              ArcGIS Pro supports SAR sensors with raster products and raster types. This allows you to add SAR data to your map directly from the original dataset, without the need for additional import or conversion tools. Currently, the SAR raster types support Capella, ICEYE, RADARSAT-2, RADARSAT Constellation Mission (RCM) and Sentinel-1.
-            </p>
-            <div class="software-links">
-              <a href="https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview" class="software-link" target="_blank">
-                <i class="fas fa-external-link-alt"></i>
-                Visit Website
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Open Source Software Section -->
       <section class="software-section">
         <h2>Open Source Software</h2>
         <div class="software-grid">
-          
           <!-- SNAP -->
           <div class="software-card">
             <div class="software-header">
-              <img src="/infi_website/image/snap.png" alt="SNAP" class="software-logo">
+              <img
+                src="/infi_website/image/snap.png"
+                alt="SNAP"
+                class="software-logo"
+              />
               <div>
                 <h3 class="software-title">SNAP</h3>
                 <span class="opensource-badge">Open Source</span>
               </div>
             </div>
             <p class="software-description">
-              All Sentinel Toolboxes is being jointly developed by Brockmann Consult, SkyWatch and C-S called the Sentinel Application Platform (SNAP). The SNAP architecture is ideal for Earth Observation processing and analysis due to the following technological innovations: Extensibility, Portability, Modular Rich Client Platform, Generic EO Data Abstraction, Tiled Memory Management, and a Graph Processing Framework.
+              All Sentinel Toolboxes is being jointly developed by Brockmann
+              Consult, SkyWatch and C-S called the Sentinel Application Platform
+              (SNAP). The SNAP architecture is ideal for Earth Observation
+              processing and analysis due to the following technological
+              innovations: Extensibility, Portability, Modular Rich Client
+              Platform, Generic EO Data Abstraction, Tiled Memory Management,
+              and a Graph Processing Framework.
             </p>
             <div class="software-links">
-              <a href="https://step.esa.int/main/download/" class="software-link" target="_blank">
+              <a
+                href="https://step.esa.int/main/download/"
+                class="software-link"
+                target="_blank"
+              >
                 <i class="fas fa-download"></i>
                 Download SNAP
               </a>
-              <a href="https://github.com/senbox-org/snap-engine" class="software-link" target="_blank">
+              <a
+                href="https://github.com/senbox-org/snap-engine"
+                class="software-link"
+                target="_blank"
+              >
                 <i class="fab fa-github"></i>
                 GitHub Repository
               </a>
@@ -307,17 +235,28 @@
           <!-- POLSAR -->
           <div class="software-card">
             <div class="software-header">
-              <img src="/infi_website/image/POLSAR.png" alt="POLSAR" class="software-logo">
+              <img
+                src="/infi_website/image/POLSAR.png"
+                alt="POLSAR"
+                class="software-logo"
+              />
               <div>
                 <h3 class="software-title">POLSAR</h3>
                 <span class="opensource-badge">Open Source</span>
               </div>
             </div>
             <p class="software-description">
-              POLSAR is a comprehensive software package for polarimetric SAR data processing and analysis. It provides tools for processing, analyzing, and visualizing polarimetric SAR data from various satellite missions.
+              POLSAR is a comprehensive software package for polarimetric SAR
+              data processing and analysis. It provides tools for processing,
+              analyzing, and visualizing polarimetric SAR data from various
+              satellite missions.
             </p>
             <div class="software-links">
-              <a href="https://earth.esa.int/eogateway/tools/polsarpro" class="software-link" target="_blank">
+              <a
+                href="https://earth.esa.int/eogateway/tools/polsarpro"
+                class="software-link"
+                target="_blank"
+              >
                 <i class="fas fa-external-link-alt"></i>
                 Learn More
               </a>
@@ -327,51 +266,206 @@
           <!-- VEDAS -->
           <div class="software-card">
             <div class="software-header">
-              <img src="/infi_website/image/VEDAS.png" alt="VEDAS" class="software-logo">
+              <img
+                src="/infi_website/image/VEDAS.png"
+                alt="VEDAS"
+                class="software-logo"
+              />
               <div>
                 <h3 class="software-title">VEDAS</h3>
                 <span class="opensource-badge">Open Source</span>
               </div>
             </div>
             <p class="software-description">
-              VEDAS (Visualization of Earth observation Data and Archival System) is an open-source software developed by ISRO for processing and analyzing Earth observation data. It provides tools for satellite data processing, analysis, and visualization.
+              VEDAS (Visualization of Earth observation Data and Archival
+              System) is an open-source software developed by ISRO for
+              processing and analyzing Earth observation data. It provides tools
+              for satellite data processing, analysis, and visualization.
             </p>
             <div class="software-links">
-              <a href="https://vedas.sac.gov.in/en/download.html" class="software-link" target="_blank">
+              <a
+                href="https://vedas.sac.gov.in/en/download.html"
+                class="software-link"
+                target="_blank"
+              >
                 <i class="fas fa-download"></i>
                 Download VEDAS
               </a>
             </div>
           </div>
-
         </div>
       </section>
 
+      <!-- Proprietary Software Section -->
+      <section class="software-section">
+        <h2>Proprietary Software</h2>
+        <div class="software-grid">
+          <!-- ERDAS Imagine -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/edras.png"
+                alt="ERDAS Imagine"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">ERDAS Imagine</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              ERDAS Imagine is ranked as the #1 remote sensing and image
+              analysis software suite. Developed by Hexagon Geospatial, it can
+              handle virtually any type of geospatial data, including satellite
+              imagery, aerial photography, LiDAR point clouds, digital elevation
+              models, and other GIS data.
+            </p>
+            <div class="software-links">
+              <a
+                href="https://www.hexagongeospatial.com/products/erdas-imagine"
+                class="software-link"
+                target="_blank"
+              >
+                <i class="fas fa-external-link-alt"></i>
+                Visit Website
+              </a>
+            </div>
+          </div>
+
+          <!-- ENVI -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/ENVI.png"
+                alt="ENVI"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">ENVI (NV5 Geospatial)</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              ENVI is an advanced remote sensing software platform from NV5
+              Geospatial. With ENVI, users can quickly extract information from
+              satellite, airborne, and other types of imagery by leveraging the
+              latest in image processing technology. It provides support for a
+              wide range of data formats and offers powerful automation
+              capabilities through ENVI modeler.
+            </p>
+            <div class="software-links">
+              <a
+                href="https://www.nv5geospatialsoftware.com/envi"
+                class="software-link"
+                target="_blank"
+              >
+                <i class="fas fa-external-link-alt"></i>
+                Visit Website
+              </a>
+            </div>
+          </div>
+
+          <!-- PCI Geomatica -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/catalyst.png"
+                alt="PCI Geomatica"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">PCI Geomatica (Catalyst)</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              PCI Geomatica is an advanced remote sensing software suite used by
+              scientists, researchers, and GIS professionals around the world.
+              Developed by Canadian company PCI Geomatics, users can access and
+              analyze satellite imagery, aerial photography, and other types of
+              remotely sensed data including SAR and InSAR data.
+            </p>
+            <div class="software-links">
+              <a
+                href="https://www.catalyst.earth/catalyst-professional"
+                class="software-link"
+                target="_blank"
+              >
+                <i class="fas fa-external-link-alt"></i>
+                Visit Website
+              </a>
+              <a
+                href="https://www.catalyst.earth/download"
+                class="software-link"
+                target="_blank"
+              >
+                <i class="fas fa-download"></i>
+                Download Manual
+              </a>
+            </div>
+          </div>
+
+          <!-- ArcGIS Pro -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/esri.png"
+                alt="ArcGIS Pro"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">ArcGIS Pro</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              ArcGIS Pro supports SAR sensors with raster products and raster
+              types. This allows you to add SAR data to your map directly from
+              the original dataset, without the need for additional import or
+              conversion tools. Currently, the SAR raster types support Capella,
+              ICEYE, RADARSAT-2, RADARSAT Constellation Mission (RCM) and
+              Sentinel-1.
+            </p>
+            <div class="software-links">
+              <a
+                href="https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview"
+                class="software-link"
+                target="_blank"
+              >
+                <i class="fas fa-external-link-alt"></i>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Open Source Software Section -->
     </main>
 
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
-    
+
     <script>
       // Debug image loading
-      document.addEventListener('DOMContentLoaded', function() {
-        const images = document.querySelectorAll('.software-logo');
-        images.forEach(function(img) {
-          console.log('Image src:', img.src);
-          
-          img.addEventListener('load', function() {
-            console.log('Image loaded successfully:', img.src);
-            this.style.opacity = '1';
+      document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll(".software-logo");
+        images.forEach(function (img) {
+          console.log("Image src:", img.src);
+
+          img.addEventListener("load", function () {
+            console.log("Image loaded successfully:", img.src);
+            this.style.opacity = "1";
           });
-          
-          img.addEventListener('error', function() {
-            console.error('Image failed to load:', img.src);
-            this.style.opacity = '0.5';
-            this.style.border = '2px dashed red';
+
+          img.addEventListener("error", function () {
+            console.error("Image failed to load:", img.src);
+            this.style.opacity = "0.5";
+            this.style.border = "2px dashed red";
           });
-          
+
           // Set initial opacity
-          img.style.opacity = '0.8';
-          img.style.transition = 'opacity 0.3s ease';
+          img.style.opacity = "0.8";
+          img.style.transition = "opacity 0.3s ease";
         });
       });
     </script>

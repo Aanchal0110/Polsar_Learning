@@ -221,59 +221,33 @@
 
       <div id="menu" class="fas fa-bars"></div>
 
-      <div id="navBar">
-        <!-- <ul>
-                <li><a href="home.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="resources.html" class="dropbtn">Resources</a>
-                    <div class="dropdown-content">
-                        <a href="Fundamental.html">Fundamentals</a>
-                        <a href="Technical Paper.html">Technical Papers</a>
-                        <a href="Books.html">Books</a>
-                        <a href="Videos.html">Videos</a>
-                        
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="domain-expert.html" class="dropbtn">Domain Experts</a>
-                    <div class="dropdown-content">
-                        <a href="academicians.html">Academicians</a>
-                        <a href="Industry Personnel.html">Industry Personnel</a>
-                        <a href="Researchers.html">Researchers</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="datadownload.html" class="dropbtn">Downloads</a>
-                    <div class="dropdown-content">
-                        <a href="datadownload.html">Data Download</a>
-                        <a href="opensource.html">Software</a>
-                    </div>
-                </li>
-
-                <li class="dropdown">
-                    <a href="education.html" class="dropbtn">Education</a>
-                   
-                </li>
-            </li>
-            <li><a href="career.html">Career</a></li>
-            <li><a href="event.html">Events</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li>
-                <form class="search-form">
-                    <input type="text" placeholder="Search..." required>
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </li>
-            <li><a href="login.html" class="dropbtn login-icon"><i class="fas fa-user"></i> Login</a></li>
-            </ul> -->
-      </div>
+      <div id="navBar"></div>
     </header>
     <main>
       <h1 class="event-title">🌐 Geo-Spatial Tech Pulse</h1>
       <p style="text-align: center">
         Live updates in Remote Sensing, Microwave Tech & Satellite Innovations
       </p>
+      <nav class="nav-tabs">
+        <div class="nav-tab active" data-category="all">All</div>
+        <div class="nav-tab" data-category="remote-sensing">Remote Sensing</div>
+        <div class="nav-tab" data-category="microwave">Microwave RS</div>
+        <div class="nav-tab" data-category="satellite">Satellite Tech</div>
+        <div class="nav-tab" data-category="innovation">New Innovations</div>
+        <div class="nav-tab" data-category="satellite">Satellite Tech</div>
+        <div class="nav-tab" data-category="innovation">New Innovations</div>
+      </nav>
+      <section>
+        <div class="main-grid" id="news-container">
+          <!-- Tech Cards will be populated by JavaScript -->
+        </div>
+        <div class="breaking-news" id="breaking-news">
+          <div id="breaking-news-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer style="background-color: #00336e">
       <div class="agency-buttons">
         <a href="https://www.nasa.gov" target="_blank" class="agency-button"
           >NASA</a
@@ -303,24 +277,7 @@
           >CGTN</a
         >
       </div>
-      <nav class="nav-tabs">
-        <div class="nav-tab active" data-category="all">All</div>
-        <div class="nav-tab" data-category="remote-sensing">Remote Sensing</div>
-        <div class="nav-tab" data-category="microwave">Microwave RS</div>
-        <div class="nav-tab" data-category="satellite">Satellite Tech</div>
-        <div class="nav-tab" data-category="innovation">New Innovations</div>
-        <div class="nav-tab" data-category="satellite">Satellite Tech</div>
-        <div class="nav-tab" data-category="innovation">New Innovations</div>
-      </nav>
-      <section>
-        <div class="main-grid" id="news-container">
-          <!-- Tech Cards will be populated by JavaScript -->
-        </div>
-        <div class="breaking-news" id="breaking-news">
-          <div id="breaking-news-content"></div>
-        </div>
-      </section>
-    </main>
+    </footer>
 
     <script src="/infi_website/Javascript/script.js"></script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>

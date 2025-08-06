@@ -16,11 +16,11 @@
 
     <style>
       :root {
-        --main-blue: #001a51;
+        --main-blue: #003366;
         --card-bg: #fff;
         --card-border: #b3c6e0;
-        --accent-blue: #5b8def;
-        --hover-blue: #2d4373;
+        --accent-blue: #003366;
+        --hover-blue: #003366;
         --text-dark: #1a2a2a;
         --text-light: #f9f9f9;
       }
@@ -46,8 +46,9 @@
         max-width: 1600px;
         margin: 0 auto;
       }
-      
+
       .az-index {
+        scrollbar-width: none;
         position: fixed;
         top: 100px;
         left: 20px;
@@ -67,7 +68,7 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(91, 141, 239, 0.1);
       }
-      
+
       .az-index a {
         background: var(--accent-blue);
         color: #fff;
@@ -82,16 +83,16 @@
         margin: 0;
         display: block;
       }
-      
+
       .az-index a:hover {
         background: var(--hover-blue);
       }
-      
+
       .edu-content {
         flex: 1;
         margin-left: 100px;
       }
-      
+
       .edu-type-toggle {
         display: flex;
         justify-content: center;
@@ -118,7 +119,7 @@
       }
       .toggle-btn.active,
       .toggle-btn:hover {
-        background: #4e7ad1;
+        background: #00359e;
         color: #fff;
         box-shadow: 0 4px 12px rgba(58, 92, 168, 0.1);
         /* Subtle shadow, lighter blue */
@@ -255,764 +256,1292 @@
       <div class="edu-main-layout">
         <div class="az-index" id="azIndex"></div>
         <div class="edu-content">
-      <div class="edu-type-toggle">
-            <button id="gov-btn" class="toggle-btn active">Indian Institutions</button>
-            <button id="priv-btn" class="toggle-btn">International Institutions</button>
-      </div>
-      <ol class="edu-list" id="gov-list">
-        <li>
-          <button class="edu-toggle">
-            Adamas University, Kolkata
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Innovative geoinformatics and earth observation curriculum<br />
-            <strong>Research Areas:</strong> Modern geospatial technologies and applications
-            <a href="https://adamasuniversity.ac.in/" target="_blank" class="view-site-btn">View Site</a>
+          <div class="edu-type-toggle">
+            <button id="gov-btn" class="toggle-btn active">
+              Indian Institutions
+            </button>
+            <button id="priv-btn" class="toggle-btn">
+              International Institutions
+            </button>
+          </div>
+          <div>
+            <ol class="edu-list" id="gov-list">
+              <li>
+                <button class="edu-toggle">Adamas University, Kolkata</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Innovative geoinformatics
+                  and earth observation curriculum<br />
+                  <strong>Research Areas:</strong> Modern geospatial
+                  technologies and applications
+                  <a
+                    href="https://adamasuniversity.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Amity University, Noida</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech Geoinformatics and
+                  Remote Sensing<br />
+                  <strong>Research Areas:</strong> Industry-aligned education in
+                  geoinformatics and remote sensing
+                  <a
+                    href="https://amity.edu/noida/aigirs/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Amrita Vishwa Vidyapeetham</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> B.Tech, M.Tech in
+                  Geoinformatics and Earth Observation<br />
+                  <strong>Research Areas:</strong> Modern earth observation
+                  technologies and applications
+                  <a
+                    href="https://www.amrita.edu/program/m-tech-geoinformatics-earth-observation/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Anna University, Tirunelveli</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Remote Sensing<br />
+                  <strong>Research Areas:</strong> Advanced remote sensing for
+                  resource and environmental monitoring
+                  <a
+                    href="https://irs.annauniv.edu/irs/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Andhra University College of Engineering, Visakhapatnam
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Remote Sensing<br />
+                  <strong>Research Areas:</strong> Environmental monitoring and
+                  spatial analytics
+                  <a
+                    href="https://www.andhrauniversity.edu.in/college/college-of-engineering/engineering-departments/geoengg.html"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Atal Bihari Vajpayee Hindi Vishwavidyalaya, Madhya Pradesh
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. in Geography with
+                  Remote Sensing and GIS specialization<br />
+                  <strong>Research Areas:</strong> Land use/cover analysis,
+                  environmental monitoring with geospatial tools
+                  <a
+                    href="https://abvhv.mponline.gov.in/portal/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Banaras Hindu University, Varanasi
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Geoscience
+                  Engineering<br />
+                  <strong>Research Areas:</strong> Leading in environmental
+                  studies and geo-resource management
+                  <a
+                    href="https://www.bhu.ac.in/Site/UnitHomeTemplate/1_179_1088_Main-Site-Institutes-and-Faculties"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Bangalore University</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Programs in Earth Sciences
+                  and Geospatial Technology<br />
+                  <strong>Research Areas:</strong> Applied geospatial sciences
+                  and technology
+                  <a
+                    href="https://bangaloreuniversity.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Banasthali Vidyapith, Rajasthan
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Remote Sensing<br />
+                  <strong>Research Areas:</strong> Women's university with
+                  specialized remote sensing programs
+                  <a
+                    href="https://targetstudy.com/university/15307/banasthali-university/course/mtech-remote-sensing.html"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Bharathidasan University, Tiruchirappalli
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. in Environmental
+                  Science with GIS and Remote Sensing components<br />
+                  <strong>Research Areas:</strong> Environmental monitoring and
+                  management using remote sensing technologies
+                  <a
+                    href="https://bdu.ac.in/schools/earth-sciences/remote-sensing/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Bharati Vidyapeeth Institute of Environment Education &
+                  Research, Pune
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Environmental monitoring
+                  programs<br />
+                  <strong>Research Areas:</strong> Environmental monitoring
+                  using GIS and remote sensing
+                  <a
+                    href="https://ioer.bharatividyapeeth.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Birla Institute of Technology, Mesra
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> B.Tech and M.Tech in
+                  Geoinformatics<br />
+                  <strong>Research Areas:</strong> Applications of GIS and
+                  remote sensing in agriculture and natural resource management
+                  <a
+                    href="https://www.bitmesra.ac.in/edudepartment/content/1/78/63"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Central University of Haryana
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Earth Sciences programs<br />
+                  <strong>Research Areas:</strong> Earth sciences with focus on
+                  geoinformatics
+                  <a
+                    href="https://cuh.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Central University of Jharkhand, Ranchi
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Land resource management
+                  programs<br />
+                  <strong>Research Areas:</strong> Focus on land resource
+                  management and spatial analysis
+                  <a
+                    href="https://cuj.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Chaudhary Charan Singh University, Meerut
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> PG Diploma in GIS and
+                  Remote Sensing<br />
+                  <strong>Research Areas:</strong> Applied geospatial
+                  technologies
+                  <a
+                    href="https://www.ccsuniversity.ac.in/faculty/Art/department/Geography"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Gujarat University, Ahmedabad
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Remote sensing and GIS
+                  programs<br />
+                  <strong>Research Areas:</strong> Remote sensing and GIS in
+                  applied sciences
+                  <a
+                    href="https://www.gujaratuniversity.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Hemvati Nandan Bahuguna Garhwal University
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Mountain studies
+                  programs<br />
+                  <strong>Research Areas:</strong> Mountain studies and remote
+                  sensing for natural resources
+                  <a
+                    href="https://www.hnbgu.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Indian Institute of Remote Sensing (IIRS), Dehradun
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Remote Sensing
+                  and GIS, M.Sc. in Geo-information Science & Earth Observation,
+                  Post-Graduate Diploma in Remote Sensing & GIS<br />
+                  <strong>Research Areas:</strong> India's apex institution for
+                  remote sensing and GIS research/training; specializes in
+                  remote sensing for environment, water, agriculture, and urban
+                  development
+                  <a
+                    href="https://www.iirs.gov.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Indian Institute of Technology Bombay (IIT Bombay)
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech, PhD<br />
+                  <strong>Research Areas:</strong> Centre of Studies in
+                  Resources Engineering (CSRE) advances applications of remote
+                  sensing and environmental monitoring
+                  <a
+                    href="https://www.iitb.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  IIT BHU - Indian Institute Of Technology Banaras Hindu
+                  University
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Geoscience
+                  Engineering<br />
+                  <strong>Research Areas:</strong> Focus on geoscience
+                  engineering and computational geoinformatics
+                  <a
+                    href="https://iitbhu.ac.in/dept/phy/research/specialization-6"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  IIT Kanpur - Indian Institute of Technology Kanpur
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Geoinformatics,
+                  DIIT, M.S., PhD<br />
+                  <strong>Research Areas:</strong> Notable research on water
+                  resource management, urban studies, and spatial data analysis
+                  <a
+                    href="https://www.iitk.ac.in/ce/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  IIT Kharagpur - Indian Institute of Technology Kharagpur
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Geoinformatics,
+                  PhD in Remote Sensing<br />
+                  <strong>Research Areas:</strong> Focus on geoinformatics,
+                  environmental modelling, and satellite imagery analytics
+                  <a
+                    href="https://www.iitkgp.ac.in/department/CL"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  IIT Madras - Indian Institute of Technology Madras
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.S., M.Tech, PG Diploma,
+                  PhD<br />
+                  <strong>Research Areas:</strong> Robust programs in geospatial
+                  sciences for civil, environmental, and disaster management
+                  <a
+                    href="https://civil.iitm.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  IIT Roorkee - Indian Institute of Technology Roorkee
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Geoinformatics,
+                  PhD in Remote Sensing<br />
+                  <strong>Research Areas:</strong> Pioneers
+                  Geoinformatics/Remote Sensing in civil/environmental
+                  engineering, infrastructure development, and natural resource
+                  management
+                  <a
+                    href="https://www.iitr.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  IIT Tirupati - Indian Institute of Technology Tirupati
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> MS by Research in
+                  Geoinformatics and Remote Sensing<br />
+                  <strong>Research Areas:</strong> Advanced research programs in
+                  geoinformatics and modern remote sensing technology
+                  <a
+                    href="https://cee.iittp.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Jamia Millia Islamia, New Delhi
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Civil engineering with GIS
+                  focus<br />
+                  <strong>Research Areas:</strong> Focus on urban disaster
+                  management, spatial data analytics, and applied remote sensing
+                  <a
+                    href="https://jmi.ac.in/civil"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Jadavpur University, Kolkata</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Oceanographic studies
+                  programs<br />
+                  <strong>Research Areas:</strong> Oceanographic studies
+                  incorporating GIS for marine resources and spatial analytics
+                  <a
+                    href="http://admissionas.jdvu.ac.in/jadavpurrs/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Jawaharlal Nehru Technological University, Kakinada
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in Remote Sensing<br />
+                  <strong>Research Areas:</strong> M.Tech in remote sensing for
+                  infrastructure and resources
+                  <a
+                    href="https://www.jntuk.edu.in/ssit"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Jiwaji University, Madhya Pradesh
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. in Geography with
+                  Remote Sensing and GIS<br />
+                  <strong>Research Areas:</strong> Strong in agriculture and
+                  forestry applications using remote sensing
+                  <a
+                    href="https://jiwaji.edu/school-of-studies-in-earth-science/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  JSS Academy of Higher Education & Research, Mysore
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geoinformatics programs<br />
+                  <strong>Research Areas:</strong> Research in geoinformatics
+                  and environmental monitoring
+                  <a
+                    href="https://www.jssuni.edu.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Kashmir University, Srinagar</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geoinformatics and earth
+                  observation programs<br />
+                  <strong>Research Areas:</strong> Leading geoinformatics/earth
+                  observation research in Himalayan context
+                  <a
+                    href="https://www.kashmiruniversity.net/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Kuvempu University, Karnataka
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. Degree in Earth
+                  Sciences & Resource Management (ESRM), M.Sc Degree in Remote
+                  Sensing and GIS Application (MSRA), M.Phil. Degree in Earth
+                  Science & Resource Management & Remote Sensing and GIS
+                  Applications, PhD<br />
+                  <strong>Research Areas:</strong> Disaster and environmental
+                  monitoring using satellite data
+                  <a
+                    href="http://kuvempu.ac.in/department/app_geology.php"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Madurai Kamaraj University</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Environmental studies
+                  programs<br />
+                  <strong>Research Areas:</strong> Environmental studies with
+                  advanced spatial analysis
+                  <a
+                    href="https://mkuniversity.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Maharshi Dayanand Saraswati University, Rajasthan
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. Remote Sensing and
+                  Geoinformatics<br />
+                  <strong>Research Areas:</strong> Specializes in environmental
+                  assessment and disaster management
+                  <a
+                    href="https://www.mdsuajmer.ac.in/showdept.php?catid=2&id=8&type=Courses"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  M.G. Chitrakoot Gramoday Vishwavidyalaya, Madhya Pradesh
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. in Rural Development
+                  with focus on Remote Sensing<br />
+                  <strong>Research Areas:</strong> Uses remote sensing for rural
+                  development and resource monitoring
+                  <a
+                    href="https://gramodayachitrakoot.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Motilal Nehru National Institute Of Technology Allahabad
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech in GIS and Remote
+                  Sensing<br />
+                  <strong>Research Areas:</strong> Applied GIS and remote
+                  sensing for environmental science
+                  <a
+                    href="https://www.mnnit.ac.in/index.php/department/others/gis-cell/giscellcourses"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  National Power Training Institute, Faridabad
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Specialized training
+                  programs incorporating GIS<br />
+                  <strong>Research Areas:</strong> Integrates GIS for
+                  applications in India's power sector
+                  <a
+                    href="https://npti.gov.in/en/about-npti"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  NIT Surathkal (Karnataka) - National Institute Of Technology
+                  Karnataka
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech by Research in
+                  Remote Sensing and GIS<br />
+                  <strong>Research Areas:</strong> Focuses on resource and
+                  mining applications
+                  <a
+                    href="https://mining.nitk.ac.in/course/remote-sensing-geoinformatics"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  NIT Warangal - National Institute of Technology Warangal
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech Remote Sensing and
+                  Geoinformation System<br />
+                  <strong>Research Areas:</strong> Programs in geospatial
+                  analysis, urban and environmental studies
+                  <a
+                    href="https://www.nitw.ac.in/ce"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Osmania University, Hyderabad
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> GIS and spatial analysis
+                  programs<br />
+                  <strong>Research Areas:</strong> Key programs in GIS, spatial
+                  analysis, and remote sensing
+                  <a
+                    href="https://www.osmania.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Panjab University, Chandigarh
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geospatial technology
+                  programs<br />
+                  <strong>Research Areas:</strong> Established geospatial
+                  technology research
+                  <a
+                    href="https://puchd.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Rajiv Gandhi Institute Of Petroleum Technology, Amethi
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> B.Tech in Geoscience and
+                  Engineering<br />
+                  <strong>Research Areas:</strong> Geoscience engineering for
+                  petroleum and environment
+                  <a
+                    href="https://rgipt.ac.in/en/article/information-technology-newly-lunched"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Sam Higginbottom Institute Of Agriculture Technology And
+                  Science, Allahabad
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech Remote Sensing and
+                  Geographical Information System<br />
+                  <strong>Research Areas:</strong> Focus on geospatial
+                  technology for agriculture and planning
+                  <a
+                    href="https://www.shiats.edu.in/dept_geospatial_tech.asp"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Sant Gadge Baba Amravati University, Maharashtra
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. Geology, P.G.
+                  Diploma, PhD in Geology<br />
+                  <strong>Research Areas:</strong> Applies remote sensing for
+                  environment and social sciences
+                  <a
+                    href="https://sgbau.ac.in/departments/Geology/Default.aspx"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Savitribai Phule Pune University
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Spatial information
+                  technology programs<br />
+                  <strong>Research Areas:</strong> Well-known for spatial
+                  information technology programs
+                  <a
+                    href="http://www.unipune.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Sharda University, Greater Noida
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Tech Remote Sensing and
+                  GIS<br />
+                  <strong>Research Areas:</strong> Modern geoinformatics and
+                  remote sensing programs
+                  <a
+                    href="https://www.sharda.ac.in/programmes/mtech-ce-remote-sensing-gis"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Symbiosis Institute of Geoinformatics, Pune
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. in Geoinformatics<br />
+                  <strong>Research Areas:</strong> Practical applications of GIS
+                  and remote sensing in urban planning and resource management
+                  <a
+                    href="https://www.sig.ac.in/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University of Allahabad, Uttar Pradesh
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. in Geography with GIS
+                  specialization<br />
+                  <strong>Research Areas:</strong> Focus on spatial analysis for
+                  social sciences and environmental studies
+                  <a
+                    href="https://allduniv.irins.org/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University of Calcutta, Kolkata
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc., PhD in Environmental
+                  Science<br />
+                  <strong>Research Areas:</strong> Environmental Science with
+                  remote sensing and GIS focus
+                  <a
+                    href="https://www.caluniv.ac.in/academic/Environmental-Sc.html"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University of Jammu, Jammu and Kashmir
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> M.Sc. Remote Sensing and
+                  GIS, PhD<br />
+                  <strong>Research Areas:</strong> Focuses on ecological
+                  studies, land-use planning and management through geospatial
+                  technologies
+                  <a
+                    href="https://www.jammuuniversity.ac.in/index.php/remote-sensing-gis/programmes"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+            </ol>
+            <ol class="edu-list" id="priv-list" style="display: none">
+              <li>
+                <button class="edu-toggle">
+                  Asian Institute of Technology (AIT), Thailand
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Master's programs in remote
+                  sensing and GIS<br />
+                  <strong>Research Areas:</strong> Region's flagship institute
+                  for remote sensing and GIS education, with specialized
+                  research in sustainable development and hazard studies
+                  <a
+                    href="https://ait.ac.th/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  California Institute of Technology (Caltech)
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Earth sciences research
+                  programs<br />
+                  <strong>Research Areas:</strong> Pioneering Earth sciences
+                  research including remote sensing applications for planetary
+                  and atmospheric studies through its Jet Propulsion Laboratory
+                  collaborations
+                  <a
+                    href="https://www.caltech.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Carnegie Mellon University</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Robotics and computer
+                  vision programs<br />
+                  <strong>Research Areas:</strong> Known for robotics, computer
+                  vision, and geospatial intelligence, offering innovative
+                  solutions using remote sensing and spatial analytics
+                  <a
+                    href="https://www.cmu.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Charles Sturt University (Australia)
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Spatial science and
+                  geospatial analytics programs<br />
+                  <strong>Research Areas:</strong> Offers dedicated programs in
+                  spatial science, geospatial analytics, and applications in
+                  agriculture and resource management
+                  <a
+                    href="https://www.csu.edu.au/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Delft University of Technology (TU Delft), Netherlands
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Master's programs in
+                  geomatics<br />
+                  <strong>Research Areas:</strong> Leading Master's programs in
+                  geomatics and active research in advanced remote sensing and
+                  geospatial data processing
+                  <a
+                    href="https://www.tudelft.nl/en/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">ETH Zurich</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geosciences and remote
+                  sensing programs<br />
+                  <strong>Research Areas:</strong> World leader in geosciences,
+                  remote sensing, and GIS, with a strong emphasis on
+                  environmental modelling and engineering
+                  <a
+                    href="https://ethz.ch/en.html"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Kyoto University (Japan)</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Disaster risk management
+                  and urban planning programs<br />
+                  <strong>Research Areas:</strong> Advanced programs in disaster
+                  risk management, urban planning, and satellite image analysis
+                  using geospatial technologies
+                  <a
+                    href="https://www.kyoto-u.ac.jp/en"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Lund University (Sweden)</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geoinformatics and Earth
+                  sciences programs<br />
+                  <strong>Research Areas:</strong> Strong geoinformatics and
+                  Earth sciences curriculum, widely recognized for remote
+                  sensing-based research in environmental change
+                  <a
+                    href="https://www.lunduniversity.lu.se/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Massachusetts Institute of Technology (MIT)
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Satellite remote sensing
+                  and environmental monitoring programs<br />
+                  <strong>Research Areas:</strong> Known for cutting-edge
+                  research and development in satellite remote sensing,
+                  environmental monitoring, and data analytics
+                  <a
+                    href="https://www.mit.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  National University of Singapore (NUS)
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geoinformatics and smart
+                  city research programs<br />
+                  <strong>Research Areas:</strong> Pioneering geoinformatics and
+                  smart city research, integrating satellite and ground-based
+                  spatial technologies for Asia's tropics
+                  <a
+                    href="https://nus.edu.sg/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Stanford University</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Multidisciplinary remote
+                  sensing programs<br />
+                  <strong>Research Areas:</strong> Multidisciplinary research in
+                  remote sensing, especially for ecology, resource mapping, and
+                  climate science
+                  <a
+                    href="https://www.stanford.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  Technical University of Munich (TUM)
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geodesy and satellite
+                  remote sensing programs<br />
+                  <strong>Research Areas:</strong> Innovative programs in
+                  geodesy, satellite remote sensing, and photogrammetry, with
+                  strong ties to European space initiatives
+                  <a
+                    href="https://www.tum.de/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University College London (UCL)
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> GIS and satellite
+                  monitoring programs<br />
+                  <strong>Research Areas:</strong> Renowned Centre for Advanced
+                  Spatial Analysis and geography department offers leading
+                  programs in GIS and satellite monitoring
+                  <a
+                    href="https://www.ucl.ac.uk/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">University of Arizona</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> School of Geography,
+                  Development & Environment programs<br />
+                  <strong>Research Areas:</strong> Recognized for its School of
+                  Geography, Development & Environment, integrating
+                  geoinformatics, sensor networks, and spatial analytics
+                  <a
+                    href="https://www.arizona.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University of California, Berkeley
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Remote sensing for
+                  environmental science programs<br />
+                  <strong>Research Areas:</strong> Leading academic and research
+                  programs in remote sensing for environmental science, resource
+                  management, and urban analysis
+                  <a
+                    href="https://www.berkeley.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">University of Calgary</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geomatics Engineering
+                  programs<br />
+                  <strong>Research Areas:</strong> Renowned department of
+                  Geomatics Engineering, with strong focus on environmental
+                  remote sensing and geospatial data analytics
+                  <a
+                    href="https://www.ucalgary.ca/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University of Colorado Boulder
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geospatial science and
+                  environmental remote sensing programs<br />
+                  <strong>Research Areas:</strong> Notable for comprehensive
+                  programs in geospatial science, environmental remote sensing,
+                  and Earth system monitoring
+                  <a
+                    href="https://www.colorado.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University of Maryland – College Park
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> GIS and remote sensing
+                  applications programs<br />
+                  <strong>Research Areas:</strong> Exceptional in GIS and remote
+                  sensing applications, leading the field through its Department
+                  of Geographical Sciences' focus on land change science and
+                  satellite data
+                  <a
+                    href="https://www.umd.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">University of Melbourne</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Spatial information and GIS
+                  programs<br />
+                  <strong>Research Areas:</strong> Exceptional research and
+                  education in spatial information, GIS, and land resource
+                  management using remote sensing techniques
+                  <a
+                    href="https://www.unimelb.edu.au/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">University of Oxford</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Environmental Change
+                  Institute programs<br />
+                  <strong>Research Areas:</strong> Outstanding Environmental
+                  Change Institute and geography department specializing in
+                  modelling, satellite data analysis, climate, and urban studies
+                  <a
+                    href="https://www.ox.ac.uk/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">University of Toronto</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Interdisciplinary
+                  geospatial science programs<br />
+                  <strong>Research Areas:</strong> Interdisciplinary geospatial
+                  science research, well-regarded for remote sensing in
+                  environmental monitoring and urban analytics
+                  <a
+                    href="https://www.utoronto.ca/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University of Twente (ITC), Netherlands
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Master's and PhD programs
+                  in remote sensing and GIS<br />
+                  <strong>Research Areas:</strong> A global hub for
+                  geo-information science and Earth observation, offering
+                  specialized master's and PhD programs in remote sensing and
+                  GIS
+                  <a
+                    href="https://www.itc.nl/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University of Washington – Seattle
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Earth observation and GIS
+                  programs<br />
+                  <strong>Research Areas:</strong> Expertise in Earth
+                  observation, GIS, and spatial analytics, with active research
+                  in hazard mapping and environmental informatics
+                  <a
+                    href="https://www.washington.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">
+                  University of Wisconsin–Madison
+                </button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Environmental remote
+                  sensing programs<br />
+                  <strong>Research Areas:</strong> Nationally recognized for
+                  environmental remote sensing, land cover change analysis, and
+                  spatial data science
+                  <a
+                    href="https://www.wisc.edu/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+              <li>
+                <button class="edu-toggle">Wuhan University</button>
+                <div class="edu-details">
+                  <strong>Programs Offered:</strong> Geomatics engineering and
+                  remote sensing programs<br />
+                  <strong>Research Areas:</strong> A global leader in geomatics
+                  engineering, renowned for its School of Remote Sensing and
+                  Information Engineering with advanced programs and research in
+                  satellite data analysis and spatial information science
+                  <a
+                    href="https://en.whu.edu.cn/"
+                    target="_blank"
+                    class="view-site-btn"
+                    >View Site</a
+                  >
+                </div>
+              </li>
+            </ol>
           </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Amity University, Noida
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech Geoinformatics and Remote Sensing<br />
-            <strong>Research Areas:</strong> Industry-aligned education in geoinformatics and remote sensing
-            <a href="https://amity.edu/noida/aigirs/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Amrita Vishwa Vidyapeetham
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> B.Tech, M.Tech in Geoinformatics and Earth Observation<br />
-            <strong>Research Areas:</strong> Modern earth observation technologies and applications
-            <a href="https://www.amrita.edu/program/m-tech-geoinformatics-earth-observation/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Anna University, Tirunelveli
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Remote Sensing<br />
-            <strong>Research Areas:</strong> Advanced remote sensing for resource and environmental monitoring
-            <a href="https://irs.annauniv.edu/irs/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Andhra University College of Engineering, Visakhapatnam
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Remote Sensing<br />
-            <strong>Research Areas:</strong> Environmental monitoring and spatial analytics
-            <a href="https://www.andhrauniversity.edu.in/college/college-of-engineering/engineering-departments/geoengg.html" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Atal Bihari Vajpayee Hindi Vishwavidyalaya, Madhya Pradesh
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. in Geography with Remote Sensing and GIS specialization<br />
-            <strong>Research Areas:</strong> Land use/cover analysis, environmental monitoring with geospatial tools
-            <a href="https://abvhv.mponline.gov.in/portal/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Banaras Hindu University, Varanasi
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Geoscience Engineering<br />
-            <strong>Research Areas:</strong> Leading in environmental studies and geo-resource management
-            <a href="https://www.bhu.ac.in/Site/UnitHomeTemplate/1_179_1088_Main-Site-Institutes-and-Faculties" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Bangalore University
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Programs in Earth Sciences and Geospatial Technology<br />
-            <strong>Research Areas:</strong> Applied geospatial sciences and technology
-            <a href="https://bangaloreuniversity.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Banasthali Vidyapith, Rajasthan
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Remote Sensing<br />
-            <strong>Research Areas:</strong> Women's university with specialized remote sensing programs
-            <a href="https://targetstudy.com/university/15307/banasthali-university/course/mtech-remote-sensing.html" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Bharathidasan University, Tiruchirappalli
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. in Environmental Science with GIS and Remote Sensing components<br />
-            <strong>Research Areas:</strong> Environmental monitoring and management using remote sensing technologies
-            <a href="https://bdu.ac.in/schools/earth-sciences/remote-sensing/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Bharati Vidyapeeth Institute of Environment Education & Research, Pune
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Environmental monitoring programs<br />
-            <strong>Research Areas:</strong> Environmental monitoring using GIS and remote sensing
-            <a href="https://ioer.bharatividyapeeth.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Birla Institute of Technology, Mesra
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> B.Tech and M.Tech in Geoinformatics<br />
-            <strong>Research Areas:</strong> Applications of GIS and remote sensing in agriculture and natural resource management
-            <a href="https://www.bitmesra.ac.in/edudepartment/content/1/78/63" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Central University of Haryana
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Earth Sciences programs<br />
-            <strong>Research Areas:</strong> Earth sciences with focus on geoinformatics
-            <a href="https://cuh.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Central University of Jharkhand, Ranchi
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Land resource management programs<br />
-            <strong>Research Areas:</strong> Focus on land resource management and spatial analysis
-            <a href="https://cuj.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Chaudhary Charan Singh University, Meerut
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> PG Diploma in GIS and Remote Sensing<br />
-            <strong>Research Areas:</strong> Applied geospatial technologies
-            <a href="https://www.ccsuniversity.ac.in/faculty/Art/department/Geography" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Gujarat University, Ahmedabad
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Remote sensing and GIS programs<br />
-            <strong>Research Areas:</strong> Remote sensing and GIS in applied sciences
-            <a href="https://www.gujaratuniversity.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Hemvati Nandan Bahuguna Garhwal University
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Mountain studies programs<br />
-            <strong>Research Areas:</strong> Mountain studies and remote sensing for natural resources
-            <a href="https://www.hnbgu.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Indian Institute of Remote Sensing (IIRS), Dehradun
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Remote Sensing and GIS, M.Sc. in Geo-information Science & Earth Observation, Post-Graduate Diploma in Remote Sensing & GIS<br />
-            <strong>Research Areas:</strong> India's apex institution for remote sensing and GIS research/training; specializes in remote sensing for environment, water, agriculture, and urban development
-            <a href="https://www.iirs.gov.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Indian Institute of Technology Bombay (IIT Bombay)
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech, PhD<br />
-            <strong>Research Areas:</strong> Centre of Studies in Resources Engineering (CSRE) advances applications of remote sensing and environmental monitoring
-            <a href="https://www.iitb.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            IIT BHU - Indian Institute Of Technology Banaras Hindu University
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Geoscience Engineering<br />
-            <strong>Research Areas:</strong> Focus on geoscience engineering and computational geoinformatics
-            <a href="https://iitbhu.ac.in/dept/phy/research/specialization-6" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            IIT Kanpur - Indian Institute of Technology Kanpur
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Geoinformatics, DIIT, M.S., PhD<br />
-            <strong>Research Areas:</strong> Notable research on water resource management, urban studies, and spatial data analysis
-            <a href="https://www.iitk.ac.in/ce/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            IIT Kharagpur - Indian Institute of Technology Kharagpur
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Geoinformatics, PhD in Remote Sensing<br />
-            <strong>Research Areas:</strong> Focus on geoinformatics, environmental modelling, and satellite imagery analytics
-            <a href="https://www.iitkgp.ac.in/department/CL" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            IIT Madras - Indian Institute of Technology Madras
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.S., M.Tech, PG Diploma, PhD<br />
-            <strong>Research Areas:</strong> Robust programs in geospatial sciences for civil, environmental, and disaster management
-            <a href="https://civil.iitm.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            IIT Roorkee - Indian Institute of Technology Roorkee
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Geoinformatics, PhD in Remote Sensing<br />
-            <strong>Research Areas:</strong> Pioneers Geoinformatics/Remote Sensing in civil/environmental engineering, infrastructure development, and natural resource management
-            <a href="https://www.iitr.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            IIT Tirupati - Indian Institute of Technology Tirupati
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> MS by Research in Geoinformatics and Remote Sensing<br />
-            <strong>Research Areas:</strong> Advanced research programs in geoinformatics and modern remote sensing technology
-            <a href="https://cee.iittp.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Jamia Millia Islamia, New Delhi
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Civil engineering with GIS focus<br />
-            <strong>Research Areas:</strong> Focus on urban disaster management, spatial data analytics, and applied remote sensing
-            <a href="https://jmi.ac.in/civil" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Jadavpur University, Kolkata
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Oceanographic studies programs<br />
-            <strong>Research Areas:</strong> Oceanographic studies incorporating GIS for marine resources and spatial analytics
-            <a href="http://admissionas.jdvu.ac.in/jadavpurrs/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Jawaharlal Nehru Technological University, Kakinada
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in Remote Sensing<br />
-            <strong>Research Areas:</strong> M.Tech in remote sensing for infrastructure and resources
-            <a href="https://www.jntuk.edu.in/ssit" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Jiwaji University, Madhya Pradesh
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. in Geography with Remote Sensing and GIS<br />
-            <strong>Research Areas:</strong> Strong in agriculture and forestry applications using remote sensing
-            <a href="https://jiwaji.edu/school-of-studies-in-earth-science/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            JSS Academy of Higher Education & Research, Mysore
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geoinformatics programs<br />
-            <strong>Research Areas:</strong> Research in geoinformatics and environmental monitoring
-            <a href="https://www.jssuni.edu.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Kashmir University, Srinagar
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geoinformatics and earth observation programs<br />
-            <strong>Research Areas:</strong> Leading geoinformatics/earth observation research in Himalayan context
-            <a href="https://www.kashmiruniversity.net/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Kuvempu University, Karnataka
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. Degree in Earth Sciences & Resource Management (ESRM), M.Sc Degree in Remote Sensing and GIS Application (MSRA), M.Phil. Degree in Earth Science & Resource Management & Remote Sensing and GIS Applications, PhD<br />
-            <strong>Research Areas:</strong> Disaster and environmental monitoring using satellite data
-            <a href="http://kuvempu.ac.in/department/app_geology.php" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Madurai Kamaraj University
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Environmental studies programs<br />
-            <strong>Research Areas:</strong> Environmental studies with advanced spatial analysis
-            <a href="https://mkuniversity.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Maharshi Dayanand Saraswati University, Rajasthan
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. Remote Sensing and Geoinformatics<br />
-            <strong>Research Areas:</strong> Specializes in environmental assessment and disaster management
-            <a href="https://www.mdsuajmer.ac.in/showdept.php?catid=2&id=8&type=Courses" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            M.G. Chitrakoot Gramoday Vishwavidyalaya, Madhya Pradesh
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. in Rural Development with focus on Remote Sensing<br />
-            <strong>Research Areas:</strong> Uses remote sensing for rural development and resource monitoring
-            <a href="https://gramodayachitrakoot.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Motilal Nehru National Institute Of Technology Allahabad
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech in GIS and Remote Sensing<br />
-            <strong>Research Areas:</strong> Applied GIS and remote sensing for environmental science
-            <a href="https://www.mnnit.ac.in/index.php/department/others/gis-cell/giscellcourses" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            National Power Training Institute, Faridabad
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Specialized training programs incorporating GIS<br />
-            <strong>Research Areas:</strong> Integrates GIS for applications in India's power sector
-            <a href="https://npti.gov.in/en/about-npti" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            NIT Surathkal (Karnataka) - National Institute Of Technology Karnataka
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech by Research in Remote Sensing and GIS<br />
-            <strong>Research Areas:</strong> Focuses on resource and mining applications
-            <a href="https://mining.nitk.ac.in/course/remote-sensing-geoinformatics" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            NIT Warangal - National Institute of Technology Warangal
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech Remote Sensing and Geoinformation System<br />
-            <strong>Research Areas:</strong> Programs in geospatial analysis, urban and environmental studies
-            <a href="https://www.nitw.ac.in/ce" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Osmania University, Hyderabad
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> GIS and spatial analysis programs<br />
-            <strong>Research Areas:</strong> Key programs in GIS, spatial analysis, and remote sensing
-            <a href="https://www.osmania.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Panjab University, Chandigarh
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geospatial technology programs<br />
-            <strong>Research Areas:</strong> Established geospatial technology research
-            <a href="https://puchd.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Rajiv Gandhi Institute Of Petroleum Technology, Amethi
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> B.Tech in Geoscience and Engineering<br />
-            <strong>Research Areas:</strong> Geoscience engineering for petroleum and environment
-            <a href="https://rgipt.ac.in/en/article/information-technology-newly-lunched" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Sam Higginbottom Institute Of Agriculture Technology And Science, Allahabad
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech Remote Sensing and Geographical Information System<br />
-            <strong>Research Areas:</strong> Focus on geospatial technology for agriculture and planning
-            <a href="https://www.shiats.edu.in/dept_geospatial_tech.asp" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Sant Gadge Baba Amravati University, Maharashtra
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. Geology, P.G. Diploma, PhD in Geology<br />
-            <strong>Research Areas:</strong> Applies remote sensing for environment and social sciences
-            <a href="https://sgbau.ac.in/departments/Geology/Default.aspx" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Savitribai Phule Pune University
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Spatial information technology programs<br />
-            <strong>Research Areas:</strong> Well-known for spatial information technology programs
-            <a href="http://www.unipune.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Sharda University, Greater Noida
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Tech Remote Sensing and GIS<br />
-            <strong>Research Areas:</strong> Modern geoinformatics and remote sensing programs
-            <a href="https://www.sharda.ac.in/programmes/mtech-ce-remote-sensing-gis" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Symbiosis Institute of Geoinformatics, Pune
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. in Geoinformatics<br />
-            <strong>Research Areas:</strong> Practical applications of GIS and remote sensing in urban planning and resource management
-            <a href="https://www.sig.ac.in/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Allahabad, Uttar Pradesh
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. in Geography with GIS specialization<br />
-            <strong>Research Areas:</strong> Focus on spatial analysis for social sciences and environmental studies
-            <a href="https://allduniv.irins.org/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Calcutta, Kolkata
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc., PhD in Environmental Science<br />
-            <strong>Research Areas:</strong> Environmental Science with remote sensing and GIS focus
-            <a href="https://www.caluniv.ac.in/academic/Environmental-Sc.html" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Jammu, Jammu and Kashmir
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> M.Sc. Remote Sensing and GIS, PhD<br />
-            <strong>Research Areas:</strong> Focuses on ecological studies, land-use planning and management through geospatial technologies
-            <a href="https://www.jammuuniversity.ac.in/index.php/remote-sensing-gis/programmes" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-      </ol>
-      <ol class="edu-list" id="priv-list" style="display: none">
-        <li>
-          <button class="edu-toggle">
-            Asian Institute of Technology (AIT), Thailand
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Master's programs in remote sensing and GIS<br />
-            <strong>Research Areas:</strong> Region's flagship institute for remote sensing and GIS education, with specialized research in sustainable development and hazard studies
-            <a href="https://ait.ac.th/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            California Institute of Technology (Caltech)
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Earth sciences research programs<br />
-            <strong>Research Areas:</strong> Pioneering Earth sciences research including remote sensing applications for planetary and atmospheric studies through its Jet Propulsion Laboratory collaborations
-            <a href="https://www.caltech.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Carnegie Mellon University
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Robotics and computer vision programs<br />
-            <strong>Research Areas:</strong> Known for robotics, computer vision, and geospatial intelligence, offering innovative solutions using remote sensing and spatial analytics
-            <a href="https://www.cmu.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Charles Sturt University (Australia)
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Spatial science and geospatial analytics programs<br />
-            <strong>Research Areas:</strong> Offers dedicated programs in spatial science, geospatial analytics, and applications in agriculture and resource management
-            <a href="https://www.csu.edu.au/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Delft University of Technology (TU Delft), Netherlands
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Master's programs in geomatics<br />
-            <strong>Research Areas:</strong> Leading Master's programs in geomatics and active research in advanced remote sensing and geospatial data processing
-            <a href="https://www.tudelft.nl/en/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            ETH Zurich
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geosciences and remote sensing programs<br />
-            <strong>Research Areas:</strong> World leader in geosciences, remote sensing, and GIS, with a strong emphasis on environmental modelling and engineering
-            <a href="https://ethz.ch/en.html" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Kyoto University (Japan)
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Disaster risk management and urban planning programs<br />
-            <strong>Research Areas:</strong> Advanced programs in disaster risk management, urban planning, and satellite image analysis using geospatial technologies
-            <a href="https://www.kyoto-u.ac.jp/en" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Lund University (Sweden)
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geoinformatics and Earth sciences programs<br />
-            <strong>Research Areas:</strong> Strong geoinformatics and Earth sciences curriculum, widely recognized for remote sensing-based research in environmental change
-            <a href="https://www.lunduniversity.lu.se/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Massachusetts Institute of Technology (MIT)
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Satellite remote sensing and environmental monitoring programs<br />
-            <strong>Research Areas:</strong> Known for cutting-edge research and development in satellite remote sensing, environmental monitoring, and data analytics
-            <a href="https://www.mit.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            National University of Singapore (NUS)
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geoinformatics and smart city research programs<br />
-            <strong>Research Areas:</strong> Pioneering geoinformatics and smart city research, integrating satellite and ground-based spatial technologies for Asia's tropics
-            <a href="https://nus.edu.sg/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Stanford University
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Multidisciplinary remote sensing programs<br />
-            <strong>Research Areas:</strong> Multidisciplinary research in remote sensing, especially for ecology, resource mapping, and climate science
-            <a href="https://www.stanford.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Technical University of Munich (TUM)
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geodesy and satellite remote sensing programs<br />
-            <strong>Research Areas:</strong> Innovative programs in geodesy, satellite remote sensing, and photogrammetry, with strong ties to European space initiatives
-            <a href="https://www.tum.de/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University College London (UCL)
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> GIS and satellite monitoring programs<br />
-            <strong>Research Areas:</strong> Renowned Centre for Advanced Spatial Analysis and geography department offers leading programs in GIS and satellite monitoring
-            <a href="https://www.ucl.ac.uk/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Arizona
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> School of Geography, Development & Environment programs<br />
-            <strong>Research Areas:</strong> Recognized for its School of Geography, Development & Environment, integrating geoinformatics, sensor networks, and spatial analytics
-            <a href="https://www.arizona.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of California, Berkeley
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Remote sensing for environmental science programs<br />
-            <strong>Research Areas:</strong> Leading academic and research programs in remote sensing for environmental science, resource management, and urban analysis
-            <a href="https://www.berkeley.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Calgary
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geomatics Engineering programs<br />
-            <strong>Research Areas:</strong> Renowned department of Geomatics Engineering, with strong focus on environmental remote sensing and geospatial data analytics
-            <a href="https://www.ucalgary.ca/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Colorado Boulder
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geospatial science and environmental remote sensing programs<br />
-            <strong>Research Areas:</strong> Notable for comprehensive programs in geospatial science, environmental remote sensing, and Earth system monitoring
-            <a href="https://www.colorado.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Maryland – College Park
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> GIS and remote sensing applications programs<br />
-            <strong>Research Areas:</strong> Exceptional in GIS and remote sensing applications, leading the field through its Department of Geographical Sciences' focus on land change science and satellite data
-            <a href="https://www.umd.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Melbourne
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Spatial information and GIS programs<br />
-            <strong>Research Areas:</strong> Exceptional research and education in spatial information, GIS, and land resource management using remote sensing techniques
-            <a href="https://www.unimelb.edu.au/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Oxford
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Environmental Change Institute programs<br />
-            <strong>Research Areas:</strong> Outstanding Environmental Change Institute and geography department specializing in modelling, satellite data analysis, climate, and urban studies
-            <a href="https://www.ox.ac.uk/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Toronto
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Interdisciplinary geospatial science programs<br />
-            <strong>Research Areas:</strong> Interdisciplinary geospatial science research, well-regarded for remote sensing in environmental monitoring and urban analytics
-            <a href="https://www.utoronto.ca/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Twente (ITC), Netherlands
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Master's and PhD programs in remote sensing and GIS<br />
-            <strong>Research Areas:</strong> A global hub for geo-information science and Earth observation, offering specialized master's and PhD programs in remote sensing and GIS
-            <a href="https://www.itc.nl/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Washington – Seattle
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Earth observation and GIS programs<br />
-            <strong>Research Areas:</strong> Expertise in Earth observation, GIS, and spatial analytics, with active research in hazard mapping and environmental informatics
-            <a href="https://www.washington.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            University of Wisconsin–Madison
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Environmental remote sensing programs<br />
-            <strong>Research Areas:</strong> Nationally recognized for environmental remote sensing, land cover change analysis, and spatial data science
-            <a href="https://www.wisc.edu/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-        <li>
-          <button class="edu-toggle">
-            Wuhan University
-          </button>
-          <div class="edu-details">
-            <strong>Programs Offered:</strong> Geomatics engineering and remote sensing programs<br />
-            <strong>Research Areas:</strong> A global leader in geomatics engineering, renowned for its School of Remote Sensing and Information Engineering with advanced programs and research in satellite data analysis and spatial information science
-            <a href="https://en.whu.edu.cn/" target="_blank" class="view-site-btn">View Site</a>
-          </div>
-        </li>
-      </ol>
         </div>
       </div>
     </main>
@@ -1020,48 +1549,50 @@
       // Generate A-Z index
       function generateAZIndex() {
         const allInstitutions = [
-          ...document.querySelectorAll('#gov-list .edu-toggle'),
-          ...document.querySelectorAll('#priv-list .edu-toggle')
+          ...document.querySelectorAll("#gov-list .edu-toggle"),
+          ...document.querySelectorAll("#priv-list .edu-toggle"),
         ];
-        
+
         const azSet = new Set();
-        allInstitutions.forEach(institution => {
+        allInstitutions.forEach((institution) => {
           const firstLetter = institution.textContent.trim()[0].toUpperCase();
           azSet.add(firstLetter);
         });
-        
+
         const azIndex = Array.from(azSet).sort();
         document.getElementById("azIndex").innerHTML = azIndex
           .map((letter) => `<a href="#az-${letter}">${letter}</a>`)
           .join("");
       }
-      
+
       // Add letter headers to institutions
       function addLetterHeaders() {
-        const lists = ['gov-list', 'priv-list'];
-        
-        lists.forEach(listId => {
+        const lists = ["gov-list", "priv-list"];
+
+        lists.forEach((listId) => {
           const list = document.getElementById(listId);
-          const items = list.querySelectorAll('li');
-          let lastLetter = '';
-          
-          items.forEach(item => {
-            const institutionName = item.querySelector('.edu-toggle').textContent.trim();
+          const items = list.querySelectorAll("li");
+          let lastLetter = "";
+
+          items.forEach((item) => {
+            const institutionName = item
+              .querySelector(".edu-toggle")
+              .textContent.trim();
             const firstLetter = institutionName[0].toUpperCase();
-            
+
             if (firstLetter !== lastLetter) {
-              const header = document.createElement('div');
+              const header = document.createElement("div");
               header.id = `az-${firstLetter}`;
-              header.style.cssText = 'width:100%;margin-top:32px;';
+              header.style.cssText = "width:100%;margin-top:32px;";
               header.innerHTML = `<h2 style="color:var(--main-blue);border-bottom:1.5px solid var(--card-border);padding-bottom:4px;letter-spacing:2px;">${firstLetter}</h2>`;
-              
+
               item.parentNode.insertBefore(header, item);
               lastLetter = firstLetter;
             }
           });
         });
       }
-      
+
       function setupDropdowns(listId) {
         document.querySelectorAll(`#${listId} .edu-toggle`).forEach((btn) => {
           btn.addEventListener("click", function () {
@@ -1080,13 +1611,13 @@
           });
         });
       }
-      
+
       // Initialize everything
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         addLetterHeaders();
         generateAZIndex();
-      setupDropdowns("gov-list");
-      setupDropdowns("priv-list");
+        setupDropdowns("gov-list");
+        setupDropdowns("priv-list");
       });
 
       document.getElementById("gov-btn").onclick = function () {
