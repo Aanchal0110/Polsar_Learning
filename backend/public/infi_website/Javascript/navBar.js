@@ -53,14 +53,16 @@ const navbar = `<nav class="navbar">
                     <li><a href="/infi_website/HTML/event.html">Events</a></li>
                     <li><a href="/infi_website/HTML/contact.html">Contact Us</a></li>
                   </ul>
-                  <div class="search-login-container">
-                        
-                    <a id="" href="/infi_website/HTML/login.html" class="">
-                        <i class="fas fa-user"></i>
-                        <span>Login</span>
-                    </a>
-                  </div>
+                  
               </nav>`
+  
+  // <div class="search-login-container">
+                        
+  //                   <a id="" href="/infi_website/HTML/login.html" class="">
+  //                       <i class="fas fa-user"></i>
+  //                       <span>Login</span>
+  //                   </a>
+  //                 </div>
 
 if (navBar) {
   navBar.innerHTML = navbar;
