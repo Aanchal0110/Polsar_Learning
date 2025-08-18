@@ -1919,17 +1919,20 @@
     </main>
 
     <script>
-      // Search functionality
-      // const searchInput = document.getElementById("paperSearch");
-      // searchInput.addEventListener("input", function () {
-      //   const query = this.value.toLowerCase();
-      //   document.querySelectorAll(".paper-card").forEach((card) => {
-      //     const text = card.textContent.toLowerCase();
-      //     card.style.display = text.includes(query) ? "" : "none";
-      //   });
-      // });
+      // Enable search on this page
+      const searchInput = document.getElementById("paperSearch");
+      if (searchInput) {
+        searchInput.addEventListener("input", function () {
+          const query = this.value.toLowerCase();
+          document.querySelectorAll(".paper-card").forEach((card) => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(query) ? "" : "none";
+          });
+        });
+      }
 
-      fetch(`https://${window.location.host}/infi_website/data/technical.json`)
+      // Use same-origin relative URL to avoid HTTPS/port and mixed-content issues
+      fetch(`/infi_website/data/technical.json`)
         .then((res) => res.json())
         .then((data) => {
           Object.keys(data).forEach((k, index) => {
@@ -1957,6 +1960,7 @@
           });
 
           setupAbstractToggles();
+          enhancePaperLinks();
         })
         .catch((err) => console.error(err));
 
@@ -1971,6 +1975,166 @@
           });
         });
       }
+
+      // Auto-generate working links for papers based on title tokens
+      function enhancePaperLinks() {
+        const cards = document.querySelectorAll('.paper-card');
+        cards.forEach((card) => {
+          const titleAnchor = card.querySelector('a.paper-title');
+          if (!titleAnchor) return;
+          const titleText = titleAnchor.textContent.trim();
+          // Skip if already has a non-placeholder link
+          const currentHref = titleAnchor.getAttribute('href');
+          if (currentHref && currentHref !== '#' && !currentHref.startsWith('javascript:')) return;
+
+          // Extract base title (before pipes), and source hint
+          const parts = titleText.split('|').map((p) => p.trim());
+          const baseTitle = parts[0];
+          const hint = parts.slice(1).join(' ').toLowerCase();
+          const enc = encodeURIComponent(baseTitle);
+
+          let url = '';
+          if (hint.includes('ieee')) {
+            url = `https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=${enc}`;
+          } else if (hint.includes('sciencedirect')) {
+            url = `https://www.sciencedirect.com/search?qs=${enc}`;
+          } else if (hint.includes('springer')) {
+            url = `https://link.springer.com/search?query=${enc}`;
+          } else if (hint.includes('tropical ecology')) {
+            url = `https://www.tropicalecology.org/index.php/te/search?query=${enc}`;
+          } else if (hint.includes('researchgate') || baseTitle.toLowerCase().startsWith('(pdf)')) {
+            url = `https://www.researchgate.net/search/publication?q=${enc}`;
+          } else if (hint.includes('vde')) {
+            url = `https://www.vde-verlag.de/search?query=${enc}`;
+          } else {
+            // Fallback to Google Scholar
+            url = `https://scholar.google.com/scholar?q=${enc}`;
+          }
+
+          titleAnchor.setAttribute('href', url);
+          titleAnchor.setAttribute('target', '_blank');
+          titleAnchor.setAttribute('rel', 'noopener');
+        });
+      }
+
+      // Enrich metadata (authors, DOI link, missing abstract) using CrossRef API
+      (function enrichWithCrossRef() {
+        const cards = Array.from(document.querySelectorAll('.paper-card'));
+        const queue = cards.map((card) => ({ card }));
+
+        function baseTitleFromCard(card) {
+          const a = card.querySelector('a.paper-title');
+          if (!a) return null;
+          const text = a.textContent.trim();
+          return text.split('|')[0].trim();
+        }
+
+        function needsAuthorUpdate(card) {
+          const authorsEl = card.querySelector('.paper-authors');
+          if (!authorsEl) return false;
+          return /Not specified/i.test(authorsEl.textContent) || /Author\(s\):\s*$/i.test(authorsEl.textContent.trim());
+        }
+
+        function needsLinkUpdate(card) {
+          const a = card.querySelector('a.paper-title');
+          if (!a) return false;
+          const href = a.getAttribute('href') || '';
+          return href === '#' || href.startsWith('https://scholar.google') || href.startsWith('https://ieeexplore.ieee.org/search') || href.startsWith('https://www.sciencedirect.com/search') || href.startsWith('https://link.springer.com/search') || href.startsWith('https://www.researchgate.net/search') || href.startsWith('https://www.vde-verlag.de/search');
+        }
+
+        function needsAbstractUpdate(card) {
+          const abs = card.querySelector('.paper-abstract');
+          if (!abs) return false;
+          const text = abs.textContent.replace(/\s+/g, ' ').trim();
+          // Keep existing substantial abstracts, only fill if very short
+          return text.length < 80;
+        }
+
+        function sanitizeAbstract(html) {
+          if (!html) return '';
+          try {
+            // Remove JATS and HTML tags
+            let txt = html.replace(/<\/?jats:[^>]*>/gi, '');
+            txt = txt.replace(/<[^>]+>/g, '');
+            // Decode common entities
+            const textarea = document.createElement('textarea');
+            textarea.innerHTML = txt;
+            return textarea.value.trim();
+          } catch (e) {
+            return '';
+          }
+        }
+
+        async function processCard(card) {
+          const title = baseTitleFromCard(card);
+          if (!title) return;
+          if (!(needsAuthorUpdate(card) || needsLinkUpdate(card) || needsAbstractUpdate(card))) return;
+          const q = encodeURIComponent(title);
+          const url = `https://api.crossref.org/works?rows=3&select=title,author,DOI,URL,abstract&query.bibliographic=${q}`;
+          try {
+            const res = await fetch(url);
+            if (!res.ok) return;
+            const data = await res.json();
+            const items = (data && data.message && data.message.items) || [];
+            if (!items.length) return;
+            // Find best match by title similarity
+            const lowerTitle = title.toLowerCase();
+            let best = items[0];
+            for (const it of items) {
+              const itTitle = (Array.isArray(it.title) ? it.title[0] : it.title || '').toLowerCase();
+              if (itTitle && (itTitle === lowerTitle || itTitle.includes(lowerTitle) || lowerTitle.includes(itTitle))) {
+                best = it; break;
+              }
+            }
+
+            // Update link
+            if (needsLinkUpdate(card)) {
+              const a = card.querySelector('a.paper-title');
+              if (best.DOI) {
+                a.href = `https://doi.org/${best.DOI}`;
+              } else if (best.URL) {
+                a.href = best.URL;
+              }
+              a.target = '_blank';
+              a.rel = 'noopener';
+            }
+
+            // Update authors
+            if (needsAuthorUpdate(card) && Array.isArray(best.author) && best.author.length) {
+              const authors = best.author.map((au) => [au.given, au.family].filter(Boolean).join(' ')).filter(Boolean);
+              const authorsEl = card.querySelector('.paper-authors');
+              if (authorsEl && authors.length) {
+                authorsEl.textContent = `Author(s): ${authors.join(', ')}`;
+              }
+            }
+
+            // Update abstract if missing/short
+            if (needsAbstractUpdate(card) && best.abstract) {
+              const absEl = card.querySelector('.paper-abstract');
+              if (absEl) {
+                const clean = sanitizeAbstract(best.abstract);
+                if (clean) {
+                  absEl.innerHTML = `<em>Abstract:</em> ${clean}`;
+                }
+              }
+            }
+          } catch (e) {
+            // ignore
+          }
+        }
+
+        // Limit concurrency to avoid throttling
+        const concurrency = 5;
+        let idx = 0;
+        async function worker() {
+          while (idx < queue.length) {
+            const my = idx++;
+            const { card } = queue[my];
+            await processCard(card);
+          }
+        }
+        for (let i = 0; i < concurrency; i++) worker();
+      })();
     </script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
   </body>

@@ -28,9 +28,10 @@
             justify-content: center;
             width: 50px;
             height: 50px;
+            aspect-ratio: 1 / 1;
             background: #0077b5;
             color: white;
-            border-radius: 50%;
+            border-radius: 8px; /* LinkedIn brand-style rounded square */
             text-decoration: none;
             transition: all 0.3s ease;
             margin: 0 10px;
@@ -44,13 +45,35 @@
 
         .contact-icons .icon i {
             font-size: 24px;
+            display: inline-block !important; /* override global icon hiding */
         }
 
-        /* Justified text for better readability */
+        /* Restore LinkedIn brand glyph hidden by global rules */
+        .contact-icons .icon i.fa-linkedin-in::before {
+            content: "\f0e1" !important; /* LinkedIn-in glyph */
+            font-family: "Font Awesome 6 Brands" !important;
+            font-weight: 400 !important;
+        }
+
+        /* Make email clearly visible in orange */
+        #about-contact .contact-info a {
+            color: #ffffff; /* high-contrast gold for visibility */
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        #about-contact .contact-info a:hover {
+            color: #ffffff; /* white on hover for maximum contrast */
+        }
+
+        /* Justified text for better readability (override global centering) */
         #about-contact p {
             text-align: justify;
             line-height: 1.8;
             margin-bottom: 20px;
+            max-width: none;            /* override site-wide 800px limit */
+            margin-left: 0;             /* remove auto-centering */
+            margin-right: 0;            /* remove auto-centering */
+            width: 100%;                /* occupy remaining space */
         }
 
         /* Center the contact information section */
@@ -80,7 +103,7 @@
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            
+            background: rgba(0, 0, 0, 0.45); /* dark overlay for better readability */
             z-index: 0;
             pointer-events: none;
         }
@@ -166,7 +189,7 @@
             <div class="intro-optical-remote-sensing">
                 <div class="content-left">
                     <h2>INTRODUCTION TO OPTICAL REMOTE SENSING</h2>
-                    <p>Optical remote sensing uses visible, infrared, and thermal radiation to capture images of the Earth's surface...</p>
+                    <p>Optical remote sensing uses visible, infrared, and thermal radiation to capture images of the Earth's surface. Optical remote sensing is a technique that uses sensors on satellites, aircraft, or drones to detect and record natural radiation (sunlight or thermal emission) reflected or emitted from the Earth’s surface in different parts of the electromagnetic spectrum, mainly visible, near-infrared (NIR), shortwave infrared (SWIR), and thermal infrared (TIR) regions.</p>
                     <a href="/infi_website/HTML/optical.html"><button class="explore-more">Start Exploring</button></a>
                 </div>
                 <div class="content-image-right">

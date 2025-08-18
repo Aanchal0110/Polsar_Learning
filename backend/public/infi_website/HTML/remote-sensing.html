@@ -22,39 +22,16 @@
 
         /* Header Styling */
 
-        /* Logo Image Styling */
-        .logo-img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-        }
+        /* Remove page-specific logo override; use global site logo rules */
+        .logo-img { width: 96px; height: 48px; border-radius: 0; object-fit: contain; background: white; }
 
         /* Navigation Bar Styling */
-        .navbar {
-            display: flex;
-            align-items: center;
-            flex: 1;
-            margin: 0 20px;
-        }
+        /* Remove page-specific navbar overrides to match site */
+        .navbar { }
 
-        .navbar ul {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 30px;
-        }
+        .navbar ul { }
 
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            padding: 8px 12px;
-            transition: color 0.2s ease;
-            white-space: nowrap;
-        }
+        .navbar a { }
 
         .navbar a:hover {
             color: #ff4500;

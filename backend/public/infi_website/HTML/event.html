@@ -111,25 +111,9 @@
         border-radius: 20px;
         font-size: 0.9rem;
       }
-      .live-badge {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        background: var(--microwave-red);
-        padding: 0.3rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .live-pulse {
-        width: 10px;
-        height: 10px;
-        background-color: #fff;
-        border-radius: 50%;
-        animation: pulse 1.5s infinite;
-      }
+      /* remove live badge styles */
+      .live-badge { display: none !important; }
+      .live-pulse { display: none !important; }
       @keyframes pulse {
         0% {
           opacity: 1;
@@ -165,8 +149,7 @@
         border: 2px solid #002147 !important;
         box-shadow: 0 2px 8px rgba(0, 33, 71, 0.07);
       }
-      .sensor-type,
-      .live-badge {
+      .sensor-type {
         background: #002147 !important;
         color: #fff !important;
       }
@@ -490,7 +473,6 @@
 
         card.innerHTML = `
                 <span class="sensor-type">${newItem.sensorType}</span>
-                <span class="live-badge"><div class="live-pulse"></div> LIVE</span>
                 <h2>${newItem.title}</h2>
                 <div class="technical-specs">
                     ${Object.entries(newItem.specs)

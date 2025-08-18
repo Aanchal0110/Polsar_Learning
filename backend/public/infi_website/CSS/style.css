@@ -84,7 +84,7 @@ header {
   align-items: center;
   height: 100%;
   width: 100vw;
-  justify-content: space-between;
+  justify-content: flex-start; /* left-align navbar content */
   position: relative;
   background-color: #003366;
 }
@@ -92,12 +92,12 @@ header {
 .navbar ul {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-evenly; /* spread items across the width */
   flex: 1;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2vw;
+  gap: clamp(16px, 3vw, 40px);
   min-width: 0;
   flex-wrap: nowrap;
   height: 70px;
@@ -249,24 +249,25 @@ header {
   top: 100%;
   left: 0;
   background: #fff;
-  min-width: 220px;
+  min-width: 260px; /* wider */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
+  border-radius: 10px; /* more space */
   display: none;
   z-index: 1001;
   border: 1px solid #e0e0e0;
-  padding: 8px 0;
+  padding: 10px 0; /* larger click area */
 }
 
 .dropdown-content a {
   color: #333;
-  padding: 12px 20px;
+  padding: 14px 22px; /* more padding for clickability */
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   border-bottom: 1px solid #f0f0f0;
   transition: all 0.3s ease;
   text-decoration: none;
+  line-height: 1.3;
 }
 
 .dropdown-content a:last-child {
@@ -276,7 +277,7 @@ header {
 .dropdown-content a:hover {
   background: #f8f9fa;
   color: #ff4500;
-  padding-left: 25px;
+  padding-left: 28px;
 }
 
 .dropdown:hover .dropdown-content,
@@ -323,9 +324,9 @@ header {
 #navBar ul {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly; /* spread items across the width */
   align-items: center;
-  gap: 15px;
+  gap: clamp(16px, 3vw, 40px);
   flex-wrap: wrap;
 }
 
@@ -780,6 +781,21 @@ img {
   gap: 2rem;
 }
 
+/* Prevent optical image from being squeezed by long text */
+.intro-optical-remote-sensing .content-left {
+  flex: 1 1 60%;
+}
+.intro-optical-remote-sensing .content-image-right {
+  flex: 0 0 380px;
+  max-width: 40%;
+}
+.intro-optical-remote-sensing .content-image-right img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+}
+
 /* === Headings === */
 .intro-remote-sensing h1,
 .intro-microwave-remote-sensing h1,
@@ -843,6 +859,12 @@ img {
     text-align: center;
     padding: 30px 15px;
     gap: 1.5rem;
+  }
+
+  .intro-optical-remote-sensing .content-left,
+  .intro-optical-remote-sensing .content-image-right {
+    flex: 1 1 auto;
+    max-width: 100%;
   }
 
   .intro-remote-sensing .content-left,
@@ -1181,6 +1203,43 @@ nav {
 }
 .navbar {
   margin-bottom: 10px !important;
+}
+
+/* Hide Font Awesome icons globally */
+.fa,
+.fas,
+.far,
+.fal,
+.fab,
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin,
+.fa-brands,
+i.fa,
+i.fas,
+i.far,
+i.fal,
+i.fab,
+i.fa-solid,
+i.fa-regular,
+i.fa-light,
+i.fa-thin,
+i.fa-brands,
+i[class^="fa-"],
+i[class*=" fa-"] {
+  display: none !important;
+}
+
+/* Prevent pseudo-element icon insertion */
+[class*="fa-"]::before,
+[class*=" fa-"]::before {
+  content: none !important;
+}
+
+/* Remove list checkmark icons sourced from Font Awesome */
+.source ul li::before {
+  content: '' !important;
 }
 
 .search-form {
