@@ -10,19 +10,12 @@
     />
     <link rel="stylesheet" href="/infi_website/CSS/style.css" />
     <style>
-      .navbar a.active {
+      /* .navbar a.active {
         color: red;
       }
       .navbar a:hover {
         color: #1e90ff;
-      }
-      header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background: #002147;
-      }
+      } */
       main {
         margin-top: 80px;
         padding: 20px;
@@ -221,7 +214,7 @@
     </style>
   </head>
   <body>
-    <header>
+    <header style="width: 100vw;">
       <div id="menu" class="fas fa-bars"></div>
       <div id="navBar"></div>
     </header>
@@ -242,110 +235,15 @@
 
       <div id="papersContainer">
         <!-- Remote Sensing: Sensor Types -->
-        <div class="domain-section">
+        <div id="Remote Sensing Sensor Types" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-satellite"></i> Remote Sensing: Sensor Types
           </h2>
 
-          <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Remote sensing satellite sensor information retrieval and
-              visualization based on SensorML | IEEE Conference Publication |
-              IEEE Xplore</a
-            >
-            <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword">Satellites</span>
-              <span class="paper-keyword">Remote sensing</span>
-              <span class="paper-keyword">Data models</span>
-              <span class="paper-keyword">ISO standards</span>
-              <span class="paper-keyword">Visualization</span>
-              <span class="paper-keyword">Orbits</span>
-              <span class="paper-keyword">Information services</span>
-            </div>
-            <button class="toggle-abstract">Show Abstract</button>
-            <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> In the era of high-frequency occurrence of
-              natural disasters, users are more urgently concerned with the
-              sharing of the satellite sensor resources information and
-              coordinating the complement of sensor observation. However, the
-              capacity of discovering, retrieving and visualizing the sensor
-              resource information accurately based on heterogeneous sensors
-              over sensor network is very limited. This paper proposes the
-              system architecture for effectively managing those heterogeneous
-              and multiple sensors and their information, which is inspired by
-              the Open Geospatial Consortium (OGC) Sensor Web Enablement (SWE)
-              Initiative and based on one of its information model- Sensor Model
-              Language (SensorML) of which Process Model is the core. The
-              prototype "SensorModel VI. 0" is designed and implemented used to
-              construct the standard model for unified management of multiple
-              remote sensing satellite sensor resources information and
-              demonstrate the model-based retrieval and visualization of related
-              remote sensors and their information, which promotes the
-              comprehensive accessing and collaborative planning/controlling the
-              available remote sensor's information in time-critical disaster
-              emergency.
-            </div>
-          </div>
-
-          <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >(PDF) Remote Sensing Platforms and Sensors</a
-            >
-            <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword">Remote sensing</span>
-              <span class="paper-keyword">Electromagnetic radiation (EMR)</span>
-              <span class="paper-keyword">Sensor</span>
-              <span class="paper-keyword">Platform</span>
-              <span class="paper-keyword">Data acquisition</span>
-            </div>
-            <button class="toggle-abstract">Show Abstract</button>
-            <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> Remote sensing is the acquisition of
-              information about an object without coming in physical contact of
-              that object. And 'sensor' is a device that helps in gathering of
-              information (amount of EMR emitted or reflected by the object). In
-              other words, 'sensor' is the remote sensing device that records
-              wavelengths of energy. Generally, these sensors are mounted or
-              fixed with a 'platform'. Therefore, 'platform' is termed as a
-              vehicle that carries remote sensing device.
-            </div>
-          </div>
-
-          <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >A Study of Types of Sensors used in Remote Sensing |
-              International Journal of Electronics and Telecommunication</a
-            >
-            <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword">Disaster Management</span>
-              <span class="paper-keyword">Microwave sensors</span>
-              <span class="paper-keyword">Optical sensors</span>
-              <span class="paper-keyword">Remote Sensing</span>
-            </div>
-            <button class="toggle-abstract">Show Abstract</button>
-            <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> Of late, the science of Remote Sensing has been
-              gaining a lot of interest and attention due to its wide variety of
-              applications. Remotely sensed data can be used in various fields
-              such as medicine, agriculture, engineering, weather forecasting,
-              military tactics, disaster management etc. only to name a few.
-              This article presents a study of the two categories of sensors
-              namely optical and microwave which are used for remotely sensing
-              the occurrence of disasters such as earthquakes, floods,
-              landslides, avalanches, tropical cyclones and suspicious
-              movements. The remotely sensed data acquired either through
-              satellites or through ground based- synthetic aperture radar
-              systems could be used to avert or mitigate a disaster or to
-              perform a post-disaster analysis.
-            </div>
-          </div>
         </div>
 
         <!-- Data Acquisition and Preprocessing -->
-        <div class="domain-section">
+        <div id="Data Acquisition and Preprocessing" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-database"></i> Data Acquisition and Preprocessing
           </h2>
@@ -450,7 +348,7 @@
         </div>
 
         <!-- Atmospheric Correction and Calibration -->
-        <div class="domain-section">
+        <div id="Atmospheric Correction and Calibration" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-cloud"></i> Atmospheric Correction and Calibration
           </h2>
@@ -691,7 +589,7 @@
         </div>
 
         <!-- Spatial, Temporal, and Spectral Resolutions -->
-        <div class="domain-section">
+        <div id="Spatial, Temporal, and Spectral Resolutions" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-chart-line"></i> Spatial, Temporal, and Spectral
             Resolutions
@@ -928,7 +826,7 @@
         </div>
 
         <!-- Optical Remote Sensing -->
-        <div class="domain-section">
+        <div id="Optical Remote Sensing" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-eye"></i> Optical Remote Sensing
           </h2>
@@ -1207,7 +1105,7 @@
         </div>
 
         <!-- Image Classification and Machine Learning -->
-        <div class="domain-section">
+        <div id="Image Classification and Machine Learning" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-brain"></i> Image Classification and Machine
             Learning
@@ -1451,7 +1349,7 @@
         </div>
 
         <!-- Spectral Analysis -->
-        <div class="domain-section">
+        <div id="Spectral Analysis" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-chart-bar"></i> Spectral Analysis
           </h2>
@@ -1641,7 +1539,7 @@
         </div>
 
         <!-- Image Fusion -->
-        <div class="domain-section">
+        <div id="Image Fusion" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-layer-group"></i> Image Fusion
           </h2>
@@ -1783,7 +1681,7 @@
         </div>
 
         <!-- Change Detection -->
-        <div class="domain-section">
+        <div id="Change Detection" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-exchange-alt"></i> Change Detection
           </h2>
@@ -1947,7 +1845,7 @@
         </div>
 
         <!-- Microwave Remote Sensing -->
-        <div class="domain-section">
+        <div id="Microwave Remote Sensing" class="domain-section">
           <h2 class="domain-title">
             <i class="fas fa-broadcast-tower"></i> Microwave Remote Sensing
           </h2>
@@ -2017,14 +1915,42 @@
 
     <script>
       // Search functionality
-      const searchInput = document.getElementById("paperSearch");
-      searchInput.addEventListener("input", function () {
-        const query = this.value.toLowerCase();
-        document.querySelectorAll(".paper-card").forEach((card) => {
-          const text = card.textContent.toLowerCase();
-          card.style.display = text.includes(query) ? "" : "none";
-        });
-      });
+      // const searchInput = document.getElementById("paperSearch");
+      // searchInput.addEventListener("input", function () {
+      //   const query = this.value.toLowerCase();
+      //   document.querySelectorAll(".paper-card").forEach((card) => {
+      //     const text = card.textContent.toLowerCase();
+      //     card.style.display = text.includes(query) ? "" : "none";
+      //   });
+      // });
+
+      fetch(`http://localhost:5000/infi_website/data/technical.json`).then(res => res.json()).then(data => {
+        Object.keys(data).forEach((k, index) => {
+          const area = document.getElementById(`${data[k].type}`);
+          console.log(data[k])
+          const card = `<div class="paper-card">
+            <a href="${data[k].link}" class="paper-title" target="_blank"
+              >${data[k].title}</a
+            >
+            <div id="${"".concat([k, index])}" class="paper-meta">
+              <span class="paper-authors">Author(s): ${" ".concat(data[k].author)}</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> ${data[k].abstract}
+            </div>
+          </div>`;
+          area.innerHTML += card;
+
+          data[k].keywords.forEach(item => {
+            // console.log(document.getElementById("".concat([k , index])));
+          document.getElementById("".concat([k , index])).innerHTML += `<span class="paper-keyword">${item}</span>`;
+        })
+        })
+
+
+        setupAbstractToggles();
+      }).catch(err => console.error(err));
 
       // Abstract toggle
       function setupAbstractToggles() {
@@ -2037,7 +1963,6 @@
           });
         });
       }
-      setupAbstractToggles();
     </script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
   </body>

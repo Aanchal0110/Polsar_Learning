@@ -1,0 +1,28 @@
+{
+  "paper_1": {
+    "title": "Remote sensing satellite sensor information retrieval and visualization based on SensorML | IEEE Conference Publication | IEEE Xplore",
+    "link": "https://ieeexplore.ieee.org/document/6049956",
+    "abstract": "In the era of high-frequency occurrence of natural disasters, users are more urgently concerned with the sharing of the satellite sensor resources information and coordinating the complement of sensor observation. However, the capacity of discovering, retrieving and visualizing the sensor resource information accurately based on heterogeneous sensors over sensor network is very limited. This paper proposes the system architecture for effectively managing those heterogeneous and multiple sensors and their information, which is inspired by the Open Geospatial Consortium (OGC) Sensor Web Enablement (SWE) Initiative and based on one of its information model- Sensor Model Language (SensorML) of which Process Model is the core. The prototype 'SensorModel VI.0' is designed and implemented used to construct the standard model for unified management of multiple remote sensing satellite sensor resources information and demonstrate the model-based retrieval and visualization of related remote sensors and their information, which promotes the comprehensive accessing and collaborative planning/controlling the available remote sensor's information in time-critical disaster emergency.",
+    "keywords": ["Satellites", "Remote sensing", "Data models", "ISO standards", "Visualization", "Orbits", "Information services"],
+    "author": ["Chuli Hu", "Nengcheng Chen", "Chao Wang"],
+    "type": "Remote Sensing Sensor Types"
+  },
+  "paper_2": {
+    "title": "Remote Sensing Platforms and Sensors",
+    "link": "https://www.researchgate.net/publication/330212930_Remote_Sensing_Platforms_and_Sensors",  
+    "abstract": "Remote sensing is the acquisition of information about an object without coming in physical contact of that object. And ‘sensor’ is a device that helps in gathering of information (amount of EMR emitted or reflected by the object). In other words, ‘sensor’ is the remote sensing device that records wavelengths of energy. Generally, these sensors are mounted or fixed with a ‘platform’. Therefore, ‘platform’ is termed as a vehicle that carries remote sensing device.",
+    "keywords": ["Remote sensing", "Electromagnetic radiation (EMR)", "Sensor", "Platform", "Data acquisition"],
+    "author": [ "Simone Di Cataldo", "Wolfgang von der Linden", "Lilia Boeri" ],
+    "type": "Remote Sensing Sensor Types"
+  },
+  "paper_3": {
+    "title": "A Study of Types of Sensors used in Remote Sensing | International Journal of Electronics and Telecommunication",
+    "link": "https://ijet.pl/index.php/ijet/article/view/10.24425-ijet.2019.126304",  
+    "abstract": "Of late, the science of Remote Sensing has been gaining a lot of interest and attention due to its wide variety of applications. Remotely sensed data can be used in various fields such as medicine, agriculture, engineering, weather forecasting, military tactics, disaster management etc. only to name a few. This article presents a study of the two categories of sensors namely optical and microwave which are used for remotely sensing the occurrence of disasters such as earthquakes, floods, landslides, avalanches, tropical cyclones and suspicious movements. The remotely sensed data acquired either through satellites or through ground based- synthetic aperture radar systems could be used to avert or mitigate a disaster or to perform a post-disaster analysis.",
+    "keywords": ["Disaster Management", "Microwave sensors", "Optical sensors", "Remote Sensing"],
+    "author": ["Shweta Vincent", "Sharmila Anand John Francis ", "Om Prakash Kumar", "Kumudha Raimond"],
+    "type": "Remote Sensing Sensor Types"
+  }
+
+    
+}
