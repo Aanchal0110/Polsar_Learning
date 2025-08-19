@@ -75,6 +75,18 @@ if (navBar) {
   }
 }
 
+// Ensure a single brand logo only (remove duplicate if both exist)
+try {
+  const headerEl = document.querySelector('header');
+  const existingBrand = document.getElementById('brandLogo');
+  if (headerEl) {
+    if (existingBrand) {
+      // If we already injected a brand logo earlier, keep only one by removing it
+      existingBrand.remove();
+    }
+  }
+} catch (e) {}
+
 if (tracker) {
   tracker.innerHTML = `<a href="/">${window.location.pathname}</a>`;
 }
@@ -147,8 +159,10 @@ if (navBarTracker) {
 
   console.log("Navbar initialized successfully");
   
-  // Initialize search functionality directly
-  initializeSearch();
+  // Initialize search functionality directly only if search-form exists (avoid mobile console noise)
+  if (document.querySelector('.search-form')) {
+    initializeSearch();
+  }
 }
 
 // Search functionality

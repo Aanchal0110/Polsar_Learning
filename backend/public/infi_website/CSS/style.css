@@ -51,10 +51,7 @@ main,
   background: white;
   /* padding: 4px; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  position: relative;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: static;
 }
 
 /* Ensure header has proper structure */
@@ -92,7 +89,7 @@ header {
 .navbar ul {
   display: flex;
   align-items: center;
-  justify-content: space-evenly; /* spread items across the width */
+  justify-content: center; /* center menu items; control spacing via gap */
   flex: 1;
   list-style: none;
   margin: 0;
@@ -101,7 +98,7 @@ header {
   min-width: 0;
   flex-wrap: nowrap;
   height: 70px;
-  margin-left: 20px;
+  margin-left: 0;
 }
 
 .navbar li {
@@ -393,6 +390,9 @@ header {
 
 /* Tablet Portrait */
 @media (max-width: 768px) {
+  /* keep a small brand logo visible in header; hide the large one inside navbar */
+  #brandLogo .logo-img { width: 36px; height: 36px; }
+  .navbar .logo { display: none; }
   header {
     padding: 0 1vw;
     height: 60px;
@@ -1205,37 +1205,7 @@ nav {
   margin-bottom: 10px !important;
 }
 
-/* Hide Font Awesome icons globally */
-.fa,
-.fas,
-.far,
-.fal,
-.fab,
-.fa-solid,
-.fa-regular,
-.fa-light,
-.fa-thin,
-.fa-brands,
-i.fa,
-i.fas,
-i.far,
-i.fal,
-i.fab,
-i.fa-solid,
-i.fa-regular,
-i.fa-light,
-i.fa-thin,
-i.fa-brands,
-i[class^="fa-"],
-i[class*=" fa-"] {
-  display: none !important;
-}
-
-/* Prevent pseudo-element icon insertion */
-[class*="fa-"]::before,
-[class*=" fa-"]::before {
-  content: none !important;
-}
+/* Keeping Font Awesome icons visible (previous global hide removed) */
 
 /* Remove list checkmark icons sourced from Font Awesome */
 .source ul li::before {

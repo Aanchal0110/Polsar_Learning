@@ -166,7 +166,7 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
 
-      #paperSearch {
+      #paperSearch, .paper-search {
         width: 70%;
         padding: 12px 20px;
         font-size: 1.1rem;
@@ -216,7 +216,18 @@
   <body>
     <header style="width: 100vw">
       <div id="menu" class="fas fa-bars"></div>
-      <div id="navBar"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search papers...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -226,11 +237,7 @@
           Comprehensive collection of research papers categorized by domain for
           both beginners and researchers
         </p>
-        <input
-          type="text"
-          id="paperSearch"
-          placeholder="Search by title, keyword, or author..."
-        />
+        <input type="text" id="paperSearch" class="paper-search" placeholder="Search by title, keyword, or author..." />
       </div>
 
       <div id="papersContainer">
@@ -239,8 +246,70 @@
           <h2 class="domain-title">
             <i class="fas fa-satellite"></i> Remote Sensing: Sensor Types
           </h2>
-        </div>
 
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/6049956" class="paper-title" target="_blank">
+              Remote sensing satellite sensor information retrieval and visualization based on SensorML | IEEE Conference Publication | IEEE Xplore
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Chuli Hu; Nengcheng Chen; Chao Wangspan>
+              <span class="paper-year">2010</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Satellites</span>
+              <span class="paper-keyword">Remote sensing</span>
+              <span class="paper-keyword">Data models</span>
+              <span class="paper-keyword">ISO standards</span>
+              <span class="paper-keyword">Visualization</span>
+              <span class="paper-keyword">Orbits</span>
+              <span class="paper-keyword">Information services</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> In the era of high-frequency occurrence of natural disasters, users are more urgently concerned with the sharing of the satellite sensor resources information and coordinating the complement of sensor observation. However, the capacity of discovering, retrieving and visualizing the sensor resource information accurately based on heterogeneous sensors over sensor network is very limited. This paper proposes the system architecture for effectively managing those heterogeneous and multiple sensors and their information, which is inspired by the Open Geospatial Consortium (OGC) Sensor Web Enablement (SWE) Initiative and based on one of its information model- Sensor Model Language (SensorML) of which Process Model is the core. The prototype "SensorModel VI. 0" is designed and implemented used to construct the standard model for unified management of multiple remote sensing satellite sensor resources information and demonstrate the model-based retrieval and visualization of related remote sensors and their information, which promotes the comprehensive accessing and collaborative planning/controlling the available remote sensor's information in time-critical disaster emergency.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://www.researchgate.net/publication/330212930_Remote_Sensing_Platforms_and_Sensors" class="paper-title" target="_blank">
+              (PDF) Remote Sensing Platforms and Sensors
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Ekwal Imam Aligarh Muslim University</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Remote sensing</span>
+              <span class="paper-keyword">Electromagnetic radiation (EMR)</span>
+              <span class="paper-keyword">Sensor</span>
+              <span class="paper-keyword">Platform</span>
+              <span class="paper-keyword">Data acquisition</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> Remote sensing is the acquisition of information about an object without coming in physical contact of that object. And 'sensor' is a device that helps in gathering of information (amount of EMR emitted or reflected by the object). In other words, 'sensor' is the remote sensing device that records wavelengths of energy. Generally, these sensors are mounted or fixed with a 'platform'. Therefore, 'platform' is termed as a vehicle that carries remote sensing device.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ijet.pl/index.php/ijet/article/view/10.24425-ijet.2019.126304" class="paper-title" target="_blank">
+              A Study of Types of Sensors used in Remote Sensing | International Journal of Electronics and Telecommunication
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Shweta Vincent, Sharmila Anand John Francis, Om Prakash KumarKumudha Raimond</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Disaster Management</span>
+              <span class="paper-keyword">Microwave sensors</span>
+              <span class="paper-keyword">Optical sensors</span>
+              <span class="paper-keyword">Remote Sensing</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> Of late, the science of Remote Sensing has been gaining a lot of interest and attention due to its wide variety of applications. Remotely sensed data can be used in various fields such as medicine, agriculture, engineering, weather forecasting, military tactics, disaster management etc. only to name a few. This article presents a study of the two categories of sensors namely optical and microwave which are used for remotely sensing the occurrence of disasters such as earthquakes, floods, landslides, avalanches, tropical cyclones and suspicious movements. The remotely sensed data acquired either through satellites or through ground based- synthetic aperture radar systems could be used to avert or mitigate a disaster or to perform a post-disaster analysis.
+            </div>
+          </div>
+          
+         
         <!-- Data Acquisition and Preprocessing -->
         <div id="Data Acquisition and Preprocessing" class="domain-section">
           <h2 class="domain-title">
@@ -248,14 +317,14 @@
           </h2>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Remote Sensing Data Preprocessing Technology | Request PDF</a
-            >
+            <a href="https://www.researchgate.net/publication/303896011_Remote_Sensing_Data_Preprocessing_Technology" class="paper-title" target="_blank">
+              Remote Sensing Data Preprocessing Technology | Request PDF
+            </a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword"
-                >Multi-spectral high-resolution data</span
-              >
+              <span class="paper-authors">Authors: Qing Yan Meng Chinese Academy of Sciences </span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Multi-spectral high-resolution data</span>
               <span class="paper-keyword">LiDAR point cloud data</span>
               <span class="paper-keyword">Quickbird image data</span>
               <span class="paper-keyword">Street view map</span>
@@ -263,30 +332,18 @@
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> With the development of remote sensing
-              technology, remote sensing images are becoming increasingly
-              convenient. Different types of remote sensing images have
-              different advantages in urban green space research. This chapter
-              mainly introduces the characteristics and preprocessing methods of
-              multi-spectral high-resolution data, LiDAR point cloud data,
-              Quickbird image data, etc. Apart from these, the latest street
-              view map, a type of real time map service, provides 360° panoramic
-              views of cities, streets or others. The service provides users the
-              maps with an immersive browsing experience. Street view data has
-              gradually become the data source of urban green space research due
-              to its similarity to pedestrian perspective and low acquisition
-              cost. At the end of this chapter, we will introduce the objects
-              classification techniques and characteristics of street view data.
+              <em>Abstract:</em> With the development of remote sensing technology, remote sensing images are becoming increasingly convenient. Different types of remote sensing images have different advantages in urban green space research. This chapter mainly introduces the characteristics and preprocessing methods of multi-spectral high-resolution data, LiDAR point cloud data, Quickbird image data, etc. Apart from these, the latest street view map, a type of real time map service, provides 360° panoramic views of cities, streets or others. The service provides users the maps with an immersive browsing experience. Street view data has gradually become the data source of urban green space research due to its similarity to pedestrian perspective and low acquisition cost. At the end of this chapter, we will introduce the objects classification techniques and characteristics of street view data.
             </div>
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Satellite image formation and preprocessing methods | IEEE
-              Conference Publication | IEEE Xplore</a
-            >
+            <a href="https://ieeexplore.ieee.org/document/9351456" class="paper-title" target="_blank">
+              Satellite image formation and preprocessing methods | IEEE Conference Publication | IEEE Xplore
+            </a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+              <span class="paper-authors">Authors: Temurbek Kuchkorov; Shakhobiddin Urmanov; Muborak Kuvvatova; Islom Anvarov</span>
+            </div>
+            <div class="paper-keywords">
               <span class="paper-keyword">Information science</span>
               <span class="paper-keyword">Satellites</span>
               <span class="paper-keyword">Image synthesis</span>
@@ -297,179 +354,75 @@
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> This paper gives a conceptual and practical
-              introduction to the field of satellite image formation and
-              preprocessing. In particular, the process of satellite image
-              generation is discussed going through each step of its lifecycle.
-              A special explanatory emphasis is given to the process of remote
-              sensing and further mapping and fusion of satellite imagery within
-              acquired segments of electromagnetic spectrum. Moreover, methods
-              of satellite imagery retrieval have been practically demonstrated.
-              The satellite imagery data has been extracted from Sentinel 2
-              dataset and analyzed with Python language image processing
-              libraries.
+              <em>Abstract:</em> This paper gives a conceptual and practical introduction to the field of satellite image formation and preprocessing. In particular, the process of satellite image generation is discussed going through each step of its lifecycle. A special explanatory emphasis is given to the process of remote sensing and further mapping and fusion of satellite imagery within acquired segments of electromagnetic spectrum. Moreover, methods of satellite imagery retrieval have been practically demonstrated. The satellite imagery data has been extracted from Sentinel 2 dataset and analyzed with Python language image processing libraries.
             </div>
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Data Acquisition And Preprocessing Techniques For Remote Sensing
-              Field Research</a
+            <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/0356/0000/Data-Acquisition-And-Preprocessing-Techniques-For-Remote-Sensing-Field-Research/10.1117/12.934043.short" class="paper-title" target="_blank"
+              >Data Acquisition And Preprocessing Techniques For Remote Sensing Field Research</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+              <span class="paper-authors">Authors: L. L. Biehl, B. F. Robinson</span>
               <span class="paper-keyword">Spectral measurements</span>
-              <span class="paper-keyword">Agronomic characteristics</span>
+              <span class="paper-keyword">LiDAR point cloud data</span>
               <span class="paper-keyword">Data calibration</span>
               <span class="paper-keyword">Experiment design</span>
               <span class="paper-keyword">Field procedures</span>
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> A crops and soils data base has been developed
-              at Purdue University's Laboratory for Applications of Remote
-              Sensing using spectral and agronomic measurements made by several
-              government and university researchers. The data are being used to
-              (1) quantitatively determine the relationships of spectral and
-              agronomic characteristics of crops and soils, (2) define future
-              sensor systems, and (3) develop advanced data analysis techniques.
-              Researchers follow defined data acquisition and preprocessing
-              techniques to provide fully annotated and calibrated sets of
-              spectral, agronomic, and meteorological data. These procedures
-              enable the researcher to combine his data with that acquired by
-              other researchers for remote sensing research. The key elements or
-              requirements for developing a field research data base of spectral
-              data that can be transported across sites and years are
-              appropriate experiment design, accurate spectral data calibration,
-              defined field procedures, and thorough experiment documentation.
+              <em>Abstract:</em> A crops and soils data base has been developed at Purdue University's Laboratory for Applications of Remote Sensing using spectral and agronomic measurements made by several government and university researchers. The data are being used to (1) quantitatively determine the relationships of spectral and agronomic characteristics of crops and soils, (2) define future sensor systems, and (3) develop advanced data analysis techniques. Researchers follow defined data acquisition and preprocessing techniques to provide fully annotated and calibrated sets of spectral, agronomic, and meteorological data. These procedures enable the researcher to combine his data with that acquired by other researchers for remote sensing research. The key elements or requirements for developing a field research data base of spectral data that can be transported across sites and years are appropriate experiment design, accurate spectral data calibration, defined field procedures, and thorough experiment documentation.
             </div>
           </div>
-        </div>
-
-        <!-- Atmospheric Correction and Calibration -->
-        <div id="Atmospheric Correction and Calibration" class="domain-section">
-          <h2 class="domain-title">
-            <i class="fas fa-cloud"></i> Atmospheric Correction and Calibration
-          </h2>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Integrated Methodology for Atmospheric Correction and Cloud
-              Removal of Multispectral Remote Sensing Images Using Guided
-              Diffusion Model | IEEE Journals & Magazine | IEEE Xplore</a
+            <a href="https://ieeexplore.ieee.org/document/10752639" class="paper-title" target="_blank"
+              >Integrated Methodology for Atmospheric Correction and Cloud Removal of Multispectral Remote Sensing Images Using Guided Diffusion Model | IEEE Journals & Magazine | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword">Atmospheric aerosol</span>
-              <span class="paper-keyword">Atmospheric correction</span>
-              <span class="paper-keyword">Cloud removal</span>
-              <span class="paper-keyword">Guided diffusion model</span>
-              <span class="paper-keyword"
-                >Multitemporal and multispectral fusion</span
-              >
-              <span class="paper-keyword">Surface reflectance (SR)</span>
+              <span class="paper-authors">Authors: Anran Li; Guixia Guan; Haimeng Zhao; Shuang Li; Jianfang Zhu; Xuerong Han</span>
+              <span class="paper-keyword"> Atmospheric aerosol</span>
+              <span class="paper-keyword">atmospheric correction</span>
+              <span class="paper-keyword"> cloud removal</span>
+              <span class="paper-keyword">guided diffusion model</span>
+              <span class="paper-keyword"> multitemporal and multispectral fusion</span>
+              <span class="paper-keyword">surface reflectance (SR)</span>
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> The atmospheric correction and cloud removal
-              are core tasks of the atmospheric radiative transfer model in
-              satellite remote sensing radiometric calibration. The accurate
-              atmospheric correction and cloud removal of satellite remote
-              sensing images are critical preliminary steps for effective
-              satellite remote sensing applications. Current methods for
-              atmospheric correction and cloud removal in satellite remote
-              sensing imagery are mainly divided into traditional algorithms and
-              deep learning methods. Traditional remote sensing algorithms
-              typically involve complex atmospheric radiative transfer models,
-              intricate meteorological parameters, synchronized ground
-              measurements, and corresponding geographic data. There are
-              significant difficulties and limitations in achieving detailed
-              descriptions of ground and atmospheric models. Deep learning
-              methods typically employ computer vision techniques. These methods
-              cannot effectively utilize atmospheric parameters and
-              multispectral image (MSI) features. Therefore, they cannot
-              significantly improve the data quality of spectral satellite
-              remote sensing images. This study integrates multitemporal and
-              multispectral remote sensing images, atmospheric data (such as
-              aerosol optical thickness and water vapor), and remote sensing
-              data like surface reflectance (SR). A novel unified model is
-              proposed to handle atmospheric correction and cloud removal for
-              multispectral satellite remote sensing images. The unique
-              geographical environment, and diverse and complex atmospheric
-              conditions of the Guilin region make its satellite remote sensing
-              data rich in research characteristics for atmospheric correction
-              and cloud removal tasks. It can provide a typical and
-              representative experimental scenario for this study. This study
-              first utilized Sentinel-2 top-of-atmosphere (TOA) and SR data from
-              the Guilin region to create four datasets: true color and
-              multispectral fusion datasets with atmospheric correction
-              incorporating aerosol parameters, single and multitemporal cloud
-              removal datasets. Then, we developed a conditional guided
-              diffusion model. This model can capable for both multispectral
-              atmospheric correction and multitemporal cloud removal tasks by
-              redesigning the conditional control and encoding sections. Our
-              method achieved satisfactory results in both true color and
-              multispectral atmospheric correction tasks. For atmospheric
-              correction tasks on true color images (TCIs), our method achieved
-              MAE, SSIM, and peak signal-to-noise ratio (PSNR) metrics of
-              0.0125, 0.9445, and 35.5221 dB, respectively. For the atmospheric
-              correction task in MSIs, the method achieved MAE, SSIM, and PSNR
-              metrics of 0.0174, 0.9499, and 36.3547 dB, respectively. For
-              multitemporal true color cloud removal tasks, the method achieved
-              MAE, SSIM, and PSNR metrics of 0.0224, 0.9556, and 36.2121 dB,
-              respectively.
+              <em>Abstract:</em> The atmospheric correction and cloud removal are core tasks of the atmospheric radiative transfer model in satellite remote sensing radiometric calibration. The accurate atmospheric correction and cloud removal of satellite remote sensing images are critical preliminary steps for effective satellite remote sensing applications. Current methods for atmospheric correction and cloud removal in satellite remote sensing imagery are mainly divided into traditional algorithms and deep learning methods. Traditional remote sensing algorithms typically involve complex atmospheric radiative transfer models, intricate meteorological parameters, synchronized ground measurements, and corresponding geographic data. There are significant difficulties and limitations in achieving detailed descriptions of ground and atmospheric models. Deep learning methods typically employ computer vision techniques. These methods cannot effectively utilize atmospheric parameters and multispectral image (MSI) features. Therefore, they cannot significantly improve the data quality of spectral satellite remote sensing images. This study integrates multitemporal and multispectral remote sensing images, atmospheric data (such as aerosol optical thickness and water vapor), and remote sensing data like surface reflectance (SR). A novel unified model is proposed to handle atmospheric correction and cloud removal for multispectral satellite remote sensing images. The unique geographical environment, and diverse and complex atmospheric conditions of the Guilin region make its satellite remote sensing data rich in research characteristics for atmospheric correction and cloud removal tasks. It can provide a typical and representative experimental scenario for this study. This study first utilized Sentinel-2 top-of-atmosphere (TOA) and SR data from the Guilin region to create four datasets: true color and multispectral fusion datasets with atmospheric correction incorporating aerosol parameters, single and multitemporal cloud removal datasets. Then, we developed a conditional guided diffusion model. This model can capable for both multispectral atmospheric correction and multitemporal cloud removal tasks by redesigning the conditional control and encoding sections. Our method achieved satisfactory results in both true color and multispectral atmospheric correction tasks. For atmospheric correction tasks on true color images (TCIs), our method achieved MAE, SSIM, and peak signal-to-noise ratio (PSNR) metrics of 0.0125, 0.9445, and 35.5221 dB, respectively. For the atmospheric correction task in MSIs, the method achieved MAE, SSIM, and PSNR metrics of 0.0174, 0.9499, and 36.3547 dB, respectively. For multitemporal true color cloud removal tasks, the method achieved MAE, SSIM, and PSNR metrics of 0.0224, 0.9556, and 36.2122 dB, respectively.
+
             </div>
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Improved Vicarious Radiometric Calibration Method Considering
-              Adjacency Effect for High Resolution Optical Sensors | IEEE
-              Conference Publication | IEEE Xplore</a
-            >
+            <a href="https://ieeexplore.ieee.org/document/8898171" class="paper-title" target="_blank">
+              Improved Vicarious Radiometric Calibration Method Considering Adjacency Effect for High Resolution Optical Sensors | IEEE Conference Publication | IEEE Xplore
+            </a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+              <span class="paper-authors">Authors: Lingling Ma; Ning Wang; Yongguang Zhao; Yaokai Liu; Xinhong Wang; Zhihong Ma</span>
+            </div>
+            <div class="paper-keywords">
               <span class="paper-keyword">Adjacency effect</span>
               <span class="paper-keyword">High resolution</span>
-              <span class="paper-keyword"
-                >Vicarious radiometric calibration</span
-              >
+              <span class="paper-keyword">Vicarious radiometric calibration</span>
               <span class="paper-keyword">Point spread function (PSF)</span>
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> When using field calibration site to perform
-              on-orbit radiometric calibration for a space-borne remote sensor,
-              the observed signal of the sensor may contain energy from adjacent
-              pixels, due to existence of the earth atmosphere and sensor
-              viewing characteristics. Hence the accuracy of radiometric
-              calibration will be decreased to some extent. When calibration of
-              high-resolution sensor is concerned, the non-uniformity of the
-              ground target will be relatively more obvious. In addition, if the
-              brightness contrast of neighboring targets is not small, the
-              impact of adjacency effect will be more outstanding. How to
-              quantitatively analyze and eliminate the influence of this kind of
-              adjacency effect, becomes an actual demand to reduce the
-              uncertainty of on-orbit radiometric calibration. Aiming at the
-              adjacent effect caused by atmospheric multiple scattering, this
-              paper analyzed radiation transfer mechanism first, then
-              constructed a local atmospheric point spread function model using
-              long time-series satellite-ground synchronous observation data,
-              developed an adjacency effect correction method used in on-orbit
-              vicarious calibration, which considers background reflectance
-              spectral information. Test on Sentinel-2A imagery indicates that
-              the proposed correction method can effectively alleviate the
-              influence of adjacency effect in vicarious calibration.
+              <em>Abstract:</em> When using field calibration site to perform on-orbit radiometric calibration for a space-borne remote sensor, the observed signal of the sensor may contain energy from adjacent pixels, due to existence of the earth atmosphere and sensor viewing characteristics. Hence the accuracy of radiometric calibration will be decreased to some extent. When calibration of high-resolution sensor is concerned, the non-uniformity of the ground target will be relatively more obvious. In addition, if the brightness contrast of neighboring targets is not small, the impact of adjacency effect will be more outstanding. How to quantitatively analyze and eliminate the influence of this kind of adjacency effect, becomes an actual demand to reduce the uncertainty of on-orbit radiometric calibration. Aiming at the adjacent effect caused by atmospheric multiple scattering, this paper analyzed radiation transfer mechanism first, then constructed a local atmospheric point spread function model using long time-series satellite-ground synchronous observation data, developed an adjacency effect correction method used in on-orbit vicarious calibration, which considers background reflectance spectral information. Test on Sentinel-2A imagery indicates that the proposed correction method can effectively alleviate the influence of adjacency effect in vicarious calibration.
             </div>
           </div>
 
+          
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0034425709000741" class="paper-title" target="_blank"
               >Atmospheric correction algorithms for hyperspectral remote
               sensing data of land and ocean - ScienceDirect</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+              <span class="paper-authors">Authors: Bo-Cai Gao a,Marcos J. Montes a, Curtiss O. Davis b, Alexander F.H. Goetz c</span>
               <span class="paper-keyword">Hyperspectral</span>
               <span class="paper-keyword">Imaging spectrometer</span>
               <span class="paper-keyword">Atmospheric correction</span>
@@ -500,12 +453,12 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/6080943" class="paper-title" target="_blank"
               >Supervised Vicarious Calibration (SVC) of hyperspectral
               remote-sensing data | IEEE Conference Publication | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+              <span class="paper-authors">Authors: Anna Brook; Eyal Ben Dor</span>
               <span class="paper-keyword">Hyperspectral data calibration</span>
               <span class="paper-keyword">Atmospheric correction</span>
               <span class="paper-keyword">Vicarious calibration</span>
@@ -543,13 +496,57 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/5137556" class="paper-title" target="_blank">On-flight calibration and atmospheric correction over city water for wide-field -of-view Hypersepctral Imager | IEEE Conference Publication | IEEE Xplore</a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Bing Zhang; Hao Zhang; Jun-Sheng Li</span>
+              <span class="paper-keyword">Atmospheric correction</span>
+              <span class="paper-keyword"> Hyperspectral Imager (WHI)</span>
+              <span class="paper-keyword">6SV1 radiative transfer code</span>
+              <span class="paper-keyword"> Water-quality monitoring</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> Radioactive calibration and atmospheric correction are two important steps when encountering a new sensor and its remote sensing images. Wide field-of-view Hyperspectral Imager(WHI) is an airborne imaging spectrometer with a 5 nm spectral resolution, whose spectrum range is from 406 nm to 985 nm. For evaluating its applications in city water monitoring, a flight was carried out in Taihu in January 9, 2006, which was the third largest freshwater lake. Meanwhile, the in-situ measured spectra by ASD and measured atmosphere parameters by sun photometer CE318 were also obtained. It is an efficient way to monitoring change of the water-quality by airborne or satellite remote sensing data. To accurately retrieve water-quality parameters, two crucial recalibration processes were done for WHI: (1) Field recalibration was accomplished by comparing the two calibration targets' modeling radiance at sensor level and their lab calibrated radiance ; (2) Vicarious calibration was done by comparing the atmosphere corrected remote sensing reflectance (Rrs) with the in-situ measured Rrs of a synchronous station. Then, atmosphere correction Rrs was performed by 6SV1 model combined with Motran4 to retrieve Rrs of Taihu and the accuracy was no more than 5% from 532 nm to 750 nm validated by other synchronous stations.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/5137556" class="paper-title" target="_blank">Topographic correction using brightness normalization approach from hyperspectral remote sensing images | IEEE Conference Publication | IEEE Xplore</a>
+            <div class="paper-meta">
+              <span class="paper-authors">M.K.Pal ; A.Porwal</span>
+              <span class="paper-keyword">remote sensing</span>
+              <span class="paper-keyword"> hyperspectral, Hyperion</span>
+              <span class="paper-keyword"> topographic correction</span>
+              <span class="paper-keyword">Hyperion</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> In this paper, we have developed a radiometric brightness normalization based approach by using digital elevation data and local statistics for topographic correction from hyperspectral remote sensing images. Previous approaches for calibration and removal of topographic illumination effect from Hyperspectral and other remotely sensed datasets are reviewed and tested along with the proposed algorithm on a Hyperion image of a study area in Western India. The results indicate that the proposed algorithm is effective in topographic correction.</div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/999759" class="paper-title" target="_blank">Topographic correction using brightness normalization approach from hyperspectral remote sensing images | IEEE Conference Publication | IEEE Xplore</a>
+            <div class="paper-meta">
+              <span class="paper-authors">M.K.Pal ; A.Porwal</span>
+              <span class="paper-keyword"> Phased arrays</span>
+              <span class="paper-keyword"> Entropy, Calibration</span>
+              <span class="paper-keyword"> Antenna arrays, Array signal processing</span>
+              <span class="paper-keyword"> Radar antennas, Radar remote sensing, Radar imaging</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> A minimum entropy based calibration algorithm for digitally beamformed imaging radars is presented. The algorithm is derived from work in SAR which corrects phase errors due to platform motion. The performance of the algorithm is compared to traditional techniques through both simulations and data from two imaging radars. The algorithm performs well with similar sidelobe levels for a point target. The results show that the minimum phase entropy algorithm produces a calibration vector without the need for a calibration target or for stringent scene statistics.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://www.sciencedirect.com/science/article/pii/S1574954124002085" class="paper-title" target="_blank"
               >Evaluation of five atmospheric correction algorithms for
               multispectral remote sensing data over plateau lake -
               ScienceDirect</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+              <span class="paper-authors">Authors: ong Wang , Bo-Hui Tang , Zhao-Liang Li</span>
               <span class="paper-keyword">Atmospheric correction (AC)</span>
               <span class="paper-keyword">Remote sensing reflectance</span>
               <span class="paper-keyword">Satellite</span>
@@ -598,12 +595,13 @@
           </h2>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >A comprehensive review of spatial-temporal-spectral information
-              reconstruction techniques - ScienceDirect</a
-            >
+            <a href="https://www.sciencedirect.com/science/article/pii/S1364815218304633" class="paper-title" target="_blank">
+              A comprehensive review of spatial-temporal-spectral information reconstruction techniques - ScienceDirect
+            </a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+              <span class="paper-authors">Authors: panelQunming Wang, Yijie Tang, Yong Ge, Huan Xie, Xiaohua Tong , Peter M. Atkinson</span>
+            </div>
+            <div class="paper-keywords">
               <span class="paper-keyword">Cloud removal</span>
               <span class="paper-keyword">Temporal reconstruction</span>
               <span class="paper-keyword">Spatio-temporal fusion</span>
@@ -612,43 +610,18 @@
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> Fine spatial resolution remote sensing images
-              are crucial sources of data for monitoring the Earth's surface.
-              Due to defects in sensors and the complicated imaging environment,
-              however, fine spatial resolution images always suffer from various
-              degrees of information loss. According to the basic attributes of
-              remote sensing images, the information loss generally falls into
-              three dimensions, that is, the spatial, temporal and spectral
-              dimensions. In recent decades, many methods have been developed to
-              cope with this information loss problem in the three dimensions,
-              which are termed spatial reconstruction, temporal reconstruction
-              and spectral reconstruction in this paper. This paper presents a
-              comprehensive review of all three types of reconstruction. First,
-              a systematic introduction and review of the achievements is
-              provided, including the refined general mathematical framework and
-              diagram for each of the three parts. Second, the applications in
-              various areas (e.g., meteorology, ecology and environmental
-              science) are introduced. Third, the challenges and recent advances
-              of spatial-temporal-spectral information reconstruction are
-              summarized, such as the efforts for dealing with abrupt land cover
-              changes in spatial reconstruction, inconsistency in multi-scale
-              data acquired by different sensors in temporal reconstruction, and
-              point spread function (PSF) effect in spectral reconstruction.
-              Finally, several thoughts are given for future prospects.
+              <em>Abstract:</em> Fine spatial resolution remote sensing images are crucial sources of data for monitoring the Earth's surface. Due to defects in sensors and the complicated imaging environment, however, fine spatial resolution images always suffer from various degrees of information loss. According to the basic attributes of remote sensing images, the information loss generally falls into three dimensions, that is, the spatial, temporal and spectral dimensions. In recent decades, many methods have been developed to cope with this information loss problem in the three dimensions, which are termed spatial reconstruction, temporal reconstruction and spectral reconstruction in this paper. This paper presents a comprehensive review of all three types of reconstruction. First, a systematic introduction and review of the achievements is provided, including the refined general mathematical framework and diagram for each of the three parts. Second, the applications in various areas (e.g., meteorology, ecology and environmental science) are introduced. Third, the challenges and recent advances of spatial-temporal-spectral information reconstruction are summarized, such as the efforts for dealing with abrupt land cover changes in spatial reconstruction, inconsistency in multi-scale data acquired by different sensors in temporal reconstruction, and point spread function (PSF) effect in spectral reconstruction. Finally, several thoughts are given for future prospects.
             </div>
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Spatio-temporal fusion methods for spectral remote sensing: a
-              comprehensive technical review and comparative analysis | Tropical
-              Ecology</a
-            >
+            <a href="https://link.springer.com/article/10.1007/s42965-022-00260-0" class="paper-title" target="_blank">
+              Spatio-temporal fusion methods for spectral remote sensing: a comprehensive technical review and comparative analysis | Tropical Ecology
+            </a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword"
-                >Spatio-temporal fusion techniques</span
-              >
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Spatio-temporal fusion techniques</span>
               <span class="paper-keyword">Spectral remote sensing</span>
               <span class="paper-keyword">Data fusion methods</span>
               <span class="paper-keyword">Pixel-level fusion</span>
@@ -656,138 +629,52 @@
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> For many years, spectral remote sensing has
-              been essential for research on the Earth's surface. The data from
-              a single satellite sensor is sometimes insufficient to fulfil the
-              expanding needs of remote sensing applications. Spatial-temporal
-              fusion techniques have become an effective way for merging
-              spectral data from many sources and times, enabling improved data
-              analysis and interpretation. The goal of this review paper is to
-              offer a thorough examination of the historical growth of
-              spatio-temporal fusion techniques for spectral remote sensing. The
-              classification of all currently used fusion approaches, such as
-              Unmixing, Weight-based, Bayesian-based, machine learning-based,
-              and hybrid methods, is covered in detail. Additionally, it
-              evaluates pixel-level, decision-level, and feature-level-based
-              data fusion techniques and compares and contrasts their advantages
-              and disadvantages. The report also discusses spatiotemporal
-              fusion's difficulties and recommends future advances. For those
-              working in remote sensing research and practice, it offers an
-              invaluable resource. In conclusion, this review paper provides a
-              comprehensive overview of spatio-temporal fusion systems for
-              spectral remote sensing, including an analysis of their
-              comparative benefits and drawbacks and a description of their
-              historical development. It aims to stimulate further research and
-              development of spatio-temporal fusion methods for spectral remote
-              sensing. In summary, this review paper presents a comprehensive
-              overview of spatio-temporal fusion methods for spectral remote
-              sensing, including their historical development, categorization of
-              existing techniques and applications, and a comparative analysis
-              of their strengths and limitations. It also discusses the current
-              challenges and future research directions, providing a valuable
-              resource for the remote sensing community.
+              <em>Abstract:</em> For many years, spectral remote sensing has been essential for research on the Earth's surface. The data from a single satellite sensor is sometimes insufficient to fulfil the expanding needs of remote sensing applications. Spatial-temporal fusion techniques have become an effective way for merging spectral data from many sources and times, enabling improved data analysis and interpretation. The goal of this review paper is to offer a thorough examination of the historical growth of spatio-temporal fusion techniques for spectral remote sensing. The classification of all currently used fusion approaches, such as Unmixing, Weight-based, Bayesian-based, machine learning-based, and hybrid methods, is covered in detail. Additionally, it evaluates pixel-level, decision-level, and feature-level-based data fusion techniques and compares and contrasts their advantages and disadvantages. The report also discusses spatiotemporal fusion's difficulties and recommends future advances. For those working in remote sensing research and practice, it offers an invaluable resource. In conclusion, this review paper provides a comprehensive overview of spatio-temporal fusion systems for spectral remote sensing, including an analysis of their comparative benefits and drawbacks and a description of their historical development. It aims to stimulate further research and development of spatio-temporal fusion methods for spectral remote sensing. In summary, this review paper presents a comprehensive overview of spatio-temporal fusion methods for spectral remote sensing, including their historical development, categorization of existing techniques and applications, and a comparative analysis of their strengths and limitations. It also discusses the current challenges and future research directions, providing a valuable resource for the remote sensing community.
             </div>
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Coupled Temporal Variation Information Estimation and Resolution
-              Enhancement for Remote Sensing Spatial–Temporal–Spectral Fusion |
-              IEEE Journals & Magazine | IEEE Xplore</a
-            >
+            <a href="https://ieeexplore.ieee.org/document/10330008" class="paper-title" target="_blank">Coupled Temporal Variation Information Estimation and Resolution Enhancement for Remote Sensing Spatial–Temporal–Spectral Fusion | IEEE Journals & Magazine | IEEE Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+              <span class="paper-authors">Weiwei Sun ; Jun Zhou; Xiangchao Meng; Gang Yang; Kai Ren; Jiangtao Peng</span>
               <span class="paper-keyword">Hyperspectral (HS)</span>
-              <span class="paper-keyword">Image fusion</span>
-              <span class="paper-keyword">Multispectral (MS)</span>
-              <span class="paper-keyword">Spatial resolution</span>
-              <span class="paper-keyword">Spectral resolution</span>
-              <span class="paper-keyword">Temporal resolution</span>
+              <span class="paper-keyword"> image fusion</span>
+              <span class="paper-keyword">multispectral (MS)</span>
+              <span class="paper-keyword">spatial resolution</span>
+              <span class="paper-keyword"> spectral resolution, temporal resolution</span>
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> Spatial–temporal–spectral fusion (STSF) of
-              remote sensing imagery can produce data with the highest spatial
-              and spectral resolution, only as well as fine temporal resolution,
-              by integrating images with complementary information in both the
-              temporal and spectral domains. Accuracy of temporal variation is
-              an important guarantee for achieving fidelity fusion in STSF.
-              However, current STSF methods estimate the temporal variation only
-              by utilizing the temporal variation between the observed
-              multispectral image (MSI) and the relationship between MSI and
-              hyperspectral image (HSI), which is difficult to obtain accurate
-              temporal variation. To address this problem, this article proposes
-              a coupled temporal variation information estimation and resolution
-              enhancement for remote sensing image STSF (CTVRE-STSF). The
-              temporal variation information estimation model estimates the
-              temporal variation of the target image, while the resolution
-              enhancement model provides additional constraints for estimating
-              the temporal variation. For the temporal variation information
-              reconstruction model, we build a temporal variation information
-              estimation based on a generalized linear mixed model and use the
-              temporal variation between MSIs. In addition, a resolution
-              enhancement model is constructed to estimate the temporal
-              variation of the target image by incorporating relevant prior
-              knowledge. The introduction of the resolution enhancement model in
-              the prior provides additional constraints on the estimation of the
-              temporal variation high-dimensional information, thus facilitating
-              the resolution improvement. The experimental results on two real
-              datasets demonstrate the effectiveness and superiority of our
-              proposed method over current state-of-the-art methods, especially
-              in terms of spectral fidelity.
+              <em>Abstract:</em>  Spatial–temporal–spectral fusion (STSF) of remote sensing imagery can produce data with the highest spatial and spectral resolution, only as well as fine temporal resolution, by integrating images with complementary information in both the temporal and spectral domains. Accuracy of temporal variation is an important guarantee for achieving fidelity fusion in STSF. However, current STSF methods estimate the temporal variation only by utilizing the temporal variation between the observed multispectral image (MSI) and the relationship between MSI and hyperspectral image (HSI), which is difficult to obtain accurate temporal variation. To address this problem, this article proposes a coupled temporal variation information estimation and resolution enhancement for remote sensing image STSF (CTVRE-STSF). The temporal variation information estimation model estimates the temporal variation of the target image, while the resolution enhancement model provides additional constraints for estimating the temporal variation. For the temporal variation information reconstruction model, we build a temporal variation information estimation based on a generalized linear mixed model and use the temporal variation between MSIs. In addition, a resolution enhancement model is constructed to estimate the temporal variation of the target image by incorporating relevant prior knowledge. The introduction of the resolution enhancement model in the prior provides additional constraints on the estimation of the temporal variation high-dimensional information, thus facilitating the resolution improvement. The experimental results on two real datasets demonstrate the effectiveness and superiority of our proposed method over current state-of-the-art methods, especially in terms of spectral fidelity.
             </div>
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Spatiotemporal fusion for spectral remote sensing: A statistical
-              analysis and review - ScienceDirect</a
-            >
+            <a href="https://www.sciencedirect.com/science/article/pii/S1319157823000587" class="paper-title" target="_blank">Spatiotemporal fusion for spectral remote sensing: A statistical analysis and review -   ScienceDirect</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword">Remote sensing image</span>
               <span class="paper-keyword">Spatiotemporal fusion</span>
-              <span class="paper-keyword">Weight</span>
-              <span class="paper-keyword">Unmixing</span>
+              <span class="paper-keyword"> Weight, Unmixing</span>
+              <span class="paper-keyword">Remote Sensing</span>
+              <span class="paper-keyword">Deep Learning</span>
               <span class="paper-keyword">Machine learning</span>
-              <span class="paper-keyword">Deep learning</span>
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> Remote sensing images obtained by a variety of
-              sensors have been widely used in different Earth observation
-              tasks. However, owing to budget and sensor technology constraints,
-              a single sensor cannot simultaneously provide observational images
-              with both high spatial and temporal resolution. This brings
-              difficulties to remote sensing research which requires high
-              spatial and temporal resolution data. To solve the above
-              constraints, the spatiotemporal fusion (STF) method was proposed
-              and has received widespread attention. The main challenge for
-              remote sensing STF is to reconstruct both phenological and land
-              cover type changes. To overcome this challenge, many STF methods
-              have been proposed based on different principles and strategies.
-              Since there are STF methods have been proposed recently, there is
-              a need for new review to reflect the current research status.
-              Therefore, in this review, we summarize the existing studies,
-              discusses their basic principle and limitations, collect some
-              recent applications, and provide a comprehensive overview of
-              current advances. Furthermore, to facilitate and promote the
-              research in this community, we also collect publicly available
-              resources and introduce the most used quantitative metrics.
-              Finally, we take a conversation about some open problems and
-              challenges that require attention in the future.
+              <em>Abstract:</em> Remote sensing images obtained by a variety of sensors have been widely used in 	different Earth observation tasks. However, owing to budget and sensor technology constraints, a single sensor cannot simultaneously provide observational images with both high spatial and temporal resolution. This brings difficulties to remote sensing research which requires high spatial and temporal resolution data. To solve the above constraints, the spatiotemporal fusion (STF) method was proposed and has received widespread attention. The main challenge for remote sensing STF is to reconstruct both phenological and land cover type changes. To overcome this challenge, many STF methods have been proposed based on different principles and strategies. Since there are STF methods have been proposed recently, there is a need for new review to reflect the current research status. Therefore, in this review, we summarize the existing studies, discusses their basic principle and limitations, collect some recent applications, and provide a comprehensive overview of current advances. Furthermore, to facilitate and promote the research in this community, we also collect publicly available resources and introduce the most used quantitative metrics. Finally, we take a conversation about some open problems and challenges that require attention in the future.
+
             </div>
           </div>
 
+          
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://www.sciencedirect.com/science/article/pii/S1574954124001365" class="paper-title" target="_blank"
               >Tradeoffs among multi-source remote sensing images, spatial
               resolution, and accuracy for the classification of wetland plant
               species and surface objects based on the MRS_DeepLabV3+ model -
               ScienceDirect</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+              <span class="paper-authors">Authors: Zizhen Chen, Jianjun Chen, Yuemin Yue, Yanping Lan, Ming Ling, Xinhong Li, Haotian You, Xiaowen Han, Guoqing Zhou </span>
               <span class="paper-keyword">UAV image</span>
               <span class="paper-keyword">Satellite image</span>
               <span class="paper-keyword">Spatial resolution</span>
@@ -834,15 +721,14 @@
           </h2>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >New approaches to data processing and analysis in optical sensing
-              - ScienceDirect</a
-            >
+            <a href="https://www.sciencedirect.com/science/article/pii/S0165993623000377" class="paper-title" target="_blank">
+              New approaches to data processing and analysis in optical sensing - ScienceDirect
+            </a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword"
-                >Optical multisensor systems (OMS)</span
-              >
+              <span class="paper-authors">Authors: Andrey Bogomolov, Alexandra Evseeva,Egor Ignatie,Vladislav Korneev</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Optical multisensor systems (OMS)</span>
               <span class="paper-keyword">In-line analysis</span>
               <span class="paper-keyword">Field analysis</span>
               <span class="paper-keyword">Data preprocessing</span>
@@ -850,74 +736,40 @@
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> Simplified application-specific instruments
-              represent an important trend in modern analytical chemistry. Their
-              development is illustrated by the increasing role of optical
-              multisensor systems (OMS) for in-line and field analysis in new
-              application areas, such as industrial process control and
-              environmental monitoring. The distinct nature of optical
-              multisensory data increasingly generated by this new technique
-              calls for a critical revision of traditional data handling
-              approaches that have their origin in laboratory spectroscopy.
-              Acquisition, visualization, preprocessing, and subsequent analysis
-              of OMS data should be adjusted for the changing requirements of
-              quantitative and qualitative analysis of various objects. This
-              critical review outlines the state of the art and possible ways
-              forward in data science in connection with the above changes of
-              the instrumental base of chemical analysis.
+              <em>Abstract:</em> Simplified application-specific instruments represent an important trend in modern analytical chemistry. Their development is illustrated by the increasing role of optical multisensor systems (OMS) for in-line and field analysis in new application areas, such as industrial process control and environmental monitoring. The distinct nature of optical multisensory data increasingly generated by this new technique calls for a critical revision of traditional data handling approaches that have their origin in laboratory spectroscopy. Acquisition, visualization, preprocessing, and subsequent analysis of OMS data should be adjusted for the changing requirements of quantitative and qualitative analysis of various objects. This critical review outlines the state of the art and possible ways forward in data science in connection with the above changes of the instrumental base of chemical analysis.
             </div>
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Enhancement of Optical Remote Sensing Images by
-              Subband-Decomposed Multiscale Retinex With Hybrid Intensity
-              Transfer Function | IEEE Journals & Magazine | IEEE Xplore</a
-            >
+            <a href="https://ieeexplore.ieee.org/document/5783502" class="paper-title" target="_blank">
+              Enhancement of Optical Remote Sensing Images by Subband-Decomposed Multiscale Retinex With Hybrid Intensity Transfer Function | IEEE Journals & Magazine | IEEE Xplore
+            </a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword"
-                >Detail adjustment function (DAF)</span
-              >
-              <span class="paper-keyword"
-                >Hybrid intensity transfer function (ITF) (HITF)</span
-              >
+              <span class="paper-authors">Authors: Jae Ho Jang; Sung Deuk Kim; Jong Beom Ra</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Detail adjustment function (DAF)</span>
+              <span class="paper-keyword">Hybrid intensity transfer function (HITF)</span>
               <span class="paper-keyword">Multiscale retinex (MSR)</span>
-              <span class="paper-keyword"
-                >Optical remote sensing image contrast enhancement</span
-              >
+              <span class="paper-keyword">Optical remote sensing image contrast enhancement</span>
               <span class="paper-keyword">Space-varying subband gain</span>
               <span class="paper-keyword">Subband decomposition</span>
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> In this letter, we propose a novel contrast
-              enhancement algorithm for optical remote sensing satellite and
-              aerial images. The algorithm is based on multiscale retinex (MSR).
-              Unlike the MSR, however, we first decompose retinex outputs into
-              nearly nonoverlapping spectral subbands. We then apply a
-              space-varying subband gain to each subband-decomposed retinex
-              output by considering its subband characteristic so that the image
-              contrast can be effectively enhanced. In order to improve details
-              in both shadows and highlights, we propose a new hybrid intensity
-              transfer function based on logarithmic functions. In addition, we
-              make the degree of enhancement of details adjustable by
-              introducing a detail adjustment function based on a local standard
-              deviation map of the original image. Experimental results clearly
-              demonstrate that the proposed algorithm effectively distinguishes
-              details in the whole image automatically and greatly enhances the
-              overall contrast in various images.
+              <em>Abstract:</em> In this letter, we propose a novel contrast enhancement algorithm for optical remote sensing satellite and aerial images. The algorithm is based on multiscale retinex (MSR). Unlike the MSR, however, we first decompose retinex outputs into nearly nonoverlapping spectral subbands. We then apply a space-varying subband gain to each subband-decomposed retinex output by considering its subband characteristic so that the image contrast can be effectively enhanced. In order to improve details in both shadows and highlights, we propose a new hybrid intensity transfer function based on logarithmic functions. In addition, we make the degree of enhancement of details adjustable by introducing a detail adjustment function based on a local standard deviation map of the original image. Experimental results clearly demonstrate that the proposed algorithm effectively distinguishes details in the whole image automatically and greatly enhances the overall contrast in various images.
             </div>
           </div>
 
+
+
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1350449518302998" class="paper-title" target="_blank"
               >Optical remote sensing image enhancement with weak structure
               preservation via spatially adaptive gamma correction -
               ScienceDirect</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Optical remote sensing image</span>
               <span class="paper-keyword">Image enhancement</span>
               <span class="paper-keyword">Structure preservation</span>
@@ -952,12 +804,11 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://www.ijsr.net/archive/v4i7/SUB156278.pdf" class="paper-title" target="_blank"
               >Contrast Enhancement Using Dominant Brightness Level Analysis and
               Adaptive Intensity Transformation for Remote Sensing Images</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword"
                 >Adaptive intensity transfer function</span
               >
@@ -1002,12 +853,11 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://xueyangfu.github.io/paper/2015/GRSL/GRSL2015.pdf" class="paper-title" target="_blank"
               >Remote Sensing Image Enhancement Using Regularized-Histogram
               Equalization and DCT</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Contrast enhancement</span>
               <span class="paper-keyword">Discrete cosine transform (DCT)</span>
               <span class="paper-keyword">Histogram</span>
@@ -1037,13 +887,12 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/8326708" class="paper-title" target="_blank"
               >Progressive Dual-Domain Filter for Enhancing and Denoising
               Optical Remote-Sensing Images | IEEE Journals & Magazine | IEEE
               Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Bilateral filter</span>
               <span class="paper-keyword">Dual-domain filter (DDF)</span>
               <span class="paper-keyword">Remote-sensing images</span>
@@ -1074,12 +923,11 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://www.researchgate.net/publication/304323071_Analysis_of_effect_of_noise_removal_filters_on_noisy_remote_sensing_images" class="paper-title" target="_blank"
               >Analysis of effect of noise removal filters on noisy remote
               sensing images</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">RS Image</span>
               <span class="paper-keyword">Gaussian Noise</span>
               <span class="paper-keyword">Salt & Pepper Noise</span>
@@ -1104,8 +952,8 @@
               noise removal technique is given in this paper.
             </div>
           </div>
-        </div>
-
+          
+        
         <!-- Image Classification and Machine Learning -->
         <div
           id="Image Classification and Machine Learning"
@@ -1117,63 +965,31 @@
           </h2>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Machine Learning Algorithms for Optical Remote Sensing Data
-              Classification and Analysis | SpringerLink</a
-            >
+            <a href="https://link.springer.com/chapter/10.1007/978-3-030-24178-0_5" class="paper-title" target="_blank">
+              Machine Learning Algorithms for Optical Remote Sensing Data Classification and Analysis | SpringerLink
+            </a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
-              <span class="paper-keyword"
-                >Machine Learning (ML) algorithms</span
-              >
-              <span class="paper-keyword"
-                >Multispectral and hyperspectral data</span
-              >
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Machine Learning (ML) algorithms</span>
+              <span class="paper-keyword">Multispectral and hyperspectral data</span>
               <span class="paper-keyword">Remote sensing</span>
-              <span class="paper-keyword"
-                >Land Use/Land Cover (LULC) classification</span
-              >
+              <span class="paper-keyword">Land Use/Land Cover (LULC) classification</span>
               <span class="paper-keyword">Google Earth Engine (GEE)</span>
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> In recent years, Machine Learning (ML)
-              algorithms have gained much attention and found a profound
-              importance in processing, classification as well as analysis of
-              multispectral, and hyperspectral remotely sensed data. The core
-              objectives of this chapter are firstly to provide a critical
-              review on important advanced ML algorithms in remote sensing data
-              classification, and analysis; secondly, examine the performance of
-              widely used important supervised ML algorithms namely Random
-              Forest (RF), Support Vector Machine (SVM), and Classification and
-              Regression Tree (CART) in satellite image classification, and
-              analysis on Google Earth Engine (GEE) platform to derive distinct
-              Land Use/Land Cover (LULC) classes. ML algorithms are being
-              extensively used in optical remote sensing data analysis it
-              includes the image classification algorithms to precisely allocate
-              objects to a distinct set of known classes, the clustering
-              algorithms to group the objects into classes based on a given set
-              of input variables, the regression algorithms to forecast a
-              response variable from a given a set of covariates, and the
-              dimensionality reduction algorithms to build a small set of new
-              variables that includes most of the information available in the
-              input set of numerous variables. In the study, among the three
-              tested supervised ML algorithms in LULC classification, CART
-              algorithm shows relatively better performance than the RF, and SVM
-              algorithms. The study concludes that advanced ML algorithms have
-              immense potential in optical remote sensing data classification,
-              and analysis to attain the higher classification accuracy.
+              <em>Abstract:</em> In recent years, Machine Learning (ML) algorithms have gained much attention and found a profound importance in processing, classification as well as analysis of multispectral, and hyperspectral remotely sensed data. The core objectives of this chapter are firstly to provide a critical review on important advanced ML algorithms in remote sensing data classification, and analysis; secondly, examine the performance of widely used important supervised ML algorithms namely Random Forest (RF), Support Vector Machine (SVM), and Classification and Regression Tree (CART) in satellite image classification, and analysis on Google Earth Engine (GEE) platform to derive distinct Land Use/Land Cover (LULC) classes. ML algorithms are being extensively used in optical remote sensing data analysis it includes the image classification algorithms to precisely allocate objects to a distinct set of known classes, the clustering algorithms to group the objects into classes based on a given set of input variables, the regression algorithms to forecast a response variable from a given a set of covariates, and the dimensionality reduction algorithms to build a small set of new variables that includes most of the information available in the input set of numerous variables. In the study, among the three tested supervised ML algorithms in LULC classification, CART algorithm shows relatively better performance than the RF, and SVM algorithms. The study concludes that advanced ML algorithms have immense potential in optical remote sensing data classification, and analysis to attain the higher classification accuracy.
             </div>
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Cloud Detection in Optical Remote Sensing Images With Deep
-              Semi-Supervised and Active Learning | IEEE Journals & Magazine |
-              IEEE Xplore</a
-            >
+            <a href="https://ieeexplore.ieee.org/document/9000001" class="paper-title" target="_blank">
+              Cloud Detection in Optical Remote Sensing Images With Deep Semi-Supervised and Active Learning | IEEE Journals & Magazine | IEEE Xplore
+            </a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
+            </div>
+            <div class="paper-keywords">
               <span class="paper-keyword">Active learning (AL)</span>
               <span class="paper-keyword">Cloud detection</span>
               <span class="paper-keyword">Optical remote sensing image</span>
@@ -1181,40 +997,18 @@
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
-              <em>Abstract:</em> Clouds hinder the surface observation by
-              optical remote sensing sensors. It is of great significance to
-              detect clouds and nonclouds in remote sensing images. Compared
-              with the traditional cloud detection methods, deep learning
-              methods usually achieve promising detection results. Moreover,
-              large-scale, high-quality labeled datasets can effectively improve
-              the accuracy and generalization of deep learning models. However,
-              this incurs a great deal of label effort and cost. In this letter,
-              we propose a cloud detection method based on deep semi-supervised
-              learning (SSL) and active learning (AL) in optical remote sensing
-              images named SSAL-cloud detection (SSAL-CD). SSL part of SSAL-CD
-              is implemented by the cross-validation between two-way neural
-              networks, which can effectively train in the case of insufficient
-              labeled data and reduce the cost of labeling. AL part proposes a
-              suitable query strategy based on the uncertainty, degree of
-              divergence, and diversity information provided by the training
-              model. The query strategy can screen out high-value samples for
-              SSL, which further improves the detection effect. Repeat the
-              process of SSL and AL until the accuracy meets requirements or the
-              labeling budget is exhausted. Extensive experimental results in
-              Landsat-8 Biome dataset demonstrate that SSAL-CD can achieve the
-              state-of-the-art segmentation performance with a small number of
-              labels.
+              <em>Abstract:</em> Clouds hinder the surface observation by optical remote sensing sensors. It is of great significance to detect clouds and nonclouds in remote sensing images. Compared with the traditional cloud detection methods, deep learning methods usually achieve promising detection results. Moreover, large-scale, high-quality labeled datasets can effectively improve the accuracy and generalization of deep learning models. However, this incurs a great deal of label effort and cost. In this letter, we propose a cloud detection method based on deep semi-supervised learning (SSL) and active learning (AL) in optical remote sensing images named SSAL-cloud detection (SSAL-CD). SSL part of SSAL-CD is implemented by the cross-validation between two-way neural networks, which can effectively train in the case of insufficient labeled data and reduce the cost of labeling. AL part proposes a suitable query strategy based on the uncertainty, degree of divergence, and diversity information provided by the training model. The query strategy can screen out high-value samples for SSL, which further improves the detection effect. Repeat the process of SSL and AL until the accuracy meets requirements or the labeling budget is exhausted. Extensive experimental results in Landsat-8 Biome dataset demonstrate that SSAL-CD can achieve the state-of-the-art segmentation performance with a small number of labels.
             </div>
           </div>
 
+
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/7059210" class="paper-title" target="_blank"
               >Unsupervised Ship Detection Based on Saliency and S-HOG
               Descriptor From Optical Satellite Images | IEEE Journals &
               Magazine | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword"
                 >Histogram of oriented gradient (HOG)</span
               >
@@ -1244,13 +1038,12 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/10003219/keywords#keywords" class="paper-title" target="_blank"
               >PCLUDA: A Pseudo-Label Consistency Learning- Based Unsupervised
               Domain Adaptation Method for Cross-Domain Optical Remote Sensing
               Image Retrieval | IEEE Journals & Magazine | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Deep learning</span>
               <span class="paper-keyword">Domain adaptation (DA)</span>
               <span class="paper-keyword">Pseudo-label learning</span>
@@ -1295,13 +1088,12 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/10679175" class="paper-title" target="_blank"
               >Unsupervised Domain Adaptation for Ship Classification via
               Progressive Feature Alignment: From Optical to SAR Images | IEEE
               Journals & Magazine | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Consistent learning</span>
               <span class="paper-keyword">Contrastive learning</span>
               <span class="paper-keyword"
@@ -1351,7 +1143,8 @@
               classification of SAR ships.
             </div>
           </div>
-        </div>
+          
+          
 
         <!-- Spectral Analysis -->
         <div id="Spectral Analysis" class="domain-section">
@@ -1360,13 +1153,12 @@
           </h2>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/9776445" class="paper-title" target="_blank"
               >Wheat Crop Classification based on NDVI using Sentinel Time
               Series: A Case Study Saharanpur Region | IEEE Conference
               Publication | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Multitemporal Image</span>
               <span class="paper-keyword">Wheat crop classification</span>
               <span class="paper-keyword"
@@ -1395,12 +1187,11 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/8127972/keywords#keywords" class="paper-title" target="_blank"
               >Predicting modis EVI from SAR parameters using random forests
               algorithms | IEEE Conference Publication | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Vegetation monitoring</span>
               <span class="paper-keyword">SAR</span>
               <span class="paper-keyword">EVI</span>
@@ -1425,19 +1216,15 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/8453818/keywords#keywords" class="paper-title" target="_blank"
               >Mapping Rice Planted Area Using a New Normalized EVI and SAVI
               (NVI) Derived From Landsat-8 OLI | IEEE Journals & Magazine | IEEE
-              Xplore</a
-            >
+              Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Enhanced vegetation index (EVI)</span>
               <span class="paper-keyword">Landsat</span>
               <span class="paper-keyword">Rice planted paddy</span>
-              <span class="paper-keyword"
-                >Soil-adjusted vegetation index (SAVI)</span
-              >
+              <span class="paper-keyword">Soil-adjusted vegetation index (SAVI)</span>
             </div>
             <button class="toggle-abstract">Show Abstract</button>
             <div class="paper-abstract" style="display: none">
@@ -1466,18 +1253,13 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Improving Classical Approach for Flare Parameters Estimation from
+            <a href="https://ieeexplore.ieee.org/document/9884776" class="paper-title" target="_blank">Improving Classical Approach for Flare Parameters Estimation from
               VIIRS NtL Remote Sensing Data by Linear and Nonlinear Spectral
-              Unmixing Methods | IEEE Conference Publication | IEEE Xplore</a
-            >
+              Unmixing Methods | IEEE Conference Publication | IEEE Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Gas flaring</span>
               <span class="paper-keyword">Greenhouse gas emissions</span>
-              <span class="paper-keyword"
-                >VIIRS Nighttime Light (NtL) data</span
-              >
+              <span class="paper-keyword">VIIRS Nighttime Light (NtL) data</span>
               <span class="paper-keyword">Spectral unmixing methods</span>
               <span class="paper-keyword">Flare physical parameters</span>
             </div>
@@ -1513,13 +1295,10 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Urban impervious surface extraction from very high resolution
+            <a href="https://ieeexplore.ieee.org/document/8128444" class="paper-title" target="_blank">Urban impervious surface extraction from very high resolution
               imagery using spatial and spectral unmixing and decision tree
-              method | IEEE Conference Publication | IEEE Xplore</a
-            >
+              method | IEEE Conference Publication | IEEE Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Impervious surface</span>
               <span class="paper-keyword">Very high resolution</span>
               <span class="paper-keyword">Spatial and spectral unmixing</span>
@@ -1541,6 +1320,168 @@
               validates the proposed method, by comparing with existing methods.
             </div>
           </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/8416958" class="paper-title" target="_blank">
+              Evaluation of Optical and Radar Images Integration Methods for LULC Classification in Amazon Region | IEEE Journals & Magazine | IEEE Xplore
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Formaggio, A. R., et al.</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Brazilian Amazon</span>
+              <span class="paper-keyword">data integration</span>
+              <span class="paper-keyword">land-use and land-cover (LULC)</span>
+              <span class="paper-keyword">multipolarized-synthetic aperture radar (SAR)</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> The main objective of this study is to evaluate different methods to integrate (fusion and combination) Synthetic Aperture Radar (SAR) Advanced Land Observing Satellite (ALOS) Phased Arrayed L-band SAR (PALSAR-1) (Fine Beam Dual mode-FDB) and LANDSAT images in order to identify those which lead to higher accuracy of land-use and land-cover (LULC) mapping in an agricultural frontier region in Amazon. One method used to integrate the multipolarized information in SAR images before the fusion process was also evaluated. In this method, the first principal component (PC1) of SAR data was used. Color compositions of fused data that presented better LULC classification were visually analyzed. Considering the proposed objective, the following fusion methods must be highlighted: Ehlers, Wavelet á trous, Intensity, Hue and Saturation (IHS), and selective principal component analysis (SPC). These latter three methods presented good results when processed using PC1 from ALOS/PALSAR-1 FBD backscatter filtered image or three SAR extracted and selected features. These results corroborate with the applicability of the proposed method for SAR data information integration. Distinct methods better discriminate different LULC classes. In general, densely forested classes were better characterized by the Ehlers_TM6 fusion method, in which at least the polarization HV was used. Intermediate and initial regeneration classes were better discriminated using SPC-fused data with PC1 of ALOS/PALSAR-1 FBD data. Bare soil and pasture classes were better discriminated in optical features and the PC1 of ALOS/PALSAR-1 FBD data fused by the IHS method. Soybean with approximately 40 days from seeding was better discriminated in image classification obtained from ALOS/PALSAR-1 FBD image.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/7857068/" class="paper-title" target="_blank">
+              Feature selection for urban impervious surfaces estimation using optical and SAR images | IEEE Conference Publication | IEEE Xplore
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Zhang, H., et al.</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Optical imaging</span>
+              <span class="paper-keyword">Optical sensors</span>
+              <span class="paper-keyword">Radio frequency</span>
+              <span class="paper-keyword">Storage area networks</span>
+              <span class="paper-keyword">Nonhomogeneous media</span>
+              <span class="paper-keyword">Soil</span>
+              <span class="paper-keyword">Shape</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> Urban impervious surfaces, such as transport related land (e.g., roads, streets, and parking lots) and building roof tops (commercial, residential, and industrial areas), have been widely recognized as important indicator for urban environments. Numerous methods have been proposed to estimate impervious surfaces from remotely sensed images. However, most of these approaches were proposed with optical remote sensing images, and accurate estimation of impervious surfaces remains challenging due to the diversity of urban land covers. This study presents the effort to synergistically combine optical and SAR data to improve the mapping of impervious surfaces using the Random Forest (RF). The Multilayer Perceptron, Support Vector Machine, and RF are compared for impervious surfaces mapping with the single use of optical image and with the combined optical and SAR images. Experiment shows some interesting results: 1) synergistic use of SPOT-5 and TerraSAR-X images produced more accurate classification of impervious surface mapping, no matter what combinations of features are used; 2) The SAN-based features appeared to provide effective complementary information to the conventional GLCM-based features for the classification, increasing the accuracy by about 0.6% by using supervised classifiers; 3) SVM and RF tended to be superior to MLP for the fusion of SPOT-5 and TerraSAR-X images for LULC classification and ISE. RF is better for the LULC classification as it better handled the spectral confusion among sub types of impervious and non-impervious land covers, while SVM appeared more stable before and after the combination of sub land cover types, and thus is more suitable for the ISE with the classification strategies of mapping impervious surface.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/9116399/" class="paper-title" target="_blank">
+              Evaluation of Winter Wheat Yield Simulation Based on Assimilating LAI Retrieved From Networked Optical and SAR Remotely Sensed Images Into the WOFOST Model | IEEE Journals & Magazine | IEEE Xplore
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Zhao, J., et al.</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Crop growth model</span>
+              <span class="paper-keyword">data assimilation</span>
+              <span class="paper-keyword">leaf area index (LAI)</span>
+              <span class="paper-keyword">synthetic aperture radar (SAR)</span>
+              <span class="paper-keyword">winter wheat</span>
+              <span class="paper-keyword">yield simulation</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> A crop yield simulation scheme was developed using the WOFOST crop growth model and a 4-D ensemble square root filter (4-DEnSRF) assimilation algorithm, incorporating time series of leaf area index (LAI) data from optical and SAR sensors. In Shenzhou County, Hebei Province, winter wheat yield estimation was performed on a 500 m grid, with field-measured data for validation. Simulations using optical LAI data achieved an R2 of 0.517 and an NRMSE of 17.60%, while combining optical and SAR LAI data filtered with a Gaussian filtering algorithm improved these metrics to an R2 of 0.573 and an NRMSE of 12.98%. Introducing SAR LAI at the jointing stage yielded an R2 of 0.437 and an NRMSE of 21.49%, showing that SAR LAI integration at critical growth stages enhances yield simulation accuracy. Gaussian filtering further reduced errors from multisource data. This study demonstrates that substituting radar for optical images to retrieve LAI and assimilating multisource LAI improves the reliability and robustness of crop yield simulations.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/8909477/" class="paper-title" target="_blank">
+              Synthetic Aperture Radar and Optical Remote Sensing of Crop Damage Attributed to Severe Weather in the Central United States | IEEE Conference Publication | IEEE Xplore
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Oliver, S., et al.</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">synthetic aperture radar</span>
+              <span class="paper-keyword">vegetation</span>
+              <span class="paper-keyword">hail</span>
+              <span class="paper-keyword">severe weather</span>
+              <span class="paper-keyword">crop damage</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> Severe thunderstorms, as defined by NOAA and NWS, produce tornadoes, hail (>2.54 cm), or winds (>26 m/s), often causing heavy rains, flooding, and damage visible in high-resolution satellite imagery. However, cloud cover limits optical remote sensing. Synthetic aperture radar (SAR) overcomes this limitation, enabling all-weather damage assessment of vegetation through changes in backscatter and coherence. This study uses SAR to map storm-induced vegetation damage in the central U.S., complemented by optical measures of vegetation greenness.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/10183188/" class="paper-title" target="_blank">
+              Exploring the Mila Landslide: Integrating Radar and Optical Remote Sensing for Enhanced Geohazard Assessment | IEEE Conference Publication | IEEE Xplore
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Kherchouche, D., et al.</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Remote Sensing</span>
+              <span class="paper-keyword">Sentinel-1</span>
+              <span class="paper-keyword">Sentinel-2 AlSat-2A</span>
+              <span class="paper-keyword">Landslide</span>
+              <span class="paper-keyword">Geohazard Monitoring</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> This conference paper presents a comprehensive remote sensing study aimed at investigating the Mila landslide triggered by a moderate earthquake on August 7, 2020. Leveraging Sentinel-1 and Sentinel-2 radar and optical imagery, Coherence Change Detection and Change Detection techniques were applied to delineate the landslide area. Discrepancies between radar and optical-derived results highlighted the strengths and limitations of each modality in accurately delineating the affected area.Additionally, displacement estimation was performed using Sentinel-1 radar data through Offset Tracking and compared to estimations derived from Sentinel-2 and AlSat-2A optical imagery processed with MPIC-OPT and Cosi-Corr software. Surpassing accuracy observed in optical imagery-based displacement estimations emphasized the finer spatial resolution’s significance in capturing detailed surface alterations.Further analyses involving ALOS DSM data revealed lineaments coinciding with landslide boundaries, suggesting potential subsurface fault structures manifesting as surface lineaments. These findings contribute to understanding lithological influences in landslide predisposition.Collectively, the integration of diverse remote sensing techniques offers multifaceted insights into the Mila landslide, emphasizing the importance of combining radar and optical data for comprehensive assessments. The outcomes underscore remote sensing's pivotal role in unraveling complex geohazards, thereby enhancing our understanding and management strategies in landslide-prone areas.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/9884283/" class="paper-title" target="_blank">
+              The NISAR Mission for Enhanced Disaster Monitoring | IEEE Conference Publication | IEEE Xplore
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Kumar, S., et al.</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">NISAR</span>
+              <span class="paper-keyword">L & S bands</span>
+              <span class="paper-keyword">systematic coverage</span>
+              <span class="paper-keyword">disaster response</span>
+              <span class="paper-keyword">Polarization</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> India is one of the countries, which experiences frequent natural disasters like floods, cyclones, landslides, earthquakes, forest fires, etc. affecting the life and property in the Indian subcontinent. Under Disaster Management Support (DMS) Programme ISRO proactively provides space-based information and services on a reliable and timely basis for strengthening India’s commitment towards efficient disaster management in accordance to the Sendai Framework. Critical disaster products from a suite of satellite sensors, which include optical, microwave and space-based radiometers, are being extensively utilized by the stakeholders for monitoring and managing different disasters in India. NISAR satellite, which has a SAR instrument operating in the L and S-band in single, dual and quad-pol configuration, will provide regular products for disaster response. It is expected to meet the needs of the end-user disaster community with new science products for crop flood damage assessment, improved monitoring of floods and cyclones, estimation of forest fuel moisture and stand damage, landslide monitoring and damage assessment, surface deformation, subsidence and oil spill detection and monitoring. This paper describes the NISAR mission operations, capabilities, requirements and its advantage for monitoring the natural disasters.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/9351456/" class="paper-title" target="_blank">
+              Research on Optical Remote Sensing of Improved Shallow Water Bathymetry Without Measured Water Depth | IEEE Conference Publication | IEEE Xplore
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Li, Y., et al.</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Bathymetry</span>
+              <span class="paper-keyword">remote sensing</span>
+              <span class="paper-keyword">Hydrolight</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> Passive optical shallow water bathymetry algorithms often need some actual measured water depths to participate in model calculation. In recent years, some new bathymetry methods without using the actual measured depth have been developed, such as the dual band log linear model. However, many theoretical assumptions are used in the calculation of the diffuse attenuation coefficient of green band in the model, and the result may be inaccurate. In order to obtain more accurate diffuse attenuation coefficient, Hydrolight is used for water optics simulation, and 30 groups of simulation values of different water components and water depths are obtained. The experimental results of bathymetry model with simulated parameters show that the inversion accuracy of Dongdao Island and Oahu Island is satisfactory, the mean absolute error is less than 2 m, and the mean relative error is 20.9% and 15.9% respectively.
+            </div>
+          </div>
+
+          <div class="paper-card">
+            <a href="https://ieeexplore.ieee.org/document/7059210/" class="paper-title" target="_blank">
+              Oil Spill Detection via Multitemporal Optical Remote Sensing Images: A Change Detection Perspective | IEEE Journals & Magazine | IEEE Xplore
+            </a>
+            <div class="paper-meta">
+              <span class="paper-authors">Authors: Bruzzone, L., et al.</span>
+            </div>
+            <div class="paper-keywords">
+              <span class="paper-keyword">Change detection (CD)</span>
+              <span class="paper-keyword">change vector analysis</span>
+              <span class="paper-keyword">coarse-to-fine (CTF)</span>
+              <span class="paper-keyword">multitemporal data</span>
+              <span class="paper-keyword">oil spill</span>
+              <span class="paper-keyword">optical remote sensing (RS)</span>
+            </div>
+            <button class="toggle-abstract">Show Abstract</button>
+            <div class="paper-abstract" style="display: none">
+              <em>Abstract:</em> Oil spill monitoring in optical remote sensing (RS) images is a challenging task due to the complexity of target discrimination in an oil spill scenario. Differently from traditional oil spill detection methods that are mainly carried out in a monotemporal image, in this letter, a novel solution is given in a multitemporal domain by investigating potential capability of change detection (CD) techniques, and it mainly contributes to an unsupervised, semiautomatic, and efficient approach. It opens a new perspective for solving an oil spill detection problem. In particular, a coarse-to-fine multitemporal change analysis procedure is designed to investigate the spectral–temporal variation of change targets present in the scenario. Changes relevant and irrelevant to suspected oil spills are identified and discriminated according to a binary and a multiple CD process, respectively. The proposed approach provides a quick yet effective oil spill detection solution, which is valuable and important in practical applications. The proposed method was validated on two real multitemporal RS data sets presenting the oil spill event in northern Gulf of Mexico in 2010. Experimental results confirmed its effectiveness.
+            </div>
+          </div>
+
         </div>
 
         <!-- Image Fusion -->
@@ -1550,18 +1491,11 @@
           </h2>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Fusion of Multi-frequency Polarimetric SAR and LISS-3 Optical
-              Data for Classification of Various Land Covers | VDE Conference
-              Publication | IEEE Xplore</a
-            >
+            <a href="https://ieeexplore.ieee.org/document/6856948" class="paper-title" target="_blank">Fusion of Multi-frequency Polarimetric SAR and LISS-3 Optical Data for Classification of Various Land Covers | VDE Conference Publication | IEEE Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Data Fusion</span>
               <span class="paper-keyword">Optical Data</span>
-              <span class="paper-keyword"
-                >Polarimetric Synthetic Aperture Radar</span
-              >
+              <span class="paper-keyword">Polarimetric Synthetic Aperture Radar</span>
               <span class="paper-keyword">SAR Data</span>
               <span class="paper-keyword">Polarimetric Data</span>
               <span class="paper-keyword">Classification Accuracy</span>
@@ -1590,12 +1524,10 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/8819731" class="paper-title" target="_blank"
               >A Proposed Methodology for the Fusion of Microwave and Optical
-              Remote Sensing Data | IEEE Conference Publication | IEEE Xplore</a
-            >
+              Remote Sensing Data | IEEE Conference Publication | IEEE Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Image Fusion</span>
               <span class="paper-keyword">Remote Sensing</span>
               <span class="paper-keyword">Satellite Images</span>
@@ -1630,12 +1562,10 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/8128239" class="paper-title" target="_blank"
               >Fusion of SAR and optical remote sensing data — Challenges and
-              recent trends | IEEE Conference Publication | IEEE Xplore</a
-            >
+              recent trends | IEEE Conference Publication | IEEE Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Synthetic aperture radar (SAR)</span>
               <span class="paper-keyword">Optical imagery</span>
               <span class="paper-keyword">Remote sensing</span>
@@ -1656,12 +1586,9 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Fusion of optical and microwave remote sensing data for snow
-              cover mapping | IEEE Conference Publication | IEEE Xplore</a
-            >
+            <a href="https://ieeexplore.ieee.org/document/1369817" class="paper-title" target="_blank">Fusion of optical and microwave remote sensing data for snow
+              cover mapping | IEEE Conference Publication | IEEE Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Optical remote sensing</span>
               <span class="paper-keyword">Microwave remote sensing</span>
               <span class="paper-keyword">Data fusion</span>
@@ -1692,13 +1619,11 @@
           </h2>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Deep learning change detection techniques for optical remote
+            <a href="https://www.sciencedirect.com/science/article/pii/S1569843224006381" class="paper-title" target="_blank">Deep learning change detection techniques for optical remote
               sensing imagery: Status, perspectives and challenges -
               ScienceDirect</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Change detection</span>
               <span class="paper-keyword">Optical remote sensing image</span>
               <span class="paper-keyword">Deep learning</span>
@@ -1736,13 +1661,10 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
-              >Change Detection in Optical Remote Sensing Images with a Fully
+            <a href="https://ieeexplore.ieee.org/abstract/document/8519184" class="paper-title" target="_blank" >Change Detection in Optical Remote Sensing Images with a Fully
               Object-Level Approach | IEEE Conference Publication | IEEE
-              Xplore</a
-            >
+              Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Change detection</span>
               <span class="paper-keyword"
                 >Fast multi temporal segmentation</span
@@ -1772,13 +1694,11 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/9254128" class="paper-title" target="_blank"
               >Optical Remote Sensing Image Change Detection Based on Attention
               Mechanism and Image Difference | IEEE Journals & Magazine | IEEE
-              Xplore</a
-            >
+              Xplore</a>
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Attention mechanism</span>
               <span class="paper-keyword">Change detection</span>
               <span class="paper-keyword">Fully convolutional network</span>
@@ -1816,12 +1736,11 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/8900296" class="paper-title" target="_blank"
               >Transfer Learning for Changes Detection in Optical Remote Sensing
               Imagery | IEEE Conference Publication | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Change detection</span>
               <span class="paper-keyword">Deep learning</span>
               <span class="paper-keyword">Convolutional network</span>
@@ -1849,19 +1768,22 @@
           </div>
         </div>
 
-        <!-- Microwave Remote Sensing -->
-        <div id="Microwave Remote Sensing" class="domain-section">
+        <!-- MICROWAVE REMOTE SENSING -->
+        <div id="MICROWAVE REMOTE SENSING" class="domain-section">
+          <h2 class="domain-title">
+            <i class="fas fa-satellite-dish"></i> MICROWAVE REMOTE SENSING
+          </h2>
+
           <h2 class="domain-title">
             <i class="fas fa-broadcast-tower"></i> Microwave Remote Sensing
           </h2>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/7489764" class="paper-title" target="_blank"
               >Importance of speckle filtering in image classification of SAR
               data | IEEE Conference Publication | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">ALOS PALSAR-2</span>
               <span class="paper-keyword">SAR</span>
               <span class="paper-keyword">Speckle</span>
@@ -1891,12 +1813,11 @@
           </div>
 
           <div class="paper-card">
-            <a href="#" class="paper-title" target="_blank"
+            <a href="https://ieeexplore.ieee.org/document/7326307" class="paper-title" target="_blank"
               >A Bayesian method for speckle reduction in single-look SAR images
               | IEEE Conference Publication | IEEE Xplore</a
             >
             <div class="paper-meta">
-              <span class="paper-authors">Author(s): Not specified</span>
               <span class="paper-keyword">Synthetic Aperture Radar</span>
               <span class="paper-keyword">Iterative Wiener filter</span>
               <span class="paper-keyword">Speckle Reduction</span>
@@ -1919,17 +1840,21 @@
     </main>
 
     <script>
-      // Enable search on this page
-      const searchInput = document.getElementById("paperSearch");
-      if (searchInput) {
-        searchInput.addEventListener("input", function () {
-          const query = this.value.toLowerCase();
-          document.querySelectorAll(".paper-card").forEach((card) => {
+      // Enable search on this page, robust to load order
+      function bindPaperSearch(){
+        const input = document.getElementById('paperSearch');
+        if(!input) return;
+        input.addEventListener('input', function(){
+          const q = this.value.toLowerCase();
+          document.querySelectorAll('.paper-card').forEach(card => {
             const text = card.textContent.toLowerCase();
-            card.style.display = text.includes(query) ? "" : "none";
+            card.style.display = text.includes(q) ? '' : 'none';
           });
         });
       }
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', bindPaperSearch);
+      } else { bindPaperSearch(); }
 
       // Use same-origin relative URL to avoid HTTPS/port and mixed-content issues
       fetch(`/infi_website/data/technical.json`)
@@ -2137,6 +2062,7 @@
       })();
     </script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
-  </body>
+      <script src="../js/script.js"></script>
+</body>
 </html>
 ```

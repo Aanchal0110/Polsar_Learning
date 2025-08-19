@@ -14,11 +14,18 @@
     <!-- Custom CSS File Link -->
     <link rel="stylesheet" href="/infi_website/CSS/style.css" />
     <style>
+      .academicians-items { display: grid; grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 20px; align-items: stretch; justify-items: center; }
       .academician-item {
         border: 1px solid #ccc;
-        margin: 17px 0;
+        margin: 0;
         padding: 17px;
         border-radius: 8px;
+        background: #fff;
+        width: 100%;
+        aspect-ratio: 1 / 1; /* make square */
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
       }
       p {
         text-align: justify;
@@ -30,10 +37,7 @@
         display: block;
         margin: 0 auto;
       }
-      .academician-item h2 {
-        margin-top: 50px;
-        color: black;
-      }
+      .academician-item h2 { margin-top: 10px; color: black; font-size: 1.1rem; }
       .academician-item img {
         width: 150px; /* Set the desired size */
         height: 150px;
@@ -279,5 +283,9 @@
         document.getElementById('lastUpdated').textContent = formattedDate;
       });
     </script>
+    <style>
+      @media (max-width: 1024px) { .academicians-items { grid-template-columns: repeat(2, minmax(260px, 1fr)); } }
+      @media (max-width: 640px) { .academicians-items { grid-template-columns: 1fr; } }
+    </style>
   </body>
 </html>

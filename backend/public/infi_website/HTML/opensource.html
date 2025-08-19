@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Software - Remote Sensing Tools</title>
+    <title>Software</title>
 
     <!-- Font Awesome CDN Link -->
     <link
@@ -32,9 +32,10 @@
 
       .software-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
         margin-top: 20px;
+        align-items: stretch;
       }
 
       .software-card {
@@ -42,6 +43,9 @@
         border: 1px solid #e9ecef;
         border-radius: 8px;
         padding: 20px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
         transition:
           transform 0.3s ease,
           box-shadow 0.3s ease;
@@ -82,6 +86,12 @@
         line-height: 1.6;
         margin-bottom: 15px;
         text-align: justify;
+        flex-grow: 1;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+        -webkit-box-orient: vertical;
       }
 
       .software-links {
@@ -185,7 +195,7 @@
     </header>
 
     <main>
-      <h1>Remote Sensing Software</h1>
+      <h1>Software</h1>
 
       <section class="software-section">
         <h2>Open Source Software</h2>
@@ -217,17 +227,10 @@
                 href="https://step.esa.int/main/download/"
                 class="software-link"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fas fa-download"></i>
                 Download SNAP
-              </a>
-              <a
-                href="https://github.com/senbox-org/snap-engine"
-                class="software-link"
-                target="_blank"
-              >
-                <i class="fab fa-github"></i>
-                GitHub Repository
               </a>
             </div>
           </div>
@@ -256,9 +259,10 @@
                 href="https://earth.esa.int/eogateway/tools/polsarpro"
                 class="software-link"
                 target="_blank"
+                rel="noopener noreferrer"
               >
-                <i class="fas fa-external-link-alt"></i>
-                Learn More
+                <i class="fas fa-download"></i>
+                Download POLSAR
               </a>
             </div>
           </div>
@@ -325,9 +329,10 @@
                 href="https://www.hexagongeospatial.com/products/erdas-imagine"
                 class="software-link"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fas fa-external-link-alt"></i>
-                Visit Website
+                Learn More
               </a>
             </div>
           </div>
@@ -358,9 +363,10 @@
                 href="https://www.nv5geospatialsoftware.com/envi"
                 class="software-link"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fas fa-external-link-alt"></i>
-                Visit Website
+                Learn More
               </a>
             </div>
           </div>
@@ -390,17 +396,10 @@
                 href="https://www.catalyst.earth/catalyst-professional"
                 class="software-link"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fas fa-external-link-alt"></i>
-                Visit Website
-              </a>
-              <a
-                href="https://www.catalyst.earth/download"
-                class="software-link"
-                target="_blank"
-              >
-                <i class="fas fa-download"></i>
-                Download Manual
+                Learn More
               </a>
             </div>
           </div>
@@ -431,9 +430,10 @@
                 href="https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview"
                 class="software-link"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fas fa-external-link-alt"></i>
-                Visit Website
+                Learn More
               </a>
             </div>
           </div>

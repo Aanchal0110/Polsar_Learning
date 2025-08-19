@@ -1,7 +1,552 @@
 {
-    "book_1":{
-        "title":"Introduction to Remote Sensing",
-        "image_link":"",
-        "author":"Arthur P. Cracknell"
+  "foundational_books": {
+    "book_1": {
+      "title": "Introduction to Remote Sensing",
+      "author": "Arthur P. Cracknell",
+      "publisher": "CRC Press",
+      "year": "2007",
+      "category": "Foundational/Introductory Concepts",
+      "description": "Addressing the need for updated information in remote sensing, this book provides a full and authoritative introduction for scientists who need to know the scope, potential, and limitations in the field.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_2": {
+      "title": "Remote Sensing: Principles and Applications",
+      "author": "B C Panda",
+      "publisher": "Viva Books",
+      "year": "2008",
+      "category": "Foundational/Introductory Concepts",
+      "description": "Comprehensive coverage of remote sensing principles and their practical applications across various domains.",
+      "image_link": "/infi_website/image/book2BC panda.jpeg"
+    },
+    "book_3": {
+      "title": "Introduction to Geospatial Technologies",
+      "author": "Bradley A. Shellito",
+      "publisher": "W H Freeman & Co",
+      "year": "2011",
+      "category": "Foundational/Introductory Concepts",
+      "description": "Combining both theoretical coverage and hands-on lab work, accessible to majors and non-majors alike, with lab activities utilizing both widely available freeware and ArcGIS.",
+      "image_link": "/infi_website/image/Book3 Bradley A. Shellito.jpg"
+    },
+    "book_4": {
+      "title": "Remote Sensing and GIS",
+      "author": "Basudeb Bhatta",
+      "publisher": "Oxford University Press",
+      "year": "2008",
+      "category": "Foundational/Introductory Concepts",
+      "description": "Provides exhaustive coverage of optical, thermal, and microwave remote sensing, global navigation satellite systems, digital photogrammetry, and visual image analysis.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_5": {
+      "title": "Physical Fundamentals of Remote Sensing",
+      "author": "E. Schanda",
+      "publisher": "Springer-Verlag",
+      "year": "1986",
+      "category": "Foundational/Introductory Concepts",
+      "description": "Comprehensive coverage of the theoretical foundations of remote sensing, including electromagnetic radiation interaction with natural objects.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    }
+  },
+  "intermediate_books": {
+    "book_6": {
+      "title": "Introductory Digital Image Processing",
+      "author": "John R. Jensen",
+      "publisher": "Prentice Hall",
+      "year": "2004",
+      "category": "Intermediate Topics",
+      "description": "Focuses on digital image processing of aircraft- and satellite-derived, remotely sensed data for Earth resource management applications.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_7": {
+      "title": "Remote Sensing Digital Image Analysis: An Introduction",
+      "author": "John A. Richards",
+      "publisher": "Springer",
+      "year": "2005",
+      "category": "Intermediate Topics",
+      "description": "Provides an introduction to quantitative evaluation of satellite- and aircraft-derived remotely retrieved data.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_8": {
+      "title": "Introduction to Microwave Remote Sensing",
+      "author": "Iain H. Woodhouse",
+      "publisher": "CRC Press",
+      "year": "2017",
+      "category": "Intermediate Topics",
+      "description": "Extensive overview of microwave remote sensing technology for technically oriented undergraduates and graduate students.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_9": {
+      "title": "Remote Sensing of Coastal Environments",
+      "author": "Yeqiao Wang",
+      "publisher": "CRC Press",
+      "year": "2017",
+      "category": "Intermediate Topics",
+      "description": "Systematic treatment of key developments in coastal remote sensing, bringing together renowned scholars for comprehensive coverage.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_10": {
+      "title": "Urban Remote Sensing",
+      "author": "Qihao Weng, Dale Quattrochi, Paolo Gamba",
+      "publisher": "CRC Press",
+      "year": "2018",
+      "category": "Intermediate Topics",
+      "description": "Assembles professional experts to provide updates on applications of remote sensing technology to urban and suburban areas.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    }
+  },
+  "advanced_books": {
+    "book_11": {
+      "title": "Hyperspectral Remote Sensing: Principles and Applications",
+      "author": "Marcus Borengasser, William S. Hungate, Russell Watkins",
+      "publisher": "CRC Press",
+      "year": "2023",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Presents fundamentals of remote sensing at an introductory level, exploring all major aspects of hyperspectral image acquisition, exploitation, interpretation, and applications.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_12": {
+      "title": "Advanced Remote Sensing: Terrestrial Information Extraction and Applications",
+      "author": "Shunlin Liang, Xiaowen Li, Jindi Wang",
+      "publisher": "Academic Press",
+      "year": "2013",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Application-based reference providing mathematical concepts necessary for remote sensing data gathering and assimilation.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_13": {
+      "title": "InSAR Imaging of Aleutian Volcanoes: Monitoring a Volcanic Arc from Space",
+      "author": "Zhong Lu, Daniel Dzurisin",
+      "publisher": "Springer",
+      "year": "2014",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Provides theoretical framework for InSAR observations and capabilities, discussing state-of-the-art InSAR analysis techniques.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_14": {
+      "title": "Bistatic Radar Polarimetry - Theory & Principles",
+      "author": "Zbigniew H. Czyz",
+      "publisher": "Springer",
+      "year": "2008",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Comprehensive coverage of bistatic radar polarimetry theory and principles with practical applications.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_15": {
+      "title": "Spotlight Synthetic Aperture Radar: Signal Processing Algorithms",
+      "author": "Walter C Carrara",
+      "publisher": "Artech House",
+      "year": "1995",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Presents SAR concepts and signal processing techniques unique to spotlight mode and the polar format algorithm.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    }
+  },
+  "specialized_books": {
+    "book_16": {
+      "title": "A New Target Detector Based on Geometrical Perturbation Filters for Polarimetric Synthetic Aperture Radar (POL-SAR)",
+      "author": "Armando Marino",
+      "publisher": "Springer",
+      "year": "2012",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Presents groundbreaking methodology for the radar international community, introducing perturbation analysis for target detection.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_17": {
+      "title": "Radar Interferometry. Data Interpretation and Error Analysis",
+      "author": "Ramon F. Hanssen",
+      "publisher": "Springer",
+      "year": "2001",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Comprehensive guide to radar interferometry principles, data analysis, and interpretation for deformation monitoring.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_18": {
+      "title": "Radar Polarimetry for Geoscience Applications",
+      "author": "Fawwaz T. Ulaby",
+      "publisher": "Artech House",
+      "year": "1990",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Offers consolidated reference on radar polarimetry design, analysis, and application for geoscience applications.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_19": {
+      "title": "Processing of Synthetic Aperture Radar (SAR) Images",
+      "author": "Henri Maitre",
+      "publisher": "Wiley-Iste",
+      "year": "2013",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Presents tools required for digital processing of synthetic aperture radar images for environmental monitoring and Earth resource mapping.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_20": {
+      "title": "Synthetic Aperture Radar Polarimetry",
+      "author": "Jakob J. Van Zyl",
+      "publisher": "Wiley",
+      "year": "2011",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Describes application of polarimetric synthetic aperture radar to Earth remote sensing based on research at NASA JPL.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    }
+  },
+  "additional_books": {
+    "book_21": {
+      "title": "Introduction to Synthetic Aperture Radar (SAR) Polarimetry",
+      "author": "Wolfgang-Martin Boerner",
+      "publisher": "Springer",
+      "year": "2007",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Comprehensive overview of basic principles of radar polarimetry with fundamental field equations and electrodynamic foundations.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_22": {
+      "title": "Polarimetric Radar Imaging: From Basics to Applications",
+      "author": "Jong-Sen Lee, Eric Pottier, Brian J. Thompson",
+      "publisher": "CRC Press",
+      "year": "2009",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Presents polarimetric radar imaging and processing techniques for developing remote sensing applications using PolSAR imaging radar.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_23": {
+      "title": "Urban High-Resolution Remote Sensing: Algorithms and Modeling",
+      "author": "Guoqing Zhou",
+      "publisher": "CRC Press",
+      "year": "2020",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Presents advanced image processing methods and algorithms for 3D urban modeling, orthophotomap generation, and feature extraction.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_24": {
+      "title": "Satellite Remote Sensing for Archaeology",
+      "author": "Sarah Parcak",
+      "publisher": "Routledge",
+      "year": "2009",
+      "category": "Advanced Applications and Algorithms",
+      "description": "First comprehensive overview of satellite remote sensing for archaeology and its application to ongoing archaeological fieldwork projects.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_25": {
+      "title": "Microwave Radar and Radiometric Remote Sensing",
+      "author": "Fawwaz T. Ulaby",
+      "publisher": "Artech House",
+      "year": "2013",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Comprehensive guide to microwave radar and radiometric remote sensing principles and applications.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_26": {
+      "title": "Radargrammetric Image Processing",
+      "author": "Franz W. Leberl",
+      "publisher": "Artech House",
+      "year": "1990",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Comprehensive guide to radargrammetric image processing techniques and applications.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_27": {
+      "title": "Hyperspectral Remote Sensing",
+      "author": "Michael Theodore Eismann",
+      "publisher": "SPIE",
+      "year": "2012",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Holistic treatment capturing the multidisciplinary nature of hyperspectral remote sensing with physical principles and applications.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_28": {
+      "title": "LiDAR Remote Sensing and Applications",
+      "author": "Pinliang Dong, Qi Chen",
+      "publisher": "CRC Press",
+      "year": "2017",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Expertly joins LiDAR principles, data processing basics, applications, and hands-on practices in one comprehensive source.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_29": {
+      "title": "Multi-sensor System Applications in the Everglades Ecosystem",
+      "author": "Caiyun Zhang",
+      "publisher": "CRC Press",
+      "year": "2020",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Explores applicability of multiple remote sensors for restoration and conservation efforts in wetlands using various sensor types.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_30": {
+      "title": "Global Urban Monitoring and Assessment through Earth Observation",
+      "author": "Qihao Weng",
+      "publisher": "CRC Press",
+      "year": "2014",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Introduces international collaborative effort for global urban monitoring and assessment through Earth observation technologies.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_31": {
+      "title": "Integrating Scale in Remote Sensing and GIS",
+      "author": "Dale A. Quattrochi, Elizabeth Wentz, Nina Siu-Ngan Lam, Charles W. Emerson",
+      "publisher": "CRC Press",
+      "year": "2017",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Most comprehensive documentation of scientific and methodological advances in integrating scale and remote sensing data.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_32": {
+      "title": "Infrared Thermal Imaging",
+      "author": "Michael Vollmer",
+      "publisher": "Wiley-VCH",
+      "year": "2011",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Richly illustrated hands-on guide for researchers, teachers and practitioners in infrared thermal imaging.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_33": {
+      "title": "Handbook of Radar Scattering Statistics for Terrain",
+      "author": "Fawwaz T. Ulaby",
+      "publisher": "Artech House",
+      "year": "1989",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Comprehensive reference for radar scattering statistics and terrain analysis.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_34": {
+      "title": "Insar Principles: Guidelines for Sar Interferometry Processing and Interpretation",
+      "author": "European Space Research and Technology Centre",
+      "publisher": "ESA Publications",
+      "year": "2007",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Guidelines for SAR interferometry processing and interpretation from ESA.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_35": {
+      "title": "InSAR Observations of Ground Deformation: Application to the Cascades Volcanic Arc",
+      "author": "Amy Laura Parker",
+      "publisher": "Springer",
+      "year": "2016",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Applies measurements of ground deformation from satellite radar for understanding volcanic and magmatic processes.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_36": {
+      "title": "Microwave Scattering and Emission Models and their Applications",
+      "author": "Adrian K. Fung",
+      "publisher": "Artech House",
+      "year": "1994",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Intended for practitioners and applied researchers in remote sensing applications and graduate students in the field.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_37": {
+      "title": "Remote Sensing and GIS for Ecologists: Using Open Source Software",
+      "author": "Martin Wegmann, Benjamin Leutner, Stefan Dech",
+      "publisher": "Pelagic Publishing",
+      "year": "2016",
+      "category": "Intermediate Topics",
+      "description": "Book about how ecologists can integrate remote sensing and GIS in their daily work using open source software.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_38": {
+      "title": "Introduction to the Physics And Techniques of Remote Sensing",
+      "author": "Charles Elachi, Jakob J. Van Zyl",
+      "publisher": "Wiley-Interscience",
+      "year": "2006",
+      "category": "Intermediate Topics",
+      "description": "Essential science and engineering foundation needed to understand remote sensing and apply it in real-world situations.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_39": {
+      "title": "Applied Spatial Data Analysis with R",
+      "author": "Roger S. Bivand, Edzer Pebesma",
+      "publisher": "Springer",
+      "year": "2008",
+      "category": "Intermediate Topics",
+      "description": "Addresses needs of researchers and students using R to analyze spatial data across a range of disciplines and professions.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_40": {
+      "title": "Photogrammetry, GIS & Remote Sensing",
+      "author": "S S Manugula, Veeranna Bommakanti",
+      "publisher": "Ebooks2go Inc",
+      "year": "2018",
+      "category": "Intermediate Topics",
+      "description": "Written for use in classrooms by both instructor and students and also for independent study in the coming decades.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_41": {
+      "title": "Multi-purposeful Application of Geospatial Data",
+      "author": "Rustam B. Rustamov, Sabina Hasanova, Mahfuza H. Zeynalova",
+      "publisher": "IntechOpen",
+      "year": "2018",
+      "category": "Intermediate Topics",
+      "description": "Dedicated toward space technology application in Earth studies based on satellite information classification and interpretation.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_42": {
+      "title": "Infrared Technology Fundamentals",
+      "author": "Monroe Schlessinger",
+      "publisher": "Routledge",
+      "year": "1994",
+      "category": "Intermediate Topics",
+      "description": "Provides basic understanding of physical background and engineering considerations required for design of IR systems.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_43": {
+      "title": "Multispectral Image Analysis Using the Object-Oriented Paradigm",
+      "author": "Kumar Navulur",
+      "publisher": "CRC Press",
+      "year": "2020",
+      "category": "Intermediate Topics",
+      "description": "Brings fresh new perspective to remote sensing, object-based image analysis as a paradigm shift from traditional pixel-based approach.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_44": {
+      "title": "Hyperspectral Remote Sensing: Fundamentals and Practices",
+      "author": "Ruiliang Pu",
+      "publisher": "CRC Press",
+      "year": "2017",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Presents complete solutions from concepts, fundamentals, and methods of acquisition of hyperspectral data to analyses and applications.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_45": {
+      "title": "Remote Sensing of Impervious Surfaces",
+      "author": "Qihao Weng",
+      "publisher": "CRC Press",
+      "year": "2007",
+      "category": "Advanced Applications and Algorithms",
+      "description": "First to focus entirely on developing field of remote sensing of impervious surfaces with mapping, data extraction, and modeling techniques.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_46": {
+      "title": "Advances in Environmental Remote Sensing: Sensors, Algorithms, and Applications",
+      "author": "Qihao Weng",
+      "publisher": "CRC Press",
+      "year": "2017",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Compiles comprehensive review articles examining developments in concepts, methods, techniques, and applications in environmental remote sensing.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_47": {
+      "title": "Big Data for Remote Sensing: Visualization, Analysis and Interpretation",
+      "author": "Nilanjan Dey, Chintan Bhatt, Amira S. Ashour",
+      "publisher": "Springer",
+      "year": "2018",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Thoroughly covers remote sensing visualization and analysis techniques based on computational imaging and vision in Earth science.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_48": {
+      "title": "Remote Sensing of Impervious Surfaces in Tropical and Subtropical Areas",
+      "author": "Qingsheng Zhang, Hui Lin, Yuanzhi Zhang, Qihao Weng",
+      "publisher": "CRC Press",
+      "year": "2015",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Offers complete and thorough system for using optical and SAR remote sensing data for improving impervious surface estimation.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_49": {
+      "title": "Remote Sensing for Sustainability",
+      "author": "Qihao Weng",
+      "publisher": "Routledge",
+      "year": "2016",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Introduces current state of art remote sensing knowledge integral for monitoring world's natural resources and environments.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_50": {
+      "title": "Remote Sensing Image Analysis: Including the Spatial Domain",
+      "author": "Steven M. de Jong, Freek D. van der Meer",
+      "publisher": "Springer",
+      "year": "2004",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Presents wide range of innovative and advanced image processing methods for including spatial information in remotely sensed images.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_51": {
+      "title": "Remote Sensing in Hydrology and Water Management",
+      "author": "Gert A. Schultz, Edwin T. Engman",
+      "publisher": "Springer",
+      "year": "2011",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Provides comprehensive information on possible applications of remote sensing data for hydrological monitoring and modeling.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_52": {
+      "title": "Polarisation: Applications in Remote Sensing",
+      "author": "Shane Cloude",
+      "publisher": "CRC Press",
+      "year": "2009",
+      "category": "Specialized Techniques and Case Studies",
+      "description": "Introduces topics of radar polarimetry and interferometry for space sciences applications.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_53": {
+      "title": "Satellite Remote Sensing for Conservation Action: Case Studies from Aquatic and Terrestrial Ecosystems",
+      "author": "Graeme M. Buchanan",
+      "publisher": "Cambridge University Press",
+      "year": "2018",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Presents detailed examples of application of satellite remote sensing covering both aquatic and terrestrial ecosystems to conservation.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_54": {
+      "title": "Remote Sensing of Global Croplands for Food Security",
+      "author": "Prasad Thenkabail, John G. Lyon, Hugh Turral, Chandrashekhar Biradar",
+      "publisher": "CRC Press",
+      "year": "2018",
+      "category": "Advanced Applications and Algorithms",
+      "description": "Provides comprehensive knowledge base in use of satellite sensor-based maps and statistics for developing strategies for croplands.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_55": {
+      "title": "Remote Sensing of Protected Lands",
+      "author": "Yeqiao Wang",
+      "publisher": "CRC Press",
+      "year": "2019",
+      "category": "Advanced Applications and Algorithms",
+      "description": "First book of its kind showcasing state-of-art remote sensing applications for inventory and monitoring of protected areas.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_56": {
+      "title": "Remote Sensing and GIS for Ecologists: Using Open Source Software",
+      "author": "Martin Wegmann, Benjamin Leutner, Stefan Dech",
+      "publisher": "Pelagic Publishing",
+      "year": "2016",
+      "category": "Intermediate Topics",
+      "description": "Allows ecologists to get started with application of remote sensing and understand its potential and limitations.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_57": {
+      "title": "Introduction to the Physics And Techniques of Remote Sensing",
+      "author": "Charles Elachi, Jakob J. Van Zyl",
+      "publisher": "Wiley-Interscience",
+      "year": "2006",
+      "category": "Intermediate Topics",
+      "description": "Essential science and engineering foundation needed to understand remote sensing and apply it in real-world situations.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_58": {
+      "title": "Applied Spatial Data Analysis with R",
+      "author": "Roger S. Bivand, Edzer Pebesma",
+      "publisher": "Springer",
+      "year": "2008",
+      "category": "Intermediate Topics",
+      "description": "Addresses needs of researchers and students using R to analyze spatial data across range of disciplines and professions.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_59": {
+      "title": "Photogrammetry, GIS & Remote Sensing",
+      "author": "S S Manugula, Veeranna Bommakanti",
+      "publisher": "Ebooks2go Inc",
+      "year": "2018",
+      "category": "Intermediate Topics",
+      "description": "Basic concepts of Photogrammetry, Remote Sensing & GIS all included in single book for undergraduate students.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    },
+    "book_60": {
+      "title": "Multi-purposeful Application of Geospatial Data",
+      "author": "Rustam B. Rustamov, Sabina Hasanova, Mahfuza H. Zeynalova",
+      "publisher": "IntechOpen",
+      "year": "2018",
+      "category": "Intermediate Topics",
+      "description": "Dedicated toward space technology application in Earth studies based on satellite information classification and interpretation.",
+      "image_link": "/infi_website/image/book1 Arthur P. Cracknell.jpg"
+    }
     }
 }

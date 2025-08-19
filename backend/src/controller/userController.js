@@ -131,6 +131,23 @@ const UserController = {
   
     deleteOTP(email);
     res.json({ message: 'Email verified successfully!' });
+  },
+  async contactMessage(req, res) {
+    try {
+      const { name, email, subject, message } = req.body || {};
+      if (!name || !email || !subject || !message) {
+        return res.status(400).json({ success: false, message: 'All fields are required' });
+      }
+      // Try email via Resend
+      try {
+        await sendEmail(process.env.CONTACT_TO_EMAIL || 'scientific@inficorridor.in', `${subject} — from ${name} <${email}>\n\n${message}`);
+      } catch (e) {
+        // swallow to avoid hard failure
+      }
+      return res.json({ success: true });
+    } catch (err) {
+      return res.status(500).json({ success: false, message: err.message });
+    }
   }
 };
 

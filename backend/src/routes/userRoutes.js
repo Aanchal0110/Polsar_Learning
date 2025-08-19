@@ -10,5 +10,6 @@ router.post("/login", UserController.loginUser);
 router.get("/user/:email", verifyToken, UserController.getUserByEmail);
 router.post('/send-otp', UserController.sendOtp);
 router.post('/verify-otp', UserController.verifyOtp);
+router.post('/contact', UserController.contactMessage);
 
 module.exports = router;

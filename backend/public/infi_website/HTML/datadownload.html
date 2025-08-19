@@ -33,9 +33,9 @@
       .tree-container h1 {
         color: #002147;
         text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5em;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
       }
 
       .tree {
@@ -102,7 +102,7 @@
       .tree-item h3 {
         margin: 0;
         color: #002147;
-        font-size: 1.3em;
+        font-size: 1.1em;
         margin-bottom: 8px;
         text-align: left;
       }
@@ -110,7 +110,7 @@
       .tree-item p {
         margin: 5px 0 0;
         color: #444;
-        font-size: 1em;
+        font-size: 0.95em;
         line-height: 1.6;
         text-align: justify;
       }
@@ -122,19 +122,12 @@
 
       .tree-item ul li {
         color: #444;
-        margin: 5px 0;
-        font-size: 0.98em;
+        margin: 4px 0;
+        font-size: 0.9em;
         text-align: justify;
       }
 
-      .tree-item .button-group {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-        margin-top: 16px;
-        flex-wrap: wrap;
-      }
+      .tree-item .button-group { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
 
       .tree-item a,
       .tree-item .guide-toggle {
@@ -145,8 +138,8 @@
         background: #007bff;
         border: none;
         border-radius: 6px;
-        padding: 10px 18px;
-        font-size: 1em;
+        padding: 8px 14px;
+        font-size: 0.95em;
         font-weight: 500;
         text-decoration: none;
         cursor: pointer;
@@ -178,26 +171,9 @@
         color: #fff;
       }
 
-      .guide-content {
-        display: none;
-        margin-top: 15px;
-        padding: 15px;
-        background: #f0f4f8;
-        border-left: 4px solid #007bff;
-        border-radius: 6px;
-        color: #333;
-        font-size: 0.98em;
-        line-height: 1.6;
-      }
+      .guide-content { display: none; }
 
-      .category-header {
-        font-size: 1.8em;
-        color: #002147;
-        margin: 40px 0 20px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #007bff;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-      }
+      .category-header { font-size: 1.4em; color: #002147; margin: 24px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #cbd5e1; }
 
       /* Custom scrollbar for dark theme */
       ::-webkit-scrollbar {
@@ -284,28 +260,7 @@
                     through interactive and textual-based query capabilities.
                   </p>
                 </div>
-                <button class="guide-toggle button-group">Show Datasets</button>
-                <ul class="guide-content">
-                  <li>Aerial Imagery</li>
-                  <li>AVHRR</li>
-                  <li>CEOS Legacy</li>
-                  <li>Commercial Satellites</li>
-                  <li>Declassified Data</li>
-                  <li>Digital Elevation</li>
-                  <li>Digital Line Graphs</li>
-                  <li>Digital Maps</li>
-                  <li>EO-1</li>
-                  <li>Global Fiducials</li>
-                  <li>HCMM</li>
-                  <li>ISERV</li>
-                  <li>Land Cover</li>
-                  <li>Landsat</li>
-                  <li>LCMAP</li>
-                  <li>Radar</li>
-                  <li>UAS</li>
-                  <li>Vegetation Monitoring</li>
-                  <li>ISRO Resourcesat</li>
-                </ul>
+                
                 <div class="button-group">
                   <a href="https://earthexplorer.usgs.gov/" target="_blank"
                     >Data Download</a
@@ -340,21 +295,9 @@
                     and disaster management to urban planning and agriculture.
                   </p>
 
-                  <button class="guide-toggle button-group">
-                    Show Datasets
-                  </button>
+                  
                 </div>
-                <ul class="guide-content">
-                  <li>SENTINEL-1</li>
-                  <li>SENTINEL-2</li>
-                  <li>SENTINEL-3</li>
-                  <li>SENTINEL-5P</li>
-                  <li>SENTINEL-6</li>
-                  <li>CCM Optical</li>
-                  <li>CCM DEM</li>
-                  <li>CCM SAR</li>
-                  <li>GLOBAL-MOSAICS</li>
-                </ul>
+                
                 <div class="button-group">
                   <a
                     href="https://dataspace.copernicus.eu/browser/"
@@ -432,32 +375,7 @@
                     rainforest.
                   </p>
                 </div>
-                <button class="guide-toggle button-group">Show Datasets</button>
-                <ul class="guide-content">
-                  <li>Main Dataset</li>
-                  <li>Sentinel-1</li>
-                  <li>ALOS PALSAR</li>
-                  <li>AIRSAR</li>
-                  <li>ERS-1</li>
-                  <li>ERS-2</li>
-                  <li>JERS-1</li>
-                  <li>RADARSAT-1</li>
-                  <li>Seasat</li>
-                  <li>SIR-C</li>
-                  <li>OPERA</li>
-                  <li>Sentinel-1 Bursts</li>
-                  <li>ALOS PALSAR Radiometric Terrain Correction</li>
-                  <li>ARIA Sentinel-1 Geocoded Unwrapped Interferograms</li>
-                  <li>Global Ice Sheet Mapping Orbiter (GISMO)</li>
-                  <li>Glacier Speed</li>
-                  <li>International Polar Year 2007-2009</li>
-                  <li>RADARSAT-1 Antarctic Mapping Project (RAMP)</li>
-                  <li>Sea Ice MEaSUREs</li>
-                  <li>Sentinel-1 Interferometric Coherence and Backscatter</li>
-                  <li>Terrestrial Ecology</li>
-                  <li>Wetlands MEaSUREs</li>
-                  <li>ALOS AVNIR-2 (Optical Data)</li>
-                </ul>
+                
                 <div class="button-group">
                   <a href="https://asf.alaska.edu/data-sets/" target="_blank"
                     >Data Download</a
@@ -493,20 +411,7 @@
                     generated by ISRO.
                   </p>
                 </div>
-                <button class="guide-toggle button-group">Show Datasets</button>
-                <ul class="guide-content">
-                  <li>Cartosat-1</li>
-                  <li>Cartosat-2</li>
-                  <li>LISS III</li>
-                  <li>AWiFS</li>
-                  <li>NDVI (Normalized Difference Vegetation Index)</li>
-                  <li>Ocean Heat Content (OHC)</li>
-                  <li>Digital Elevation Models (DEM)</li>
-                  <li>Seasonal datasets from Resourcesat</li>
-                  <li>Disaster management maps</li>
-                  <li>Agricultural monitoring maps</li>
-                  <li>Land use and land cover maps</li>
-                </ul>
+                
                 <div class="button-group">
                   <a href="https://bhuvan.nrsc.gov.in/" target="_blank"
                     >Data Download</a
@@ -538,31 +443,7 @@
                     possible human exploration of the Moon.
                   </p>
                 </div>
-                <button class="guide-toggle button-group">Show Datasets</button>
-                <ul class="guide-content">
-                  <li>Alos-1</li>
-                  <li>Alos-2</li>
-                  <li>Alos-3</li>
-                  <li>Alos-4</li>
-                  <li>JERS-1</li>
-                  <li>Global SAR Mosaic and Forest/Non-Forest Map</li>
-                  <li>K&C Mosaic</li>
-                  <li>Precise Global Digital 3D Map</li>
-                  <li>High Resolution Land-Use and Land-Cover Map</li>
-                  <li>Global Mangrove Watch</li>
-                  <li>
-                    JICA-JAXA Forest Early Warning System in the Tropics
-                    (JJ-FAST)
-                  </li>
-                  <li>ALOS Ortho Rectified Image Product</li>
-                  <li>IPY Dataset</li>
-                  <li>Glacial Lake Inventory of Bhutan</li>
-                  <li>ALOS series Open and Free Data</li>
-                  <li>
-                    High-Resolution map of forest above-ground carbon storage
-                    Products
-                  </li>
-                </ul>
+                
                 <div class="button-group">
                   <a
                     href="https://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm"
@@ -617,15 +498,7 @@
       </div>
     </main>
 
-    <script>
-      document.querySelectorAll(".guide-toggle").forEach((button) => {
-        button.addEventListener("click", () => {
-          const content = button.nextElementSibling;
-          content.style.display =
-            content.style.display === "block" ? "none" : "block";
-        });
-      });
-    </script>
+    
     <script src="/infi_website/Javascript/script.js"></script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
   </body>

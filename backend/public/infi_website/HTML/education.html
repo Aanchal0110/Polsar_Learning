@@ -36,13 +36,7 @@
         margin-bottom: 20px;
         letter-spacing: 1px;
       }
-      .edu-main-layout {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        max-width: 1600px;
-        margin: 0 auto;
-      }
+      .edu-main-layout { display: flex; flex-direction: row; align-items: flex-start; max-width: 1600px; margin: 0 auto; }
 
       .az-index {
         scrollbar-width: none;
@@ -124,60 +118,18 @@
           background 0.2s,
           box-shadow 0.2s;
       }
-      .edu-list {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto 0 auto;
-        padding: 0;
-        list-style: none;
-        display: block;
-      }
-      .edu-list li {
-        margin-bottom: 28px;
-        border: 1.5px solid var(--card-border);
-        border-radius: 10px;
-        background: var(--card-bg);
-        box-shadow: 0 2px 8px rgba(58, 92, 168, 0.07);
-        padding: 0;
-        transition:
-          box-shadow 0.2s,
-          transform 0.2s;
-        position: relative;
-      }
+      .edu-list { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+      .edu-list li { border: 1.5px solid var(--card-border); border-radius: 12px; background: var(--card-bg); box-shadow: 0 2px 8px rgba(58,92,168,.07); transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden; }
       .edu-list li:hover {
         box-shadow: 0 6px 18px rgba(58, 92, 168, 0.13);
         transform: translateY(-2px) scale(1.01);
       }
-      .edu-toggle {
-        width: 100%;
-        text-align: left;
-        background: var(--main-blue);
-        color: #fff;
-        font-size: 1.13rem;
-        font-weight: bold;
-        border: none;
-        border-radius: 10px 10px 0 0;
-        padding: 16px 22px;
-        cursor: pointer;
-        outline: none;
-        transition: background 0.2s;
-        letter-spacing: 0.5px;
-      }
+      .edu-toggle { width: 100%; text-align: left; background: var(--main-blue); color:#fff; font-size: 1.05rem; font-weight: 700; border: none; padding: 14px 18px; cursor: pointer; outline: none; transition: background .2s; letter-spacing: .5px; }
       .edu-toggle:hover,
       .edu-toggle.active {
         background: var(--hover-blue);
       }
-      .edu-details {
-        display: none;
-        padding: 18px 24px 16px 24px;
-        color: var(--text-dark);
-        background: var(--card-bg);
-        border-radius: 0 0 10px 10px;
-        border-top: 1px solid var(--card-border);
-        text-align: left;
-        line-height: 1.7;
-        font-size: 1.08rem;
-      }
+      .edu-details { display: block; padding: 18px 18px; color: var(--text-dark); background: var(--card-bg); text-align: left; line-height: 1.6; font-size: 1rem; }
       .edu-details strong {
         color: var(--main-blue);
         display: block;
@@ -200,10 +152,7 @@
         cursor: pointer;
         box-shadow: 0 2px 6px rgba(91, 141, 239, 0.07);
       }
-      .view-site-btn:hover {
-        background: var(--hover-blue);
-        color: #fff;
-      }
+      .view-site-btn:hover { background: var(--accent-blue); color: #fff; }
       @media (max-width: 1100px) {
         .edu-main-layout {
           flex-direction: column;
@@ -1580,7 +1529,7 @@
             if (firstLetter !== lastLetter) {
               const header = document.createElement("div");
               header.id = `az-${firstLetter}`;
-              header.style.cssText = "width:100%;margin-top:32px;";
+              header.style.cssText = "width:100%;margin-top:32px;grid-column:1 / -1;";
               header.innerHTML = `<h2 style="color:var(--main-blue);border-bottom:1.5px solid var(--card-border);padding-bottom:4px;letter-spacing:2px;">${firstLetter}</h2>`;
 
               item.parentNode.insertBefore(header, item);
