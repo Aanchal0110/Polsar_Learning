@@ -94,10 +94,20 @@ if (tracker) {
   // Mobile menu functionality
 const menu = document.getElementById("menu");
 if (menu) {
-  menu.addEventListener("click", () => {
+  menu.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const navbar = document.querySelector(".navbar");
         if (navbar) {
-            navbar.classList.toggle("active");
+            const isActive = navbar.classList.contains("active");
+            if (isActive) {
+                navbar.classList.remove("active");
+            } else {
+                navbar.classList.add("active");
+            }
+            console.log("Mobile menu toggled:", !isActive);
+        } else {
+            console.error("Navbar element not found");
         }
     });
   }
@@ -470,5 +480,27 @@ function initializeSearch() {
 window.addEventListener('load', function() {
   if (!document.querySelector('.navbar')) {
     initializeNavbar();
+  }
+  
+  // Ensure mobile menu works on all pages
+  const menu = document.getElementById("menu");
+  if (menu && !menu.hasAttribute('data-initialized')) {
+    menu.setAttribute('data-initialized', 'true');
+    menu.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const navbar = document.querySelector(".navbar");
+      if (navbar) {
+        const isActive = navbar.classList.contains("active");
+        if (isActive) {
+          navbar.classList.remove("active");
+        } else {
+          navbar.classList.add("active");
+        }
+        console.log("Fallback mobile menu toggled:", !isActive);
+      } else {
+        console.error("Fallback: Navbar element not found");
+      }
+    });
   }
 });

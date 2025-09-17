@@ -82,12 +82,8 @@
       }
 
       .tree-item i {
-        margin-right: 20px;
-        /* color: #007bff; */
-        font-size: 1.5em;
-        background: rgba(0, 123, 255, 0.08);
-        padding: 15px;
-        border-radius: 50%;
+        /* Hide the leading icons in each item */
+        display: none;
       }
 
       .tree-item-content {
@@ -127,7 +123,7 @@
         text-align: justify;
       }
 
-      .tree-item .button-group { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+      .tree-item .button-group { display: flex; justify-content: center; margin-top: 14px; }
 
       .tree-item a,
       .tree-item .guide-toggle {
@@ -238,8 +234,18 @@
   <body>
     <header>
       <div id="menu" class="fas fa-bars"></div>
-
-      <div id="navBar"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -263,13 +269,7 @@
                 
                 <div class="button-group">
                   <a href="https://earthexplorer.usgs.gov/" target="_blank"
-                    >Data Download</a
-                  >
-                  <a
-                    href="https://www.usgs.gov/faqs/how-do-i-download-landsat-imagery"
-                    target="_blank"
-                    class="guide-toggle"
-                    >Guide</a
+                    >Website</a
                   >
                 </div>
               </div>
@@ -302,13 +302,7 @@
                   <a
                     href="https://dataspace.copernicus.eu/browser/"
                     target="_blank"
-                    >Data Download</a
-                  >
-                  <a
-                    href="https://www.gisgeography.com/download-free-sentinel-satellite-data/"
-                    target="_blank"
-                    class="guide-toggle"
-                    >Guide</a
+                    >Website</a
                   >
                 </div>
               </div>
@@ -342,13 +336,7 @@
                 </div>
                 <div class="button-group">
                   <a href="https://search.earthdata.nasa.gov/" target="_blank"
-                    >Data Download</a
-                  >
-                  <a
-                    href="https://www.youtube.com/watch?v=QnkaXqY6e6g"
-                    target="_blank"
-                    class="guide-toggle"
-                    >Guide</a
+                    >Website</a
                   >
                 </div>
               </div>
@@ -378,13 +366,7 @@
                 
                 <div class="button-group">
                   <a href="https://asf.alaska.edu/data-sets/" target="_blank"
-                    >Data Download</a
-                  >
-                  <a
-                    href="https://www.asf.alaska.edu/how-to/data-tools-tutorials/"
-                    target="_blank"
-                    class="guide-toggle"
-                    >Guide</a
+                    >Website</a
                   >
                 </div>
               </div>
@@ -414,13 +396,7 @@
                 
                 <div class="button-group">
                   <a href="https://bhuvan.nrsc.gov.in/" target="_blank"
-                    >Data Download</a
-                  >
-                  <a
-                    href="https://www.nrsc.gov.in/Bhuvan_User_Guide"
-                    target="_blank"
-                    class="guide-toggle"
-                    >Guide</a
+                    >Website</a
                   >
                 </div>
               </div>
@@ -448,13 +424,7 @@
                   <a
                     href="https://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm"
                     target="_blank"
-                    >Data Download</a
-                  >
-                  <a
-                    href="https://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm"
-                    target="_blank"
-                    class="guide-toggle"
-                    >Guide</a
+                    >Website</a
                   >
                 </div>
               </div>
@@ -479,13 +449,7 @@
                 </div>
                 <div class="button-group">
                   <a href="https://www.class.noaa.gov/" target="_blank"
-                    >Data Download</a
-                  >
-                  <a
-                    href="https://www.class.noaa.gov/saa/products/welcome"
-                    target="_blank"
-                    class="guide-toggle"
-                    >Guide</a
+                    >Website</a
                   >
                 </div>
               </div>

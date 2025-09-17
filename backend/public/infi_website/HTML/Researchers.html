@@ -14,19 +14,10 @@
     <!-- Custom CSS File Link -->
     <link rel="stylesheet" href="/infi_website/CSS/style.css" />
     <style>
-      .academicians-items { display: grid; grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 20px; align-items: stretch; justify-items: center; }
-      .academician-item {
-        border: 1px solid #ccc;
-        margin: 0;
-        padding: 17px;
-        border-radius: 8px;
-        background: #fff;
-        width: 100%;
-        aspect-ratio: 1 / 1; /* make square */
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-      }
+      .btn { display:inline-block; padding:8px 14px; border-radius:6px; border:1px solid #1e90ff; background:#1e90ff; color:#fff; text-decoration:none; font-size:0.95rem; cursor:pointer; transition:all 0.2s ease; }
+      .btn:hover { filter: brightness(0.95); }
+      .academicians-items { text-align: center; }
+      .academician-item { border: 1px solid #ccc; margin: 15px 0; padding: 15px; border-radius: 8px; background:#fff; }
       p {
         text-align: justify;
       }
@@ -69,14 +60,25 @@
         margin-bottom: 10px; /* Space between list items */
       }
 
-      .linkedin-link {
-        color: #6a4c9c;
-        font-weight: bold;
-        text-decoration: underline;
+      .linkedin-link { display:none; }
+      /* Handle missing images gracefully */
+      .academician-img:not([src]),
+      .academician-img[src=""],
+      .academician-img[src*="undefined"] {
+        background: #f8f9fa;
+        border: 2px dashed #dee2e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6c757d;
+        font-size: 14px;
+        text-align: center;
       }
-
-      .linkedin-link:hover {
-        text-decoration: underline;
+      .academician-img:not([src])::after,
+      .academician-img[src=""]::after,
+      .academician-img[src*="undefined"]::after {
+        content: "Profile Image\A Not Available";
+        white-space: pre;
       }
 
       .read-more-btn {
@@ -99,13 +101,27 @@
   <body>
     <header>
       <div id="menu" class="fas fa-bars"></div>
-      <div id="navBar"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
     </header>
+    <div id="navBarTracker"></div>
+    <div class="container">
     <main>
       <section class="academicians">
         <h1>Researchers</h1>
         <div style="text-align: center; margin-bottom: 20px; color: #666; font-style: italic;">
-          <p>Last Updated: <span id="lastUpdated"></span></p>
+          <p>Last Updated:Thursday, September 18, 2025
+            <span id="lastUpdated"></span></p>
         </div>
         <div class="academicians-items" style="text-align: center">
           <!-- Dr. Shiv Mohan -->
@@ -124,12 +140,7 @@
               Award (2022). He also contributed to IEEE GRSS initiatives in
               India.
             </p>
-            <a
-              href="https://linkedin.com/in/shiv-mohan-1a009234"
-              class="linkedin-link"
-              target="_blank"
-              >LinkedIn</a
-            >
+            <a href="https://linkedin.com/in/shiv-mohan-1a009234" class="btn" target="_blank">LinkedIn</a>
           </div>
 
           <!-- Dr. Anup Das -->
@@ -146,12 +157,7 @@
               RISAT-1, Chandrayaan SAR, and NISAR. He received the 'Green Asia
               Award' (2017) for SAR-based forest biomass studies.
             </p>
-            <a
-              href="https://linkedin.com/in/anup-das-51880327"
-              class="linkedin-link"
-              target="_blank"
-              >LinkedIn</a
-            >
+            <a href="https://linkedin.com/in/anup-das-51880327" class="btn" target="_blank">LinkedIn</a>
           </div>
 
           <!-- Dr. Sujata Dash -->
@@ -168,12 +174,7 @@
               papers and has received multiple awards, including 'Scientist of
               the Year' (2006).
             </p>
-            <a
-              href="https://www.linkedin.com/in/sujata-dash-422971a3"
-              class="linkedin-link"
-              target="_blank"
-              >LinkedIn</a
-            >
+            <a href="https://www.linkedin.com/in/sujata-dash-422971a3" class="btn" target="_blank">LinkedIn</a>
           </div>
 
           <!-- Dr. Paul Rosen -->
@@ -190,12 +191,7 @@
               NASA's Exceptional Service Medal (2001) and authored 30+ journal
               papers.
             </p>
-            <a
-              href="https://www.linkedin.com/in/paul-rosen-4052b8b"
-              class="linkedin-link"
-              target="_blank"
-              >LinkedIn</a
-            >
+            <a href="https://www.linkedin.com/in/paul-rosen-4052b8b" class="btn" target="_blank">LinkedIn</a>
           </div>
 
           <!-- Dr. Sujata Ghosh -->
@@ -210,12 +206,7 @@
               Dr. Sujata Ghosh has expertise in government and remote sensing
               applications, with prior experience at ISRO.
             </p>
-            <a
-              href="https://linkedin.com/in/sujata-ghosh-7b338a8"
-              class="linkedin-link"
-              target="_blank"
-              >LinkedIn</a
-            >
+            <a href="https://linkedin.com/in/sujata-ghosh-7b338a8" class="btn" target="_blank">LinkedIn</a>
           </div>
 
           <!-- Dr. Pratima Pandey -->
@@ -230,18 +221,14 @@
               Expertise: Glaciology, Optical and SAR applications for
               cryosphere studies.
             </p>
-            <a
-              href="https://www.linkedin.com/in/pratima-pandey-209b181b3"
-              class="linkedin-link"
-              target="_blank"
-              >LinkedIn</a
-            >
+            <a href="https://www.linkedin.com/in/pratima-pandey-209b181b3" class="btn" target="_blank">LinkedIn</a>
           </div>
 
 
         </div>
       </section>
     </main>
+    </div>
 
     
 
@@ -270,6 +257,26 @@
     </script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
     <script>
+      // Mirror missing-image fallback from academicians
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('.academician-img');
+        images.forEach(function(img) {
+          img.addEventListener('load', function() { this.style.opacity = '1'; });
+          img.addEventListener('error', function() {
+            this.style.opacity = '0.7';
+            this.style.border = '2px dashed #dc3545';
+            this.style.background = '#fff5f5';
+            const fallback = document.createElement('div');
+            fallback.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#dc3545;font-size:12px;text-align:center;pointer-events:none;';
+            fallback.textContent = 'Profile Image\nNot Available';
+            this.parentNode.style.position = 'relative';
+            this.parentNode.appendChild(fallback);
+          });
+          img.style.opacity = '0.9';
+          img.style.transition = 'opacity 0.3s ease';
+        });
+      });
+    </script>
       // Display today's date
       document.addEventListener('DOMContentLoaded', function() {
         const today = new Date();

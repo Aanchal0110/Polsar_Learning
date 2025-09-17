@@ -14,6 +14,8 @@
     <!-- Custom CSS File Link -->
     <link rel="stylesheet" href="/infi_website/CSS/style.css" />
     <style>
+      .btn { display:inline-block; padding:8px 14px; border-radius:6px; border:1px solid #1e90ff; background:#1e90ff; color:#fff; text-decoration:none; font-size:0.95rem; cursor:pointer; transition:all 0.2s ease; }
+      .btn:hover { filter: brightness(0.95); }
       .academician-item {
         border: 1px solid #ccc;
         margin: 15px 0;
@@ -51,9 +53,9 @@
       }
 
       .read-more-content a {
-        display: block; /* Makes the link block-level, so it can be centered */
-        text-align: center; /* Centers the text */
-        margin-top: 10px; /* Adds spacing from the content above */
+        display: block;
+        text-align: center;
+        margin-top: 10px;
       }
 
       .read-more-content ul {
@@ -79,16 +81,6 @@
         color: #0077b5;
         cursor: pointer;
         font-weight: bold;
-      }
-      .read-more-content a.website-link {
-        color: #6a4c9c; /* Purple color */
-        text-decoration: underline; /* Underlined link */
-        font-weight: bold; /* Bold text */
-      }
-
-      .read-more-content a.website-link:hover {
-        color: #4b2e83; /* Darker purple on hover */
-        text-decoration: underline; /* Keep underline on hover */
       }
     </style>
   </head>
@@ -165,6 +157,37 @@
           <div class="academicians-items" style="text-align: center">
             <div class="academician-item">
               <img
+                src="/infi_website/image/Dr. Samee Azmi.jpeg"
+                alt="Dr. Samee Azmi"
+                class="academician-img"
+                style="display: block; margin: 0 auto"
+              />
+              <h2>Dr. Samee Azmi, Ph.D. (HERE Technologies)</h2>
+              <p style="text-align: justify">
+                Dr. Samee Azmi is a seasoned Project and Program Manager at HERE Technologies with over six years of experience leading global governance, risk management, and strategic program execution. With a strong foundation in geospatial sciences and hydrology, he holds a doctorate in Geoinformatics and Natural Resources from IIT Bombay and has previously contributed as a researcher, consultant, and modeling specialist in projects funded by organizations like the World Bank.
+              </p>
+              <span class="read-more-btn" onclick="toggleReadMore(this)">Read More</span>
+              <div class="read-more-content">
+                <p style="text-align: justify">
+                  He has authored more than 15 peer-reviewed publications, holds a patent, and brings extensive expertise in GIS, remote sensing, and decision support systems. His career spans academic research, rural development initiatives, and large-scale program governance, where he has successfully engaged with senior stakeholders, adopted Agile practices, and driven benefit realization.
+                </p>
+                <p style="text-align: justify">
+                  Certified with PMP®, DASSM®, PSPO®, and PSM®, Dr. Azmi combines technical depth with leadership skills, making him highly effective in bridging science, technology, and business strategy. His work reflects a balance of academic rigor, hands-on technical expertise, and organizational leadership, positioning him as a strong asset in both geospatial research and program management domains.
+                </p>
+                <p style="text-align: justify">Key Areas of Expertise:</p>
+                <ol>
+                  <li>Project and Program Management</li>
+                  <li>Geospatial Sciences and Hydrology</li>
+                  <li>GIS and Remote Sensing</li>
+                  <li>Decision Support Systems</li>
+                  <li>Agile Practices and Governance</li>
+                  <li>Strategic Program Execution</li>
+                </ol>
+                <a href="https://www.linkedin.com/in/samiazmi/" class="btn" target="_blank">LinkedIn</a>
+              </div>
+            </div>
+            <div class="academician-item">
+              <img
                 src="/infi_website/image/Dr. Yogesh Agarwadkar.jpeg"
                 alt="Dr. Yogesh Agarwadkar"
                 class="academician-img"
@@ -216,12 +239,7 @@
                   <li>Numerical Analysis</li>
                   <li>Spatial Analysis Mapping</li>
                 </ol>
-                <a
-                  href="https://www.linkedin.com/in/yogesh-a-1598045"
-                  class="linkedin-link"
-                  target="_blank"
-                  >LinkedIn</a
-                >
+                <a href="https://www.linkedin.com/in/yogesh-a-1598045" class="btn" target="_blank">LinkedIn</a>
               </div>
             </div>
             <div class="academician-item">
@@ -260,12 +278,7 @@
                   <li>Polarimetric SAR</li>
                   <li>Deep Learning</li>
                 </ol>
-                <a
-                  href="https://www.linkedin.com/in/shaunakde"
-                  class="linkedin-link"
-                  target="_blank"
-                  >LinkedIn</a
-                >
+                <a href="https://www.linkedin.com/in/shaunakde" class="btn" target="_blank">LinkedIn</a>
               </div>
             </div>
 
@@ -295,8 +308,7 @@
                   <li>PolSAR Applications</li>
                   <li>Environmental Monitoring</li>
                 </ol>
-                <a href="https://varsha.turkar.in/" target="_blank" class="website-link">Website</a> |
-                <a href="https://linkedin.com/in/varshaturkar" target="_blank" class="linkedin-link">LinkedIn</a>
+                <a href="https://linkedin.com/in/varshaturkar" target="_blank" class="btn">LinkedIn</a>
               </div>
             </div>
           </div>

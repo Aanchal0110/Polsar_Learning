@@ -118,8 +118,8 @@
           background 0.2s,
           box-shadow 0.2s;
       }
-      .edu-list { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
-      .edu-list li { border: 1.5px solid var(--card-border); border-radius: 12px; background: var(--card-bg); box-shadow: 0 2px 8px rgba(58,92,168,.07); transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden; }
+      .edu-list { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; }
+      .edu-list li { border: 1.5px solid var(--card-border); border-radius: 12px; background: var(--card-bg); box-shadow: 0 2px 8px rgba(58,92,168,.07); transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden; display: flex; flex-direction: column; height: 400px; }
       .edu-list li:hover {
         box-shadow: 0 6px 18px rgba(58, 92, 168, 0.13);
         transform: translateY(-2px) scale(1.01);
@@ -129,30 +129,30 @@
       .edu-toggle.active {
         background: var(--hover-blue);
       }
-      .edu-details { display: block; padding: 18px 18px; color: var(--text-dark); background: var(--card-bg); text-align: left; line-height: 1.6; font-size: 1rem; }
+      .edu-details { flex: 1; display: flex; flex-direction: column; padding: 18px 18px; color: var(--text-dark); background: var(--card-bg); text-align: justify; line-height: 1.6; font-size: 1rem; }
       .edu-details strong {
         color: var(--main-blue);
         display: block;
         margin-bottom: 4px;
       }
       .view-site-btn {
-        display: inline-block;
-        margin-top: 12px;
-        padding: 8px 20px;
-        background: var(--accent-blue);
-        color: #fff;
+        display: inline-flex;
+        align-self: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: auto;
+        padding: 10px 20px;
+        background: #002147;
+        color: #ffffff !important;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
         font-weight: 600;
         font-size: 1rem;
         text-decoration: none;
-        transition:
-          background 0.2s,
-          color 0.2s;
         cursor: pointer;
-        box-shadow: 0 2px 6px rgba(91, 141, 239, 0.07);
       }
-      .view-site-btn:hover { background: var(--accent-blue); color: #fff; }
+      .view-site-btn:hover { background: #002147; color: #ffffff !important; text-decoration: none; }
+      .view-site-btn:visited { color: #ffffff !important; }
       @media (max-width: 1100px) {
         .edu-main-layout {
           flex-direction: column;
@@ -176,9 +176,8 @@
           margin-left: 0;
           margin-top: 80px;
         }
-        .edu-list {
-          max-width: 98vw;
-        }
+        .edu-list { max-width: 98vw; grid-template-columns: 1fr; gap: 20px; }
+        .edu-list li { height: auto; min-height: 350px; }
         .toggle-btn {
           padding: 14px 18px;
           font-size: 1.05rem;

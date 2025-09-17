@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>POLARIMETRY - PolSARLearn</title>
+    <title> PolSARLearn</title>
     <!-- Font Awesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <!-- Custom CSS File Link -->
@@ -26,41 +26,46 @@
         background: transparent;
       }
 
-      /* Hero Section */
-      .hero-section {
-        background: linear-gradient(135deg, #003366 0%, #004080 100%);
-        color: white;
-        padding: 60px 40px;
-        border-radius: 20px;
+      /* Header Section - matching Technical Paper style */
+      .tech-papers-header {
         text-align: center;
-        margin-bottom: 40px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      }
-
-      .hero-section h1 {
-        font-size: 3.5em;
-        margin: 0 0 20px 0;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        letter-spacing: 2px;
-      }
-
-      .hero-section p {
-        font-size: 1.3em;
-        margin: 0;
-        opacity: 0.9;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      /* Search Section */
-      .search-section {
-        background: white;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        background: #fff;
         padding: 30px;
         border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
         text-align: center;
+        color: #002147;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+      }
+
+
+      #searchInput, .paper-search {
+        width: 70%;
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        border: 2px solid #e0e0e0;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+      }
+
+      #searchInput:focus {
+        outline: none;
+        border-color: #009688;
+        box-shadow: 0 0 10px rgba(0, 150, 136, 0.2);
       }
 
       .search-container {
@@ -298,27 +303,6 @@
         }
       }
 
-      /* Page Title Styling */
-      .page-title {
-        font-size: 3.5em;
-        color: #003366;
-        text-align: center;
-        margin: 0 0 30px 0;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        letter-spacing: 2px;
-        background: linear-gradient(135deg, #003366 0%, #004080 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        padding: 20px 0;
-      }
-
-      .page-title i {
-        margin-right: 15px;
-        color: #ff4500;
-        -webkit-text-fill-color: #ff4500;
-      }
 
       /* Loading state */
       .loading {
@@ -404,23 +388,28 @@
     <!-- Include Navbar -->
     <header>
       <div id="menu" class="fas fa-bars"></div>
-      <div id="navBar"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
     </header>
 
       
 
-              <!-- Search Section -->
-        <section class="search-section">
-          <h1 class="page-title">FUNDAMENTALS</h1>
-          <div class="search-container">
-        <input
-          type="text"
-            class="search-input" 
-            id="searchInput" 
-            placeholder="Search polarimetry concepts (e.g., SAR, polarimetry, InSAR, decomposition, calibration, speckle, geometry)..."
-          onkeyup="filterCards()"
-        />
-          <i class="fas fa-search search-icon"></i>
+      <div class="tech-papers-header">
+        <h1>Fundamentals</h1>
+        <p class="subtitle">
+          Explore the fundamental concepts and principles of remote sensing and microwave technology
+        </p>
+        <input type="text" id="searchInput" class="paper-search" placeholder="Search polarimetry concepts (e.g., SAR, polarimetry, InSAR, decomposition, calibration, speckle, geometry)..." onkeyup="filterCards()" />
       </div>
 
         <!-- Category Filters -->
@@ -429,7 +418,6 @@
           <button class="filter-btn" onclick="filterByCategory('radar', this)">Radar Basics</button>
           <button class="filter-btn" onclick="filterByCategory('polarization', this)">Polarization</button>
         </div>
-      </section>
 
       <!-- Cards Grid -->
       <div class="cards-grid" id="cardsGrid">

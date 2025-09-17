@@ -28,13 +28,9 @@
         color: #ff4500;
         border: 1px solid #ff4500;
       }
-      .card-actions {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        margin-top: 10px;
-        flex-wrap: wrap;
-      }
+      .card-actions { display: flex; justify-content: center; align-items: center; margin-top: 12px; gap: 12px; }
+      .card-actions .btn { background: #1e90ff; border-color: #1e90ff; }
+      .card-actions .btn:hover { filter: brightness(0.95); }
       .modal-overlay {
         position: fixed;
         inset: 0;
@@ -77,7 +73,18 @@
   <body>
     <header>
       <div id="menu" class="fas fa-bars"></div>
-      <div id="navBar"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
     </header>
     <main>
       <h1>Books</h1>
@@ -252,7 +259,7 @@
           title: "Introduction to Microwave Remote Sensing",
           author: "Iain H. Woodhouse",
           desc: " Introduction to Microwave Remote Sensing offers an extensive overview of this versatile and extremely precise technology for technically oriented undergraduates and graduate students. This textbook emphasizes an important shift in conceptualization and directs it toward students with prior knowledge of optical remote the author dispels any linkage between microwave and optical remote sensing. Instead, he constructs the concept of microwave remote sensing by comparing it to the process of audio perception, explaining the workings of the ear as a metaphor for microwave instrumentation. This volume takes an “application-driven” approach. Instead of describing the technology and then its uses, this textbook justifies the need for measurement then explains how microwave technology addresses this need. Following a brief summary of the field and a history of the use of microwaves, the book explores the physical properties of microwaves and the polarimetric properties of electromagnetic waves. It examines the interaction of microwaves with matter, analyzes passive atmospheric and passive surface measurements, and describes the operation of altimeters and scatterometers. The textbook concludes by explaining how high resolution images are created using radars, and how techniques of interferometry can be applied to both passive and active sensors.",
-          img: "../BOOKS image/book20.png",
+          img: "../image/book20.jpg",
           link: "https://www.goodreads.com/book/show/35827659-introduction-to-microwave-remote-sensing",
         },
         {
@@ -274,7 +281,7 @@
           title: "Remote Sensing of Impervious Surfaces",
           author: "Qihao Weng (ed.)",
           desc: "Remote sensing of impervious surfaces has matured using advances in geospatial technology so recent that its applications have received only sporadic coverage in remote sensing literature. Remote Sensing of Impervious Surfaces is the first to focus entirely on this developing field. It provides detailed coverage of mapping, data extraction, and modeling techniques specific to analyzing impervious surfaces, such as roads and buildings. Written by renowned experts in the field, this book reviews the major approaches that apply to this emerging field as well as current challenges, developments, and trends. The authors introduce remote sensing digital image processing techniques for estimating and mapping impervious surfaces in urban and rural areas. Presenting the latest modeling tools and algorithms for data extraction and analysis, the book explains how to differentiate roads, roofs, and other manmade structures from remotely sensed images for individual analysis. The final chapters examine how to use impervious surface data for predicting the flow of storm- or floodwater and studying trends in population, land use, resource distribution, and other real-world applications in environmental, urban, and regional planning. Each chapter offers a consistent format including a concise review of basic concepts and methodologies, timely case studies, and guidance for solving problems and analyzing data using the techniques presented",
-          img: "../BOOKS image/Remote Sensing of Impervious Surfaces.jpg",
+          img: "../image/book32.jpg",
           link: "https://www.routledge.com/Remote-Sensing-of-Impervious-Surfaces/Weng/p/book/9781420043747",
         },
         
@@ -338,10 +345,24 @@
         },
         {
           title: "Remote Sensing of Impervious Surfaces in Tropical and Subtropical Areas",
-          author: "ongsheng Zhang, Hui Lin, Yuanzhi Zhang, Qihao Weng, Published: 26 August 2015",
+          author: "Hongsheng Zhang, Hui Lin, Yuanzhi Zhang, Qihao Weng, Published: 26 August 2015",
           desc: "Remote Sensing of Impervious Surfaces in Tropical and Subtropical Areas offers a complete and thorough system for using optical and synthetic aperture radar (SAR) remote sensing data for improving impervious surface estimation (ISE). Highlighting tropical and subtropical areas where there is significant cloud occurrence and varying phenology, the book addresses the challenges impacting impervious surfaces in tropical and subtropical zones. It examines the potential for estimating urban impervious surfaces in a rainy and cloudy environment, considers the difficulties encountered when using optical remote sensing in this type of climate, and assesses existing methods employing remote sensing data for accurate ISE in tropical and subtropical regions. Using the results of comparative studies conducted during the four seasons and in six different cities (Guangzhou, Shenzhen, Hong Kong, Mumbai, Sao Paulo, and Cape Town), the authors develop a framework for ISE using optical and SAR image data. They address the advantages and disadvantages of optical and SAR data, consider fusion strategies for combining optical and SAR data, and examine different feature extractions for optical and SAR data. They also detail the limitations of the research, suggest possible topics for future analysis, and cover previous findings on the synergistic use of optical and SAR data.Concentrates on the effect a tropical and subtropical urban climate can have on impervious surface estimation (ISE) Reviews literature on the significance of ISE and the phonological and climatic characteristics of tropical and subtropical regions Describes datasets including satellite data, digital orthophoto data, in situ data, and more",
-          img: "../BOOKS image/book20.png",
+          img: "../image/book32.jpg",
           link: "https://viteduin59337-my.sharepoint.com/:w:/r/personal/sai_gurav_vit_edu_in/_layouts/15/Doc.aspx?sourcedoc=%7BBBA08047-226C-4882-9E4C-CE9D3C27B9A5%7D&file=Resources%20-%20Books.docx&action=default&mobileredirect=true&wdOrigin=OUTLOOK-METAOS.FILEBROWSER.FILES-HOME",
+        },
+        {
+          title: "Infrared Thermal Imaging: Fundamentals, Research and Applications, Second Edition",
+          author: "Michael Vollmer and Klaus-Peter Möllmann",
+          desc: "This richly illustrated hands-on guide is designed for researchers, teachers and practitioners. The huge selection of examples taken from science, basic teaching of physics, practical applications in industry and a variety of other disciplines spanning the range from medicine to volcano research allows readers to pick those that come closest to their own individual task at hand. Following a look at the fundamentals of IR thermal imaging, properties of the imaging systems, as well as basic and advanced methods, the book goes on to discuss IR imaging applications in teaching, research and industry. Specific examples include thermography of buildings, microsystems and the rather new field of IR imaging of gases.",
+          img: "../image/book51.jpg",
+          link: "https://www.goodreads.com/book/show/16985620-infrared-thermal-imaging",
+        },
+        {
+          title: "InSAR Principles: Guidelines for SAR Interferometry Processing and Interpretation",
+          author: "European Space Agency",
+          desc: "This comprehensive guide provides detailed guidelines for SAR interferometry processing and interpretation. Published by the European Space Agency, this technical memorandum covers the fundamental principles of InSAR (Interferometric Synthetic Aperture Radar) technology, including data processing techniques, interpretation methods, and practical applications in Earth observation. The document serves as an essential reference for researchers, engineers, and practitioners working with SAR interferometry for ground deformation monitoring, topographic mapping, and environmental studies.",
+          img: "../image/60.jpg",
+          link: "https://www.goodreads.com/book/show/15208817-insar-principles",
         },
         {
           title: "A New Target Detector Based on Geometrical Perturbation Filters for POL-SAR",
@@ -417,7 +438,7 @@
         {
           title: "Radargrammetric Image Processing",
           author: "Franz W. Leberl",
-          img: "../BOOKS image/book20.png",
+          img: "../image/book43.jpg",
           link: "https://www.goodreads.com/book/show/4541722-radargrammetric-image-processing",
         },
         {
@@ -470,13 +491,7 @@
           img:"../BOOKS image/book50.webp",
           link:"https://www.routledge.com/search?author=Dale%20A.%20Quattrochi",
         },
-        {
-          title:"Infrared Thermal Imaging",
-          author:"Michael Vollmer,October 25, 2011 by Wiley-VCH Verlag GmbH",
-          desc:"This richly illustrated hands-on guide is designed for researchers, teachers and practitioners. The huge selection of examples taken from science, basic teaching of physics, practical applications in industry and a variety of other disciplines spanning the range from medicine to volcano research allows readers to pick those that come closest to their own individual task at hand. Following a look at the fundamentals of IR thermal imaging, properties of the imaging systems, as well as basic and advanced methods, the book goes on to discuss IR imaging applications in teaching, research and industry. Specific examples include thermography of buildings, microsystems and the rather new field of IR imaging of gases.",
-          img:"../BOOKS image/book20.png",
-          link:"https://www.goodreads.com/book/show/16985620-infrared-thermal-imaging",
-        },
+        
         {
           title:"Handbook of Radar Scattering Statistics for Terrain",
           author:"Fawwaz T. Ulaby, 	March 1, 1989 by Artech House Publishers",
@@ -533,12 +548,7 @@
           img:"../BOOKS image/book59.jpg",
           link:"https://www.goodreads.com/book/show/4397808-microwave-scattering-and-emission-models-and-their-applications",
         },
-        {
-          title:"Insar Principles: Guidelines for Sar Interferometry Processing and Interpretation",
-          author:"European Space Research and Technology C(Contributor), January 1, 2007 by ESA Publications",
-          img:"../BOOKS image/book20.png",
-          link:"https://www.goodreads.com/book/show/15208817-insar-principles",
-        },
+       
         {
           title:"InSAR Observations of Ground Deformation: Application to the Cascades Volcanic Arc",
           author:"Amy Laura Parker, October 24, 2016 by Springer",
@@ -583,7 +593,7 @@
               ? `<div class="beginner-note" style="color:#1e90ff; font-size:0.97rem; margin-bottom:8px;"><b>Beginner's Note:</b> ${book.beginnerNote}</div>`
               : "";
             const linkButton = book.link
-              ? `<a href="${book.link}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Read more</a>`
+              ? `<a href="${book.link}" class="btn" target="_blank" rel="noopener noreferrer">View details</a>`
               : "";
             return `
         <div class="card">
@@ -596,7 +606,6 @@
               ${shortDesc}
             </div>
             <div class="card-actions">
-              <button class="btn view-details" data-index="${idx}">View details</button>
               ${linkButton}
             </div>
           </div>

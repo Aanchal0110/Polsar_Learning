@@ -17,7 +17,6 @@
         background: #f8f9fa;
         color: #333;
       }
-
       /* Container adjustment for fixed header */
       .container {
         margin-top: 80px;
@@ -27,7 +26,6 @@
         box-shadow: none;
         width: 100%;
       }
-
       .section {
         margin-bottom: 50px;
         background: white;
@@ -35,29 +33,19 @@
         border-radius: 15px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       }
-
       .section h2 {
         margin-bottom: 25px;
         color: #003366;
         font-size: 2.2em;
         border-bottom: 3px solid #ff4500;
         padding-bottom: 10px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
       }
-
-      .section h2 i {
-        color: #ff4500;
-      }
-
       .content {
         display: flex;
         align-items: flex-start;
         gap: 30px;
         margin-bottom: 30px;
       }
-
       .content img {
         max-width: 40%;
         height: auto;
@@ -65,7 +53,6 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         flex-shrink: 0;
       }
-
       .content p {
         line-height: 1.8;
         font-size: 1.1em;
@@ -73,7 +60,6 @@
         text-align: justify;
         margin: 0;
       }
-
       .content-container {
         display: flex;
         flex-wrap: wrap;
@@ -81,12 +67,10 @@
         justify-content: space-between;
         align-items: flex-start;
       }
-
       .content-text {
         flex: 1;
         min-width: 60%;
       }
-
       .content-text h3 {
         color: #003366;
         margin-bottom: 15px;
@@ -94,22 +78,18 @@
         border-left: 4px solid #ff4500;
         padding-left: 15px;
       }
-
       .content-text ul {
         padding-left: 20px;
         margin: 15px 0;
       }
-
       .content-text li {
         margin-bottom: 10px;
         line-height: 1.6;
         color: #555;
       }
-
       .content-text strong {
         color: #003366;
       }
-
       .image-container {
         flex: 1;
         min-width: 35%;
@@ -117,7 +97,6 @@
         justify-content: center;
         align-items: flex-start;
       }
-
       .image-container img {
         width: 100%;
         max-width: 400px;
@@ -126,16 +105,13 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         transition: transform 0.3s ease;
       }
-
       .image-container img:hover {
         transform: scale(1.02);
       }
-
       .table-container {
         overflow-x: auto;
         margin: 30px 0;
       }
-
       table {
         width: 100%;
         border-collapse: collapse;
@@ -146,14 +122,12 @@
         overflow: hidden;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       }
-
       th,
       td {
         border: 1px solid #ddd;
         padding: 15px;
         font-size: 1em;
       }
-
       th {
         background: #003366;
         color: #fff;
@@ -161,15 +135,12 @@
         text-transform: uppercase;
         letter-spacing: 1px;
       }
-
       tr:nth-child(even) {
         background: #f2f2f2;
       }
-
       tr:hover {
         background: #e8f4f8;
       }
-
       /* Applications Section Styling */
       .applications-grid {
         display: grid;
@@ -177,7 +148,6 @@
         gap: 30px;
         margin: 40px 0;
       }
-
       .application-card {
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         padding: 25px;
@@ -186,31 +156,20 @@
         transition: transform 0.3s ease;
         border-left: 5px solid #003366;
       }
-
       .application-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       }
-
       .application-card h3 {
         color: #003366;
         margin-bottom: 15px;
         font-size: 1.3em;
-        display: flex;
-        align-items: center;
-        gap: 10px;
       }
-
-      .application-card h3 i {
-        color: #ff4500;
-      }
-
       .application-card p {
         color: #555;
         line-height: 1.6;
         margin: 0;
       }
-
       /* Timeline Styling */
       .timeline {
         position: relative;
@@ -218,7 +177,6 @@
         margin: 40px auto;
         padding: 20px;
       }
-
       .timeline::after {
         content: "";
         position: absolute;
@@ -230,7 +188,6 @@
         margin-left: -2px;
         border-radius: 2px;
       }
-
       .timeline-item {
         padding: 10px 40px;
         position: relative;
@@ -238,15 +195,12 @@
         box-sizing: border-box;
         margin-bottom: 30px;
       }
-
       .timeline-item:nth-child(odd) {
         left: 0;
       }
-
       .timeline-item:nth-child(even) {
         left: 50%;
       }
-
       .timeline-item::after {
         content: "";
         position: absolute;
@@ -259,15 +213,12 @@
         z-index: 1;
         box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       }
-
       .timeline-item:nth-child(odd)::after {
         right: -10px;
       }
-
       .timeline-item:nth-child(even)::after {
         left: -10px;
       }
-
       .timeline-content {
         padding: 25px;
         background: white;
@@ -275,50 +226,36 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         transition: transform 0.3s ease;
       }
-
       .timeline-content:hover {
         transform: translateY(-3px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       }
-
       .timeline-year {
         color: #ff4500;
         font-weight: bold;
         font-size: 1.3em;
         margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
       }
-
-      .timeline-year i {
-        font-size: 1.1em;
-      }
-
       .timeline-title {
         color: #003366;
         font-weight: bold;
         margin-bottom: 10px;
         font-size: 1.1em;
       }
-
       .timeline-title a {
         color: #003366;
         text-decoration: none;
         transition: color 0.3s ease;
       }
-
       .timeline-title a:hover {
         color: #ff4500;
         text-decoration: underline;
       }
-
       .timeline-description {
         color: #555;
         line-height: 1.6;
         margin: 0;
       }
-
       /* New content sections */
       .spectrum-section {
         background: linear-gradient(135deg, #003366 0%, #004080 100%);
@@ -327,19 +264,16 @@
         border-radius: 15px;
         margin: 40px 0;
       }
-
       .spectrum-section h2 {
         color: white;
         border-bottom: 2px solid #ff4500;
       }
-
       .spectrum-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 25px;
         margin-top: 30px;
       }
-
       .spectrum-card {
         background: rgba(255, 255, 255, 0.1);
         padding: 25px;
@@ -348,41 +282,32 @@
         backdrop-filter: blur(10px);
         transition: transform 0.3s ease;
       }
-
       .spectrum-card:hover {
         transform: translateY(-5px);
         background: rgba(255, 255, 255, 0.15);
       }
-
       .spectrum-card h3 {
         color: #ff4500;
         margin-bottom: 15px;
         font-size: 1.3em;
-        display: flex;
-        align-items: center;
-        gap: 10px;
       }
-
       .spectrum-card p {
         color: #e9ecef;
         line-height: 1.6;
         margin: 0;
       }
-
       .resolution-section {
         background: #f8f9fa;
         padding: 40px 30px;
         border-radius: 15px;
         margin: 40px 0;
       }
-
       .resolution-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
         margin-top: 30px;
       }
-
       .resolution-card {
         background: white;
         padding: 25px;
@@ -391,31 +316,20 @@
         border-top: 4px solid #ff4500;
         transition: transform 0.3s ease;
       }
-
       .resolution-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       }
-
       .resolution-card h3 {
         color: #003366;
         margin-bottom: 15px;
         font-size: 1.2em;
-        display: flex;
-        align-items: center;
-        gap: 10px;
       }
-
-      .resolution-card h3 i {
-        color: #ff4500;
-      }
-
       .resolution-card p {
         color: #555;
         line-height: 1.6;
         margin: 0;
       }
-
       @media (max-width: 768px) {
         .content {
           flex-direction: column;
@@ -463,7 +377,6 @@
           font-size: 1.8em;
         }
       }
-
       /* Center the global page content */
       body, html {
         width: 100vw;
@@ -476,18 +389,27 @@
       }
     </style>
   </head>
-
   <body>
     <!-- Include Navbar -->
     <header>
       <div id="menu" class="fas fa-bars"></div>
-      <div id="navBar"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
     </header>
-
     <div class="container">
       <main>
       <section class="section">
-        <h2><i class="fas fa-sun"></i> Introduction to Optical Remote Sensing</h2>
+        <h2>Introduction to Optical Remote Sensing</h2>
         <div class="content">
           <p>
             Optical remote sensing is a fundamental technology that provides comprehensive insights into the Earth's surface by analyzing electromagnetic radiation across the visible and near-infrared spectrum. This advanced sensing technique primarily captures reflected or emitted radiation from terrestrial objects in the visible (400-700 nm), near-infrared (NIR, 700-1400 nm), and short-wave infrared (SWIR, 1400-3000 nm) bands.
@@ -498,57 +420,53 @@
             alt="Introduction to Optical Remote Sensing"
           />
         </div>
-        
       </section>
-
       <section class="section">
-        <h2><i class="fas fa-atom"></i> Electromagnetic Spectrum in Optical Remote Sensing</h2>
+        <h2>Electromagnetic Spectrum in Optical Remote Sensing</h2>
         <div class="spectrum-section">
-          <h2><i class="fas fa-chart-line"></i> Spectral Bands and Their Applications</h2>
+          <h2>Spectral Bands and Their Applications</h2>
           <div class="spectrum-grid">
             <div class="spectrum-card">
-              <h3><i class="fas fa-eye"></i> Visible Light (400-700 nm)</h3>
+              <h3>Visible Light (400-700 nm)</h3>
               <p>This region of the spectrum is detectable by the human eye and enables true color imaging. Different materials reflect varying amounts of red, green, and blue light, allowing for detailed surface analysis and natural color representation.</p>
             </div>
             <div class="spectrum-card">
-              <h3><i class="fas fa-leaf"></i> Near-Infrared (700-1400 nm)</h3>
+              <h3>Near-Infrared (700-1400 nm)</h3>
               <p>Beyond the visible spectrum, NIR is particularly valuable for vegetation analysis and soil moisture assessment. Healthy vegetation strongly reflects NIR radiation, making it ideal for crop health monitoring and forest studies.</p>
             </div>
             <div class="spectrum-card">
-              <h3><i class="fas fa-thermometer-half"></i> Shortwave Infrared (1400-3000 nm)</h3>
+              <h3>Shortwave Infrared (1400-3000 nm)</h3>
               <p>SWIR bands are essential for detecting moisture levels, differentiating rock types, and identifying materials based on their unique reflectance patterns. This band is crucial for geological studies and mineral exploration.</p>
             </div>
           </div>
         </div>
       </section>
-
       <section class="section">
-        <h2><i class="fas fa-cogs"></i> Resolution Types in Optical Remote Sensing</h2>
+        <h2>Resolution Types in Optical Remote Sensing</h2>
         <div class="resolution-section">
-          <h2><i class="fas fa-search"></i> Four Fundamental Resolution Types</h2>
+          <h2>Four Fundamental Resolution Types</h2>
           <div class="resolution-grid">
             <div class="resolution-card">
-              <h3><i class="fas fa-expand-arrows-alt"></i> Spatial Resolution</h3>
+              <h3>Spatial Resolution</h3>
               <p>The smallest possible area that a sensor can distinguish on the ground. Higher spatial resolution provides more detailed images, enabling precise feature identification and mapping applications.</p>
             </div>
             <div class="resolution-card">
-              <h3><i class="fas fa-palette"></i> Spectral Resolution</h3>
+              <h3>Spectral Resolution</h3>
               <p>The ability of the sensor to distinguish between various wavelengths of light. High spectral resolution allows for precise wavelength identification and detailed material characterization.</p>
             </div>
             <div class="resolution-card">
-              <h3><i class="fas fa-clock"></i> Temporal Resolution</h3>
+              <h3>Temporal Resolution</h3>
               <p>The frequency with which a sensor captures imagery of the same location. High temporal resolution is crucial for monitoring dynamic changes such as vegetation growth, urban development, and disaster events.</p>
             </div>
             <div class="resolution-card">
-              <h3><i class="fas fa-adjust"></i> Radiometric Resolution</h3>
+              <h3>Radiometric Resolution</h3>
               <p>The ability to discern small-scale differences in energy intensity or brightness. High radiometric resolution captures subtle changes in reflectance, enabling detailed environmental monitoring.</p>
             </div>
           </div>
         </div>
       </section>
-
       <section class="section">
-        <h2><i class="fas fa-key"></i> Key Concepts of Optical Remote Sensing</h2>
+        <h2>Key Concepts of Optical Remote Sensing</h2>
         <div class="content-container">
           <div class="content-text">
             <h3>Electromagnetic Spectrum Understanding</h3>
@@ -566,7 +484,6 @@
                 <strong>Shortwave Infrared (1400-3000 nm):</strong> Critical for geological studies, mineral identification, and moisture content detection.
               </li>
             </ul>
-
             <h3>Advanced Sensing Capabilities</h3>
             <p>
               Modern optical remote sensing systems provide comprehensive data collection capabilities that support various scientific and commercial applications.
@@ -591,69 +508,66 @@
           </div>
         </div>
       </section>
-
       <section class="section">
-        <h2><i class="fas fa-globe"></i> Key Applications</h2>
+        <h2>Key Applications</h2>
         <div class="applications-grid">
           <div class="application-card">
-            <h3><i class="fas fa-map"></i> Land Use and Land Cover Mapping</h3>
+            <h3>Land Use and Land Cover Mapping</h3>
             <p>
               Optical sensors provide comprehensive monitoring of urban expansion, deforestation patterns, and land cover changes over time. This data is essential for urban planning, environmental conservation, and sustainable resource management strategies.
             </p>
           </div>
           <div class="application-card">
-            <h3><i class="fas fa-seedling"></i> Agriculture and Crop Monitoring</h3>
+            <h3>Agriculture and Crop Monitoring</h3>
             <p>
               Advanced optical systems assess crop health, soil moisture levels, and irrigation patterns. Vegetation indices like NDVI (Normalized Difference Vegetation Index) are derived from optical imagery to monitor crop growth stages and predict agricultural yields.
             </p>
           </div>
           <div class="application-card">
-            <h3><i class="fas fa-exclamation-triangle"></i> Disaster Monitoring and Management</h3>
+            <h3>Disaster Monitoring and Management</h3>
             <p>
               Optical remote sensing identifies the extent and severity of floods, wildfires, landslides, and other natural disasters. This technology provides crucial data for emergency response coordination and disaster recovery planning.
             </p>
           </div>
           <div class="application-card">
-            <h3><i class="fas fa-leaf"></i> Environmental Monitoring</h3>
+            <h3>Environmental Monitoring</h3>
             <p>
               Continuous tracking of ecosystem changes, water quality assessment, and evaluation of climate change impacts on natural resources and biodiversity. Essential for conservation efforts and environmental policy development.
             </p>
           </div>
           <div class="application-card">
-            <h3><i class="fas fa-city"></i> Urban Planning and Development</h3>
+            <h3>Urban Planning and Development</h3>
             <p>
               Analysis of urban growth patterns, infrastructure development, and land use changes to support sustainable city planning and development initiatives. Critical for smart city implementation and urban sustainability.
             </p>
           </div>
           <div class="application-card">
-            <h3><i class="fas fa-tree"></i> Forestry and Vegetation Analysis</h3>
+            <h3>Forestry and Vegetation Analysis</h3>
             <p>
               Comprehensive monitoring of forest health, deforestation detection, and vegetation pattern analysis for conservation and management purposes. Supports forest inventory and biodiversity assessment.
             </p>
           </div>
           <div class="application-card">
-            <h3><i class="fas fa-water"></i> Water Resource Management</h3>
+            <h3>Water Resource Management</h3>
             <p>
               Monitoring of water bodies, assessment of water quality, and tracking of hydrological changes. Essential for watershed management and water resource planning.
             </p>
           </div>
           <div class="application-card">
-            <h3><i class="fas fa-mountain"></i> Geological and Mineral Exploration</h3>
+            <h3>Geological and Mineral Exploration</h3>
             <p>
               Identification of geological structures, mineral deposits, and rock type differentiation using spectral analysis. Critical for natural resource exploration and geological mapping.
             </p>
           </div>
         </div>
       </section>
-
       <section class="section">
-        <h2><i class="fas fa-satellite"></i> Satellites Providing Optical Data</h2>
+        <h2>Satellites Providing Optical Data</h2>
         <p>Below is a comprehensive timeline of optical remote sensing satellites that have revolutionized our ability to observe and understand Earth's surface. Each satellite has contributed significantly to various applications and scientific research.</p>
-        
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 1972</div>
+              <div class="timeline-year">1972</div>
               <div class="timeline-title">
                 <a href="https://landsat.gsfc.nasa.gov/satellites/landsat-1/" target="_blank">Landsat 1</a>
               </div>
@@ -664,7 +578,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 1986</div>
+              <div class="timeline-year"> 1986</div>
               <div class="timeline-title">
                 <a href="https://earth.esa.int/eogateway/missions/spot-1/description" target="_blank">SPOT 1</a>
               </div>
@@ -675,7 +589,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 1988</div>
+              <div class="timeline-year"> 1988</div>
               <div class="timeline-title">
                 <a href="https://www.isro.gov.in/IRS_1A.html?timeline=timeline" target="_blank">IRS-1A</a>
               </div>
@@ -686,7 +600,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 1999</div>
+              <div class="timeline-year"> 1999</div>
               <div class="timeline-title">
                 <a href="https://eospso.nasa.gov/missions/terra" target="_blank">Terra (EOS AM-1)</a>
               </div>
@@ -697,7 +611,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 1999</div>
+              <div class="timeline-year"> 1999</div>
               <div class="timeline-title">
                 <a href="https://en.wikipedia.org/wiki/IKONOS" target="_blank">IKONOS</a>
               </div>
@@ -708,7 +622,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2001</div>
+              <div class="timeline-year"> 2001</div>
               <div class="timeline-title">
                 <a href="https://earth.esa.int/eogateway/missions/quickbird-2" target="_blank">QuickBird</a>
               </div>
@@ -719,7 +633,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2004</div>
+              <div class="timeline-year"> 2004</div>
               <div class="timeline-title">
                 <a href="https://www.satimagingcorp.com/satellite-sensors/other-satellite-sensors/formosat-2/" target="_blank">FORMOSAT-2</a>
               </div>
@@ -730,7 +644,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2007</div>
+              <div class="timeline-year"> 2007</div>
               <div class="timeline-title">
                 <a href="https://earth.esa.int/eogateway/missions/worldview-1" target="_blank">WorldView-1</a>
               </div>
@@ -741,7 +655,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2007</div>
+              <div class="timeline-year"> 2007</div>
               <div class="timeline-title">
                 <a href="https://www.isro.gov.in/CARTOSAT_2_PSLVC40.html" target="_blank">Cartosat-2</a>
               </div>
@@ -752,7 +666,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2008</div>
+              <div class="timeline-year"> 2008</div>
               <div class="timeline-title">
                 <a href="https://earth.esa.int/eogateway/missions/geoeye-1" target="_blank">GeoEye-1</a>
               </div>
@@ -763,7 +677,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2011</div>
+              <div class="timeline-year"> 2011</div>
               <div class="timeline-title">
                 <a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1/" target="_blank">Pleiades-1A</a>
               </div>
@@ -774,7 +688,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2012</div>
+              <div class="timeline-year"> 2012</div>
               <div class="timeline-title">
                 <a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1b/" target="_blank">Pleiades-1B</a>
               </div>
@@ -785,7 +699,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2012</div>
+              <div class="timeline-year"> 2012</div>
               <div class="timeline-title">
                 <a href="https://www.eoportal.org/satellite-missions/kompsat-3" target="_blank">Kompsat-3</a>
               </div>
@@ -796,7 +710,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2013</div>
+              <div class="timeline-year"> 2013</div>
               <div class="timeline-title">
                 <a href="https://www.eoportal.org/satellite-missions/dubaisat-2#spacecraft" target="_blank">DubaiSat-2</a>
               </div>
@@ -807,7 +721,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2013</div>
+              <div class="timeline-year"> 2013</div>
               <div class="timeline-title">
                 <a href="https://www.eoportal.org/satellite-missions/gaofen-1" target="_blank">Gaofen-1</a>
               </div>
@@ -818,7 +732,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2015</div>
+              <div class="timeline-year"> 2015</div>
               <div class="timeline-title">
                 <a href="https://en.wikipedia.org/wiki/Sentinel-2A" target="_blank">Sentinel-2A</a>
               </div>
@@ -829,7 +743,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2016</div>
+              <div class="timeline-year"> 2016</div>
               <div class="timeline-title">
                 <a href="https://earth.esa.int/eogateway/missions/worldview-4" target="_blank">WorldView-4</a>
               </div>
@@ -840,7 +754,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2016</div>
+              <div class="timeline-year"> 2016</div>
               <div class="timeline-title">
                 <a href="https://www.eoportal.org/satellite-missions/gaojing#spacecraft" target="_blank">SuperView-1</a>
               </div>
@@ -851,7 +765,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2017</div>
+              <div class="timeline-year"> 2017</div>
               <div class="timeline-title">
                 <a href="https://en.wikipedia.org/wiki/Sentinel-2B" target="_blank">Sentinel-2B</a>
               </div>
@@ -862,7 +776,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"><i class="fas fa-rocket"></i> 2014-present</div>
+              <div class="timeline-year"> 2014-present</div>
               <div class="timeline-title">
                 <a href="https://earth.esa.int/eogateway/missions/planetscope" target="_blank">PlanetScope</a>
               </div>
@@ -875,7 +789,6 @@
       </section>
       </main>
     </div>
-
     <script src="/infi_website/Javascript/script.js"></script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
   </body>

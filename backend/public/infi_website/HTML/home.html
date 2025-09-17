@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/infi_website/CSS/style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style>
+        :root { --content-max: 1000px; }
         @keyframes colorChange {
             0% { color: #ff4500; }  /* Orange-red */
             25% { color: #FFFFFF; } /* White */
@@ -92,20 +93,9 @@
         }
 
         body {
-            background: url('/infi_website/Cover image/cover images/Earth.png') no-repeat center center fixed;
-            background-size: cover;
-            min-height: 100vh;
             margin: 0;
             position: relative;
-        }
-        /* Optional: add a dark overlay for readability */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.45); /* dark overlay for better readability */
-            z-index: 0;
-            pointer-events: none;
+            min-height: 100vh;
         }
         .container, main, section, .website-info, .info-content {
             position: relative;
@@ -121,6 +111,98 @@
             color: #fff;
             text-align: center;
         }
+        /* Align all sections with the hero (welcome) section edges */
+        main { 
+            padding: 0 4rem 4rem 4rem; /* Add bottom padding */
+            background: #ffffff; 
+            min-height: calc(100vh - 200px); /* Ensure main extends to bottom */
+        }
+        
+        /* Ensure white background extends to the very bottom of the page */
+        body {
+            background: #ffffff; /* Override the Earth background with white */
+        }
+        
+        /* Keep the hero section with Earth background */
+        .website-info {
+            background: url('/infi_website/Cover image/cover images/Earth.png') no-repeat center center;
+            background-size: cover;
+        }
+        /* Constrain widths so section content aligns with the welcome heading text edges */
+        .website-info .info-content { max-width: var(--content-max); margin: 0 auto; }
+        main > section,
+        main > .intro-optical-remote-sensing { max-width: var(--content-max); margin: 0 auto; padding-left: 0; padding-right: 0; }
+        /* Make the first two intro sections follow the same centered width and grid layout */
+        .intro-remote-sensing,
+        .intro-microwave-remote-sensing { max-width: var(--content-max); margin-left: auto; margin-right: auto; padding-left: 0; padding-right: 0; display: grid; grid-template-columns: 1.1fr 0.9fr; column-gap: 2rem; align-items: center; }
+        .intro-microwave-remote-sensing { grid-template-columns: 0.9fr 1.1fr; }
+        .intro-remote-sensing .content-left,
+        .intro-microwave-remote-sensing .content-right { margin: 0; }
+        img.content-image-right,
+        img.content-image-left { width: 100%; height: auto; display: block; }
+        /* Ensure headings inside sections start flush with the left edge */
+        main h1, main h2 { margin-left: 0; }
+        /* About section alignment + visual clarity */
+        #about-contact {
+            max-width: var(--content-max);
+            margin: 3rem auto;                 /* outer space from neighbors */
+            padding: 2rem;                      /* inner padding for text */
+            background: rgba(20, 60, 90, 0.85); /* bluish panel to match site */
+            border-radius: 12px;                /* soft corners like rest */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+        }
+        #about-contact hr { max-width: 100%; margin-left: 0; margin-right: 0; }
+        #about-contact h1 { margin: 0 0 1rem; color: #ffffff; text-align: center; }
+        #about-contact h2 { margin: 1.5rem 0 0.75rem; color: #ffffff; text-align: center; }
+        #about-contact p  { color: #e6eef6; text-align: justify; line-height: 1.9; margin: 0.25rem 0 0.75rem; }
+        #about-contact ul { list-style: none; padding-left: 0; margin: 0.25rem 0 0.75rem; color: #f2f7fb; }
+        #about-contact li { margin: 0.35rem 0; text-align: justify; }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .website-info {
+                padding: 3rem 2rem;
+            }
+            
+            main {
+                padding: 0 2rem 2rem 2rem;
+            }
+            
+            .intro-remote-sensing,
+            .intro-microwave-remote-sensing,
+            .intro-optical-remote-sensing {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .content-left, .content-right {
+                order: 2;
+            }
+            
+            img.content-image-right,
+            img.content-image-left {
+                order: 1;
+                max-width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .hover-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .hover-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            #about-contact {
+                margin: 2rem auto;
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -128,7 +210,18 @@
     <div class="container">
         <header>
             <div id="menu" class="fas fa-bars"></div>
-             <div id="navBar"></div>
+            <div id="navBar">
+                <div class="search-login-container">
+                    <form class="search-form">
+                        <input type="text" placeholder="Search...">
+                        <button type="submit">Search</button>
+                    </form>
+                    <a href="#" class="login-icon">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
+                </div>
+            </div>
         </header>
 
         <!-- Website Info Section -->
@@ -193,7 +286,7 @@
                     <a href="/infi_website/HTML/optical.html"><button class="explore-more">Start Exploring</button></a>
                 </div>
                 <div class="content-image-right">
-                    <img src="/infi_website/Optical image/Optical image/optical1.jpg" alt="Optical Remote Sensing Image">
+                    <img src="/infi_website/Optical image/Optical image/optical.gif" alt="Optical Remote Sensing Image">
                 </div>
             </div>
             
@@ -202,16 +295,25 @@
 
 
             <section id="about-contact">
-                <h1>ABOUT US</h1>
-                <p>Welcome to our comprehensive Remote Sensing and Microwave Learning Platform, developed by InfiCorridor Solutions Pvt. Ltd. Our mission is to make advanced geospatial technology education accessible to researchers, students, and professionals worldwide. We specialize in Polarimetric Synthetic Aperture Radar (PolSAR), microwave remote sensing, and optical remote sensing technologies. Our platform provides cutting-edge resources, connects you with domain experts, and offers the latest tools and datasets for Earth observation research. Whether you're a beginner exploring remote sensing or an advanced researcher working with NISAR data, our platform serves as your gateway to the world of geospatial intelligence and environmental monitoring.</p>
+                <h1>About the Platform</h1>
+                <p>At InfiCorridor Solutions Pvt. Ltd., we are committed to expanding access to advanced geospatial education through our specialized Remote Sensing and Microwave Learning Platform. Designed for researchers, students, and professionals alike, our platform bridges the gap between theory and application in Earth observation science.</p>
+                <h2>We focus on</h2>
+                <ul>
+                    <li>Polarimetric Synthetic Aperture Radar (PolSAR)</li>
+                    <li>Microwave remote sensing</li>
+                    <li>Optical remote sensing and geospatial analytics</li>
+                </ul>
+                <h2>Our offerings include</h2>
+                <ul>
+                    <li>📘 Expert-led learning modules tailored to diverse experience levels</li>
+                    <li>🧰 Access to cutting-edge tools and curated datasets for spatial analysis</li>
+                    <li>🤝 Opportunities to engage with domain experts and collaborative research communities</li>
+                </ul>
+                <p>Whether you're exploring remote sensing for the first time or refining your expertise in geospatial technologies, our platform is your gateway to meaningful insight and impactful environmental understanding.</p>
                 <hr>
                 <h2>Contact Information</h2>
-               
                 <div class="contact-info">
                     <p>Email: <a href="mailto:scientific@inficorridor.in">scientific@inficorridor.in</a></p>
-                    <!-- <p>Address: Mumbai,Maharashtra,India</p> -->
-
-                    <!-- LinkedIn Link -->
                     <div class="contact-icons">
                         <a href="https://www.linkedin.com/company/inficorridor-solutions-pvt-ltd/?viewAsMember=true" class="icon" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-linkedin-in"></i>
