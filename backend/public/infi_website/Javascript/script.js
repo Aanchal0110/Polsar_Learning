@@ -89,29 +89,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Navbar Toggling for Mobile View
-document.addEventListener('DOMContentLoaded', function() {
-    const menuBtn = document.getElementById('menu');
-    const navbar = document.querySelector('.navbar');
-    
-    // Only set up navbar functionality if both elements exist
-    if (menuBtn && navbar) {
-        menuBtn.addEventListener('click', function() {
-            navbar.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navbar.contains(e.target) && !menuBtn.contains(e.target)) {
-                navbar.classList.remove('active');
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 800) {
-                navbar.classList.remove('active');
-            }
-        });
-    }
-});
+// Mobile menu functionality is now handled in navBar.js to prevent conflicts

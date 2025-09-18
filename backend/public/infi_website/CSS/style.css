@@ -352,6 +352,7 @@ header {
   transition: background 0.3s ease;
   z-index: 1002;
   margin-left: auto;
+  position: relative;
 }
 
 #menu:hover {
@@ -447,6 +448,14 @@ header {
 
 /* Tablet Portrait */
 @media (max-width: 768px) {
+  /* Show menu button on mobile */
+  #menu {
+    display: block !important;
+    order: 3;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  
   /* Add brand logo to header for mobile */
   header::before {
     content: '';
@@ -457,6 +466,7 @@ header {
     background-size: contain;
     margin-right: 15px;
     flex-shrink: 0;
+    order: 1;
   }
   
   /* keep a small brand logo visible in header; hide the large one inside navbar */
@@ -468,6 +478,7 @@ header {
     min-height: 60px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
   .logo-img {
@@ -735,6 +746,7 @@ header {
 
   #menu {
     font-size: 1.4rem;
+    display: block !important;
   }
 
   .login-icon {
@@ -772,6 +784,7 @@ header {
 
   #menu {
     font-size: 1.2rem;
+    display: block !important;
   }
 
   .login-icon {

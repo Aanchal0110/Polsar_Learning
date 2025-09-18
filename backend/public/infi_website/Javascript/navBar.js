@@ -91,48 +91,8 @@ if (tracker) {
   tracker.innerHTML = `<a href="/">${window.location.pathname}</a>`;
 }
 
-  // Mobile menu functionality
-const menu = document.getElementById("menu");
-if (menu) {
-  menu.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const navbar = document.querySelector(".navbar");
-        if (navbar) {
-            const isActive = navbar.classList.contains("active");
-            if (isActive) {
-                navbar.classList.remove("active");
-            } else {
-                navbar.classList.add("active");
-            }
-            console.log("Mobile menu toggled:", !isActive);
-        } else {
-            console.error("Navbar element not found");
-        }
-    });
-  }
-
-  // Close mobile menu when clicking outside
-  document.addEventListener("click", (e) => {
-    const navbar = document.querySelector(".navbar");
-    const menu = document.getElementById("menu");
-    
-    if (navbar && navbar.classList.contains("active")) {
-        if (!navbar.contains(e.target) && !menu.contains(e.target)) {
-            navbar.classList.remove("active");
-        }
-    }
-  });
-
-  // Close mobile menu when clicking on a link
-  document.addEventListener("click", (e) => {
-    if (e.target.tagName === "A" && e.target.closest(".navbar")) {
-        const navbar = document.querySelector(".navbar");
-        if (navbar && navbar.classList.contains("active")) {
-            navbar.classList.remove("active");
-        }
-    }
-  });
+  // Mobile menu functionality - consolidated
+  setupMobileMenu();
 
   // Handle dropdown functionality on mobile
   document.addEventListener("click", (e) => {
@@ -173,6 +133,62 @@ if (navBarTracker) {
   if (document.querySelector('.search-form')) {
     initializeSearch();
   }
+}
+
+// Consolidated mobile menu functionality
+function setupMobileMenu() {
+  const menu = document.getElementById("menu");
+  const navbar = document.querySelector(".navbar");
+  
+  if (!menu || !navbar) {
+    console.warn("Mobile menu elements not found");
+    return;
+  }
+
+  // Remove any existing event listeners to prevent duplicates
+  const newMenu = menu.cloneNode(true);
+  menu.parentNode.replaceChild(newMenu, menu);
+  
+  // Add click handler for mobile menu toggle
+  newMenu.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const isActive = navbar.classList.contains("active");
+    if (isActive) {
+      navbar.classList.remove("active");
+    } else {
+      navbar.classList.add("active");
+    }
+    console.log("Mobile menu toggled:", !isActive);
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (navbar.classList.contains("active")) {
+      if (!navbar.contains(e.target) && !newMenu.contains(e.target)) {
+        navbar.classList.remove("active");
+      }
+    }
+  });
+
+  // Close mobile menu when clicking on a link
+  document.addEventListener("click", (e) => {
+    if (e.target.tagName === "A" && e.target.closest(".navbar")) {
+      if (navbar.classList.contains("active")) {
+        navbar.classList.remove("active");
+      }
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      navbar.classList.remove("active");
+    }
+  });
+
+  console.log("Mobile menu setup completed");
 }
 
 // Search functionality
@@ -482,25 +498,6 @@ window.addEventListener('load', function() {
     initializeNavbar();
   }
   
-  // Ensure mobile menu works on all pages
-  const menu = document.getElementById("menu");
-  if (menu && !menu.hasAttribute('data-initialized')) {
-    menu.setAttribute('data-initialized', 'true');
-    menu.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const navbar = document.querySelector(".navbar");
-      if (navbar) {
-        const isActive = navbar.classList.contains("active");
-        if (isActive) {
-          navbar.classList.remove("active");
-        } else {
-          navbar.classList.add("active");
-        }
-        console.log("Fallback mobile menu toggled:", !isActive);
-      } else {
-        console.error("Fallback: Navbar element not found");
-      }
-    });
-  }
+  // Setup mobile menu as fallback
+  setupMobileMenu();
 });
