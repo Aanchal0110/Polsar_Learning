@@ -30,6 +30,7 @@ const navbar = `<nav class="navbar">
                             <a href="/infi_website/HTML/Fundamental.html">Fundamentals</a>
                             <a href="/infi_website/HTML/Technical Paper.html">Technical Papers</a>
                             <a href="/infi_website/HTML/Books.html">Books</a>
+                            <a href="/infi_website/HTML/Journals.html">Journals</a>
                             <a href="/infi_website/HTML/Videos.html">Videos</a>
                         </div>
                     </li>
