@@ -65,6 +65,34 @@
         box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
       }
 
+      .category-filters {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background: white;
+        border: 2px solid #e1e5e9;
+        color: #555;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 0.95em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: #003366;
+        color: white;
+        border-color: #003366;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
+      }
 
       .journal-category {
         margin-bottom: 40px;
@@ -103,19 +131,6 @@
         padding-left: 10px;
       }
 
-      .journal-icon {
-        width: 40px;
-        height: 40px;
-        background: #003366;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.2rem;
-        margin-right: 15px;
-        flex-shrink: 0;
-      }
 
       .journal-info {
         flex: 1;
@@ -180,6 +195,14 @@
           font-size: 2rem;
         }
 
+        .category-filters {
+          gap: 10px;
+        }
+
+        .filter-btn {
+          padding: 8px 16px;
+          font-size: 0.9em;
+        }
 
         .journal-list {
           padding: 15px 20px;
@@ -191,9 +214,6 @@
           padding: 20px 0;
         }
 
-        .journal-icon {
-          margin-bottom: 10px;
-        }
       }
     </style>
   </head>
@@ -226,6 +246,15 @@
         </div>
       </div>
 
+      <!-- Category Filters -->
+      <div class="category-filters">
+        <button class="filter-btn active" onclick="filterByCategory('all', this)">All Journals</button>
+        <button class="filter-btn" onclick="filterByCategory('ieee', this)">IEEE</button>
+        <button class="filter-btn" onclick="filterByCategory('elsevier', this)">Elsevier</button>
+        <button class="filter-btn" onclick="filterByCategory('springer', this)">Springer</button>
+        <button class="filter-btn" onclick="filterByCategory('nature', this)">Nature</button>
+        <button class="filter-btn" onclick="filterByCategory('other', this)">Other Publishers</button>
+      </div>
 
       <!-- IEEE Journals -->
       <div class="journal-category" data-category="ieee">
@@ -234,7 +263,6 @@
         </div>
         <div class="journal-list">
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-satellite"></i></div>
             <div class="journal-info">
               <div class="journal-name">IEEE Transactions on Geoscience and Remote Sensing</div>
               <div class="journal-description">Premier journal for geoscience and remote sensing research</div>
@@ -243,7 +271,6 @@
             <span class="journal-badge ieee">IEEE</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-globe"></i></div>
             <div class="journal-info">
               <div class="journal-name">IEEE Geoscience and Remote Sensing Letters</div>
               <div class="journal-description">Rapid publication of short papers in geoscience and remote sensing</div>
@@ -252,7 +279,6 @@
             <span class="journal-badge ieee">IEEE</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-book"></i></div>
             <div class="journal-info">
               <div class="journal-name">IEEE GRSS Publications</div>
               <div class="journal-description">Geoscience and Remote Sensing Society publications</div>
@@ -270,7 +296,6 @@
         </div>
         <div class="journal-list">
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-leaf"></i></div>
             <div class="journal-info">
               <div class="journal-name">Remote Sensing of Environment</div>
               <div class="journal-description">Leading journal for remote sensing applications</div>
@@ -279,7 +304,6 @@
             <span class="journal-badge elsevier">Elsevier</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-camera"></i></div>
             <div class="journal-info">
               <div class="journal-name">ISPRS Journal of Photogrammetry and Remote Sensing</div>
               <div class="journal-description">International journal for photogrammetry and remote sensing</div>
@@ -288,7 +312,6 @@
             <span class="journal-badge elsevier">Elsevier</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-map"></i></div>
             <div class="journal-info">
               <div class="journal-name">International Journal of Applied Earth Observation and Geoinformation</div>
               <div class="journal-description">Applied earth observation and geoinformation research</div>
@@ -297,7 +320,6 @@
             <span class="journal-badge elsevier">Elsevier</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-tree"></i></div>
             <div class="journal-info">
               <div class="journal-name">Forest Ecology and Management</div>
               <div class="journal-description">Forest ecology and management research</div>
@@ -306,7 +328,6 @@
             <span class="journal-badge elsevier">Elsevier</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-laptop-code"></i></div>
             <div class="journal-info">
               <div class="journal-name">Computers and Geosciences</div>
               <div class="journal-description">Computational methods in geosciences</div>
@@ -315,7 +336,6 @@
             <span class="journal-badge elsevier">Elsevier</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-globe-americas"></i></div>
             <div class="journal-info">
               <div class="journal-name">International Journal of Digital Earth</div>
               <div class="journal-description">Digital earth and geospatial technologies</div>
@@ -324,7 +344,6 @@
             <span class="journal-badge elsevier">Elsevier</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-water"></i></div>
             <div class="journal-info">
               <div class="journal-name">Marine Geodesy</div>
               <div class="journal-description">Marine geodesy and oceanography</div>
@@ -333,7 +352,6 @@
             <span class="journal-badge elsevier">Elsevier</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-rocket"></i></div>
             <div class="journal-info">
               <div class="journal-name">Earth and Space Science</div>
               <div class="journal-description">Earth and space science research</div>
@@ -342,7 +360,6 @@
             <span class="journal-badge elsevier">Elsevier</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-tint"></i></div>
             <div class="journal-info">
               <div class="journal-name">Journal of Hydrology</div>
               <div class="journal-description">Hydrological processes and water resources</div>
@@ -360,7 +377,6 @@
         </div>
         <div class="journal-list">
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-camera-retro"></i></div>
             <div class="journal-info">
               <div class="journal-name">Photogrammetric Engineering & Remote Sensing</div>
               <div class="journal-description">Photogrammetry and remote sensing applications</div>
@@ -369,7 +385,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-globe-asia"></i></div>
             <div class="journal-info">
               <div class="journal-name">GeoJournal</div>
               <div class="journal-description">Geographic and spatial research</div>
@@ -378,7 +393,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-ruler"></i></div>
             <div class="journal-info">
               <div class="journal-name">Journal of Geodesy</div>
               <div class="journal-description">Geodetic science and positioning</div>
@@ -387,7 +401,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-map-marked-alt"></i></div>
             <div class="journal-info">
               <div class="journal-name">Geo-Spatial Information Science</div>
               <div class="journal-description">Geospatial information science and technology</div>
@@ -396,7 +409,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-database"></i></div>
             <div class="journal-info">
               <div class="journal-name">GeoInformatica</div>
               <div class="journal-description">Geographic information systems and spatial databases</div>
@@ -405,7 +417,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-microscope"></i></div>
             <div class="journal-info">
               <div class="journal-name">Earth Science Informatics</div>
               <div class="journal-description">Informatics applications in earth sciences</div>
@@ -414,7 +425,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-mountain"></i></div>
             <div class="journal-info">
               <div class="journal-name">Earth Science Reviews</div>
               <div class="journal-description">Comprehensive reviews in earth sciences</div>
@@ -423,7 +433,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-paw"></i></div>
             <div class="journal-info">
               <div class="journal-name">Remote Sensing in Ecology and Conservation</div>
               <div class="journal-description">Remote sensing applications in ecology</div>
@@ -432,7 +441,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-globe"></i></div>
             <div class="journal-info">
               <div class="journal-name">Journal of Earth Science</div>
               <div class="journal-description">Earth science research and applications</div>
@@ -441,7 +449,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-chart-line"></i></div>
             <div class="journal-info">
               <div class="journal-name">Environmental Monitoring and Assessment</div>
               <div class="journal-description">Environmental monitoring and assessment</div>
@@ -450,7 +457,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-satellite-dish"></i></div>
             <div class="journal-info">
               <div class="journal-name">GPS Solutions</div>
               <div class="journal-description">GPS and positioning technologies</div>
@@ -459,7 +465,6 @@
             <span class="journal-badge springer">Springer</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-flag"></i></div>
             <div class="journal-info">
               <div class="journal-name">Journal of the Indian Society of Remote Sensing</div>
               <div class="journal-description">Indian remote sensing research and applications</div>
@@ -477,7 +482,6 @@
         </div>
         <div class="journal-list">
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-atom"></i></div>
             <div class="journal-info">
               <div class="journal-name">Nature</div>
               <div class="journal-description">Leading multidisciplinary science journal</div>
@@ -486,7 +490,6 @@
             <span class="journal-badge nature">Nature</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-mountain"></i></div>
             <div class="journal-info">
               <div class="journal-name">Nature Geoscience</div>
               <div class="journal-description">Geoscience research and discoveries</div>
@@ -495,7 +498,6 @@
             <span class="journal-badge nature">Nature</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-flask"></i></div>
             <div class="journal-info">
               <div class="journal-name">Scientific Reports</div>
               <div class="journal-description">Open access scientific research</div>
@@ -504,7 +506,6 @@
             <span class="journal-badge nature">Nature</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-dna"></i></div>
             <div class="journal-info">
               <div class="journal-name">PLOS ONE</div>
               <div class="journal-description">Open access multidisciplinary journal</div>
@@ -522,7 +523,6 @@
         </div>
         <div class="journal-list">
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-satellite"></i></div>
             <div class="journal-info">
               <div class="journal-name">Remote Sensing (MDPI)</div>
               <div class="journal-description">Open access remote sensing journal</div>
@@ -531,7 +531,6 @@
             <span class="journal-badge mdpi">MDPI</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-sensors"></i></div>
             <div class="journal-info">
               <div class="journal-name">Sensors (MDPI)</div>
               <div class="journal-description">Sensor technologies and applications</div>
@@ -540,7 +539,6 @@
             <span class="journal-badge mdpi">MDPI</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-map"></i></div>
             <div class="journal-info">
               <div class="journal-name">ISPRS International Journal of Geo-Information</div>
               <div class="journal-description">Geographic information science</div>
@@ -549,7 +547,6 @@
             <span class="journal-badge mdpi">MDPI</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-globe"></i></div>
             <div class="journal-info">
               <div class="journal-name">International Journal of Remote Sensing</div>
               <div class="journal-description">Remote sensing research and applications</div>
@@ -558,7 +555,6 @@
             <span class="journal-badge taylor">Taylor & Francis</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-camera"></i></div>
             <div class="journal-info">
               <div class="journal-name">Geocarto International</div>
               <div class="journal-description">Geospatial analysis and cartography</div>
@@ -567,7 +563,6 @@
             <span class="journal-badge taylor">Taylor & Francis</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-camera-retro"></i></div>
             <div class="journal-info">
               <div class="journal-name">Photogrammetric Record</div>
               <div class="journal-description">Photogrammetry and surveying</div>
@@ -576,7 +571,6 @@
             <span class="journal-badge taylor">Taylor & Francis</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-rocket"></i></div>
             <div class="journal-info">
               <div class="journal-name">Earth and Space Science</div>
               <div class="journal-description">Earth and space science research</div>
@@ -585,7 +579,6 @@
             <span class="journal-badge wiley">Wiley</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-tint"></i></div>
             <div class="journal-info">
               <div class="journal-name">Hydrological Processes</div>
               <div class="journal-description">Hydrological processes and water cycle</div>
@@ -594,7 +587,6 @@
             <span class="journal-badge wiley">Wiley</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-chart-bar"></i></div>
             <div class="journal-info">
               <div class="journal-name">Environment and Planning B</div>
               <div class="journal-description">Urban analytics and city science</div>
@@ -603,7 +595,6 @@
             <span class="journal-badge sage">SAGE</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-leaf"></i></div>
             <div class="journal-info">
               <div class="journal-name">Ecological Modelling</div>
               <div class="journal-description">Ecological modeling and simulation</div>
@@ -612,7 +603,6 @@
             <span class="journal-badge sage">SAGE</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-tree"></i></div>
             <div class="journal-info">
               <div class="journal-name">Landscape and Urban Planning</div>
               <div class="journal-description">Landscape and urban planning research</div>
@@ -621,7 +611,6 @@
             <span class="journal-badge sage">SAGE</span>
           </div>
           <div class="journal-item">
-            <div class="journal-icon"><i class="fas fa-map-marked"></i></div>
             <div class="journal-info">
               <div class="journal-name">Cartography and Geographic Information Science</div>
               <div class="journal-description">Cartography and GIS research</div>
@@ -652,9 +641,28 @@
         });
       });
 
+      // Category filter functionality
+      function filterByCategory(category, btn) {
+        const categories = document.querySelectorAll('.journal-category');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        // Update active button
+        filterButtons.forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+        
+        categories.forEach(cat => {
+          const catType = cat.dataset.category;
+          if (category === 'all' || catType === category) {
+            cat.style.display = 'block';
+          } else {
+            cat.style.display = 'none';
+          }
+        });
+      }
+
       // Initialize with all categories visible
       document.addEventListener('DOMContentLoaded', function() {
-        // All categories are visible by default
+        filterByCategory('all');
       });
     </script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
