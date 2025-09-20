@@ -65,34 +65,6 @@
         box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
       }
 
-      .category-filters {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
-      }
-
-      .filter-btn {
-        background: white;
-        border: 2px solid #e1e5e9;
-        color: #555;
-        padding: 10px 20px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 0.95em;
-        font-weight: 500;
-        transition: all 0.3s ease;
-      }
-
-      .filter-btn:hover,
-      .filter-btn.active {
-        background: #003366;
-        color: white;
-        border-color: #003366;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
-      }
 
       .journal-category {
         margin-bottom: 40px;
@@ -208,14 +180,6 @@
           font-size: 2rem;
         }
 
-        .category-filters {
-          gap: 10px;
-        }
-
-        .filter-btn {
-          padding: 8px 16px;
-          font-size: 0.9em;
-        }
 
         .journal-list {
           padding: 15px 20px;
@@ -262,15 +226,6 @@
         </div>
       </div>
 
-      <!-- Category Filters -->
-      <div class="category-filters">
-        <button class="filter-btn active" onclick="filterByCategory('all', this)">All Journals</button>
-        <button class="filter-btn" onclick="filterByCategory('ieee', this)">IEEE</button>
-        <button class="filter-btn" onclick="filterByCategory('elsevier', this)">Elsevier</button>
-        <button class="filter-btn" onclick="filterByCategory('springer', this)">Springer</button>
-        <button class="filter-btn" onclick="filterByCategory('nature', this)">Nature</button>
-        <button class="filter-btn" onclick="filterByCategory('other', this)">Other Publishers</button>
-      </div>
 
       <!-- IEEE Journals -->
       <div class="journal-category" data-category="ieee">
@@ -697,28 +652,9 @@
         });
       });
 
-      // Category filter functionality
-      function filterByCategory(category, btn) {
-        const categories = document.querySelectorAll('.journal-category');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        
-        // Update active button
-        filterButtons.forEach(b => b.classList.remove('active'));
-        if (btn) btn.classList.add('active');
-        
-        categories.forEach(cat => {
-          const catType = cat.dataset.category;
-          if (category === 'all' || catType === category) {
-            cat.style.display = 'block';
-          } else {
-            cat.style.display = 'none';
-          }
-        });
-      }
-
       // Initialize with all categories visible
       document.addEventListener('DOMContentLoaded', function() {
-        filterByCategory('all');
+        // All categories are visible by default
       });
     </script>
     <script type="module" src="/infi_website/Javascript/navBar.js"></script>
