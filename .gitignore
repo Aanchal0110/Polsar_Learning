@@ -5,6 +5,8 @@ logs/
 *.log
 # env
 .env
+# secrets
+**/service_account.json
 # build
 dist/
 build/
