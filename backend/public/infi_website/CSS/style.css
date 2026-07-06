@@ -100,7 +100,7 @@ main,
 }
 
 .logo-img {
-  width: auto;
+  width: 140px;
   height: 70px;
   /* border-radius: 50%; */
   object-fit: contain;
@@ -126,6 +126,7 @@ header {
   box-sizing: border-box;
   height: 70px;
   min-height: 70px;
+  width: 100vw;
   border-bottom: none;
   outline: none;
 }
@@ -136,7 +137,7 @@ header {
   display: flex;
   align-items: center;
   height: 100%;
-  min-width: 0;
+  width: 100vw;
   justify-content: flex-start; /* left-align navbar content */
   position: relative;
   background-color: #003366;
@@ -382,7 +383,7 @@ header {
   justify-content: space-evenly; /* spread items across the width */
   align-items: center;
   gap: clamp(16px, 3vw, 40px);
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 /* --- Responsive Breakpoints --- */
@@ -441,7 +442,7 @@ header {
   }
 
   .logo-img {
-    width: auto;
+    width: 60px;
     height: 60px;
   }
 }
@@ -470,7 +471,7 @@ header {
   }
   
   /* keep a small brand logo visible in header; hide the large one inside navbar */
-  #brandLogo .logo-img { width: auto; height: 45px; }
+  #brandLogo .logo-img { width: 45px; height: 45px; }
   .navbar .logo { display: none; }
   header {
     padding: 0 1vw;
@@ -482,7 +483,7 @@ header {
   }
 
   .logo-img {
-    width: auto;
+    width: 50px;
     height: 50px;
   }
 
@@ -685,7 +686,7 @@ header {
   }
 
   .logo-img {
-    width: auto;
+    width: 36px;
     height: 36px;
   }
 
@@ -727,7 +728,7 @@ header {
   }
 
   .logo-img {
-    width: auto;
+    width: 32px;
     height: 32px;
   }
 
@@ -765,7 +766,7 @@ header {
   }
 
   .logo-img {
-    width: auto;
+    width: 28px;
     height: 28px;
   }
 
@@ -1371,6 +1372,17 @@ footer {
   color: #ff4500;
 }
 
+/* Example to handle some issues */
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+nav {
+  margin-bottom: 10px;
+}
+.navbar {
+  margin-bottom: 10px !important;
+}
 
 /* Keeping Font Awesome icons visible (previous global hide removed) */
 
