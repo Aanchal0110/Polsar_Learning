@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videos - Learn RS & MW</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+
+    <style>
+
+      /* header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: #002147; /* Navbar background color 
+      } */
+
+      main {
+        margin-top: 70px; /* Adjusted to match other pages */
+        padding: 20px;
+        background: #f5f5f5;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        color: #333;
+        font-weight: bold;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 25px;
+        padding: 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .video-item {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        padding-bottom: 20px;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .video-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .video-item h3 {
+        color: #002147;
+        margin: 15px 15px 8px 15px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      .video-item p {
+        color: #666;
+        font-size: 1rem;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      .video-item iframe {
+        width: 100%;
+        height: 220px;
+        border: none;
+        border-radius: 8px;
+      }
+
+      .search-container {
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .search-input {
+        padding: 15px 25px;
+        width: 60%;
+        max-width: 500px;
+        border: 2px solid #002147;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        outline: none;
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .search-input:focus {
+        border-color: #1e90ff;
+        box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+      }
+
+      .video-item.hidden {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .video-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 15px;
+        }
+
+        .search-input {
+          width: 80%;
+          font-size: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        main {
+          padding: 15px;
+        }
+
+        .video-grid {
+          padding: 10px;
+        }
+
+        .video-item h3 {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h1>Videos</h1>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="videoSearch"
+          class="search-input"
+          placeholder="Search videos by title or instructor..."
+        />
+      </div>
+
+      <div class="video-grid">
+        <div class="video-item">
+          <h3>Introduction to Remote Sensing</h3>
+          <p>Instructor: Dr. Varsha Turkar</p>
+          <a href="https://www.youtube.com/playlist?list=PLKOFGhh6mxk9wccRQOiH48JQNkpriZoA1" target="_blank">
+            <img
+              src="https://img.youtube.com/vi/PEwS5z0pCuk/hqdefault.jpg"
+              alt="Introduction to Microwave Remote Sensing playlist thumbnail"
+              style="
+                width: 100%;
+                max-width: 560px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+              "
+            />
+          </a>
+        </div>
+
+        <div class="video-item">
+          <h3>NPTEL IIT Bombay Remote Sensing Course</h3>
+          <p>Instructor: NPTEL IIT Bombay</p>
+          <a href="https://www.youtube.com/watch?v=7rtfP3DtVns" target="_blank">
+            <img
+              src="https://img.youtube.com/vi/7rtfP3DtVns/hqdefault.jpg"
+              alt="NPTEL IIT Bombay Remote Sensing Course thumbnail"
+              style="
+                width: 100%;
+                max-width: 560px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+              "
+            />
+          </a>
+        </div>
+
+        <div class="video-item">
+          <h3>Satellite Image Processing using PolSAR Pro</h3>
+          <p>Instructor: Akhil Masurkar</p>
+          <a
+            href="https://www.youtube.com/playlist?list=PL5a4cu_cmV4s0TzPJNQhlfLuwAnn_Oe-w"
+            target="_blank"
+          >
+            <img
+              src="https://img.youtube.com/vi/OTLyWDJDM9o/hqdefault.jpg"
+              alt="Satellite Image Processing using PolSAR Pro thumbnail"
+              style="
+                width: 100%;
+                max-width: 560px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+              "
+            />
+          </a>
+        </div>
+
+        <div class="video-item">
+          <h3>Remote Sensing and Image Processing Tutorials</h3>
+          <p>Instructor: MrGIS</p>
+          <a
+            href="https://www.youtube.com/playlist?list=PLJppV38XUsNjKTP6Sm-yztCxjXezqLYVi"
+            target="_blank"
+          >
+            <img
+              src="https://img.youtube.com/vi/teJ7WhnymHY/hqdefault.jpg"
+              alt="Remote Sensing and Image Processing Tutorials thumbnail"
+              style="
+                width: 100%;
+                max-width: 560px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+              "
+            />
+          </a>
+        </div>
+
+        <div class="video-item">
+          <h3>Remote Sensing: Principles and Applications</h3>
+          <p>Instructor: NPTEL IIT Bombay (January 2021)</p>
+          <a
+            href="https://www.youtube.com/playlist?list=PLOzRYVm0a65cD8A9tJpU-vOoz1LDQ-UjD"
+            target="_blank"
+          >
+            <img
+              src="https://img.youtube.com/vi/WbjPPgdmhuQ/hqdefault.jpg"
+              alt="Remote Sensing: Principles and Applications thumbnail"
+              style="
+                width: 100%;
+                max-width: 560px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+              "
+            />
+          </a>
+        </div>
+
+        <div class="video-item">
+          <h3>Remote Sensing and GIS</h3>
+          <p>Instructor: NPTEL IIT Guwahati (August 2019)</p>
+          <a
+            href="https://www.youtube.com/playlist?list=PLwdnzlV3ogoUdLSIGNmXpnDLrnEqcNbaI"
+            target="_blank"
+          >
+            <img
+              src="https://img.youtube.com/vi/eABubdXSYO8/hqdefault.jpg"
+              alt="Remote Sensing and GIS thumbnail"
+              style="
+                width: 100%;
+                max-width: 560px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+              "
+            />
+          </a>
+        </div>
+
+        <div class="video-item">
+          <h3>Advances in Microwave Remote Sensing</h3>
+          <p>Instructor: NPTEL IIT Bombay (January 2019)</p>
+          <a
+            href="https://www.youtube.com/playlist?list=PLwdnzlV3ogoUdLSIGNmXpnDLrnEqcNbaI"
+            target="_blank"
+          >
+            <img
+              src="https://img.youtube.com/vi/eABubdXSYO8/hqdefault.jpg"
+              alt="Advances in Microwave Remote Sensing thumbnail"
+              style="
+                width: 100%;
+                max-width: 560px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+              "
+            />
+          </a>
+        </div>
+
+        <div class="video-item">
+          <h3>Digital Image Processing for Remote Sensing</h3>
+          <p>Instructor: NPTEL IIT Kharagpur</p>
+          <a
+            href="https://www.youtube.com/playlist?list=PLOzRYVm0a65cD8A9tJpU-vOoz1LDQ-UjD"
+            target="_blank"
+          >
+            <img
+              src="https://img.youtube.com/vi/WZyFvjsnslk/hqdefault.jpg"
+              alt="Digital Image Processing for Remote Sensing thumbnail"
+              style="
+                width: 100%;
+                max-width: 560px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+              "
+            />
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Video search functionality
+      document
+        .getElementById("videoSearch")
+        .addEventListener("keyup", function () {
+          const searchTerm = this.value.toLowerCase();
+          const videoItems = document.querySelectorAll(".video-item");
+
+          videoItems.forEach((item) => {
+            const title = item.querySelector("h3").textContent.toLowerCase();
+            const instructor = item
+              .querySelector("p")
+              .textContent.toLowerCase();
+            const text = title + " " + instructor;
+
+            if (text.includes(searchTerm)) {
+              item.classList.remove("hidden");
+            } else {
+              item.classList.add("hidden");
+            }
+          });
+        });
+
+      // Add loading state for iframes
+      document.addEventListener("DOMContentLoaded", function () {
+        const iframes = document.querySelectorAll("iframe");
+        iframes.forEach((iframe) => {
+          iframe.addEventListener("load", function () {
+            this.style.opacity = "1";
+          });
+          iframe.style.opacity = "0.8";
+          iframe.style.transition = "opacity 0.3s ease";
+        });
+      });
+    </script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JWT Auth Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      input,
+      button {
+        padding: 8px;
+        margin: 4px;
+      }
+      .section {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🔐 JWT Auth Test</h2>
+
+    <div class="section">
+      <h3>Register</h3>
+      <input type="text" id="reg_username" placeholder="Username" /><br />
+      <input type="email" id="reg_email" placeholder="Email" /><br />
+      <input type="password" id="reg_password" placeholder="Password" /><br />
+      <button onclick="register()">Register</button>
+      <p id="register_result"></p>
+    </div>
+
+    <div class="section">
+      <h3>Login</h3>
+      <input type="email" id="login_email" placeholder="Email" /><br />
+      <input type="password" id="login_password" placeholder="Password" /><br />
+      <button onclick="login()">Login</button>
+      <p id="login_result"></p>
+    </div>
+
+    <div class="section">
+      <h3>Fetch Protected Data</h3>
+      <input
+        type="email"
+        id="fetch_email"
+        placeholder="Enter email to fetch"
+      /><br />
+      <button onclick="fetchUser()">Fetch User</button>
+      <p id="user_data"></p>
+    </div>
+
+    <script>
+      let jwtToken = "";
+
+      function register() {
+        const data = {
+          username: document.getElementById("reg_username").value,
+          email: document.getElementById("reg_email").value,
+          password: document.getElementById("reg_password").value,
+        };
+
+        fetch("http://localhost:5000/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            document.getElementById("register_result").innerText = res.success
+              ? "✅ Registered!"
+              : "❌ " + res.message;
+          });
+      }
+
+      function login() {
+        const data = {
+          email: document.getElementById("login_email").value,
+          password: document.getElementById("login_password").value,
+        };
+
+        fetch("http://localhost:5000/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            if (res.success) {
+              jwtToken = res.token;
+              localStorage.setItem("token", jwtToken);
+              window.location.href = "/post.html";
+              document.getElementById("login_result").innerText =
+                "✅ Logged in! Token saved.";
+            } else {
+              document.getElementById("login_result").innerText =
+                "❌ " + res.message;
+            }
+          });
+      }
+
+      function fetchUser() {
+        const email = document.getElementById("fetch_email").value;
+
+        fetch(`http://localhost:5000/auth/user/${email}`, {
+          headers: {
+            Authorization: "Bearer " + jwtToken,
+          },
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            document.getElementById("user_data").innerText = res.success
+              ? JSON.stringify(res.data, null, 2)
+              : "❌ " + res.message;
+          });
+      }
+    </script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>

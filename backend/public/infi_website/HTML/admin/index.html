@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Content Management</title>
+    <link rel="stylesheet" href="../../CSS/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Content Management System</h1>
+            <div class="user-info">
+                <span>Admin</span>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </header>
+        
+        <div class="admin-content">
+            <div class="sidebar">
+                <ul>
+                    <li class="active"><a href="#" data-section="content-editor">Content Editor</a></li>
+                    <li><a href="#" data-section="file-manager">File Manager</a></li>
+                    <li><a href="#" data-section="settings">Settings</a></li>
+                    <li><a href="../home.html">View Website</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <section id="content-editor" class="active">
+                    <h2>Content Editor</h2>
+                    <div class="editor-controls">
+                        <select id="page-selector">
+                            <option value="">Select a page</option>
+                            <option value="home.html">Home Page</option>
+                            <option value="Books.html">Books</option>
+                            <option value="blog.html">Blog</option>
+                            <option value="resources.html">Resources</option>
+                            <!-- Add more pages as needed -->
+                        </select>
+                        
+                        <select id="section-selector" disabled>
+                            <option value="">Select a section</option>
+                            <!-- Will be populated based on selected page -->
+                        </select>
+                    </div>
+                    
+                    <div class="editor-area">
+                        <textarea id="content-textarea" placeholder="Paste your content here..."></textarea>
+                        <div class="editor-buttons">
+                            <button id="save-content" class="btn primary">Save Changes</button>
+                            <button id="preview-content" class="btn secondary">Preview</button>
+                        </div>
+                    </div>
+                    
+                    <div id="preview-area" class="preview-area hidden">
+                        <h3>Preview</h3>
+                        <div id="preview-content"></div>
+                        <button id="close-preview" class="btn secondary">Close Preview</button>
+                    </div>
+                </section>
+                
+                <section id="file-manager" class="hidden">
+                    <h2>File Manager</h2>
+                    <!-- File manager content -->
+                </section>
+                
+                <section id="settings" class="hidden">
+                    <h2>Settings</h2>
+                    <!-- Settings content -->
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../../Javascript/admin.js"></script>
+</body>
+</html> 

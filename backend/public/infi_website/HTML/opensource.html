@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+
+    <style>
+      .software-section {
+        margin: 20px 0;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .software-section h2 {
+        color: #003366;
+        border-bottom: 2px solid #003366;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      .software-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+        align-items: start;
+      }
+
+      .software-card {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        height: 400px;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .software-card:hover {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .software-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .software-logo {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-right: 15px;
+        border-radius: 8px;
+        display: block;
+        background: white;
+        padding: 5px;
+        border: 1px solid #e9ecef;
+      }
+
+      .software-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #003366;
+        margin: 0;
+      }
+
+      .software-description {
+        color: #333 !important;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        text-align: justify;
+        flex-grow: 1;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        line-clamp: 6;
+        -webkit-box-orient: vertical;
+        font-size: 0.95em;
+        font-weight: 400;
+      }
+
+      .software-links { display:flex; justify-content:center; align-items:center; margin-top: 12px; }
+
+      /* Static button style - no animations */
+      .software-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #002147 !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 600;
+        font-family: sans-serif;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      .software-link:hover {
+        background: #002147 !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+      }
+
+      .software-link:visited {
+        color: #ffffff !important;
+      }
+
+      .software-link i {
+        margin-right: 8px;
+      }
+
+      .proprietary-badge {
+        display: none;
+        background: #dc3545;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8em;
+        margin-left: 10px;
+      }
+
+      .opensource-badge {
+        background: #28a745;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8em;
+        margin-left: 10px;
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .software-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .software-card {
+          height: auto;
+          min-height: 350px;
+          padding: 20px;
+        }
+
+        .software-header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .software-logo {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+
+      /* Ensure images are visible */
+      .software-logo {
+        min-width: 60px;
+        min-height: 60px;
+        max-width: 80px;
+        max-height: 80px;
+      }
+
+      /* Fallback for missing images */
+      .software-logo:not([src]),
+      .software-logo[src=""],
+      .software-logo[src*="undefined"] {
+        background: #f8f9fa;
+        border: 2px dashed #dee2e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6c757d;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .software-logo:not([src])::after,
+      .software-logo[src=""]::after,
+      .software-logo[src*="undefined"]::after {
+        content: "Logo";
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h1>Software</h1>
+
+      <section class="software-section">
+        <h2>Open Source Software</h2>
+        <div class="software-grid">
+          <!-- SNAP -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/snap.png"
+                alt="SNAP"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">SNAP</h3>
+                <span class="opensource-badge">Open Source</span>
+              </div>
+            </div>
+            <p class="software-description">
+              All Sentinel Toolboxes is being jointly developed by Brockmann
+              Consult, SkyWatch and C-S called the Sentinel Application Platform
+              (SNAP). The SNAP architecture is ideal for Earth Observation
+              processing and analysis due to the following technological
+              innovations: Extensibility, Portability, Modular Rich Client
+              Platform, Generic EO Data Abstraction, Tiled Memory Management,
+              and a Graph Processing Framework.
+            </p>
+            <div class="software-links">
+              <a href="https://step.esa.int/main/toolboxes/snap/" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                SNAP Website
+              </a>
+            </div>
+          </div>
+          
+          <!-- QGIS -->
+          <div class="software-card">
+            <div class="software-header">
+              <img src="/infi_website/Cover%20image/cover%20images/QGIS.svg" alt="QGIS" class="software-logo" />
+              <div>
+                <h3 class="software-title">QGIS</h3>
+                <span class="opensource-badge">Open Source</span>
+              </div>
+            </div>
+            <p class="software-description">
+              A full‑featured open‑source GIS platform with strong raster handling, classification,
+              change detection, and seamless integration with GRASS GIS, Orfeo Toolbox (OTB), and SAGA.
+              Rich plug‑in ecosystem supports remote sensing workflows end‑to‑end.
+            </p>
+            <div class="software-links">
+              <a href="https://qgis.org" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                QGIS Website
+              </a>
+            </div>
+          </div>
+
+          <!-- GRASS GIS -->
+          <div class="software-card">
+            <div class="software-header">
+              <img src="/infi_website/image/tech.png" alt="GRASS GIS" class="software-logo" />
+              <div>
+                <h3 class="software-title">GRASS GIS</h3>
+                <span class="opensource-badge">Open Source</span>
+              </div>
+            </div>
+            <p class="software-description">
+              One of the oldest open‑source GIS tools with a powerful raster engine. Advanced terrain
+              analysis, image classification, and change detection; integrates tightly with QGIS.
+            </p>
+            <div class="software-links">
+              <a href="https://grass.osgeo.org" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                GRASS GIS Website
+              </a>
+            </div>
+          </div>
+
+          <!-- Orfeo Toolbox (OTB) -->
+          <div class="software-card">
+            <div class="software-header">
+              <img src="/infi_website/Cover%20image/cover%20images/OTB.png" alt="Orfeo Toolbox" class="software-logo" />
+              <div>
+                <h3 class="software-title">Orfeo Toolbox (OTB)</h3>
+                <span class="opensource-badge">Open Source</span>
+              </div>
+            </div>
+            <p class="software-description">
+              Remote sensing image processing focused toolkit. Excellent for very high‑resolution data,
+              classification, segmentation, and object‑based image analysis; integrates with QGIS.
+            </p>
+            <div class="software-links">
+              <a href="https://www.orfeo-toolbox.org" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                OTB Website
+              </a>
+            </div>
+          </div>
+
+          <!-- SAGA GIS -->
+          <div class="software-card">
+            <div class="software-header">
+              <img src="/infi_website/Cover%20image/cover%20images/saga.png" alt="SAGA GIS" class="software-logo" />
+              <div>
+                <h3 class="software-title">SAGA GIS</h3>
+                <span class="opensource-badge">Open Source</span>
+              </div>
+            </div>
+            <p class="software-description">
+              Known for its extensive geoscientific analysis modules. Strong in terrain modeling,
+              hydrology, and raster processing; available from within QGIS via toolboxes.
+            </p>
+            <div class="software-links">
+              <a href="http://www.saga-gis.org" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                SAGA GIS Website
+              </a>
+            </div>
+          </div>
+
+          <!-- ILWIS -->
+          <div class="software-card">
+            <div class="software-header">
+              <img src="/infi_website/Cover%20image/cover%20images/ILWIS.png" alt="ILWIS" class="software-logo" />
+              <div>
+                <h3 class="software-title">ILWIS</h3>
+                <span class="opensource-badge">Open Source</span>
+              </div>
+            </div>
+            <p class="software-description">
+              Integrated Land and Water Information System, originally from ITC (Netherlands), now
+              open‑source via 52°North. Good for land‑cover classification, remote sensing, and raster
+              analysis.
+            </p>
+            <div class="software-links">
+              <a href="https://52north.org/software/software-projects/ilwis/" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                ILWIS Project Page
+              </a>
+            </div>
+          </div>
+
+          <!-- Google Earth Engine -->
+          <div class="software-card">
+            <div class="software-header">
+              <img src="/infi_website/Cover%20image/cover%20images/GEE.png" alt="Google Earth Engine" class="software-logo" />
+              <div>
+                <h3 class="software-title">Google Earth Engine (GEE)</h3>
+                <span class="opensource-badge">Free for research</span>
+              </div>
+            </div>
+            <p class="software-description">
+              Cloud platform for planetary‑scale analysis of satellite imagery and geospatial datasets.
+              Provides petabyte‑scale data catalog, JavaScript/Python APIs, and built‑in ML tools. Free
+              for research and education.
+            </p>
+            <div class="software-links">
+              <a href="https://earthengine.google.com" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                Earth Engine Website
+              </a>
+            </div>
+          </div>
+
+          <!-- POLSAR -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/POLSAR.png"
+                alt="POLSAR"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">POLSAR</h3>
+                <span class="opensource-badge">Open Source</span>
+              </div>
+            </div>
+            <p class="software-description">
+              POLSAR is a comprehensive software package for polarimetric SAR
+              data processing and analysis. It provides tools for processing,
+              analyzing, and visualizing polarimetric SAR data from various
+              satellite missions.
+            </p>
+            <div class="software-links">
+              <a href="https://earth.esa.int/eogateway/tools/polsarpro" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                POLSAR Website
+              </a>
+            </div>
+          </div>
+
+          <!-- VEDAS -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/VEDAS.png"
+                alt="VEDAS"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">VEDAS</h3>
+                <span class="opensource-badge">Open Source</span>
+              </div>
+            </div>
+            <p class="software-description">
+              VEDAS (Visualization of Earth observation Data and Archival
+              System) is an open-source software developed by ISRO for
+              processing and analyzing Earth observation data. It provides tools
+              for satellite data processing, analysis, and visualization.
+            </p>
+            <div class="software-links">
+              <a href="https://vedas.sac.gov.in" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                VEDAS Website
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proprietary Software Section -->
+      <section class="software-section">
+        <h2>Proprietary Software</h2>
+        <div class="software-grid">
+          <!-- ERDAS Imagine -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/edras.png"
+                alt="ERDAS Imagine"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">ERDAS Imagine</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              ERDAS Imagine is ranked as the #1 remote sensing and image
+              analysis software suite. Developed by Hexagon Geospatial, it can
+              handle virtually any type of geospatial data, including satellite
+              imagery, aerial photography, LiDAR point clouds, digital elevation
+              models, and other GIS data.
+            </p>
+            <div class="software-links">
+              <a href="https://www.hexagongeospatial.com/products/erdas-imagine" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                ERDAS Imagine Website
+              </a>
+            </div>
+          </div>
+
+          <!-- ENVI -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/ENVI.png"
+                alt="ENVI"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">ENVI (NV5 Geospatial)</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              ENVI is an advanced remote sensing software platform from NV5
+              Geospatial. With ENVI, users can quickly extract information from
+              satellite, airborne, and other types of imagery by leveraging the
+              latest in image processing technology. It provides support for a
+              wide range of data formats and offers powerful automation
+              capabilities through ENVI modeler.
+            </p>
+            <div class="software-links">
+              <a href="https://www.nv5geospatialsoftware.com/envi" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                ENVI Website
+              </a>
+            </div>
+          </div>
+
+          <!-- PCI Geomatica -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/catalyst.png"
+                alt="PCI Geomatica"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">PCI Geomatica (Catalyst)</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              PCI Geomatica is an advanced remote sensing software suite used by
+              scientists, researchers, and GIS professionals around the world.
+              Developed by Canadian company PCI Geomatics, users can access and
+              analyze satellite imagery, aerial photography, and other types of
+              remotely sensed data including SAR and InSAR data.
+            </p>
+            <div class="software-links">
+              <a href="https://www.catalyst.earth/catalyst-professional" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                PCI Geomatica Website
+              </a>
+            </div>
+          </div>
+
+          <!-- ArcGIS Pro -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/esri.png"
+                alt="ArcGIS Pro"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">ArcGIS Pro</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              ArcGIS Pro supports SAR sensors with raster products and raster
+              types. This allows you to add SAR data to your map directly from
+              the original dataset, without the need for additional import or
+              conversion tools. Currently, the SAR raster types support Capella,
+              ICEYE, RADARSAT-2, RADARSAT Constellation Mission (RCM) and
+              Sentinel-1.
+            </p>
+            <div class="software-links">
+              <a href="https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                ArcGIS Pro Website
+              </a>
+            </div>
+          </div>
+
+          <!-- TerrSet (Clark Labs) -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/Cover%20image/cover%20images/TErrSET.png"
+                alt="TerrSet (Clark Labs)"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">TerrSet (Clark Labs)</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              TerrSet is an integrated geospatial software system for monitoring and
+              modeling the Earth system for sustainable development. It offers 300+ raster
+              analysis tools for image processing, change detection, surface analysis,
+              decision support, and more. Vertical modules include Land Change Modeler,
+              Earth Trends Modeler, and Habitat & Biodiversity Modeler. Supports major
+              raster/vector formats and scripting (e.g., Python).
+            </p>
+            <div class="software-links">
+              <a href="https://clarklabs.org/terrset/" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                TerrSet Website
+              </a>
+            </div>
+          </div>
+
+          <!-- SOCET GXP (BAE Systems) -->
+          <div class="software-card">
+            <div class="software-header">
+              <img
+                src="/infi_website/image/socetgxp.png"
+                alt="SOCET GXP"
+                class="software-logo"
+              />
+              <div>
+                <h3 class="software-title">SOCET GXP (BAE Systems)</h3>
+                <span class="proprietary-badge">Proprietary</span>
+              </div>
+            </div>
+            <p class="software-description">
+              SOCET GXP is a geospatial‑intelligence solution for analyzing satellite and
+              aerial imagery, supporting advanced photogrammetry, remote sensing, LiDAR,
+              multispectral/hyperspectral processing, and AI/ML‑enabled object detection.
+              Includes 3D visualization, terrain modeling, orthorectification, and sensor
+              models. Modular licensing provides bundles for capabilities such as
+              GeoAnalysis, LiDAR, and SAR.
+            </p>
+            <div class="software-links">
+              <a href="https://www.baesystems.com/en-us/product/gxp" class="software-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>
+                SOCET GXP Website
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Open Source Software Section -->
+    </main>
+
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+
+    <script>
+      // Debug image loading
+      document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll(".software-logo");
+        images.forEach(function (img) {
+          console.log("Image src:", img.src);
+
+          img.addEventListener("load", function () {
+            console.log("Image loaded successfully:", img.src);
+            this.style.opacity = "1";
+          });
+
+          img.addEventListener("error", function () {
+            console.error("Image failed to load:", img.src);
+            this.style.opacity = "0.5";
+            this.style.border = "2px dashed red";
+          });
+
+          // Set initial opacity
+          img.style.opacity = "0.8";
+          img.style.transition = "opacity 0.3s ease";
+        });
+      });
+    </script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>

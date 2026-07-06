@@ -1,0 +1,324 @@
+/* ===== Reset Default Styles ===== */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #d3d3d3;
+  color: #fff;
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+/* ===== Header Styling ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #003366; /* Dark blue */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+main {
+  margin-top: -60px;
+}
+
+.logo-img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* ===== Navigation Bar ===== */
+.navbar {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  margin-left: 50px;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: #ff4500; /* Highlight color */
+}
+
+.navbar a.login-icon {
+  display: flex;
+  align-items: center;
+}
+
+.navbar a.login-icon .fa-user {
+  margin-right: 5px;
+}
+
+#menu {
+  display: none; /* Hide mobile menu icon by default */
+}
+
+/* ===== Dropdown Menu ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content,
+.dropdown-subcontent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  z-index: 10;
+}
+
+.dropdown-content a,
+.dropdown-subcontent a {
+  color: #000;
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover,
+.dropdown-subcontent a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-subcontent.show {
+  display: block;
+}
+
+/* ===== Blog Header ===== */
+.blog-header {
+  padding: 20px;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #003366;
+  margin-top: 70px; /* To accommodate fixed header */
+}
+
+.blog-header h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.blog-header p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+/* ===== Write Blog Button ===== */
+.write-blog-btn {
+  position: fixed;
+  right: 50px;
+  top: 100px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.write-blog-btn:hover {
+  background-color: #0056b3;
+}
+
+/* ===== Blog Posts ===== */
+#blog-post {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* 4 per row on desktop */
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.blog-post {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 300px;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+}
+
+.blog-post h2 {
+  color: #003366;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.blog-post p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.blog-post img.blog-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.read-more {
+  color: #ff4500;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.read-more:hover {
+  color: #e03d00;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  color: #333;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 0 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #f1f1f1;
+}
+
+/* ===== Comment Section ===== */
+.comment-section {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comment-form button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-form button:hover {
+  background-color: #0056b3;
+}
+
+/* ===== Ratings ===== */
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating .fa-star {
+  font-size: 20px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.rating .fa-star.checked {
+  color: #ffd700;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #003366;
+  color: #fff;
+  margin-top: 40px;
+  border-top: 4px solid #ff4500;
+}
+
+/* ===== Contact Icons ===== */
+.contact-icons {
+  margin-top: 20px;
+}
+
+.contact-icons .icon {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.contact-icons .icon:hover {
+  color: #ff4500;
+}
+
+/* ===== Responsive Design ===== */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .blog-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .write-blog-btn {
+    right: 20px;
+  }
+}

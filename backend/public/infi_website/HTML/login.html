@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POLSAR Authentication</title>
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url("../image/login2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        color: #50237a;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 70px; /* Account for fixed header */
+        box-sizing: border-box;
+      }
+
+      #box {
+        background-color: rgba(255, 255, 255, 0.95);
+        width: 400px;
+        max-width: 90vw;
+        padding: 40px 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin: 20px;
+      }
+
+      #box h2 {
+        margin: 0 0 25px;
+        color: #960d0d;
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      .text {
+        height: 45px;
+        border-radius: 8px;
+        padding: 12px 15px;
+        border: 2px solid #e1e5e9;
+        width: 100%;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        color: #333;
+        background-color: #fff;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .text:focus {
+        outline: none;
+        border-color: #5a2360;
+        box-shadow: 0 0 0 3px rgba(90, 35, 96, 0.1);
+      }
+
+      .button {
+        padding: 15px 20px;
+        width: 100%;
+        color: white;
+        background-color: #5a2360;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-bottom: 15px;
+      }
+
+      .button:hover {
+        background-color: #3d1747;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(90, 35, 96, 0.3);
+      }
+
+      #box a {
+        color: #6a0dad;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 15px;
+        display: inline-block;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        font-size: 14px;
+      }
+
+      #box a:hover {
+        color: #5a2360;
+        text-decoration: underline;
+      }
+
+      .social-login {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 25px;
+      }
+
+      .social-login button {
+        flex: 1;
+        padding: 12px 8px;
+        font-size: 14px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .social-login button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .google {
+        background-color: #dd4b39;
+        color: white;
+      }
+
+      .google:hover {
+        background-color: #c23321;
+      }
+
+      .microsoft {
+        background-color: #2b579a;
+        color: white;
+      }
+
+      .microsoft:hover {
+        background-color: #1e3a8a;
+      }
+
+      .apple {
+        background-color: black;
+        color: white;
+      }
+
+      .apple:hover {
+        background-color: #333;
+      }
+
+      /* Form visibility controls */
+      .form-container {
+        display: none;
+      }
+
+      .form-container.active {
+        display: block;
+      }
+
+      #home-button {
+        position: fixed;
+        top: 90px;
+        left: 20px;
+        padding: 12px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        z-index: 1001;
+        font-weight: 500;
+      }
+
+      #home-button:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          padding-top: 80px;
+        }
+
+        #box {
+          width: 350px;
+          padding: 30px 25px;
+          margin: 15px;
+        }
+
+        #box h2 {
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+        }
+
+        .text {
+          height: 40px;
+          padding: 10px 12px;
+          font-size: 15px;
+        }
+
+        .button {
+          padding: 12px 16px;
+          font-size: 15px;
+        }
+
+        .social-login {
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .social-login button {
+          padding: 10px;
+          font-size: 13px;
+        }
+
+        #home-button {
+          top: 85px;
+          left: 15px;
+          padding: 10px 16px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding-top: 70px;
+        }
+
+        #box {
+          width: 320px;
+          padding: 25px 20px;
+          margin: 10px;
+        }
+
+        #box h2 {
+          font-size: 1.6rem;
+          margin-bottom: 18px;
+        }
+
+        .text {
+          height: 38px;
+          padding: 8px 10px;
+          font-size: 14px;
+          margin-bottom: 15px;
+        }
+
+        .button {
+          padding: 10px 14px;
+          font-size: 14px;
+        }
+
+        .social-login button {
+          padding: 8px;
+          font-size: 12px;
+        }
+
+        #home-button {
+          top: 80px;
+          left: 10px;
+          padding: 8px 12px;
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        #box {
+          width: 280px;
+          padding: 20px 15px;
+          margin: 8px;
+        }
+
+        #box h2 {
+          font-size: 1.4rem;
+          margin-bottom: 15px;
+        }
+
+        .text {
+          height: 35px;
+          padding: 6px 8px;
+          font-size: 13px;
+          margin-bottom: 12px;
+        }
+
+        .button {
+          padding: 8px 12px;
+          font-size: 13px;
+        }
+
+        .social-login button {
+          padding: 6px;
+          font-size: 11px;
+        }
+
+        #home-button {
+          top: 75px;
+          left: 8px;
+          padding: 6px 10px;
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar"></div>
+    </header> -->
+
+    <a href="/infi_website/HTML/home.html" id="home-button">Home</a>
+
+    <div id="box">
+      <h2 id="formTitle">Login</h2>
+
+      <!-- Login Form -->
+      <div id="loginForm" class="form-container active">
+        <form method="post">
+          <input
+            class="text"
+            type="text"
+            name="user_name"
+            placeholder="Enter User Name"
+            required
+          />
+          <br />
+          <input
+            class="text"
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            required
+          />
+          <br />
+          <input id="login_button" class="button" type="submit" value="Login" />
+          <br />
+        </form>
+        <a id="showSignup">Click to Signup</a>
+        <p id="loginMessage" style="color: red"></p>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signupForm" class="form-container">
+        <form method="post">
+          <input
+            id="signup_first_name"
+            class="text"
+            type="text"
+            name="first_name"
+            placeholder="Enter First Name"
+            required
+          />
+          <br />
+          <input
+            id="signup_last_name"
+            class="text"
+            type="text"
+            name="last_name"
+            placeholder="Enter Last Name"
+            required
+          />
+          <br />
+          <input
+            id="signup_email"
+            class="text"
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            required
+          />
+          <br />
+          <input
+            class="text"
+            type="tel"
+            name="phone"
+            placeholder="Enter Phone"
+            pattern="[0-9]{10}"
+            required
+            title="Phone number must be 10 digits"
+          />
+          <br />
+          <input
+            id="signup_password_1"
+            class="text"
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            minlength="8"
+            required
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}"
+            title="Must contain at least one number, one uppercase and lowercase letter, and one special character."
+          />
+          <br />
+          <input id="signup_btn" class="button" type="submit" value="Signup" />
+          <br />
+        </form>
+        <a id="showLogin">Click to Login</a>
+      </div>
+
+      <!-- Social Login Buttons -->
+      <div class="social-login">
+        <button class="google" id="googleLogin">Google</button>
+        <button class="microsoft" id="microsoftLogin">Microsoft</button>
+        <button class="apple" id="appleLogin">Apple</button>
+      </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+      import {
+        getAuth,
+        GoogleAuthProvider,
+        OAuthProvider,
+        signInWithPopup,
+      } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAMz26OAAgh3PTfOr4grMoUkXLuNY_nti8",
+        authDomain: "polsar-learn.firebaseapp.com", // This must match your Firebase project
+        projectId: "polsar-learn",
+        storageBucket: "polsar-learn.appspot.com",
+        messagingSenderId: "720070143478",
+        appId: "1:720070143478:web:fd81b5226592ab19746bd7",
+        measurementId: "G-XLG559EVMK",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth();
+
+      // Google Sign-In
+      async function signInWithGoogle() {
+        const provider = new GoogleAuthProvider();
+        try {
+          const result = await signInWithPopup(auth, provider);
+          const user = result.user;
+          console.log("User:", user);
+          // Handle successful login
+        } catch (error) {
+          console.error("Error during Google Sign-In:", error);
+          alert(`Error during Google Sign-In: ${error.message}`);
+        }
+      }
+
+      // Microsoft Sign-In
+      async function signInWithMicrosoft() {
+        const provider = new OAuthProvider("microsoft.com");
+        try {
+          const result = await signInWithPopup(auth, provider);
+          const user = result.user;
+          console.log("User:", user);
+          // Handle successful login
+        } catch (error) {
+          console.error("Error during Microsoft Sign-In:", error);
+          alert(`Error during Microsoft Sign-In: ${error.message}`);
+        }
+      }
+
+      document
+        .getElementById("googleLogin")
+        .addEventListener("click", function () {
+          signInWithGoogle();
+        });
+
+      document
+        .getElementById("microsoftLogin")
+        .addEventListener("click", function () {
+          signInWithMicrosoft();
+        });
+
+      // Show Signup form and hide Login form
+      document
+        .getElementById("showSignup")
+        .addEventListener("click", function () {
+          document.getElementById("loginForm").classList.remove("active");
+          document.getElementById("signupForm").classList.add("active");
+          document.getElementById("formTitle").innerText = "Signup";
+        });
+
+      // Show Login form and hide Signup form
+      document
+        .getElementById("showLogin")
+        .addEventListener("click", function () {
+          document.getElementById("signupForm").classList.remove("active");
+          document.getElementById("loginForm").classList.add("active");
+          document.getElementById("formTitle").innerText = "Login";
+        });
+    </script>
+    <!-- <script src="/infi_website/Javascript/script.js"></script> -->
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script type="module" src="/infi_website/Javascript/authLogin.js"></script>
+    <script type="module" src="/infi_website/Javascript/authSignup.js"></script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>

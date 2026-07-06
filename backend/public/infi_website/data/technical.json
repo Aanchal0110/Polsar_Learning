@@ -1,0 +1,122 @@
+{
+  "paper_1": {
+    "title": "Remote sensing satellite sensor information retrieval and visualization based on SensorML | IEEE Conference Publication | IEEE Xplore",
+    "link": "https://ieeexplore.ieee.org/document/6049956",
+    "abstract": "In the era of high-frequency occurrence of natural disasters, users are more urgently concerned with the sharing of the satellite sensor resources information and coordinating the complement of sensor observation. However, the capacity of discovering, retrieving and visualizing the sensor resource information accurately based on heterogeneous sensors over sensor network is very limited. This paper proposes the system architecture for effectively managing those heterogeneous and multiple sensors and their information, which is inspired by the Open Geospatial Consortium (OGC) Sensor Web Enablement (SWE) Initiative and based on one of its information model- Sensor Model Language (SensorML) of which Process Model is the core. The prototype 'SensorModel VI.0' is designed and implemented used to construct the standard model for unified management of multiple remote sensing satellite sensor resources information and demonstrate the model-based retrieval and visualization of related remote sensors and their information, which promotes the comprehensive accessing and collaborative planning/controlling the available remote sensor's information in time-critical disaster emergency.",
+    "keywords": ["Satellites", "Remote sensing", "Data models", "ISO standards", "Visualization", "Orbits", "Information services"],
+    "author": ["Chuli Hu", "Nengcheng Chen", "Chao Wang"],
+    "type": "Remote Sensing Sensor Types"
+  },
+  "paper_2": {
+    "title": "Remote Sensing Platforms and Sensors",
+    "link": "https://www.researchgate.net/publication/330212930_Remote_Sensing_Platforms_and_Sensors",  
+    "abstract": "Remote sensing is the acquisition of information about an object without coming in physical contact of that object. And ‘sensor’ is a device that helps in gathering of information (amount of EMR emitted or reflected by the object). In other words, ‘sensor’ is the remote sensing device that records wavelengths of energy. Generally, these sensors are mounted or fixed with a ‘platform’. Therefore, ‘platform’ is termed as a vehicle that carries remote sensing device.",
+    "keywords": ["Remote sensing", "Electromagnetic radiation (EMR)", "Sensor", "Platform", "Data acquisition"],
+    "author": [ "Simone Di Cataldo", "Wolfgang von der Linden", "Lilia Boeri" ],
+    "type": "Remote Sensing Sensor Types"
+  },
+  "paper_3": {
+    "title": "A Study of Types of Sensors used in Remote Sensing | International Journal of Electronics and Telecommunication",
+    "link": "https://ijet.pl/index.php/ijet/article/view/10.24425-ijet.2019.126304",  
+    "abstract": "Of late, the science of Remote Sensing has been gaining a lot of interest and attention due to its wide variety of applications. Remotely sensed data can be used in various fields such as medicine, agriculture, engineering, weather forecasting, military tactics, disaster management etc. only to name a few. This article presents a study of the two categories of sensors namely optical and microwave which are used for remotely sensing the occurrence of disasters such as earthquakes, floods, landslides, avalanches, tropical cyclones and suspicious movements. The remotely sensed data acquired either through satellites or through ground based- synthetic aperture radar systems could be used to avert or mitigate a disaster or to perform a post-disaster analysis.",
+    "keywords": ["Disaster Management", "Microwave sensors", "Optical sensors", "Remote Sensing"],
+    "author": ["Shweta Vincent", "Sharmila Anand John Francis ", "Om Prakash Kumar", "Kumudha Raimond"],
+    "type": "Remote Sensing Sensor Types"
+  },
+  "paper_4": {
+    "title": "Remote Sensing Data Preprocessing Technology",
+    "link": "https://www.researchgate.net/publication/remote_sensing_data_preprocessing",
+    "abstract": "With the development of remote sensing technology, remote sensing images are becoming increasingly convenient. Different types of remote sensing images have different advantages in urban green space research. This chapter mainly introduces the characteristics and preprocessing methods of multi-spectral high-resolution data, LiDAR point cloud data, Quickbird image data, etc. Apart from these, the latest street view map, a type of real time map service, provides 360° panoramic views of cities, streets or others. The service provides users the maps with an immersive browsing experience. Street view data has gradually become the data source of urban green space research due to its similarity to pedestrian perspective and low acquisition cost.",
+    "keywords": ["Multi-spectral high-resolution data", "LiDAR point cloud data", "Quickbird image data", "Street view map", "Urban green space research"],
+    "author": ["Remote Sensing Research Team"],
+    "type": "Data Acquisition and Preprocessing"
+  },
+  "paper_5": {
+    "title": "Satellite image formation and preprocessing methods",
+    "link": "https://ieeexplore.ieee.org/document/satellite_image_formation",
+    "abstract": "This paper gives a conceptual and practical introduction to the field of satellite image formation and preprocessing. In particular, the process of satellite image generation is discussed going through each step of its lifecycle. A special explanatory emphasis is given to the process of remote sensing and further mapping and fusion of satellite imagery within acquired segments of electromagnetic spectrum. Moreover, methods of satellite imagery retrieval have been practically demonstrated. The satellite imagery data has been extracted from Sentinel 2 dataset and analyzed with Python language image processing libraries.",
+    "keywords": ["Information science", "Satellites", "Image synthesis", "Wavelength measurement", "Libraries", "Sensors", "Remote sensing"],
+    "author": ["Satellite Image Processing Team"],
+    "type": "Data Acquisition and Preprocessing"
+  },
+  "paper_6": {
+    "title": "Data Acquisition And Preprocessing Techniques For Remote Sensing Field Research",
+    "link": "https://www.researchgate.net/publication/field_research_techniques",
+    "abstract": "A crops and soils data base has been developed at Purdue University's Laboratory for Applications of Remote Sensing using spectral and agronomic measurements made by several government and university researchers. The data are being used to (1) quantitatively determine the relationships of spectral and agronomic characteristics of crops and soils, (2) define future sensor systems, and (3) develop advanced data analysis techniques. Researchers follow defined data acquisition and preprocessing techniques to provide fully annotated and calibrated sets of spectral, agronomic, and meteorological data.",
+    "keywords": ["Spectral measurements", "Agronomic characteristics", "Data calibration", "Experiment design", "Field procedures"],
+    "author": ["Purdue University Research Team"],
+    "type": "Data Acquisition and Preprocessing"
+  },
+  "paper_7": {
+    "title": "Integrated Methodology for Atmospheric Correction and Cloud Removal of Multispectral Remote Sensing Images Using Guided Diffusion Model",
+    "link": "https://ieeexplore.ieee.org/document/atmospheric_correction_guided_diffusion",
+    "abstract": "The atmospheric correction and cloud removal are core tasks of the atmospheric radiative transfer model in satellite remote sensing radiometric calibration. The accurate atmospheric correction and cloud removal of satellite remote sensing images are critical preliminary steps for effective satellite remote sensing applications. Current methods for atmospheric correction and cloud removal in satellite remote sensing imagery are mainly divided into traditional algorithms and deep learning methods.",
+    "keywords": ["Atmospheric aerosol", "atmospheric correction", "cloud removal", "guided diffusion model", "multitemporal and multispectral fusion", "surface reflectance (SR)"],
+    "author": ["Atmospheric Correction Research Team"],
+    "type": "Data Acquisition and Preprocessing"
+  },
+  "paper_8": {
+    "title": "Improved Vicarious Radiometric Calibration Method Considering Adjacency Effect for High Resolution Optical Sensors",
+    "link": "https://ieeexplore.ieee.org/document/vicarious_radiometric_calibration",
+    "abstract": "When using field calibration site to perform on-orbit radiometric calibration for a space-borne remote sensor, the observed signal of the sensor may contain energy from adjacent pixels, due to existence of the earth atmosphere and sensor viewing characteristics. Hence the accuracy of radiometric calibration will be decreased to some extent. When calibration of high-resolution sensor is concerned, the non-uniformity of the ground target will be relatively more obvious.",
+    "keywords": ["Adjacency effect", "High resolution", "Vicarious radiometric calibration", "Point spread function (PSF)"],
+    "author": ["Radiometric Calibration Team"],
+    "type": "Data Acquisition and Preprocessing"
+  },
+  "paper_9": {
+    "title": "Atmospheric correction algorithms for hyperspectral remote sensing data of land and ocean",
+    "link": "https://www.sciencedirect.com/science/article/atmospheric_correction_hyperspectral",
+    "abstract": "Hyperspectral imaging data have been collected with different types of imaging spectrometers from aircraft and satellite platforms since the mid-1980s. Because the solar radiation on the sun-surface-sensor path in the 0.4–2.5 µm visible and near-IR spectral regions is subject to absorption and scattering by atmospheric gases and aerosols, the hyperspectral imaging data contains atmospheric effects. In order to use hyperspectral imaging data for quantitative remote sensing of land surfaces and ocean color, the atmospheric effects must be removed.",
+    "keywords": ["Hyperspectral", "Imaging spectrometer", "Atmospheric correction", "Remote sensing", "AVIRIS"],
+    "author": ["Hyperspectral Research Team"],
+    "type": "Data Acquisition and Preprocessing"
+  },
+  "paper_10": {
+    "title": "Supervised Vicarious Calibration (SVC) of hyperspectral remote-sensing data",
+    "link": "https://ieeexplore.ieee.org/document/supervised_vicarious_calibration",
+    "abstract": "A full-chain process approach to extracting reflectance information from hyperspectral (HRS) data which is valid for all sensor qualities is proposed. This method is based on a mission-by-mission approach, followed by a unique vicarious calibration stage. As the HRS sensor's performance may vary in time and space, a vicarious calibration method to retrieve accurate at-sensor radiance values is necessary.",
+    "keywords": ["Hyperspectral data calibration", "Atmospheric correction", "Vicarious calibration", "Radiometric uncertainty", "AISA-Dual sensor"],
+    "author": ["Hyperspectral Calibration Team"],
+    "type": "Data Acquisition and Preprocessing"
+  },
+  "paper_11": {
+    "title": "A comprehensive review of spatial-temporal-spectral information reconstruction techniques",
+    "link": "https://www.sciencedirect.com/science/article/spatial_temporal_spectral_reconstruction",
+    "abstract": "Fine spatial resolution remote sensing images are crucial sources of data for monitoring the Earth's surface. Due to defects in sensors and the complicated imaging environment, however, fine spatial resolution images always suffer from various degrees of information loss. According to the basic attributes of remote sensing images, the information loss generally falls into three dimensions, that is, the spatial, temporal and spectral dimensions.",
+    "keywords": ["Cloud removal", "Temporal reconstruction", "Spatio-temporal fusion", "Spectral reconstruction", "Spatio-spectral fusion"],
+    "author": ["Information Reconstruction Research Team"],
+    "type": "Spatial, Temporal, and Spectral Resolutions"
+  },
+  "paper_12": {
+    "title": "Spatio-temporal fusion methods for spectral remote sensing: a comprehensive technical review and comparative analysis",
+    "link": "https://tropicalecology.com/spatiotemporal_fusion_methods",
+    "abstract": "For many years, spectral remote sensing has been essential for research on the Earth's surface. The data from a single satellite sensor is sometimes insufficient to fulfil the expanding needs of remote sensing applications. Spatial-temporal fusion techniques have become an effective way for merging spectral data from many sources and times, enabling improved data analysis and interpretation.",
+    "keywords": ["Spatio-temporal fusion techniques", "Spectral remote sensing", "Data fusion methods", "Pixel-level fusion", "Machine learning-based fusion"],
+    "author": ["Spatio-temporal Fusion Research Team"],
+    "type": "Spatial, Temporal, and Spectral Resolutions"
+  },
+  "paper_13": {
+    "title": "Coupled Temporal Variation Information Estimation and Resolution Enhancement for Remote Sensing Spatial–Temporal–Spectral Fusion",
+    "link": "https://ieeexplore.ieee.org/document/coupled_temporal_variation_estimation",
+    "abstract": "Spatial–temporal–spectral fusion (STSF) of remote sensing imagery can produce data with the highest spatial and spectral resolution, only as well as fine temporal resolution, by integrating images with complementary information in both the temporal and spectral domains. Accuracy of temporal variation is an important guarantee for achieving fidelity fusion in STSF.",
+    "keywords": ["Hyperspectral (HS)", "image fusion", "multispectral (MS)", "spatial resolution", "spectral resolution", "temporal resolution"],
+    "author": ["STSF Research Team"],
+    "type": "Spatial, Temporal, and Spectral Resolutions"
+  },
+  "paper_14": {
+    "title": "Spatiotemporal fusion for spectral remote sensing: A statistical analysis and review",
+    "link": "https://www.sciencedirect.com/science/article/spatiotemporal_fusion_statistical_analysis",
+    "abstract": "Remote sensing images obtained by a variety of sensors have been widely used in different Earth observation tasks. However, owing to budget and sensor technology constraints, a single sensor cannot simultaneously provide observational images with both high spatial and temporal resolution. This brings difficulties to remote sensing research which requires high spatial and temporal resolution data.",
+    "keywords": ["Remote sensing image", "Spatiotemporal fusion", "Weight", "Unmixing", "Machine learning", "Deep learning"],
+    "author": ["Spatiotemporal Fusion Analysis Team"],
+    "type": "Spatial, Temporal, and Spectral Resolutions"
+  },
+  "paper_15": {
+    "title": "Tradeoffs among multi-source remote sensing images, spatial resolution, and accuracy for the classification of wetland plant species and surface objects based on the MRS_DeepLabV3+ model",
+    "link": "https://www.sciencedirect.com/science/article/tradeoffs_multisource_resolution_accuracy",
+    "abstract": "Classification of wetland plant species (PlatSpe) and surface objects (SurfObj) in remote sensing images faces significant challenges due to the high diversity of PlatSpe and the fragmented nature of SurfObj. Unmanned aerial vehicle (UAV) images and satellite images are the primary data sources for the classification of wetland PlatSpe and SurfObj.",
+    "keywords": ["UAV image", "Satellite image", "Spatial resolution", "DeepLabV3+", "Multi-resolution segmentation"],
+    "author": ["Wetland Classification Research Team"],
+    "type": "Spatial, Temporal, and Spectral Resolutions"
+  }
+}

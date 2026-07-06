@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Blog Editor</title>
+    <style>
+      /* Blog Form Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 60%;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        margin-top: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button[type="submit"] {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #218838;
+      }
+
+      /* Text Editor Styles */
+      .toolbar {
+        margin-bottom: 10px;
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+      }
+
+      .toolbar button {
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        background-color: #f0f0f0;
+        transition: background-color 0.3s;
+        border-radius: 3px;
+      }
+
+      .toolbar button.active {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .font-size-controls {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .font-size-controls input {
+        width: 50px;
+        padding: 3px;
+        text-align: center;
+      }
+
+      #editor {
+        width: 100%;
+        height: 300px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        outline: none;
+        overflow-y: auto;
+      }
+
+      /* Preview Styles */
+      #preview {
+        margin-top: 30px;
+      }
+
+      #preview h3 {
+        font-size: 22px;
+        color: #333;
+      }
+
+      #preview-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      #preview-content {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+
+      #preview-tags {
+        font-style: italic;
+        color: #555;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Write Your Blog</h2>
+      <form id="blog-form">
+        <div class="form-group">
+          <label for="title">Blog Title</label>
+          <input
+            type="text"
+            id="title"
+            placeholder="Enter your blog title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="content">Blog Content</label>
+          <div class="toolbar">
+            <button
+              type="button"
+              onclick="toggleActive(this); formatText('bold')"
+            >
+              B
+            </button>
+            <button
+              type="button"
+              onclick="toggleActive(this); formatText('italic')"
+            >
+              I
+            </button>
+            <button
+              type="button"
+              onclick="toggleActive(this); formatText('underline')"
+            >
+              U
+            </button>
+
+            <div class="font-size-controls">
+              <button type="button" onclick="adjustFontSize(-1)">-</button>
+              <input
+                type="number"
+                id="fontSize"
+                value="14"
+                min="8"
+                max="72"
+                onchange="setFontSize(this.value)"
+              />
+              <button type="button" onclick="adjustFontSize(1)">+</button>
+            </div>
+
+            <input
+              type="color"
+              id="colorPicker"
+              onchange="formatColor()"
+              title="Text Color"
+            />
+            <button type="button" onclick="formatText('removeFormat')">
+              Clear Format
+            </button>
+            <input
+              type="file"
+              accept="image/*"
+              onchange="insertImage(event)"
+              title="Upload image"
+            />
+          </div>
+          <div id="editor" contenteditable="true"></div>
+          <textarea id="content" class="hidden" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="tags">Tags (comma-separated)</label>
+          <input
+            type="text"
+            id="tags"
+            placeholder="e.g., microwave, remote sensing, education"
+          />
+        </div>
+        <div class="form-group">
+          <label for="image">Upload Cover Image</label>
+          <input type="file" id="image" accept="image/*" />
+        </div>
+        <button type="submit">Submit Blog</button>
+      </form>
+      <div id="preview">
+        <h3>Blog Preview</h3>
+        <h4 id="preview-title"></h4>
+        <div id="preview-content"></div>
+        <p id="preview-tags"></p>
+      </div>
+    </div>
+
+    <script>
+      // Font size management
+      let currentFontSize = 14;
+
+      function adjustFontSize(change) {
+        currentFontSize = Math.min(72, Math.max(8, currentFontSize + change));
+        document.getElementById("fontSize").value = currentFontSize;
+        setFontSize(currentFontSize);
+      }
+
+      function setFontSize(size) {
+        currentFontSize = Math.min(72, Math.max(8, parseInt(size) || 14));
+        document.execCommand("fontSize", false, currentFontSize);
+        // Additional styling for modern browsers
+        document.execCommand("styleWithCSS", true);
+        document.execCommand("fontSize", false, "7"); // 7 is the largest predefined size
+        const selection = window.getSelection();
+        if (selection.rangeCount > 0) {
+          const range = selection.getRangeAt(0);
+          const span = document.createElement("span");
+          span.style.fontSize = `${currentFontSize}px`;
+          range.surroundContents(span);
+        }
+      }
+
+      // Text formatting functions
+      function formatText(command) {
+        document.execCommand(command, false, null);
+      }
+
+      function formatColor() {
+        const color = document.getElementById("colorPicker").value;
+        document.execCommand("styleWithCSS", false, true);
+        document.execCommand("foreColor", false, color);
+      }
+
+      function insertImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            document.execCommand("insertImage", false, e.target.result);
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+
+      function toggleActive(button) {
+        button.classList.toggle("active");
+      }
+
+      // Form handling
+      document
+        .getElementById("blog-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Capture editor content
+          const contentEditor = document.getElementById("editor");
+          const contentField = document.getElementById("content");
+          contentField.value = contentEditor.innerHTML;
+
+          // Get input values
+          const title = document.getElementById("title").value;
+          const content = contentField.value;
+          const tags = document.getElementById("tags").value;
+
+          // Show preview
+          document.getElementById("preview-title").innerText = title;
+          document.getElementById("preview-content").innerHTML = content;
+          document.getElementById("preview-tags").innerText = `Tags: ${tags}`;
+        });
+
+      // Initialize font size display
+      document.getElementById("fontSize").value = currentFontSize;
+    </script>
+    <script src="/infi website/Javascript/script.js"></script>
+    <script type="module" src="/infi website/Javascript/navBar.js"></script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>

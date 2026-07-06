@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Researchers</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+    <style>
+      .btn { display:inline-block; padding:8px 14px; border-radius:6px; border:1px solid #1e90ff; background:#1e90ff; color:#fff; text-decoration:none; font-size:0.95rem; cursor:pointer; transition:all 0.2s ease; }
+      .btn:hover { filter: brightness(0.95); }
+      .academicians-items { text-align: center; }
+      .academician-item { border: 1px solid #ccc; margin: 15px 0; padding: 15px; border-radius: 8px; background:#fff; }
+      p {
+        text-align: justify;
+      }
+      .academician-img {
+        width: 100%;
+        max-width: 150px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+      }
+      .academician-item h2 { margin-top: 10px; color: black; font-size: 1.1rem; }
+      .academician-item img {
+        width: 150px; /* Set the desired size */
+        height: 150px;
+        object-fit: cover; /* Ensures the image fits the container without distortion */
+        border-radius: 50%; /* Makes the image circular */
+        display: block;
+        margin: 0 auto; /* Centers the image */
+      }
+
+      .read-more-content {
+        display: none;
+        margin-top: 10px;
+        color: black; /* Make the text color black */
+        text-align: justify; /* Justify the text */
+      }
+
+      .read-more-content a {
+        display: block; /* Makes the link block-level, so it can be centered */
+        text-align: center; /* Centers the text */
+        margin-top: 10px; /* Adds spacing from the content above */
+      }
+
+      .read-more-content ul {
+        list-style-type: none; /* Remove default bullet points */
+        padding-left: 0;
+      }
+
+      .read-more-content li {
+        margin-bottom: 10px; /* Space between list items */
+      }
+
+      .linkedin-link { display:none; }
+      /* Handle missing images gracefully */
+      .academician-img:not([src]),
+      .academician-img[src=""],
+      .academician-img[src*="undefined"] {
+        background: #f8f9fa;
+        border: 2px dashed #dee2e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6c757d;
+        font-size: 14px;
+        text-align: center;
+      }
+      .academician-img:not([src])::after,
+      .academician-img[src=""]::after,
+      .academician-img[src*="undefined"]::after {
+        content: "Profile Image\A Not Available";
+        white-space: pre;
+      }
+
+      .read-more-btn {
+        color: #0077b5;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .read-more-content a.website-link {
+        color: #6a4c9c; /* Purple color */
+        text-decoration: underline; /* Underlined link */
+        font-weight: bold; /* Bold text */
+      }
+
+      .read-more-content a.website-link:hover {
+        color: #4b2e83; /* Darker purple on hover */
+        text-decoration: underline; /* Keep underline on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div id="navBarTracker"></div>
+    <div class="container">
+    <main>
+      <section class="academicians">
+        <h1>Researchers</h1>
+        <div style="text-align: center; margin-bottom: 20px; color: #666; font-style: italic;">
+          <p>Last Updated:Thursday, September 18, 2025
+            <span id="lastUpdated"></span></p>
+        </div>
+        <div class="academicians-items" style="text-align: center">
+          <!-- Dr. Shiv Mohan -->
+          <div class="academician-item">
+            <img
+              src="/infi_website/image/Dr. Shiv Mohan.jpeg"
+              alt="Dr. Shiv Mohan"
+              class="academician-img"
+            />
+            <h2>Dr. Shiv Mohan (Space Application Centre, Ahmedabad)</h2>
+            <p>
+              Dr. Shiv Mohan, a pioneer in microwave remote sensing, played a
+              key role in India's SAR programs, including RISAT and
+              Chandrayaan SAR missions. He has 320+ research papers, guided
+              PhD students, and received the IEEE GRSS Outstanding Service
+              Award (2022). He also contributed to IEEE GRSS initiatives in
+              India.
+            </p>
+            <a href="https://linkedin.com/in/shiv-mohan-1a009234" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+          <!-- Dr. Anup Das -->
+          <div class="academician-item">
+            <img
+              src="/infi_website/image/Dr. Anup Das.jpeg"
+              alt="Dr. Anup Das"
+              class="academician-img"
+            />
+            <h2>Dr. Anup Das (Space Application Centre, Ahmedabad-ISRO)</h2>
+            <p>
+              Dr. Anup Das specializes in SAR applications for geosciences and
+              planetary studies. He is involved in major SAR missions like
+              RISAT-1, Chandrayaan SAR, and NISAR. He received the 'Green Asia
+              Award' (2017) for SAR-based forest biomass studies.
+            </p>
+            <a href="https://linkedin.com/in/anup-das-51880327" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+          <!-- Dr. Sujata Dash -->
+          <div class="academician-item">
+            <img
+              src="/infi_website/image/profile.png"
+              alt="Dr. Sujata Dash"
+              class="academician-img"
+            />
+            <h2>Dr. Sujata Dash (DTRL, DRDO, New Delhi)</h2>
+            <p>
+              Dr. Sujata Dash specializes in geospatial applications for
+              defense and SAR-based terrain modeling. She has 35+ research
+              papers and has received multiple awards, including 'Scientist of
+              the Year' (2006).
+            </p>
+            <a href="https://www.linkedin.com/in/sujata-dash-422971a3" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+          <!-- Dr. Paul Rosen -->
+          <div class="academician-item">
+            <img
+              src="/infi_website/image/Paul Rosen.jpeg"
+              alt="Dr. Paul Rosen"
+              class="academician-img"
+            />
+            <h2>Dr. Paul Rosen (Jet Propulsion Laboratory-NASA)</h2>
+            <p>
+              Dr. Paul Rosen leads SAR research at NASA's JPL. He played a key
+              role in SRTM and planetary SAR applications. He has received
+              NASA's Exceptional Service Medal (2001) and authored 30+ journal
+              papers.
+            </p>
+            <a href="https://www.linkedin.com/in/paul-rosen-4052b8b" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+          <!-- Dr. Sujata Ghosh -->
+          <div class="academician-item">
+            <img
+              src="/infi_website/image/profile.png"
+              alt="Dr. Sujata Ghosh"
+              class="academician-img"
+            />
+            <h2>Dr. Sujata Ghosh (ADRIN, Hyderabad)</h2>
+            <p>
+              Dr. Sujata Ghosh has expertise in government and remote sensing
+              applications, with prior experience at ISRO.
+            </p>
+            <a href="https://linkedin.com/in/sujata-ghosh-7b338a8" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+          <!-- Dr. Pratima Pandey -->
+          <div class="academician-item">
+            <img
+              src="/infi_website/image/pratima_pandey.jpg"
+              alt="Dr. Pratima Pandey"
+              class="academician-img"
+            />
+            <h2>Dr. Pratima Pandey (IIRS, Dehradun)</h2>
+            <p>
+              Expertise: Glaciology, Optical and SAR applications for
+              cryosphere studies.
+            </p>
+            <a href="https://www.linkedin.com/in/pratima-pandey-209b181b3" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+
+        </div>
+      </section>
+    </main>
+    </div>
+
+    
+
+    <!-- JavaScript File -->
+    <script src="/infi_website/Javascript/script.js"></script>
+    <script>
+      function toggleReadMore(button) {
+        var content = button.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          button.textContent = "Read More";
+        } else {
+          content.style.display = "block";
+          button.textContent = "Read Less";
+        }
+      }
+    </script>
+    <script>
+      document.getElementById("menu").onclick = function () {
+        document.querySelector(".navbar").classList.toggle("active");
+      };
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        link.onclick = () =>
+          document.querySelector(".navbar").classList.remove("active");
+      });
+    </script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script>
+      // Mirror missing-image fallback from academicians
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('.academician-img');
+        images.forEach(function(img) {
+          img.addEventListener('load', function() { this.style.opacity = '1'; });
+          img.addEventListener('error', function() {
+            this.style.opacity = '0.7';
+            this.style.border = '2px dashed #dc3545';
+            this.style.background = '#fff5f5';
+            const fallback = document.createElement('div');
+            fallback.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#dc3545;font-size:12px;text-align:center;pointer-events:none;';
+            fallback.textContent = 'Profile Image\nNot Available';
+            this.parentNode.style.position = 'relative';
+            this.parentNode.appendChild(fallback);
+          });
+          img.style.opacity = '0.9';
+          img.style.transition = 'opacity 0.3s ease';
+        });
+      });
+    </script>
+      // Display today's date
+      document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date();
+        const options = { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric',
+          weekday: 'long'
+        };
+        const formattedDate = today.toLocaleDateString('en-US', options);
+        document.getElementById('lastUpdated').textContent = formattedDate;
+      });
+    </script>
+    <style>
+      @media (max-width: 1024px) { .academicians-items { grid-template-columns: repeat(2, minmax(260px, 1fr)); } }
+      @media (max-width: 640px) { .academicians-items { grid-template-columns: 1fr; } }
+    </style>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>

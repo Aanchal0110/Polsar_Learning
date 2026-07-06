@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Learn RS & MW</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi_website/CSS/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        :root { --content-max: 1000px; }
+        @keyframes colorChange {
+            0% { color: #ff4500; }  /* Orange-red */
+            25% { color: #FFFFFF; } /* White */
+            50% { color: #ADD8E6; } /* Light Blue */
+            75% { color: #FFD700; } /* Gold */
+            100% { color: #ff4500; } /* Back to orange-red */
+        }
+
+        /* LinkedIn Icon Styling */
+        .contact-icons .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            aspect-ratio: 1 / 1;
+            background: #0077b5;
+            color: white;
+            border-radius: 8px; /* LinkedIn brand-style rounded square */
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .contact-icons .icon:hover {
+            background: #005885;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+        }
+
+        .contact-icons .icon i {
+            font-size: 24px;
+            display: inline-block !important; /* override global icon hiding */
+        }
+
+        /* Restore LinkedIn brand glyph hidden by global rules */
+        .contact-icons .icon i.fa-linkedin-in::before {
+            content: "\f0e1" !important; /* LinkedIn-in glyph */
+            font-family: "Font Awesome 6 Brands" !important;
+            font-weight: 400 !important;
+        }
+
+        /* Make email clearly visible in orange */
+        #about-contact .contact-info a {
+            color: #ffffff; /* high-contrast gold for visibility */
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        #about-contact .contact-info a:hover {
+            color: #ffffff; /* white on hover for maximum contrast */
+        }
+
+        /* Justified text for better readability (override global centering) */
+        #about-contact p {
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            max-width: none;            /* override site-wide 800px limit */
+            margin-left: 0;             /* remove auto-centering */
+            margin-right: 0;            /* remove auto-centering */
+            width: 100%;                /* occupy remaining space */
+        }
+
+        /* Center the contact information section */
+        #about-contact h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #about-contact .contact-info {
+            text-align: center;
+        }
+
+        #about-contact .contact-info p {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        body {
+            margin: 0;
+            position: relative;
+            min-height: 100vh;
+        }
+        .container, main, section, .website-info, .info-content {
+            position: relative;
+            z-index: 1;
+        }
+        .website-info h1 {
+            color: #ffffff;
+        }
+        .website-info {
+            padding: 6rem 4rem;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+        }
+        /* Align all sections with the hero (welcome) section edges */
+        main { 
+            padding: 0 4rem 4rem 4rem; /* Add bottom padding */
+            background: #ffffff; 
+            min-height: calc(100vh - 200px); /* Ensure main extends to bottom */
+        }
+        
+        /* Ensure white background extends to the very bottom of the page */
+        body {
+            background: #ffffff; /* Override the Earth background with white */
+        }
+        
+        /* Keep the hero section with Earth background */
+        .website-info {
+            background: url('/infi_website/Cover image/cover images/Earth.png') no-repeat center center;
+            background-size: cover;
+        }
+        /* Constrain widths so section content aligns with the welcome heading text edges */
+        .website-info .info-content { max-width: var(--content-max); margin: 0 auto; }
+        main > section,
+        main > .intro-optical-remote-sensing { max-width: var(--content-max); margin: 0 auto; padding-left: 0; padding-right: 0; }
+        /* Make the first two intro sections follow the same centered width and grid layout */
+        .intro-remote-sensing,
+        .intro-microwave-remote-sensing { max-width: var(--content-max); margin-left: auto; margin-right: auto; padding-left: 0; padding-right: 0; display: grid; grid-template-columns: 1.1fr 0.9fr; column-gap: 2rem; align-items: center; }
+        .intro-microwave-remote-sensing { grid-template-columns: 0.9fr 1.1fr; }
+        .intro-remote-sensing .content-left,
+        .intro-microwave-remote-sensing .content-right { margin: 0; }
+        img.content-image-right,
+        img.content-image-left { width: 100%; height: auto; display: block; }
+        /* Ensure headings inside sections start flush with the left edge */
+        main h1, main h2 { margin-left: 0; }
+        /* About section alignment + visual clarity */
+        #about-contact {
+            max-width: var(--content-max);
+            margin: 3rem auto;                 /* outer space from neighbors */
+            padding: 2rem;                      /* inner padding for text */
+            background: rgba(20, 60, 90, 0.85); /* bluish panel to match site */
+            border-radius: 12px;                /* soft corners like rest */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+        }
+        #about-contact hr { max-width: 100%; margin-left: 0; margin-right: 0; }
+        #about-contact h1 { margin: 0 0 1rem; color: #ffffff; text-align: center; }
+        #about-contact h2 { margin: 1.5rem 0 0.75rem; color: #ffffff; text-align: center; }
+        #about-contact p  { color: #e6eef6; text-align: justify; line-height: 1.9; margin: 0.25rem 0 0.75rem; }
+        #about-contact ul { list-style: none; padding-left: 0; margin: 0.25rem 0 0.75rem; color: #f2f7fb; }
+        #about-contact li { margin: 0.35rem 0; text-align: justify; }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .website-info {
+                padding: 3rem 2rem;
+            }
+            
+            main {
+                padding: 0 2rem 2rem 2rem;
+            }
+            
+            .intro-remote-sensing,
+            .intro-microwave-remote-sensing,
+            .intro-optical-remote-sensing {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .content-left, .content-right {
+                order: 2;
+            }
+            
+            img.content-image-right,
+            img.content-image-left {
+                order: 1;
+                max-width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .hover-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .hover-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            #about-contact {
+                margin: 2rem auto;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div id="menu" class="fas fa-bars"></div>
+            <div id="navBar">
+                <div class="search-login-container">
+                    <form class="search-form">
+                        <input type="text" placeholder="Search...">
+                        <button type="submit">Search</button>
+                    </form>
+                    <a href="#" class="login-icon">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Website Info Section -->
+        <section class="website-info">
+            <div class="info-content">
+                <h1>Welcome to Remote Sensing & Microwave Learning Platform</h1>
+                <p>Your comprehensive resource for learning about Remote Sensing and Microwave technology. Explore our extensive collection of resources, connect with domain experts, and enhance your knowledge in this fascinating field.</p>
+                
+                <div class="hover-buttons">
+                    <a href="/infi_website/HTML/Fundamental.html" class="hover-btn">
+                        <i class="fas fa-book"></i>
+                        <span>Resources</span>
+                    </a>
+                    <a href="/infi_website/HTML/Researchers.html" class="hover-btn">
+                        <i class="fas fa-users"></i>
+                        <span>Domain Experts</span>
+                    </a>
+                    <a href="/infi_website/HTML/datadownload.html" class="hover-btn">
+                        <i class="fas fa-download"></i>
+                        <span>Downloads</span>
+                    </a>
+                    <a href="/infi_website/HTML/education.html" class="hover-btn">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Education</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <!-- INTRO_SECTION_START -->
+            <section class="intro-remote-sensing">
+                <div class="content-left">
+                    <h1 style="text-align: left;">INTRODUCTION TO REMOTE SENSING</h1>
+                    <p>Remote sensing is the science of acquiring information about objects or areas from a distance,
+                        typically from aircraft or satellites. This technology involves the use of various types of
+                        sensors that detect and measure electromagnetic radiation reflected or emitted from the Earth's
+                        surface.
+                    </p>
+                    <a href="/infi_website/HTML/remote-sensing.html"><button class="explore-more">Start Exploring</button></a>
+                </div>
+                <img src="/infi_website/image/remotesensing.jpeg" alt="Satellite" class="content-image-right">
+            </section>
+
+            <section class="intro-microwave-remote-sensing">
+                <img src="/infi_website/Microwave RS/Images/microwave-remote-sensing.avif" alt="Satellite" class="content-image-left">
+                <div class="content-right">
+                    <h1 style="text-align: left;">INTRODUCTION TO MICROWAVE REMOTE SENSING</h1>
+                    <p>Microwave remote sensing is a subset of remote sensing that involves the use of microwave
+                        radiation
+                        (with wavelengths ranging from 1 millimeter to 1 meter) to gather information about the Earth's
+                        surface and atmosphere. This type of remote sensing can penetrate clouds, rain, and vegetation.
+                    </p>
+                    <a href="/infi_website/HTML/microwave.html"><button class="explore-more">Start Exploring</button></a>
+                </div>
+                
+            </section>
+            <div class="intro-optical-remote-sensing">
+                <div class="content-left">
+                    <h2>INTRODUCTION TO OPTICAL REMOTE SENSING</h2>
+                    <p>Optical remote sensing uses visible, infrared, and thermal radiation to capture images of the Earth's surface. Optical remote sensing is a technique that uses sensors on satellites, aircraft, or drones to detect and record natural radiation (sunlight or thermal emission) reflected or emitted from the Earth’s surface in different parts of the electromagnetic spectrum, mainly visible, near-infrared (NIR), shortwave infrared (SWIR), and thermal infrared (TIR) regions.</p>
+                    <a href="/infi_website/HTML/optical.html"><button class="explore-more">Start Exploring</button></a>
+                </div>
+                <div class="content-image-right">
+                    <img src="/infi_website/Optical image/Optical image/optical.gif" alt="Optical Remote Sensing Image">
+                </div>
+            </div>
+            
+            </section>
+
+
+
+            <section id="about-contact">
+                <h1>About the Platform</h1>
+                <p>
+
+PolSARLearn is a dedicated knowledge and capacity-building platform for Microwave Remote Sensing, with a special focus on Polarimetric Synthetic Aperture Radar (PolSAR). The website aims to make PolSAR concepts accessible to students, researchers, educators, and professionals by providing structured learning resources ranging from fundamental principles to advanced topics.
+
+PolSARLearn serves as a comprehensive hub that brings together information on leading experts in the field, national and international higher education institutions, paid and open-source software, satellite data download sources, and carefully curated learning resources, including books, research papers, and video lectures. By consolidating these resources in one place, the platform supports self-learning, academic research, skill development, and collaboration within the microwave remote sensing community.
+
+Our mission is to promote awareness, enhance technical competence, and foster research and innovation in microwave remote sensing by providing reliable, up-to-date, and easily accessible educational resources for learners worldwide.</p>
+                
+                <h2>Contact Information</h2>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:scientific@inficorridor.in">scientific@inficorridor.in</a></p>
+                    <div class="contact-icons">
+                        <a href="https://www.linkedin.com/company/inficorridor-solutions-pvt-ltd/?viewAsMember=true" class="icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+
+
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="/infi_website/Javascript/script.js"></script>
+    <script src="/infi_website/Javascript/slider.js"></script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+  <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+
+</html>

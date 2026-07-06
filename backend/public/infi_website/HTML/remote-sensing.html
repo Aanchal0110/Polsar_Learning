@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remote Sensing - PolSARLearn</title>
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+        color: #333;
+      }
+      /* Container adjustment for fixed header */
+      .container {
+        margin-top: 80px;
+        background-color: transparent;
+        padding: 0;
+        max-width: none;
+        box-shadow: none;
+        width: 100%;
+      }
+      .section {
+        margin-bottom: 50px;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      .section h2 {
+        margin-bottom: 25px;
+        color: #003366;
+        font-size: 2.2em;
+        border-bottom: 3px solid #ff4500;
+        padding-bottom: 10px;
+      }
+      .content {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+      .content img {
+        max-width: 35%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        flex-shrink: 0;
+      }
+      .content p {
+        line-height: 1.8;
+        font-size: 1.1em;
+        color: #444;
+        text-align: justify;
+      }
+      .table-container {
+        overflow-x: auto;
+        margin: 30px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        text-align: left;
+        background: #f9f9f9;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 15px;
+        font-size: 1em;
+      }
+      th {
+        background: #003366;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      tr:nth-child(even) {
+        background: #f2f2f2;
+      }
+      tr:hover {
+        background: #e8f4f8;
+      }
+      /* Applications Section Styling */
+      .applications-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+      }
+      .application-card {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        border-left: 5px solid #003366;
+      }
+      .application-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      }
+      .application-card h3 {
+        color: #003366;
+        margin-bottom: 15px;
+        font-size: 1.3em;
+      }
+      .application-card p {
+        color: #555;
+        line-height: 1.6;
+        margin: 0;
+      }
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+          align-items: center;
+        }
+        .content img {
+          max-width: 100%;
+        }
+        .applications-grid {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding: 20px;
+        }
+      }
+      /* Center the global page content */
+      body, html {
+        width: 100vw;
+        overflow-x: hidden;
+      }
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+      }
+    </style>
+</head>
+  <body>
+    <!-- Include Navbar -->
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <main>
+      <section class="section">
+        <h2>Introduction to Remote Sensing</h2>
+        <div class="content">
+          <p>
+            Remote sensing is the science of acquiring information about objects or areas from a distance, typically from aircraft or satellites. This technology involves the use of various types of sensors that detect and measure electromagnetic radiation reflected or emitted from the Earth's surface. Platforms used in Remote Sensing include spaceborne (satellites), airborne (aircraft), UAVs (drones), and ground-based sensors, each offering different scales and resolutions for comprehensive Earth observation.
+          </p>
+          <img
+            src="/infi_website/INTRODUCTION TO RS/Images/intrors.webp"
+            alt="Remote Sensing"
+          />
+        </div>
+      </section>
+      <section class="section">
+        <h2>Types of Remote Sensing</h2>
+        <div class="content">
+          <p>
+            Remote sensing can be broadly categorized into two main types based on the electromagnetic spectrum used and the sensing mechanism. Each type offers unique advantages and applications for Earth observation and analysis.
+          </p>
+        </div>
+        <div class="applications-grid">
+          <div class="application-card">
+            <h3>Optical Remote Sensing</h3>
+            <p>Uses visible, near-infrared, and short-wave infrared sensors to detect reflected sunlight. Ideal for vegetation analysis and land cover mapping. Provides high-resolution imagery and is widely used in environmental monitoring.</p>
+          </div>
+          <div class="application-card">
+            <h3>Microwave Remote Sensing</h3>
+            <p>Uses radar to penetrate clouds and collect data in all weather conditions. Perfect for all-weather monitoring and surface deformation studies. Essential for monitoring through cloud cover and during nighttime.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2>Key Applications</h2>
+        <div class="applications-grid">
+          <div class="application-card">
+            <h3>Environmental Monitoring</h3>
+            <p>Track deforestation, monitor water quality, and assess air pollution levels using satellite imagery and remote sensing data.</p>
+          </div>
+          <div class="application-card">
+            <h3>Agriculture</h3>
+            <p>Monitor crop health, estimate yields, and optimize irrigation using multispectral and thermal imaging.</p>
+          </div>
+          <div class="application-card">
+            <h3>Disaster Management</h3>
+            <p>Assess damage from natural disasters, monitor flood extents, and track wildfire progression in real-time.</p>
+          </div>
+          <div class="application-card">
+            <h3>Urban Planning</h3>
+            <p>Monitor urban growth, assess infrastructure development, and analyze land use patterns.</p>
+          </div>
+          <div class="application-card">
+            <h3>Climate Studies</h3>
+            <p>Track climate change indicators, monitor ice caps, and study atmospheric conditions.</p>
+          </div>
+          <div class="application-card">
+            <h3>Natural Resource Management</h3>
+            <p>Map mineral resources, monitor forest cover, and assess water resources.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2>Advantages of Remote Sensing</h2>
+        <div class="content">
+          <p>
+            Remote sensing offers numerous advantages that make it an invaluable tool for Earth observation and analysis. These benefits include large area coverage and global perspective, cost-effective data collection, access to inaccessible areas, real-time monitoring capabilities, historical data analysis, and multi-temporal analysis capabilities.
+          </p>
+          <img src="/infi_website/image/r4.jpeg" alt="Types of Remote Sensing" />
+        </div>
+      </section>
+      </main>
+    </div>
+    <script src="/infi_website/Javascript/script.js"></script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>

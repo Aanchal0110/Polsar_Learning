@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - PolSAR</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi_website/CSS/style.css">
+
+    <style>
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 1rem;
+    padding: 10px;
+}
+@media (max-width: 1200px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 800px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.blog-post {
+    background: #ffffffc4;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.2s;
+    color: black;
+}
+.blog-post:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+.blog-image {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.write-blog-btn {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.7rem 1.5rem;
+    background: #002147;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.write-blog-btn:hover {
+    background: #1e90ff;
+}
+main {
+    margin-top: 80px;
+}
+
+.comment-section textarea{
+    width: 100%;
+    border: 2px solid white;
+    height: 100px;
+}
+
+#blog_section_1{
+    width: 90vw;
+    /* border: 1px solid black; */
+    position: relative;
+    /* top: ; */
+    background-color: #fff;
+    color: black;
+    justify-self: center;
+    margin-top: -70px;
+    /* top: -100%; */
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#write_btn{
+    position: relative;
+    left: 80%;
+}
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <!-- <a href="#" class="logo">
+                <img src="/infi_website/image/POLSAR.png" alt="Logo" class="logo-img">
+            </a> -->
+            <div id="menu" class="fas fa-bars"></div>
+            <div id="navBar">
+            </div>
+        </header>
+
+        <main>
+            <!-- Blog Header -->
+            <section id="blog_section_1" class="blog-header">
+                <h1 style="font-size: 40px; color: #002147;">The BLOGS</h1>
+                <p style="font-size: 20px;">Stay updated with the latest articles, tutorials, and insights on remote sensing and microwave remote sensing.</p>
+                <a href="login.html" id="write_btn" class="write-blog-btn">Write Your Own Blog</a>
+            </section>
+
+            <section class="blog-posts blog-grid">
+                <article class="blog-post">
+                    <h2>Understanding Remote Sensing Techniques</h2>
+                    <p>Published on August 15, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/r3.jpeg" alt="Remote Sensing Techniques Image" class="blog-image">
+                    <p>Remote sensing involves the use of various technologies to observe and measure objects without being in direct contact with them. This article explores different remote sensing techniques and their applications...</p>
+                    <a href="post1.html" class="read-more">Read More</a>
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+
+                        <div class="rating">
+                            <div class="rating">
+                                <span>Rate this post:</span>
+                                <i class="fas fa-star" data-star="1"></i>
+                                <i class="fas fa-star" data-star="2"></i>
+                                <i class="fas fa-star" data-star="3"></i>
+                                <i class="fas fa-star" data-star="4"></i>
+                                <i class="fas fa-star" data-star="5"></i>
+                            </div>
+                            
+                    </div>
+                    
+                </article>
+
+                <article class="blog-post">
+                    <h2>The Future of Microwave Remote Sensing</h2>
+                    <p>Published on August 10, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/earth.png" alt="Microwave Remote Sensing Image" class="blog-image">
+                    <p>Microwave remote sensing is rapidly evolving, offering new insights into Earth's atmosphere and surface. Discover how advancements in this field are shaping the future of environmental monitoring...</p>
+                    <a href="post2.html" class="read-more">Read More</a>
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+
+                        <div class="rating">
+                            <span>Rate this post:</span>
+                            <i class="fas fa-star" data-star="1"></i>
+                            <i class="fas fa-star" data-star="2"></i>
+                            <i class="fas fa-star" data-star="3"></i>
+                            <i class="fas fa-star" data-star="4"></i>
+                            <i class="fas fa-star" data-star="5"></i>
+                        </div>
+                        
+                </article>
+
+                <!-- New Blog Post 1 -->
+                <article class="blog-post">
+                    <h2>Applications of Remote Sensing in Agriculture</h2>
+                    <p>Published on August 12, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/r3.jpeg" alt="Agriculture Remote Sensing Image" class="blog-image">
+                    <p>
+                        Remote sensing involves the use of various technologies to observe and measure objects without being in direct contact with them.
+                        <span class="more-content" style="display: none;">
+                            This article explores different remote sensing techniques and their applications. It also discusses how advancements in this field are helping to improve environmental monitoring and mapping processes.
+                        </span>
+                    </p>
+                    <a href="javascript:void(0);" class="read-more-btn">Read More</a>
+                    
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+
+                        <div class="rating">
+                            <span>Rate this post:</span>
+                            <i class="fas fa-star" data-star="1"></i>
+                            <i class="fas fa-star" data-star="2"></i>
+                            <i class="fas fa-star" data-star="3"></i>
+                            <i class="fas fa-star" data-star="4"></i>
+                            <i class="fas fa-star" data-star="5"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- New Blog Post 2 -->
+                <article class="blog-post">
+                    <h2>Challenges in Microwave Remote Sensing</h2>
+                    <p>Published on August 14, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/remotesensing.jpeg" alt="Challenges in Microwave Remote Sensing Image" class="blog-image">
+                    <p>
+                        Remote sensing involves the use of various technologies to observe and measure objects without being in direct contact with them.
+                        <span class="more-content" style="display: none;">
+                            This article explores different remote sensing techniques and their applications. It also discusses how advancements in this field are helping to improve environmental monitoring and mapping processes.
+                        </span>
+                    </p>
+                    <a href="javascript:void(0);" class="read-more-btn">Read More</a>
+                    
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+
+                        <div class="rating">
+                            <span>Rate this post:</span>
+                            <i class="fas fa-star" data-star="1"></i>
+                            <i class="fas fa-star" data-star="2"></i>
+                            <i class="fas fa-star" data-star="3"></i>
+                            <i class="fas fa-star" data-star="4"></i>
+                            <i class="fas fa-star" data-star="5"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- New Blog Post 3 -->
+                <article class="blog-post">
+                    <h2>Remote Sensing and Climate Change</h2>
+                    <p>Published on August 16, 2024 by <strong>Aanchal Choudhary</strong></p>
+                    <img src="../image/earth.png" alt="Climate Change Remote Sensing Image" class="blog-image">
+                   <p>
+    Remote sensing involves the use of various technologies to observe and measure objects without being in direct contact with them.
+    <span class="more-content" style="display: none;">
+        This article explores different remote sensing techniques and their applications. It also discusses how advancements in this field are helping to improve environmental monitoring and mapping processes.
+    </span>
+</p>
+<a href="javascript:void(0);" class="read-more-btn">Read More</a>
+
+                    <!-- Comment Box and Rating System -->
+                    <div class="comment-section">
+                        <h3>Leave a Comment</h3>
+                        <form action="#" method="post" class="comment-form">
+                            <textarea name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+
+                        <div class="rating">
+                            <span>Rate this post:</span>
+                            <i class="fas fa-star" data-star="1"></i>
+                            <i class="fas fa-star" data-star="2"></i>
+                            <i class="fas fa-star" data-star="3"></i>
+                            <i class="fas fa-star" data-star="4"></i>
+                            <i class="fas fa-star" data-star="5"></i>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Centered Pagination -->
+            <div class="pagination">
+                <a href="#">&laquo; Previous</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Next &raquo;</a>
+            </div>
+        </main>
+
+        <footer>
+            <p style="text-align:center;">Copyright © 2024 All rights reserved |</p>
+        </footer>
+    </div>
+
+    <script src="/infi_website/Javascript/script.js"></script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script src="/infi_website/Javascript/blog.js"></script>
+  <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>
+

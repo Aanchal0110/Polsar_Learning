@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books - Learn RS & MW</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+    <style>
+      .btn {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 6px;
+        border: 1px solid #ff4500;
+        background: #ff4500;
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .btn:hover { filter: brightness(0.95); }
+      .btn-outline {
+        background: #fff;
+        color: #ff4500;
+        border: 1px solid #ff4500;
+      }
+      .card-actions { display: flex; justify-content: center; align-items: center; margin-top: 12px; gap: 12px; }
+      .card-actions .btn { background: #1e90ff; border-color: #1e90ff; }
+      .card-actions .btn:hover { filter: brightness(0.95); }
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        padding: 16px;
+      }
+      .modal-card {
+        background: #fff;
+        border-radius: 10px;
+        max-width: 720px;
+        width: 100%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        overflow: hidden;
+      }
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        background: #003366;
+        color: #fff;
+      }
+      .modal-title { font-size: 1.1rem; font-weight: 600; }
+      .modal-close {
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 1.4rem;
+        cursor: pointer;
+      }
+      .modal-body { padding: 16px; color: #333; }
+      .modal-author { color: #666; margin-bottom: 10px; font-size: 0.95rem; }
+      .modal-footer { padding: 0 16px 16px; display: flex; gap: 10px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h1>Books</h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="bookSearch"
+          placeholder="Search by title, author, or keyword..."
+          onkeyup="filterCards()"
+        />
+      </div>
+      <div class="card-container" id="cardContainer">
+        <!-- Cards will be dynamically injected -->
+      </div>
+    </main>
+    <!-- Modal for description -->
+    <div class="modal-overlay" id="descModal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+          <div class="modal-title" id="modalTitle"></div>
+          <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-author" id="modalAuthor"></div>
+          <div id="modalBody"></div>
+        </div>
+        <div class="modal-footer">
+          <a id="modalLink" class="btn btn-outline" href="#" target="_blank" rel="noopener noreferrer">Open link</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      const books = [
+        {
+          title: "Introduction to Remote Sensing",
+          author: "Arthur P. Cracknell",
+          desc: "Physical principles, satellite systems, lidar, SAR applications. A comprehensive guide to satellite remote sensing techniques, image interpretation, and current applications in Earth observation.",
+          img: "../BOOKS image/Introduction to remote sending.jpg",
+          link: "https://www.goodreads.com/book/show/2623751-introduction-to-remote-sensing",
+        },
+        {
+          title: "Remote Sensing: Principles and Applications",
+          author: "B C Panda",
+        
+          desc: "Core principles, sensor technologies, data interpretation. Detailed exploration of electromagnetic theory, sensor design, and practical case studies across varied environments.",
+          img: "../BOOKS image/principle of remote sensing.jpg",
+          link: "https://www.goodreads.com/book/show/48657306-remote-sensing",
+        },
+        {
+          title: "Introduction to Geospatial Technologies",
+          author: "Bradley A. Shellito, January 1, 2011 by W H Freeman & Co",
+         
+          desc: "Combining both theoretical coverage and hands-on lab work, and accessible to majors and non-majors alike, Bradley Shellito's Introduction to Geospatial Technologies has become a new favorite for the digital Earth course. The new edition reflects the latest developments in the field, including how scientists are using GIS data with cloud technology. With lab activities that utilize both widely available freeware and ArcGIS, instructors can tailor the course to their students. Introduction to Geospatial Technologies, Second Edition is available in three a paperback edition, a loose-leaf edition, and a fully interactive e-Book.",
+          img: "../BOOKS image/book3.jpg",
+          link: "https://www.goodreads.com/book/show/14347657-introduction-to-geospatial-technologies",
+        },
+        {
+          title: "Remote Sensing and GIS",
+          author: "Basudeb Bhatta March 27, 2008 by Oxford University Press",
+         
+          desc: "The book provides an exhaustive coverage of optical, thermal, and microwave remote sensing, global navigation satellite systems (e.g., GPS), digital photogrammetry, and visual image analysis. The main emphasis is on the basic concepts of remote sensing and GIS but topics such as digital imageprocessing, spatial and attribute data model, geospatial analysis, and planning, implementation, and management of GIS have also been discussed in detail. Owing to its lucid style and presentation of advanced topics, such as ground truth data, metadata concepts, latest developments and modern trends of GIS and GNSS, makes this book suitable as a reference for postgraduate students and practicing professionals from the Geomatics community.",
+          img: "../BOOKS image/book4.jpg",
+          link: "https://www.goodreads.com/book/show/6539830-remote-sensing-and-gis",
+        },
+        {
+          title: "Physical Fundamentals of Remote Sensing",
+          author: "E. Schanda Springer-Verlag",
+          desc: "Ten years ago the author, together with eight co-authors, edited a textbook Remote Sensing for Environmental Sciences within the series on Ecological Studies of Springer-Verlag. At that time there were not yet many books available on remote sensing. The decade that has elapsed was marked by a spectacular development in this field. This development took place in many by widening the areas of application, by improvements of the methods and the sensors, by the introduction of new versatile platforms, but also by deepening the knowledge of the theoretical foundations. This evolution improved the ability to explain the interaction between electromagnetic radia­ tion and natural objects, which, in its turn, allowed for better modelization and for the creation of refined mathematical tools in the processing of remotely sensed data and in the determination of the physical status of remote objects. The community of research workers engaged in development and use of remote sensing methods changed accordingly from a modest group of scientists in the early 1970's to a considerable branch of specialized and interdisciplinary activity. The training of students had to be adapted to cope with the increasing number of people entering this new field and with the increasing quality of the material to be presented",
+          img: "../BOOKS image/book5.jpg",
+          link: "https://www.goodreads.com/book/show/4843135-physical-fundamentals-of-remote-sensing",
+        },
+        {
+          title: "Hyperspectral Remote Sensing: Principles and Applications",
+          author: "Marcus Borengasser, William S. Hungate, Russell Watkins, Published: 16 February 2023",
+          desc: "Description: Land management issues, such as mapping tree species, recognizing invasive plants, and identifying key geologic features, require an understanding of complex technical issues before the best decisions can be made. Hyperspectral remote sensing is one the technologies that can help with reliable detection and identification. Presenting the fundamentals of remote sensing at an introductory level, Hyperspectral Remote Sensing: Principles and Applications explores all major aspects of hyperspectral image acquisition, exploitation, interpretation, and applications.The book begins with several chapters on the basic concepts and underlying principles of remote sensing images. It introduces spectral radiometry concepts, such as radiance, irradiance, flux, and blackbody radiation; covers imaging spectrometers, examining spectral range, full width half maximum (FWHM), resolution, sampling, signal-to-noise ratio (SNR), and multispectral and hyperspectral sensor systems; and addresses atmospheric interactions. The book then discusses information extraction, with chapters covering the underlying physics principles that lead to the creation of an image and the interpretation of the image's information. The final chapters describe case studies that illustrate the use of hyperspectral remote sensing in agriculture, environmental monitoring, forestry, and geology. After reading this book, you will have a better understanding of how to evaluate different approaches to hyperspectral analyses and to determine which approaches will work for your applications.",
+          img: "../BOOKS image/book6.jpg",
+          link: "https://www.routledge.com/Hyperspectral-Remote-Sensing-Principles-and-Applications/Borengasser-Hungate-Watkins/p/book/9781138747180",
+        },
+        {
+          title: "Remote Sensing of Global Croplands for Food Security",
+          author: "Prasad Thenkabail, John G. Lyon, Hugh Turral, Chandrashekhar Biradar",
+          desc: "Increases in populations have created an increasing demand for food crops while increases in demand for biofuels have created an increase in demand for fuel crops. What has not increased is the amount of croplands and their productivity. These and many other factors such as decreasing water resources in a changing climate have created a crisis like situation in global food security. Decision makers in these situations need accurate information based on science. Remote Sensing of Global Croplands for Food Security provides a comprehensive knowledge base in use of satellite sensor-based maps and statistics that can be used to develop strategies for croplands (irrigated and rainfed) and their water use for food security.Over 50 Multi-disciplinary Global Experts Give Insight and Provide Practical ApproachesEmphasizing practical mapping technologies based on advanced remote sensing data and methods, this book provides approaches for estimating irrigated and rainfed cropland areas and their water use on a national, continental, or global basis. Written by 50+ leading experts working at the forefront of this critical area, it offers case studies from a variety of continents highlighting the subtle requirements of each. In a very practical way it demonstrates the experience, utility, and models for determining water resources used and resulting yields of irrigated and rainfed croplands. The authors discuss: (a) innovative methods used for mapping croplands, (b) approaches adopted to collect cropland data in different countries by traditional and non-traditional means, (c) accuracies, uncertainties, and errors involved in producing cropland products, (d) surface energy balance models used to assess crop water use, and (e) extensive results and outcomes pertaining to global croplands and their water use.Develop Strategies for an Enhanced Green Revolution and an Accelerated Blue RevolutionLinking croplands to water use and food security, the book provides a global perspective on this sensitive issue. It gives insight into the extent of cropland usage, their spatial distribution, their cropping intensities, and their water use patterns. The editors collect the experience, methods, models, and results that show the way forward and help in decision-making on water resources and food security. All of this is required for developing strategies for an enhanced green revolution and for an accelerated blue revolution.",
+          img: "../BOOKS image/book7.jpg",
+          link: "https://www.routledge.com/Remote-Sensing-of-Global-Croplands-for-Food-Security/Thenkabail-Lyon-Turral-Biradar/p/book/9781138116559",
+        },
+        {
+          title: "Satellite Remote Sensing for Conservation Action: Case Studies from Aquatic and Terrestrial Ecosystems",
+          author: "Graeme M. Buchanan (editor) September 27, 2018 by Cambridge University Press",
+          desc: "Satellite remote sensing presents an amazing opportunity to inform biodiversity conservation by inexpensively gathering repeated monitoring information for vast areas of the Earth. However, these observations first need processing and interpretation if they are to inform conservation action. Through a series of case studies, this book presents detailed examples of the application of satellite remote sensing, covering both aquatic and terrestrial ecosystems, to conservation. The authors describe how collaboration between the remote sensing and conservation communities makes satellite data functional for operational conservation and provide concrete examples of the lessons learned in addition to the scientific details. The editors, one at NASA and the other at a conservation NGO, have brought together leading researchers in conservation remote sensing to share their experiences from project development through to application, and emphasise the human side of these projects.",
+          img: "../BOOKS image/book8.jpg",
+          link: "https://www.goodreads.com/book/show/36809747-satellite-remote-sensing-for-conservation-action",
+        },
+        {
+          title: "Remote Sensing of Protected Lands",
+          author: "Yeqiao Wang, Published: 18 October 2019",
+          desc: "National parks, wildlife refuges and sanctuaries, natural reserves, conservation areas, frontier lands, and marine-protected areas are increasingly recognized as essential providers of ecosystem services and biological resources. As debates about climate change and sustainability intensify, protected areas become more important as indicators of ecosystem conditions in particular environments or in comparison with adjacent environments.The first book of its kind, Remote Sensing of Protected Lands showcases state-of-the-art remote sensing applications for the inventory and monitoring of protected areas. Contributions from renowned scholars and experts from around the world are organized into four sections covering the use of remote sensing in:Changing landscapes and change detectionInventory, mapping, and conservation Inventory and monitoring of frontier lands Decision support for the management of protected lands",
+          img: "../BOOKS image/book9.jpg",
+          link: "https://www.routledge.com/Remote-Sensing-of-Protected-Lands/Wang/p/book/9780367382124",
+        },
+        {
+          title: "Remote Sensing and GIS for Ecologists: Using Open Source Software",
+          author: "Martin Wegmann(Editor),Benjamin Leutner(Editor),Stefan Dech(Editor) March 21, 2016 by Pelagic Publishing",
+          desc: "This is a book about how ecologists can integrate remote sensing and GIS in their daily work. It will allow ecologists to get started with the application of remote sensing and to understand its potential and limitations. Using practical examples, the book covers all necessary steps from planning field campaigns to deriving ecologically relevant information through remote sensing and modelling of species distributions. All practical examples in this book rely on OpenSource software and freely available data sets. Quantum GIS (QGIS) is introduced for basic GIS data handling, and in-depth spatial analytics and statistics are conducted with the software packages R and GRASS. Readers will learn how to apply remote sensing within ecological research projects, how to approach spatial data sampling and how to interpret remote sensing derived products. The authors discuss a wide range of statistical analyses with regard to satellite data as well as specialised topics such as time-series analysis. Extended scripts on how to create professional looking maps and graphics are also provided. This book is a valuable resource for students and scientists in the fields of conservation and ecology interested in learning how to get started in applying remote sensing in ecological research and conservation planning.",
+          img: "../BOOKS image/book10.jpg",
+          link: "https://www.goodreads.com/book/show/26781657-remote-sensing-and-gis-for-ecologists",
+        },
+        {
+          title: "Introduction to the Physics And Techniques of Remote Sensing",
+          author: "Charles Elachi, Jakob J. Van Zyl,January 1, 2006 by Wiley-Interscience",
+          desc: "The Second Edition of this authoritative book offers readers the essential science and engineering foundation needed to understand remote sensing and apply it in real-world situations. Thoroughly updated to reflect the tremendous technological leaps made since the publication of the first edition, this book covers the gamut of knowledge and skills needed to work in this dynamic field, including: Physics involved in wave-matter interaction, the building blocks for interpreting data Techniques used to collect data Remote sensing applications The authors have carefully structured and organized the book to introduce readers to the basics, and then move on to more advanced applications. Following an introduction, Chapter 2 sets forth the basic properties of electromagnetic waves and their interactions with matter. Chapters 3 through 7 cover the use of remote sensing in solid surface studies, including oceans. Each chapter covers one major part of the electromagnetic spectrum (e.g., visible/near infrared, thermal infrared, passive microwave, and active microwave).Chapters 8 through 12 then cover remote sensing in the study of atmospheres and ionospheres. Each chapter first presents the basic interaction mechanism, followed by techniques to acquire, measure, and study the information, or waves, emanating from the medium under investigation. In most cases, a specific advanced sensor is used for illustration.The book is generously illustrated with fifty percent new figures. Numerous illustrations are reproduced in a separate section of color plates. Examples of data acquired from spaceborne sensors are included throughout. Finally, a set of exercises is provided.This book is based on an upper-level undergraduate and first-year graduate course taught by the authors at the California Institute of Technology. Because of the multidisciplinary nature of the field and its applications, it is appropriate for students in electrical engineering, applied physics, geology, planetary science, astronomy, and aeronautics. It is also recommended for any engineer or scientist interested in working in this exciting field.",
+          img: "../BOOKS image/book11.jpg",
+          link: "https://www.goodreads.com/book/show/1956725.Introduction_to_the_Physics_And_Techniques_of_Remote_Sensing",
+        },
+        {
+          title: "Applied Spatial Data Analysis with R",
+          author: "Roger S.; Pebesma Bivand, January 1, 2008 by Springer",
+          desc: "This book addresses the needs of researchers and students using R to analyze spatial data across a range of disciplines and professions. The book is co-authored by a group involved in the Comprehensive R Archive Network.",
+          img: "../BOOKS image/book12.jpg",
+          link: "https://www.goodreads.com/book/show/3577207-applied-spatial-data-analysis-with-r",
+        },
+        {
+          title: "Photogrammetry, GIS & Remote Sensing",
+          author: "S S Manugula,Veeranna Bommakanti, February 4, 2018 by Ebooks2go Inc",
+          desc: "This book has been written for use in classrooms by both the instructor and the students and also for independent study in the coming decades. The main intention for writing this book is to make the subject very easy at the same time the to cover the syllabus for undergraduate. The basic concepts of Photogrammetry, Remote Sensing & GIS all are included in a single book which helps the students to the face the exams quickly and very easily. This book is intended to be basically utilized as a quick reference in support to various text books.",
+          img: "../BOOKS image/book13.jpg",
+          link: "https://www.goodreads.com/book/show/38534254-photogrammetry-gis-remote-sensing",
+        },
+        {
+          title: "Multi-purposeful Application of Geospatial Data",
+          author: "Rustam B. Rustamov, Sabina Hasanova, Mahfuza H. Zeynalova, Published: 09 May 2018",
+          desc: "This book is dedicated toward space technology application in Earth studies based on the use of a variety of methods for satellite information classification and interpretation. Advantages of geospatial data use in a large-scale area of observation and monitoring as a source of decision-making stage have been demonstrated. The book describes navigation systems providing data estimation method and review of existing data in the literature relevant to remote sensing sensors delivering main information electromagnetic spectrum and a variety of sensor applications. This aspect is important when combining/integrating satellite data processing into the field measurements. Satellites and satellite data application for the study of Earth features have been demonstrated as the next step of geospatial data application. The use of different purposeful processing technology applications of satellite data is one of the vital aspects of space technology advances. The use of GNSS GPS technology in industry and MODIS images and data interpretation for agriculture purposes has been presented. It was the aim of the book to create an attractive environment by presenting space technology application in the wide areas of Earth study. For this purpose, some of the book chapters are dedicated toward space technology advances in climate monitoring, natural disaster factor detection, satellite data processing optimization, and GIS technology for meteorology information with the aim of agriculture developments.",
+          img: "../BOOKS image/book14.png",
+          link: "https://www.intechopen.com/books/6334",
+        },
+        {
+          title: "Infrared Technology Fundamentals",
+          author: "Monroe Schlessinger,September 13, 1994 by Routledge",
+          desc: "This work provides a basic understanding of the physical background and engineering considerations required for the design of IR systems, examining all components and combining them into examples of current surveillance systems. This second edition presents: new coverage of state-of-the-art optical systems, including lightweight mirrors and adaptive optics; planar-hybrid and Z-technology focal planes; the design of a ground-based IR astronomical telescope and the performance equations of laser-radar systems; and more.",
+          img: "../BOOKS image/book15.jpg", 
+          link: "https://www.goodreads.com/book/show/2447448.Infrared_Technology_Fundamentals",
+        },
+        {
+          title: "Introductory Digital Image Processing",
+          author: "John R. Jensen May 10, 2004 by Prentice Hall",
+          desc: "For junior/graduate-level courses in Remote Sensing in Geography, Geology, Forestry, and Biology. This revision of Introductory Digital Image Processing: A Remote Sensing Perspective continues to focus on digital image processing of aircraft- and satellite-derived, remotely sensed data for Earth resource management applications. Extensively illustrated, it explains how to extract biophysical information from remote sensor data for almost all multidisciplinary land-based environmental projects. Part of the Prentice Hall Series Geographic Information Science.",
+          img: "../BOOKS image/book16.jpg",
+          link: "https://www.goodreads.com/book/show/1764902.Introductory_Digital_Image_Processing",
+        },
+        {
+          title: "Remote Sensing Digital Image Analysis: An Introduction",
+          author: "John A. Richards December 2, 2005 by Springer",
+          desc: " Revised and enlarged to reflect new developments in the field, the fourth edition of this well-established text provides an introduction to quantitative evaluation of satellite- and aircraft-derived remotely retrieved data. Each chapter covers the pros and cons of digital remotely sensed data, without detailed mathematical treatment of computer based algorithms, but in a manner conductive to an understanding of their capabilities and limitations.",
+          img: "../BOOKS image/book17.jpg",
+          link: "https://www.goodreads.com/book/show/1800985.Remote_Sensing_Digital_Image_Analysis",
+        },
+        {
+          title: "Multispectral Image Analysis Using the Object-Oriented Paradigm",
+          author: "P. S. Thenkabail, J. G. Lyon, H. Turral, C. Biradar",
+          desc: "Bringing a fresh new perspective to remote sensing, object-based image analysis is a paradigm shift from the traditional pixel-based approach. Featuring various practical examples to provide understanding of this new modus operandi, Multispectral Image Analysis Using the Object-Oriented Paradigm reviews the current image analysis methods and demonstrates advantages to improve information extraction from imagery. This reference describes traditional image analysis techniques, introduces object-oriented technology, and discusses the benefits of object-based versus pixel-based classification. It examines the creation of object primitives using image segmentation approaches and the use of various techniques for object classification. The author covers image enhancement methods, how to use ancillary data to constrain image segmentation, and concepts of semantic grouping of objects. He concludes by addressing accuracy assessment approaches. The accompanying downloadable resources present sample data that enable the use of different approaches to problem solving. Integrating remote sensing techniques and GIS analysis, Multispectral Image Analysis Using the Object-Oriented Paradigm distills new tools to extract information from remotely sensed data",
+          img: "../BOOKS image/book18.webp",
+          link:"https://www.routledge.com/Multispectral-Image-Analysis-Using-the-Object-Oriented-Paradigm/Navulur/p/book/9780367446246",
+        },
+        {
+          title: "Hyperspectral Remote Sensing: Fundamentals and Practices",
+          author: "Ruiliang Pu,Published: 15 December 201",
+          desc: "Advanced imaging spectral technology and hyperspectral analysis techniques for multiple applications are the key features of the book. This book will present in one volume complete solutions from concepts, fundamentals, and methods of acquisition of hyperspectral data to analyses and applications of the data in a very coherent manner. It will help readers to fully understand basic theories of HRS, how to utilize various field spectrometers and bioinstruments, the importance of radiometric correction and atmospheric correction, the use of analysis, tools and software, and determine what to do with HRS technology and data.",
+          img: "../BOOKS image/book19.webp",
+          link: "https://www.routledge.com/search?author=Ruiliang%20Pu",
+        },
+        
+        {
+          title: "Introduction to Microwave Remote Sensing",
+          author: "Iain H. Woodhouse",
+          desc: " Introduction to Microwave Remote Sensing offers an extensive overview of this versatile and extremely precise technology for technically oriented undergraduates and graduate students. This textbook emphasizes an important shift in conceptualization and directs it toward students with prior knowledge of optical remote the author dispels any linkage between microwave and optical remote sensing. Instead, he constructs the concept of microwave remote sensing by comparing it to the process of audio perception, explaining the workings of the ear as a metaphor for microwave instrumentation. This volume takes an “application-driven” approach. Instead of describing the technology and then its uses, this textbook justifies the need for measurement then explains how microwave technology addresses this need. Following a brief summary of the field and a history of the use of microwaves, the book explores the physical properties of microwaves and the polarimetric properties of electromagnetic waves. It examines the interaction of microwaves with matter, analyzes passive atmospheric and passive surface measurements, and describes the operation of altimeters and scatterometers. The textbook concludes by explaining how high resolution images are created using radars, and how techniques of interferometry can be applied to both passive and active sensors.",
+          img: "../image/book20.jpg",
+          link: "https://www.goodreads.com/book/show/35827659-introduction-to-microwave-remote-sensing",
+        },
+        {
+          title: "Remote Sensing of Coastal Environments",
+          author: "Yeqiao Wang (ed.)",
+          desc: "As coastal environments around the world face unprecedented natural and anthropogenic threats, advancements in the technologies that support geospatial data acquisition, imaging, and computing have profoundly enhanced monitoring capabilities in coastal studies. Providing systematic treatment of the key developments, Remote Sensing of Coastal Environments brings together renowned scholars to supply a clear presentation of the state-of-the-art in this technically complex arena. Edited by a recipient of the prestigious PECASE award, this book provides unrivaled coverage of the issues unique to coastal environments. It presents the best available data for measuring and monitoring coastal zones and explains how decision makers and resource managers can use this data to address contemporary issues in coastal zone management. The text illustrates the latest developments in active remote sensing, hyperspectral remote sensing, high spatial resolution remote sensing, the integration of remote sensing and in situ data, and covers the effects of land-cover and land-use change on coastal environments.",
+          img: "../BOOKS image/Remote Sensing of Coastal Environments.jpg",
+          link: "https://www.routledge.com/Remote-Sensing-of-Coastal-Environments/Wang/p/book/9781138116382",
+        },
+        {
+          title: "Urban Remote Sensing (Second Edition)",
+          author: "Qihao Weng, Dale Quattrochi, Paolo Gamba (eds.)",
+          desc: " Urban Remote Sensing, Second Edition assembles a team of professional experts to provide a much-needed update on the applications of remote sensing technology to urban and suburban areas. This book reflects new developments in spaceborne and airborne sensors, image processing methods and techniques, and wider applications of urban remote sensing to meet societal and economic challenges. In various sections of the book the authors address methods for upscaling urban feature extraction to the global scale, new methods in mapping and detecting urban landscape features and structures, and mapping and monitoring urbanization in developing countries. Additionally, readers are provided with valuable case studies such as the HEAT (Heat Energy Assessment Technologies) project in Calgary, Canada and the use of VHR (very high resolution) satellite monitoring in Salzburg, Austria to tackle challenges of urban green planning. Features Explores the most up-to-date developments in the field of urban remote sensing Integrates both technical and practical aspects covering all different topics of global urban growth issues Provides new and updated contributions addressing data mining of remotely sensed big data, recent urban studies on a global scale, accuracy assessment and validation, and new technical challenges Examines various applications of urban remote sensing in support of urban planning, environmental management, and sustainable urban development",
+          img: "../BOOKS image/Urban RS second edition.webp",
+          link: "https://www.routledge.com/Urban-Remote-Sensing/Weng-Quattrochi-Gamba/p/book/9781138054608",
+        },
+        
+        {
+          title: "Remote Sensing of Impervious Surfaces",
+          author: "Qihao Weng (ed.)",
+          desc: "Remote sensing of impervious surfaces has matured using advances in geospatial technology so recent that its applications have received only sporadic coverage in remote sensing literature. Remote Sensing of Impervious Surfaces is the first to focus entirely on this developing field. It provides detailed coverage of mapping, data extraction, and modeling techniques specific to analyzing impervious surfaces, such as roads and buildings. Written by renowned experts in the field, this book reviews the major approaches that apply to this emerging field as well as current challenges, developments, and trends. The authors introduce remote sensing digital image processing techniques for estimating and mapping impervious surfaces in urban and rural areas. Presenting the latest modeling tools and algorithms for data extraction and analysis, the book explains how to differentiate roads, roofs, and other manmade structures from remotely sensed images for individual analysis. The final chapters examine how to use impervious surface data for predicting the flow of storm- or floodwater and studying trends in population, land use, resource distribution, and other real-world applications in environmental, urban, and regional planning. Each chapter offers a consistent format including a concise review of basic concepts and methodologies, timely case studies, and guidance for solving problems and analyzing data using the techniques presented",
+          img: "../image/book32.jpg",
+          link: "https://www.routledge.com/Remote-Sensing-of-Impervious-Surfaces/Weng/p/book/9781420043747",
+        },
+        
+        {
+          title: "Advances in Environmental Remote SensingSensors, Algorithms, and Applications",
+          author: "Qihao Weng, Published: 21 April 2017",
+          desc: "Generating a satisfactory classification image from remote sensing data is not a straightforward task. Many factors contribute to this difficulty including the characteristics of a study area, availability of suitable remote sensing data, ancillary and ground reference data, proper use of variables and classification algorithms, and the analyst’s experience. An authoritative text, Advances in Environmental Remote Sensing: Sensors, Algorithms, and Applications compiles comprehensive review articles to examine the developments in concepts, methods, techniques, and applications as well as focused articles and case studies on the latest on a particular topic. Divided into four sections, the first deals with various sensors, systems, or sensing operations using different regions of wavelengths. Drawing on the data and lessons learned from the U.S. Landsat remote sensing programs, it reviews key concepts, methods, and practical uses of particular sensors/sensing systems. Section II presents new developments in algorithms and techniques, specifically in image preprocessing, thematic information extraction, and digital change detection. It gives correction algorithms for hyperspectral, thermal, and multispectral sensors, discusses the combined method for performing topographic and atmospheric corrections, and provides examples of correcting non-standard atmospheric conditions, including haze, cirrus, and cloud shadow.Section III focuses on remote sensing of vegetation and related features of the Earth’s surface. It reviews advancements in the remote sensing of ecosystem structure, process, and function, and notes important trade-offs and compromises in characterizing ecosystems from space related to spatial, spectral, and temporal resolutions of the imaging sensors. It discusses the mismatch between leaf-level and species-level ecological variables and satellite spatial resolutions and the resulting difficulties in validating satellite-derived products. Finally, Section IV examines developments in the remote sensing of air, water, and other terrestrial features, reviews MODIS algorithms for aerosol retrieval at both global and local scales, and demonstrates the retrieval of aerosol optical thickness (AOT). This section rounds out coverage with a look at remote sensing approaches to measure the urban environment and examines the most important concepts and recent research.",
+          img: "../BOOKS image/book24.webp",
+          link: "https://www.routledge.com/Advances-in-Environmental-Remote-Sensing-Sensors-Algorithms-and-Applications/Weng/p/book/9781138072916",
+        },
+
+        {
+          title: "LiDAR Remote Sensing and Applications",
+          author: "Pinliang Dong, Qi Chen, Published: 12 December 2017",
+          desc: "Ideal for both undergraduate and graduate students in the fields of geography, forestry, ecology, geographic information science, remote sensing, and photogrammetric engineering, LiDAR Remote Sensing and Applications expertly joins LiDAR principles, data processing basics, applications, and hands-on practices in one comprehensive source. The LiDAR data within this book is collected from 27 areas in the United States, Brazil, Canada, Ghana, and Haiti and includes 183 figures created to introduce the concepts, methods, and applications in a clear context. It provides 11 step-by-step projects predominately based on Esri’s ArcGIS software to support seamless integration of LiDAR products and other GIS data. The first six projects are for basic LiDAR data visualization and processing and the other five cover more advanced topics: from mapping gaps in mangrove forests in Everglades National Park, Florida to generating trend surfaces for rock layers in Raplee Ridge, Utah. Features Offers a comprehensive overview of LiDAR technology with numerous applications in geography, forestry and earth science Gives necessary theoretical foundations from all pertinent subject matter areas Uses case studies and best practices to point readers to tools and resources Provides a synthesis of ongoing research in the area of LiDAR remote sensing technology Includes carefully selected illustrations and data from the authors' research projects Before every project in the book, a link is provided for users to download data",
+          img: "../BOOKS image/book25.webp",
+          link: "https://www.routledge.com/LiDAR-Remote-Sensing-and-Applications/Dong-Chen/p/book/9781138747241",
+        },
+
+        {
+          title: "Remote Sensing Image Analysis: Including the Spatial Domain",
+          author: "Steven M. de Jong(Editor),Freek D. van der Meer(Editor) August 17, 2004 by Springer",
+          desc: "Remote Sensing image analysis is mostly done using only spectral information on a pixel by pixel basis. Information captured in neighbouring cells, or information about patterns surrounding the pixel of interest often provides useful supplementary information. This book presents a wide range of innovative and advanced image processing methods for including spatial information, captured by neighbouring pixels in remotely sensed images, to improve image interpretation or image classification. Presented methods include different types of variogram analysis, various methods for texture quantification, smart kernel operators, pattern recognition techniques, image segmentation methods, sub-pixel methods, wavelets and advanced spectral mixture analysis techniques. Apart from explaining the working methods in detail a wide range of applications is presented covering land cover and land use mapping, environmental applications such as heavy metal pollution, urban mapping and geological applications to detect hydrocarbon seeps. The book is meant for professionals, PhD students and graduates who use remote sensing image analysis, image interpretation and image classification in their work related to disciplines such as geography, geology, botany, ecology, forestry, cartography, soil science, engineering and urban and regional planning.",
+          img: "../BOOKS image/Remote Sensing Spatial Domain.jpg",
+          link: "https://www.goodreads.com/book/show/486605.Remote_Sensing_Image_Analysis",
+        },
+        {
+          title: "Remote Sensing in Hydrology and Water Management",
+          author: "Gert A. Schultz (Editor),Edwin T. Engman (Editor) October 8, 2011 by Springer",
+          desc: "The book provides comprehensive information on possible applications of remote sensing data for hydrological monitoring and modelling as well as for water management decisions. Mathematical theory is provided only as far as it is necessary for understanding the underlying principles. The book is especially timely because of new programs and sensors that are or will be realised. ESA, NASA, NASDA as well as the Indian and the Brazilian Space Agency have recently launched satellites or developed plans for new sensor systems that will be especially pertinent to hydrology and water management. New techniques are presented whose structure differ from conventional hydrological models due to the nature of remotely sensed data.",
+          img: "../BOOKS image/book27.jpg",
+          link: "https://www.goodreads.com/book/show/18571915-remote-sensing-in-hydrology-and-water-management",
+        },
+        {
+          title: "Polarisation: Applications in Remote Sensing",
+          author: "Shane Cloude, Published: 1 October 2009",
+          desc: " In this monograph S.R. Cloude introduces, for the first time, the topics of radar polarimetry and interferometry. This topic was first developed in 1997 and has since developed into a major topic in radar sciences and its applications, in particular to space sciences. In its simplest form it concerns the study of interferograms formed by combining waves with different polarizations and their exploitation to infer important physical properties of the planetary surface being investigated. Written in three main sections, the first four chapters provide a detailed coverage of all major topics of polarimetry, including its basis in electromagnetic scattering theory, decomposition theorems and a detailed analysis of the entropy/alpha approach. The next chapter offers a brief introduction to radar interferometry, before developing in three chapters the important new topic of polarimetric interferometry. In this way it provides a complete treatment of the subject, suitable for those working in interferometry who wish to know about polarimetry, or vice versa, as well as those new to the topic who are looking for a one-stop comprehensive treatment of the subject. The emphasis throughout is on the application of these techniques to remote sensing and the book concludes with a set of practical examples to illustrate the theoretical ideas.",
+          img: "../BOOKS image/Polarisation Applications.jpg",
+          link: "https://www.goodreads.com/book/show/6384145-polarisation",
+        },
+        {
+          title: "Remote Sensing for Sustainability",
+          author: "Qihao Weng",
+          desc: "Driven by the societal needs and improvement in sensor technology and image processing techniques, remote sensing has become an essential geospatial tool for understanding the Earth and managing Human-Earth interactions. Remote Sensing for Sustainability introduces the current state of the art remote sensing knowledge integral for monitoring the world’s natural resources and environments, managing exposure to natural disasters and man-made risks, and helping understand the sustainability and productivity of natural ecosystems. Bridging the gap between remote sensing and sustainability science this book examines theories and methods as well as practical applications of sustainable development for cities using remote sensing; focuses on remote sensing methods and techniques for sustainable natural resources with emphasize on forests; answers questions on how and what the remote sensing methods and techniques can do for the sustainability of environmental systems; and examines the issues of energy use and sustainable energy sources using remote sensing technology in countries such as Germany, China, the U.S, drawing on case studies to demonstrate the applicability of remote sensing techniques. This comprehensive guide, which can serve to professors, researchers, and students alike, takes in consideration the United Nations set of sustainable development goals and intends to contribute to the GEO’s Strategic Plan by addressing and exemplifying a number of societal benefit areas of remote sensing data sets, methods, and techniques for sustainable development.",
+          img: "../BOOKS image/Remote Sensing for Sustainability.webp",
+          link: "https://www.routledge.com/Remote-Sensing-for-Sustainability/Weng/p/book/9781498700719",
+        },
+        {
+          title: "Big Data for Remote Sensing: Visualization, Analysis and Interpretation: Digital Earth and Smart Earth",
+          author: "Nilanjan Dey (Editor),Chintan Bhatt (Editor),Amira S. Ashour(Editor) June 1, 2018 by Springer",
+          desc: "This book thoroughly covers the remote sensing visualization and analysis techniques based on computational imaging and vision in Earth science. Remote sensing is considered a significant information source for monitoring and mapping natural and man-made land through the development of sensor resolutions that committed different Earth observation platforms. The book includes related topics for the different systems, models, and approaches used in the visualization of remote sensing images. It offers flexible and sophisticated solutions for removing uncertainty from the satellite data. It introduces real time big data analytics to derive intelligence systems in enterprise earth science applications. Furthermore, the book integrates statistical concepts with computer-based geographic information systems (GIS). It focuses on image processing techniques for observing data together with uncertainty information raised by spectral, spatial, and positional accuracy of GPS data. The book addresses several advanced improvement models to guide the engineers in developing different remote sensing visualization and analysis schemes. Highlights on the advanced improvement models of the supervised/unsupervised classification algorithms, support vector machines, artificial neural networks, fuzzy logic, decision-making algorithms, and Time Series Model and Forecasting are addressed. This book guides engineers, designers, and researchers to exploit the intrinsic design remote sensing systems. The book gathers remarkable material from an international experts' panel to guide the readers during the development of earth big data analytics and their challenges.",
+          img: "../BOOKS image/book30.jpg",
+          link: "https://www.goodreads.com/book/show/40886813-big-data-for-remote-sensing",
+        },
+        {
+          title: "Hyperspectral Remote Sensing",
+          author: "Michael Theodore Eismann April 15, 2012 by SPIE--The International Society for Optical Engineering",
+          desc: "Hyperspectral remote sensing is an emerging, multidisciplinary field with diverse applications that builds on the principles of material spectroscopy, radiative transfer, imaging spectrometry, and hyperspectral data processing. While there are many resources that suitably cover these areas individually and focus on specific aspects of the hyperspectral remote sensing field, this book provides a holistic treatment that captures its multidisciplinary nature. The content is oriented toward the physical principles of hyperspectral remote sensing as opposed to applications of hyperspectral technology. Readers can expect to finish the book armed with the required knowledge to understand the immense literature available in this technology area and apply their knowledge to the understanding of material spectral properties, the design of hyperspectral systems, the analysis of hyperspectral imagery, and the application of the technology to specific problems.",
+          img: "../BOOKS image/book31.jpg",
+          link: "https://www.goodreads.com/book/show/14983989-hyperspectral-remote-sensing",
+        },
+        {
+          title: "Remote Sensing of Impervious Surfaces in Tropical and Subtropical Areas",
+          author: "Hongsheng Zhang, Hui Lin, Yuanzhi Zhang, Qihao Weng, Published: 26 August 2015",
+          desc: "Remote Sensing of Impervious Surfaces in Tropical and Subtropical Areas offers a complete and thorough system for using optical and synthetic aperture radar (SAR) remote sensing data for improving impervious surface estimation (ISE). Highlighting tropical and subtropical areas where there is significant cloud occurrence and varying phenology, the book addresses the challenges impacting impervious surfaces in tropical and subtropical zones. It examines the potential for estimating urban impervious surfaces in a rainy and cloudy environment, considers the difficulties encountered when using optical remote sensing in this type of climate, and assesses existing methods employing remote sensing data for accurate ISE in tropical and subtropical regions. Using the results of comparative studies conducted during the four seasons and in six different cities (Guangzhou, Shenzhen, Hong Kong, Mumbai, Sao Paulo, and Cape Town), the authors develop a framework for ISE using optical and SAR image data. They address the advantages and disadvantages of optical and SAR data, consider fusion strategies for combining optical and SAR data, and examine different feature extractions for optical and SAR data. They also detail the limitations of the research, suggest possible topics for future analysis, and cover previous findings on the synergistic use of optical and SAR data.Concentrates on the effect a tropical and subtropical urban climate can have on impervious surface estimation (ISE) Reviews literature on the significance of ISE and the phonological and climatic characteristics of tropical and subtropical regions Describes datasets including satellite data, digital orthophoto data, in situ data, and more",
+          img: "../image/book32.jpg",
+          link: "https://viteduin59337-my.sharepoint.com/:w:/r/personal/sai_gurav_vit_edu_in/_layouts/15/Doc.aspx?sourcedoc=%7BBBA08047-226C-4882-9E4C-CE9D3C27B9A5%7D&file=Resources%20-%20Books.docx&action=default&mobileredirect=true&wdOrigin=OUTLOOK-METAOS.FILEBROWSER.FILES-HOME",
+        },
+        {
+          title: "Infrared Thermal Imaging: Fundamentals, Research and Applications, Second Edition",
+          author: "Michael Vollmer and Klaus-Peter Möllmann",
+          desc: "This richly illustrated hands-on guide is designed for researchers, teachers and practitioners. The huge selection of examples taken from science, basic teaching of physics, practical applications in industry and a variety of other disciplines spanning the range from medicine to volcano research allows readers to pick those that come closest to their own individual task at hand. Following a look at the fundamentals of IR thermal imaging, properties of the imaging systems, as well as basic and advanced methods, the book goes on to discuss IR imaging applications in teaching, research and industry. Specific examples include thermography of buildings, microsystems and the rather new field of IR imaging of gases.",
+          img: "../image/book51.jpg",
+          link: "https://www.goodreads.com/book/show/16985620-infrared-thermal-imaging",
+        },
+        {
+          title: "InSAR Principles: Guidelines for SAR Interferometry Processing and Interpretation",
+          author: "European Space Agency",
+          desc: "This comprehensive guide provides detailed guidelines for SAR interferometry processing and interpretation. Published by the European Space Agency, this technical memorandum covers the fundamental principles of InSAR (Interferometric Synthetic Aperture Radar) technology, including data processing techniques, interpretation methods, and practical applications in Earth observation. The document serves as an essential reference for researchers, engineers, and practitioners working with SAR interferometry for ground deformation monitoring, topographic mapping, and environmental studies.",
+          img: "../image/60.jpg",
+          link: "https://www.goodreads.com/book/show/15208817-insar-principles",
+        },
+        {
+          title: "A New Target Detector Based on Geometrical Perturbation Filters for POL-SAR",
+          author: "Armando Marino, January 27, 2012 by Springer",
+          desc: "This thesis presents a groundbraking methodology for the radar international community. The detection approach introduced, namely perturbation analysis, is completey novel showing a remarkable capability of thinking outside the box. Perturbation analysis is able to push forward the performance limits of current algorithms, allowing the detection of targets smaller than the resolution cell and highly embedded in clutter. The methodology itself is extraordinary flexibe and has already been used in two other large projects, funded by the ESA (European Space Agency): M-POL for maritime surveillance, and DRAGON-2 for land classification with particular attention to forests. This book is a perfectly organised piece of work where every detail and perspective is taken into account in order to provide a comprehensive vision of the problems and solutions.",
+          img: "../BOOKS image/A New Target Detector Based on Geometrical Perturbation Filters for Polarimetric Synthetic Aperture Radar (POL-SAR.jpg",
+          link: "https://www.goodreads.com/book/show/13268498-a-new-target-detector-based-on-geometrical-perturbation-filters-for-pola",
+        },
+        {
+          title: "Radar Interferometry: Data Interpretation and Error Analysis",
+          author: "Ramon F. Hanssen,January 1, 2001 by Springer",
+          desc: "Preface. Summary. Nomenclature. 1. Introduction. 2. Radar system theory and interferometric processing. 3. Functional model for radar interferometry. 4. Stochastic model for radar interferometry. 5. Data analysis and interpretation for deformation monitoring. 6. Atmospheric monitoring. 7. Conclusions and recommendations. A. Comparison neutral delay GPS and InSAR. B. Structure function and power spectrum. Bibliography. About the Author. Index.",
+          img: "../BOOKS image/Radar Interferometry. Data Interpretation and Error Analysis.jpg",
+          link: "https://www.goodreads.com/book/show/16758002-radar-interferometry-data-interpretation-and-error-analysis",
+        },
+        {
+          title: "Radar Polarimetry for Geoscience Applications",
+          author: "Fawwaz T. Ulaby et al.",
+          desc: "Offers the only consolidated reference on radar polarimetry design, analysis, and application and explains the most recent development in polarization system design and application. Illustrated with 150 figures, 10 tablets, and 9 full-color SAR images.",
+          img: "../BOOKS image/Radar Polarimetry for Geoscience Applications.jpg",
+          link: "https://www.goodreads.com/book/show/3060044-radar-polarimetry-for-geoscience-applications",
+        },
+        {
+          title: "Processing of Synthetic Aperture Radar (SAR) Images",
+          author: "Henri Maitre (ed.)",
+          desc: "Synthetic aperture radar provides broad-area imaging at high resolutions, which is used in applications such as environmental monitoring, earth-resource mapping, and military systems.This book presents the tools required for the digital processing of synthetic aperture radar images. They are of three (a) the elements of physics, (b) mathematical models and (c) image processing methods adapted to particular applications.",
+          img: "../BOOKS image/Processing of Synthetic Aperture Radar (Sar) Images.jpg",
+          link: "https://www.goodreads.com/book/show/17082579-processing-of-synthetic-aperture-radar-sar-images",
+        },
+        {
+          title: "Synthetic Aperture Radar Polarimetry",
+          author: "Jakob J. Van Zyl, Yunjin Kim",
+          desc: "This book describes the application of polarimetric synthetic aperture radar to earth remote sensing based on research at the NASA Jet Propulsion Laboratory (JPL). This book synthesizes all current research to provide practical information for both the newcomer and the expert in radar polarimetry. The text offers a concise description of the mathematical fundamentals illustrated with many examples using SAR data, with a main focus on remote sensing of the earth. The book begins with basics of synthetic aperture radar to provide the basis for understanding how polarimetric SAR images are formed and gives an introduction to the fundamentals of radar polarimetry. It goes on to discuss more advanced polarimetric concepts that allow one to infer more information about the terrain being imaged. In order to analyze data quantitatively, the signals must be calibrated carefully, which the book addresses in a chapter summarizing the basic calibration algorithms. The book concludes with examples of applying polarimetric analysis to scattering from rough surfaces, to infer soil moisture from radar signals.",
+          img: "../BOOKS image/Synthetic Aperture Radar Polarimetry.jpg",
+          link: "https://www.goodreads.com/book/show/13838134-synthetic-aperture-radar-polarimetry",
+        },
+
+        {
+          title: "Introduction to Synthetic Aperture Radar (Sar) Polarimetry",
+          author: "Wolfgang-Martin Boerner, Published: 26 December 2007",
+          desc: "A comprehensive overview of the basic principles of radar polarimetry is presented. The relevant fundamental field equations are first provided. The importance of the propagation and scattering behavior in various frequency bands, the electrodynamic foundations such as Maxwell's equations, the Helmholtz vector wave equation and especially the fundamental laws of polarization are presented in the first section. Main poins are the polarization Ellipse, the polarization ratio, the Stokes Parameter, and the Stokes and Jones vector formalisms as well as its presentation on the Poincare sphere and on relavent map projections. The Polarization Fork descriptor and the associated van Zyl polarimetric power density and Agrawal polarimetric phase correlation signatures are introduced also in order to make understandable the polarization state formulations of electromagnetic waves in the frequency domain. The different relevant matrices, the respective terms like Jones Matrix, S-matrix, Muller M-matrix, Kennaugh K-matrix, etc. and its interconnections are defined and described together with change determined for the coherent and partially coherent cases, respectively. Concludes with worked examples and references for further reading.",
+          img: "../BOOKS image/book38.jpg",
+          link: "https://www.goodreads.com/book/show/5070929-introduction-to-synthetic-aperture-radar-sar-polarimetry",
+        },
+        {
+          title: "Polarimetric Radar Imaging: From Basics to Applications",
+          author: "Jong-Sen Lee, Eric Pottier",
+          desc: "The recent launches of three fully polarimetric synthetic aperture radar (PolSAR) satellites have shown that polarimetric radar imaging can provide abundant data on the Earth’s environment, such as biomass and forest height estimation, snow cover mapping, glacier monitoring, and damage assessment. Written by two of the most recognized leaders in this field, Polarimetric Radar From Basics to Applications presents polarimetric radar imaging and processing techniques and shows how to develop remote sensing applications using PolSAR imaging radar. The book provides a substantial and balanced introduction to the basic theory and advanced concepts of polarimetric scattering mechanisms, speckle statistics and speckle filtering, polarimetric information analysis and extraction techniques, and applications typical to radar polarimetric remote sensing. It explains the importance of wave polarization theory and the speckle phenomenon in the information retrieval problem of microwave imaging and inverse scattering. The authors demonstrate how to devise intelligent information extraction algorithms for remote sensing applications. They also describe more advanced polarimetric analysis techniques for polarimetric target decompositions, polarization orientation effects, polarimetric scattering modeling, speckle filtering, terrain and forest classification, manmade target analysis, and PolSAR interferometry. With sample PolSAR data sets and software available for download, this self-contained, hands-on book encourages you to analyze space-borne and airborne PolSAR and polarimetric interferometric SAR (Pol-InSAR) data and then develop applications using this data",
+          img: "../BOOKS image/Polarimetric Radar Imaging From Basics to Applications.jpg",
+          link: "https://www.goodreads.com/book/show/2493065.Polarimetric_Radar_Imaging",
+        },
+        {
+          title:"Urban High-Resolution Remote Sensing: Algorithms and Modeling",
+          author:"Guoqing Zhou. December 21, 2020 by CRC Press",
+          desc:"With urbanization as a global phenomenon, there is a need for data and information about these terrains. Urban remote sensing techniques provide critical physical input and intelligence for preparing base maps, formulating planning proposals, and monitoring implementations. Likewise these methodologies help with understanding the biophysical properties, patterns, and process of urban landscapes, as well as mapping and monitoring urban land cover and spatial extent. Advanced sensor technologies and image processing methodologies such as deep learning, data mining, etc., facilitate the wide applications of remote sensing technology in urban areas. This book presents advanced image processing methods and algorithms focused on three very important roots of urban remote 3D urban modelling using different remotely sensed data, urban orthophotomap generation, and urban feature extraction, which are also today’s real challenges in high resolution remote sensing. Data generated by remote sensing, with its repetitive and synoptic viewing and multispectral capabilities, constitutes a powerful tool for mapping and monitoring emerging changes in the city's urban core, as well as in peripheral areas. In this book, readers are provided with valuable research studies and applications-oriented chapters in areas such as urban trees, soil moisture mapping, city transportation, urban remote sensing big data, etc.",
+          img:"../BOOKS image/book40.jpg",
+          link:"https://www.goodreads.com/book/show/54708921-urban-high-resolution-remote-sensing",
+        },
+        
+        {
+          title: "Satellite Remote Sensing for Archaeology",
+          author: "Sarah H. Parcak",
+          desc: "This handbook is the first comprehensive overview of the field of satellite remote sensing for archaeology and how it can be applied to ongoing archaeological fieldwork projects across the globe. It provides a survey of the history and development of the field, connecting satellite remote sensing in archaeology to broader developments in remote sensing, archaeological method and theory, cultural resource management, and environmental studies. With a focus on practical uses of satellite remote sensing, Sarah H. Parcak evaluates satellite imagery types and remote sensing analysis techniques specific to the discovery, preservation, and management of archaeological sites. Case studies from Asia, Central America, and the Middle East are explored, including Xi’an, China; Angkor Wat, Cambodia and Egypt’s floodplains. In-field surveying techniques particular to satellite remote sensing are emphasized, providing strategies for recording ancient features on the ground observed from space. The book also discusses broader issues relating to archaeological remote sensing ethics, looting prevention, and archaeological site preservation. New sensing research is included and illustrated with the inclusion of over 160 satellite images of ancient sites.",
+          img: "../BOOKS image/Satellite Remote Sensing for Archaeology.jpg",
+          link: "https://www.goodreads.com/book/show/7182643-satellite-remote-sensing-for-archaeology",
+        },
+        {
+          title: "Microwave Radar and Radiometric Remote Sensing",
+          author: "(Fawwaz T. Ulaby November 19, 2013 by Artech House)",
+          img: "../BOOKS image/book42.jpg",
+          link: "https://www.goodreads.com/book/show/18811957-microwave-radar-and-radiometric-remote-sensing",
+        },
+        {
+          title: "Radargrammetric Image Processing",
+          author: "Franz W. Leberl",
+          img: "../image/book43.jpg",
+          link: "https://www.goodreads.com/book/show/4541722-radargrammetric-image-processing",
+        },
+        {
+          title:"Advances in Environmental Remote SensingSensors, Algorithms, and Applications",
+          author:"Qihao Weng, Published: 21 April 2017",
+          desc:"Generating a satisfactory classification image from remote sensing data is not a straightforward task. Many factors contribute to this difficulty including the characteristics of a study area, availability of suitable remote sensing data, ancillary and ground reference data, proper use of variables and classification algorithms, and the analyst’s experience. An authoritative text, Advances in Environmental Remote Sensing: Sensors, Algorithms, and Applications compiles comprehensive review articles to examine the developments in concepts, methods, techniques, and applications as well as focused articles and case studies on the latest on a particular topic. Divided into four sections, the first deals with various sensors, systems, or sensing operations using different regions of wavelengths. Drawing on the data and lessons learned from the U.S. Landsat remote sensing programs, it reviews key concepts, methods, and practical uses of particular sensors/sensing systems. Section II presents new developments in algorithms and techniques, specifically in image preprocessing, thematic information extraction, and digital change detection. It gives correction algorithms for hyperspectral, thermal, and multispectral sensors, discusses the combined method for performing topographic and atmospheric corrections, and provides examples of correcting non-standard atmospheric conditions, including haze, cirrus, and cloud shadow. Section III focuses on remote sensing of vegetation and related features of the Earth’s surface. It reviews advancements in the remote sensing of ecosystem structure, process, and function, and notes important trade-offs and compromises in characterizing ecosystems from space related to spatial, spectral, and temporal resolutions of the imaging sensors. It discusses the mismatch between leaf-level and species-level ecological variables and satellite spatial resolutions and the resulting difficulties in validating satellite-derived products.Finally, Section IV examines developments in the remote sensing of air, water, and other terrestrial features, reviews MODIS algorithms for aerosol retrieval at both global and local scales, and demonstrates the retrieval of aerosol optical thickness (AOT). This section rounds out coverage with a look at remote sensing approaches to measure the urban environment and examines the most important concepts and recent research",
+          img:"../BOOKS image/book44.webp",
+          link:"https://www.routledge.com/Advances-in-Environmental-Remote-Sensing-Sensors-Algorithms-and-Applications/Weng/p/book/9781138072916",
+        },
+        {
+          title:"Remote Sensing Digital Image Analysis: An Introduction",
+          author:"John A. Richards December 2, 2005 by Springer",
+          desc:"Revised and enlarged to reflect new developments in the field, the fourth edition of this well-established text provides an introduction to quantitative evaluation of satellite- and aircraft-derived remotely retrieved data. Each chapter covers the pros and cons of digital remotely sensed data, without detailed mathematical treatment of computer based algorithms, but in a manner conductive to an understanding of their capabilities and limitations.",
+          img:"../BOOKS image/bokk45.jpg",
+          link:"https://www.goodreads.com/book/show/1800985.Remote_Sensing_Digital_Image_Analysis",
+        },
+
+        {
+          title:"Urban Remote Sensing",
+          author:"Qihao Weng, Dale Quattrochi, Paolo Gamba, Published: 27 March 2018",
+          desc:"Urban Remote Sensing, Second Edition assembles a team of professional experts to provide a much-needed update on the applications of remote sensing technology to urban and suburban areas. This book reflects new developments in spaceborne and airborne sensors, image processing methods and techniques, and wider applications of urban remote sensing to meet societal and economic challenges. In various sections of the book the authors address methods for upscaling urban feature extraction to the global scale, new methods in mapping and detecting urban landscape features and structures, and mapping and monitoring urbanization in developing countries. Additionally, readers are provided with valuable case studies such as the HEAT (Heat Energy Assessment Technologies) project in Calgary, Canada and the use of VHR (very high resolution) satellite monitoring in Salzburg, Austria to tackle challenges of urban green planning. Features Explores the most up-to-date developments in the field of urban remote sensing Integrates both technical and practical aspects covering all different topics of global urban growth issuesProvides new and updated contributions addressing data mining of remotely sensed big data, recent urban studies on a global scale, accuracy assessment and validation, and new technical challenges Examines various applications of urban remote sensing in support of urban planning, environmental management, and sustainable urban development ",
+          img:"../BOOKS image/book46.jpg",
+          link:"https://www.routledge.com/Urban-Remote-Sensing/Weng-Quattrochi-Gamba/p/book/9781138054608",
+        },
+        {
+          title:"Satellite Remote Sensing: A New Tool for Archaeology",
+          author:"Rosa Lasaponara, Nicola Masini, Published: 18 January, 2012",
+          desc:"This book provides a state-of-the art overview of satellite archaeology and it is an invaluable volume for archaeologists, scientists, and managers interested in using satellite Earth Observation (EO) to improve the traditional approach for archaeological investigation, protection and management of Cultural Heritage. The recent increasing development of EO techniques and the tremendous advances in Information and Communication Technologies (ICT) have resulted primarily in Cultural Heritage applications. The book focuses on new challenging prospects for the use of EO in archaeology not only for probing the subsurface to unveil sites and artifacts, but also for the management and valorization as well as for the monitoring and preservation of cultural resources. The book provides a first-class understanding of this revolutionary scenario which was unthinkable several years ago. The book offers: (i) an excellent collection of outstanding articles focusing on satellite data processing, analysis and interpretation for archaeological applications, (ii) impressive case studies, (iii) striking examples of the high potential of the integration of multi-temporal, multi-scale, multi-sensors techniques. Each chapter is composed as an authoritative contribution to help the reader grasp the value of its content. The authors are renowned experts from the international scientific community.  Audience : This book will be of interest to scientists in remote sensing applied to archeology, geoarcheology, paleo-environment, paleo-climate and cultural heritage.",
+          img:"../BOOKS image/book47.jpg",
+          link:"https://www.goodreads.com/book/show/14725122-satellite-remote-sensing",
+        },
+        {
+          title:"Advanced Remote Sensing: Terrestrial Information Extraction and Applications",
+          author:"Shunlin Liang(Editor),Xiaowen Li(Editor),Jindi Wang(Editor) April 24, 2013 by Academic Press",
+          desc:"Advanced Remote Sensing is an application-based reference that provides a single source of mathematical concepts necessary for remote sensing data gathering and assimilation. It presents state-of-the-art techniques for estimating land surface variables from a variety of data types, including optical sensors such as RADAR and LIDAR. Scientists in a number of different fields including geography, geology, atmospheric science, environmental science, planetary science and ecology will have access to critically-important data extraction techniques and their virtually unlimited applications. While rigorous enough for the most experienced of scientists, the techniques are well designed and integrated, making the book's content intuitive, clearly presented, and practical in its implementation. Comprehensive overview of various practical methods and algorithms * Detailed description of the principles and procedures of the state-of-the-art algorithms * Real-world case studies open several chapters * More than 500 full-color figures and tables * Edited by top remote sensing experts with contributions from authors across the geosciences",
+          img:"../BOOKS image/book48.jpg",
+          link:"https://www.goodreads.com/book/show/16814761-advanced-remote-sensing",
+        },
+        {
+          title:"Remote Sensing of Coastal Environments",
+          author:"Yeqiao Wang, Published: 31 May 2017",
+          desc:"As coastal environments around the world face unprecedented natural and anthropogenic threats, advancements in the technologies that support geospatial data acquisition, imaging, and computing have profoundly enhanced monitoring capabilities in coastal studies. Providing systematic treatment of the key developments, Remote Sensing of Coastal Environments brings together renowned scholars to supply a clear presentation of the state-of-the-art in this technically complex arena. Edited by a recipient of the prestigious PECASE award, this book provides unrivaled coverage of the issues unique to coastal environments. It presents the best available data for measuring and monitoring coastal zones and explains how decision makers and resource managers can use this data to address contemporary issues in coastal zone management. The text illustrates the latest developments in active remote sensing, hyperspectral remote sensing, high spatial resolution remote sensing, the integration of remote sensing and in situ data, and covers the effects of land-cover and land-use change on coastal environments. Complete with representative case studies, this authoritative resource provides a timely snapshot of the wide range of remote sensing applications in coastal issues to enhance the understanding of how increasing disturbances to our coastal regions are affecting the ecological dynamics, biological diversity, and ecosystem health of our coastal environments.",
+          img:"../BOOKS image/book49.jpg",
+          link:"https://www.routledge.com/Remote-Sensing-of-Coastal-Environments/Wang/p/book/9781138116382",
+        },
+        {
+          title:"Integrating Scale in Remote Sensing and GIS - 1st Edition",
+          author:"Dale A. Quattrochi, Elizabeth Wentz, Nina Siu-Ngan Lam, Charles W. Emerson, Published: 4 January 2017",
+          desc:"Integrating Scale in Remote Sensing and GIS serves as the most comprehensive documentation of the scientific and methodological advances that have taken place in integrating scale and remote sensing data. This work addresses the invariants of scale, the ability to change scale, measures of the impact of scale, scale as a parameter in process models, and the implementation of multiscale approaches as methods and techniques for integrating multiple kinds of remote sensing data collected at varying spatial, temporal, and radiometric scales. Researchers, instructors, and students alike will benefit from a guide that has been pragmatically divided into four thematic groups: scale issues and multiple scaling; physical scale as applied to natural resources; urban scale; and human health/social scale. Teeming with insights that elucidate the significance of scale as a foundation for geographic analysis, this book is a vital resource to those seriously involved in the field of GIScience.",
+          img:"../BOOKS image/book50.webp",
+          link:"https://www.routledge.com/search?author=Dale%20A.%20Quattrochi",
+        },
+        
+        {
+          title:"Handbook of Radar Scattering Statistics for Terrain",
+          author:"Fawwaz T. Ulaby, 	March 1, 1989 by Artech House Publishers",
+          img:"../BOOKS image/book52.jpg",
+          link:"https://www.goodreads.com/book/show/1237103.Handbook_of_Radar_Scattering_Statistics_for_Terrain",
+        },
+        {
+          title:"LiDAR Remote Sensing and Applications",
+          author:"Pinliang Dong, Qi Chen, Published: 12 December 2017",
+          desc:"Ideal for both undergraduate and graduate students in the fields of geography, forestry, ecology, geographic information science, remote sensing, and photogrammetric engineering, LiDAR Remote Sensing and Applications expertly joins LiDAR principles, data processing basics, applications, and hands-on practices in one comprehensive source. The LiDAR data within this book is collected from 27 areas in the United States, Brazil, Canada, Ghana, and Haiti and includes 183 figures created to introduce the concepts, methods, and applications in a clear context. It provides 11 step-by-step projects predominately based on Esri’s ArcGIS software to support seamless integration of LiDAR products and other GIS data. The first six projects are for basic LiDAR data visualization and processing and the other five cover more advanced topics: from mapping gaps in mangrove forests in Everglades National Park, Florida to generating trend surfaces for rock layers in Raplee Ridge, Utah",
+          img:"../BOOKS image/book53.webp",
+          link:"https://www.routledge.com/LiDAR-Remote-Sensing-and-Applications/Dong-Chen/p/book/9781138747241",
+        },
+        {
+          title:"Multi-sensor System Applications in the Everglades Ecosystem",
+          author:"Caiyun Zhang, Published: 16 January 2020",
+          desc:"This book explores the applicability of multiple remote sensors to acquire information relevant to restoration and conservation efforts in wetlands using data collected from airborne and space multispectral/hyperspectral sensors, light detection and ranging (LiDAR), Unmanned Aircraft Systems (UAS), and a hand-held spectroradiometer. This book also examines digital data processing techniques such as object-based image analysis, machine learning, texture analysis, and data fusion. After an introduction to the Everglades and to remote sensing, the book is divided into four parts based on the sensor systems used. There are chapters on vegetation mapping, biomass and water quality modeling, applications of hyperspectral data for plant stress analysis and coral reef mapping, studies of airborne LiDAR data for coastal vulnerability analysis and DEM improvement, as well as chapters that explore a fusion of multiple sensors for different datasets.",
+          img:"../BOOKS image/book54.webp",
+          link:"https://www.routledge.com/Multi-sensor-System-Applications-in-the-Everglades-Ecosystem/Zhang/p/book/9781498711777",
+        },
+        {
+          title:"Global Urban Monitoring and Assessment through Earth Observation",
+          author:"Global Urban Monitoring and Assessment through Earth Observation - 1st (Qihao Weng, Published: 27 March 2014)",
+          desc:"Cities and towns are the original producers of many of the global environmental problems related to waste disposal, and air and water pollution. There is a rapidly growing need for technologies that will enable monitoring of the world’s natural resources and urban assets, and managing exposure to natural and man-made risks. The Group on Earth Observation (GEO) calls for strengthening the cooperation and coordination among global observing systems and research programs. Global Urban Monitoring and Assessment through Earth Observation introduces this important international collaborative effort, reviews the current state of global urban remote sensing, and expands on future directions in the field. The book reviews the current state of global urban monitoring, assessment, modeling, and prediction through Earth observation and related technologies. It then introduces GEO’s important international collaborative effort—Global Urban Observation and Information Task—and the current state of global urban remote sensing and future directions. It explores groundbreaking work in urban remote sensing and examines how it could contribute to the development of innovative concepts and techniques for sustainable urban development. Despite significant progress in recent years, there remain substantial gaps in ongoing national, regional, and global efforts to address environmental challenges. Edited by a well-known expert in the field of remote sensing, GIS, and other geospatial technologies, this book addresses the gaps in an effective and long-term manner, highlighting the importance of increased coordination and networking among major stakeholders and of working together with other key international mechanisms. Drawing on the expertise of pioneers in the field from across the globe, the book details emerging research in the theory, methods, and techniques of urban remote sensing that provide insight into how to solve the major issues of sustainable devel",
+          img:"../BOOKS image/book55.webp",
+          link:"https://www.routledge.com/Global-Urban-Monitoring-and-Assessment-through-Earth-Observation/Weng/p/book/9781466564497",
+        },
+        {
+          title: "InSAR Imaging of Aleutian Volcanoes: Monitoring a Volcanic Arc from Space",
+          author: "Zhong Lu, Daniel Dzurisin April 24, 2014 by Springer",
+          desc: " Interferometric synthetic aperture radar (InSAR) is a relatively new remote sensing tool that is capable of measuring ground-surface deformation with centimeter-to-subcentimeter precision at a spatial resolution of tens of meters over an area of hundreds to thousands of square kilometers. With its global coverage and all-weather imaging capability, InSAR has become an increasingly important technique for studying volcanoes in remote regions such as the Aleutian Islands. The spatial distribution of surface deformation data derived from InSAR images enables the construction of detailed mechanical models to enhance the study of magmatic processes. InSAR Imaging of Aleutian Volcanoes : • Provides a theoretical framework for InSAR observations and capabilities • Discusses state-of-the-art InSAR analysis techniques • Describes the structure, eruptive history, and magma composition of volcanoes along the entire Aleutian arc • Presents conceptual models for the magma plumbing systems of Aleutian volcanoes based on InSAR results combined with geophysical, geological and geochemical observations. • Synthesizes observations of deformation along the Aleutian arc and compares those results to other active arcs around the world. • Is illustrated throughout with high-resolution color satellite radar images.",
+          img: "../BOOKS image/book56.jpg",
+          link: "https://www.goodreads.com/book/show/13079115-insar-imaging-of-aleutian-volcanoes",
+        },
+        {
+          title:"Bistatic Radar Polarimetry - Theory & Principles",
+          author:"Zbigniew H. Czyz, Published: 11 April 2008",
+          desc:"Chapter titles are ...(1) Introduction ...(2) Radar Polarimetry ...(3) Polarization of Monochromatic Plane Waves ...(4) Polarization Sphere of Tangential Phasors...(5) Rotation Transformation on the Sphere ...(6) Change of Phase, Orthogonality and Spatial Reversal Transformation on the Sphere ...(7) Scattering and Propagation Matrices ...(8) The Poincare Sphere Analysis ...(9) Poincare Sphere Geometrical Model of the Scattering Matrix ...(10) Special Polarizations of the Bistatic Scattering Matrix ...(11) Constant Received Power Curves on the Poincare Sphere ...(12) The Basis-Invariant Decompositions of the Sinclair Matrix ...(13) Decomposition of the Partially Depolarizing Kennaugh Matrix into Four Non-Depolarizing Components ...(14) The Polarimetric Two-Ports ...(15) The Four-Sphere of Partial Polarization and Its Applications ...(16) Appendices",
+          img:"../BOOKS image/book57.jpg",
+          link:"https://www.goodreads.com/book/show/4064229-bistatic-radar-polarimetry---theory-principles",
+        },
+
+        {
+          title:"Spotlight Synthetic Aperture Radar: Signal Processing Algorithms",
+          author:"Walter C Carrar,September 30, 1995 by Artech House Publishers",
+          desc:"Presents SAR concepts and signal processing techniques unique to spotlight mode and the polar format algorithm. Provides detailed insight into spotlight mode, its applications, and its processing algorithms. Synthetic aperture radar.",
+          img:"../BOOKS image/book58.jpg",
+          link:"https://www.goodreads.com/book/show/1559730.Spotlight_Synthetic_Aperture_Radar",
+        },
+        {
+          title:"Microwave Scattering and Emission Models and their Applications",
+          author:"Adrian K. Fung, February 28, 1994 by Artech House Publishers",
+          desc:"This book is intended for practitioners and applied researchers in remote sensing applications and also for graduate students in the field.",
+          img:"../BOOKS image/book59.jpg",
+          link:"https://www.goodreads.com/book/show/4397808-microwave-scattering-and-emission-models-and-their-applications",
+        },
+       
+        {
+          title:"InSAR Observations of Ground Deformation: Application to the Cascades Volcanic Arc",
+          author:"Amy Laura Parker, October 24, 2016 by Springer",
+          desc:"This doctoral thesis applies measurements of ground deformation from satellite radar using their potential to play a key role in understanding volcanic and magmatic processes throughout the eruption cycle. However, making these measurements is often problematic, and the processes driving ground deformation are commonly poorly understood. These problems are approached in this thesis in the context of the Cascades Volcanic Arc. From a technical perspective, the thesis develops a new way of using regional-scale weather models to assess a priori the influence of atmospheric uncertainties on satellite measurements of volcano deformation, providing key parameters for volcano monitoring. Next, it presents detailed geodetic studies of two volcanoes in northern Medicine Lake Volcano and Lassen Volcanic Centre. Finally, the thesis combines geodetic constraints with petrological inputs to develop a thermal model of cooling magma intrusions.",
+          img:"../BOOKS image/book61.jpg",
+          link:"https://www.goodreads.com/book/show/30514541-insar-observations-of-ground-deformation",
+        },
+      ];
+
+      function openModal(book) {
+        const overlay = document.getElementById('descModal');
+        const titleEl = document.getElementById('modalTitle');
+        const authorEl = document.getElementById('modalAuthor');
+        const bodyEl = document.getElementById('modalBody');
+        const linkBtn = document.getElementById('modalLink');
+        titleEl.textContent = book.title || '';
+        authorEl.textContent = book.author || '';
+        bodyEl.textContent = (book.desc || '').toString();
+        if (book.link) {
+          linkBtn.href = book.link;
+          linkBtn.style.display = 'inline-block';
+        } else {
+          linkBtn.style.display = 'none';
+        }
+        overlay.style.display = 'flex';
+      }
+
+      function closeModal() {
+        const overlay = document.getElementById('descModal');
+        overlay.style.display = 'none';
+      }
+
+      function generateCards() {
+        const container = document.getElementById("cardContainer");
+        container.innerHTML = books
+          .map((book, idx) => {
+            const desc = (book.desc || "").toString();
+            const shortDesc = desc.substring(0, 100);
+            const restDesc = desc.substring(100);
+            const hasMore = restDesc.length > 0;
+            const beginnerNoteBlock = book.beginnerNote
+              ? `<div class="beginner-note" style="color:#1e90ff; font-size:0.97rem; margin-bottom:8px;"><b>Beginner's Note:</b> ${book.beginnerNote}</div>`
+              : "";
+            const linkButton = book.link
+              ? `<a href="${book.link}" class="btn" target="_blank" rel="noopener noreferrer">View details</a>`
+              : "";
+            return `
+        <div class="card">
+          <img src="${book.img || ''}" alt="${book.title || ''}">
+          <div class="card-content">
+            <div class="card-title">${book.title || ''}</div>
+            <div class="card-author">${book.author || ''}</div>
+            ${beginnerNoteBlock}
+            <div class="card-desc">
+              ${shortDesc}
+            </div>
+            <div class="card-actions">
+              ${linkButton}
+            </div>
+          </div>
+        </div>`;
+          })
+          .join("");
+      }
+
+      function toggleReadMore(el) {
+        const more = el.previousElementSibling.querySelector(".more-text");
+        if (!more) return;
+        more.style.display = more.style.display === "none" ? "inline" : "none";
+        el.textContent =
+          el.textContent === "Read more" ? "Read less" : "Read more";
+      }
+
+      function filterCards() {
+        const term = document.getElementById("bookSearch").value.toLowerCase();
+        document.querySelectorAll(".card").forEach((card) => {
+          const txt = card.textContent.toLowerCase();
+          card.style.display = txt.includes(term) ? "flex" : "none";
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        generateCards();
+        // Event delegation for detail buttons
+        const container = document.getElementById('cardContainer');
+        container.addEventListener('click', (e) => {
+          const btn = e.target.closest('.view-details');
+          if (!btn) return;
+          const idx = Number(btn.getAttribute('data-index'));
+          if (!Number.isNaN(idx) && books[idx]) {
+            openModal(books[idx]);
+          }
+        });
+
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.getElementById('descModal').addEventListener('click', (e) => {
+          if (e.target.id === 'descModal') closeModal();
+        });
+      });
+      
+      // Handle image loading errors
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('.card img');
+        images.forEach(function(img) {
+          img.addEventListener('load', function() {
+            console.log('Image loaded successfully:', img.src);
+            this.style.opacity = '1';
+          });
+          img.addEventListener('error', function() {
+            console.error('Image failed to load:', img.src);
+            this.style.opacity = '0.7';
+            this.style.border = '2px dashed #dc3545';
+            this.style.background = '#fff5f5';
+            // Create a fallback text
+            const fallback = document.createElement('div');
+            fallback.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#dc3545;font-size:12px;text-align:center;pointer-events:none;';
+            fallback.textContent = 'Cover Image\nNot Available';
+            this.parentNode.style.position = 'relative';
+            this.parentNode.appendChild(fallback);
+          });
+          img.style.opacity = '0.9';
+          img.style.transition = 'opacity 0.3s ease';
+        });
+      });
+    </script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>

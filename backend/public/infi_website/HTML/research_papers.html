@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Papers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+    <style>
+      .papers { padding: 20px; max-width: 1200px; margin: 80px auto 20px; }
+      .papers h1 { text-align: center; color: #003366; margin-bottom: 20px; }
+      .papers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+      .paper-card { background:#fff; border:1px solid #ddd; border-radius: 8px; padding: 16px; box-shadow: 0 4px 10px rgba(0,0,0,.08); }
+      .paper-card h2 { color:#000; font-size: 1.1rem; margin: 10px 0; text-align: left; }
+      .paper-card p { color:#333; font-size: .95rem; text-align: justify; }
+      .paper-card a { color:#6a4c9c; text-decoration: underline; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar"></div>
+    </header>
+    <main>
+      <section class="papers">
+        <h1>Research Papers</h1>
+        <div class="papers-grid" id="papersGrid"></div>
+      </section>
+    </main>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const papers = [
+          { title: 'Sample SAR Polarimetry Review', desc: 'Overview of SAR polarimetry methods and recent advances.', link: '#' },
+          { title: 'InSAR for Deformation Mapping', desc: 'Applications of interferometric SAR in crustal deformation studies.', link: '#' },
+        ];
+        const grid = document.getElementById('papersGrid');
+        grid.innerHTML = papers.map(p => `
+          <div class="paper-card">
+            <h2>${p.title}</h2>
+            <p>${p.desc}</p>
+            <a href="${p.link}" target="_blank" rel="noopener">Read</a>
+          </div>
+        `).join('');
+      });
+    </script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+ </html>
+

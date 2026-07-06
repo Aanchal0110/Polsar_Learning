@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> PolSARLearn</title>
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+    <style>
+      body {
+        /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Container adjustment for fixed header */
+      .container {
+        max-width: 1400px;
+        margin: 100px auto 20px auto;
+        padding: 20px;
+        background: transparent;
+      }
+
+      /* Header Section - matching Technical Paper style */
+      .tech-papers-header {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #002147;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+      }
+
+
+      #searchInput, .paper-search {
+        width: 70%;
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        border: 2px solid #e0e0e0;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+      }
+
+      #searchInput:focus {
+        outline: none;
+        border-color: #009688;
+        box-shadow: 0 0 10px rgba(0, 150, 136, 0.2);
+      }
+
+      .search-container {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 1.1em;
+        border: 2px solid #e1e5e9;
+        border-radius: 50px;
+        outline: none;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .search-input:focus {
+        border-color: #003366;
+        box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+      }
+
+      .search-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+        font-size: 1.2em;
+      }
+
+      /* Cards Grid */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+        /* width: 80vw; */
+      }
+
+      .card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid #e1e5e9;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover .card-image {
+        transform: scale(1.05);
+      }
+
+      .card-content {
+        padding: 30px;
+      }
+
+      .card-title {
+        font-size: 1.4em;
+        color: #003366;
+        margin: 0 0 15px 0;
+        font-weight: 600;
+        line-height: 1.3;
+        border-bottom: 3px solid #ff4500;
+        padding-bottom: 10px;
+        display: inline-block;
+      }
+
+      .card-description {
+        color: #555;
+        font-size: 1em;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      .card-description.expanded {
+        display: block;
+      }
+
+      .card-description.collapsed {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .read-more-btn {
+        background: linear-gradient(135deg, #003366 0%, #004080 100%);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 0.95em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .read-more-btn:hover {
+        background: linear-gradient(135deg, #004080 0%, #0056b3 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+      }
+
+      .read-more-btn i {
+        font-size: 0.9em;
+        transition: transform 0.3s ease;
+      }
+
+      .read-more-btn:hover i {
+        transform: translateX(3px);
+      }
+
+      /* Category Filters */
+      .category-filters {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background: white;
+        border: 2px solid #e1e5e9;
+        color: #555;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 0.95em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: #003366;
+        color: white;
+        border-color: #003366;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 40px 20px;
+        }
+
+        .hero-section h1 {
+          font-size: 2.5em;
+        }
+
+        .hero-section p {
+          font-size: 1.1em;
+        }
+
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .card-content {
+          padding: 20px;
+        }
+
+        .category-filters {
+          gap: 10px;
+        }
+
+        .filter-btn {
+          padding: 8px 16px;
+          font-size: 0.9em;
+        }
+
+        .search-input {
+          padding: 12px 16px;
+          font-size: 1em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 10px;
+        }
+
+        .hero-section {
+          padding: 30px 15px;
+        }
+
+        .hero-section h1 {
+          font-size: 2em;
+        }
+
+        .search-section {
+          padding: 20px;
+        }
+      }
+
+      /* Animation for cards */
+      .card {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .card:nth-child(1) { animation-delay: 0.1s; }
+      .card:nth-child(2) { animation-delay: 0.2s; }
+      .card:nth-child(3) { animation-delay: 0.3s; }
+      .card:nth-child(4) { animation-delay: 0.4s; }
+      .card:nth-child(5) { animation-delay: 0.5s; }
+      .card:nth-child(6) { animation-delay: 0.6s; }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+
+      /* Loading state */
+      .loading {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+      }
+
+      .loading i {
+        font-size: 2em;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      /* Modal (popup) styles */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+      }
+
+      .modal-overlay.show { display: flex; }
+
+      .modal {
+        width: min(900px, 92vw);
+        max-height: 88vh;
+        background: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 24px 48px rgba(0,0,0,.25);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, #003366 0%, #004080 100%);
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+
+      .modal-header h2 { margin: 0; font-size: 1.2rem; }
+
+      .modal-back,
+      .modal-close {
+        background: #ff4500;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .modal-close { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); }
+
+      .modal-body {
+        padding: 20px;
+        overflow: auto;
+        color: #333;
+        line-height: 1.75;
+      }
+
+      .modal-body h4 { margin-top: 1.2em; color: #003366; }
+      .modal-body ul { padding-left: 20px; }
+    </style>
+  </head>
+
+  <body>
+    <!-- Include Navbar -->
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar">
+        <div class="search-login-container">
+          <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <a href="#" class="login-icon">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+      
+
+      <div class="tech-papers-header">
+        <h1>Fundamentals</h1>
+        <p class="subtitle">
+          Explore the fundamental concepts and principles of remote sensing and microwave technology
+        </p>
+        <input type="text" id="searchInput" class="paper-search" placeholder="Search polarimetry concepts (e.g., SAR, polarimetry, InSAR, decomposition, calibration, speckle, geometry)..." onkeyup="filterCards()" />
+      </div>
+
+        <!-- Category Filters -->
+        <div class="category-filters">
+          <button class="filter-btn active" onclick="filterByCategory('all', this)">All Topics</button>
+          <button class="filter-btn" onclick="filterByCategory('radar', this)">Radar Basics</button>
+          <button class="filter-btn" onclick="filterByCategory('polarization', this)">Polarization</button>
+        </div>
+
+      <!-- Cards Grid -->
+      <div class="cards-grid" id="cardsGrid">
+        <!-- Static entries to ensure visibility; JSON items will append below -->
+        <div class="card" data-category="radar"><div class="card-content"><h3 class="card-title">Range, Azimuth and Swath</h3><p class="card-description">Key SAR geometry terms.</p><button class="read-more-btn" onclick="openTopic('geometry')"><span>Open</span></button></div></div>
+        <div class="card" data-category="radar"><div class="card-content"><h3 class="card-title">Backscattering</h3><p class="card-description">Controls of the return signal and scattering types.</p><button class="read-more-btn" onclick="openTopic('backscatter')"><span>Open</span></button></div></div>
+        <div class="card" data-category="polarization"><div class="card-content"><h3 class="card-title">Polarization Types</h3><p class="card-description">Single-, Dual-, Quad-pol.</p><button class="read-more-btn" onclick="openTopic('polarization-types')"><span>Open</span></button></div></div>
+        <div class="card" data-category="polarization"><div class="card-content"><h3 class="card-title">Polarization Correlation</h3><p class="card-description">Co-pol and Cross-pol relationships.</p><button class="read-more-btn" onclick="openTopic('pol-correlation')"><span>Open</span></button></div></div>
+        <div class="card"><div class="card-content"><h3 class="card-title">Scattering Matrix</h3><p class="card-description">S-matrix channel meanings.</p><button class="read-more-btn" onclick="openTopic('s-matrix')"><span>Open</span></button></div></div>
+        <div class="card"><div class="card-content"><h3 class="card-title">Covariance Matrix</h3><p class="card-description">C2 elements and interpretation.</p><button class="read-more-btn" onclick="openTopic('c-matrix')"><span>Open</span></button></div></div>
+        <div class="card"><div class="card-content"><h3 class="card-title">Decomposition</h3><p class="card-description">Surface / Double-bounce / Volume.</p><button class="read-more-btn" onclick="openTopic('decomposition')"><span>Open</span></button></div></div>
+        <div class="card"><div class="card-content"><h3 class="card-title">DEM</h3><p class="card-description">Digital Elevation Model basics.</p><button class="read-more-btn" onclick="openTopic('dem')"><span>Open</span></button></div></div>
+        <div class="card"><div class="card-content"><h3 class="card-title">Speckle Filtering</h3><p class="card-description">Noise reduction preserving detail.</p><button class="read-more-btn" onclick="openTopic('speckle')"><span>Open</span></button></div></div>
+        <div class="card"><div class="card-content"><h3 class="card-title">Co-registration</h3><p class="card-description">Pixel alignment for phase/intensity.</p><button class="read-more-btn" onclick="openTopic('coreg')"><span>Open</span></button></div></div>
+        <div class="card"><div class="card-content"><h3 class="card-title">Geo-coding</h3><p class="card-description">Map-projected radar imagery.</p><button class="read-more-btn" onclick="openTopic('geocoding')"><span>Open</span></button></div></div>
+        <div class="card"><div class="card-content"><h3 class="card-title">Radiometric Calibration</h3><p class="card-description">Quantitative backscatter.</p><button class="read-more-btn" onclick="openTopic('radiometric')"><span>Open</span></button></div></div>
+      </div>
+
+      <!-- Topic Modal -->
+      <div class="modal-overlay" id="topicModal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+          <div class="modal-header">
+            <button class="modal-back" onclick="closeModal()">Back</button>
+            <h2 id="modalTitle"></h2>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+          </div>
+          <div class="modal-body" id="modalBody"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+      // Use same-origin relative URL to avoid HTTPS/port issues
+      fetch(`/infi_website/data/fundamental.json`).then(res => res.json()).then(data => {
+        Object.keys(data).forEach((k, index) => {
+          // console.log(data[k])
+          const card = `
+          
+          <div class="card" data-category="radar">
+          <div class="card-content">
+            <h3 class="card-title">${data[k].title}</h3>
+            <p class=\"card-description\">${data[k].intro}</p>
+            <button class=\"read-more-btn\" onclick=\"openTopic('${k}')\"><span>Open</span></button>
+          </div>
+        </div>`;
+          document.getElementById("cardsGrid").innerHTML += card;  
+      })
+      }).catch(err => {
+        console.error('Failed to load fundamental.json', err);
+        const grid = document.getElementById("cardsGrid");
+        if (grid) {
+          grid.innerHTML = '<div class="loading">Unable to load content. Please refresh.</div>';
+        }
+      });
+
+
+      // Modal system
+      const TOPIC_HTML = {
+        sar: `<p>Synthetic Aperture Radar (SAR) systems employ a small physical antenna that transmits radar pulses from multiple points as the platform moves, creating a synthetic aperture by combining the pulse echoes into a single pulse. An aperture is an opening that collects energy after reflection; it is akin to the shutter of a camera or the antenna of a radar system. SAR provides better spatial resolution than traditional real aperture radars because it electronically simulates a much larger antenna. The spatial resolution of SAR is independent of the platform's altitude, so the imaging can be at fine resolutions regardless of the height at which the sensor is mounted. High‑resolution SAR images also allow appropriate post‑processing that brings out important data that may be recovered, making SAR highly effective in applications requiring such detailed surface observations.</p>`,
+        geometry: `<h4>Range, Azimuth and Swath</h4><ul><li><b>Range</b>: The direction perpendicular to an orbit or flight path.</li><li><b>Azimuth</b>: The direction parallel to the flight path of an aircraft or orbit of a satellite.</li><li><b>Swath</b>: The area imaged on Earth’s surface by one pass of an aircraft or satellite.</li></ul>`,
+        backscatter: `<p>Backscattering is the part of the radar signal that reflects toward the sensor after interacting with Earth's surface. The backscattering phenomenon contains essential information on surface features, such as roughness, geometric structure, and material composition. The physical and dielectric properties of the surface, as well as the radar wavelength, polarization, and angle of incidence, are all factors that govern the intensity and nature of the backscattering.</p><h4>Types of Backscattering</h4><ul><li><b>Single bounce</b>: Occurs when the radar signal bounces off a smooth or moderately rough surface like still water, bare soil, or flat ground.</li><li><b>Double bounce</b>: Occurs when the signal bounces back between two surfaces, like ground and a vertical object (e.g., a building wall or tree trunk).</li><li><b>Volume bounce</b>: Takes place in heterogeneous or layered materials (e.g., vegetation and forest canopies) wherein the radar signal propagates and interacts with buried contents.</li></ul><h4>Backscattering Dependencies</h4><ul><li><b>Nature of the surface</b>: Scattering behavior depends on roughness, texture, and homogeneity of the surface; smooth surfaces show specular reflection, rough surfaces produce diffuse scattering.</li><li><b>Angle of incidence</b>: The angle at which the radar signal hits the surface significantly affects the magnitude of the return.</li><li><b>Wavelength</b>: Longer wavelengths (L‑band) penetrate further into soil and vegetation whereas shorter wavelengths (X‑band) are sensitive to minute details.</li><li><b>Electric properties</b>: Energy absorption, transmission, or reflection depends on the dielectric constant and material conductivity.</li><li><b>Orientation angle w.r.t. LOS</b>: The spatial orientation of the target relative to the radar’s line of sight affects both the trajectory and magnitude of scattering.</li><li><b>Polarization</b>: The polarization (H, V, or cross‑pol) affects the interaction with the surface and how much is scattered back to the sensor.</li><li><b>Structure of the target</b>: Complex geometries like plant canopies, buildings, or layered surfaces produce multiple scattering mechanisms (single bounce, volume, double bounce).</li></ul>`,
+        polsar: `<p>Polarimetric Synthetic Aperture Radar (PolSAR) provides detailed insights into the characteristics of objects and terrain through their scattering properties. Compared with traditional single‑polarization systems, PolSAR transmits and receives microwave signals in multiple polarizations, such as vertical (V), horizontal (H), and cross‑polarizations (HV or VH). This technology captures the full polarimetric scattering information—both amplitude and phase of the received signal—enabling detailed analysis of the scattering process. As a result, PolSAR improves differentiation between vegetation, man‑made structures, and natural features, making it a versatile tool for applications in agriculture, forestry, and land‑cover classification. With the launch of dedicated PolSAR satellites, the technology has become more accessible and widespread, enabling global monitoring and comprehensive Earth observation. Ongoing research continues to refine PolSAR processing techniques, enhancing capabilities in terrain analysis, environmental assessment, and target recognition.</p>`,
+        'polarization-types': `<p>Polarimetric SAR works by transmitting and receiving radar signals along different polarization states to gain comprehensive insight into target scattering.</p><ul><li><b>Single Polarization (Single‑Pol)</b>: Uses a single transmit and receive polarization (H or V) providing basic scattering information.</li><li><b>Dual Polarization (Dual‑Pol)</b>: Transmits in one polarization and receives in two (e.g., HH and HV, or VV and VH), providing additional information about scattering mechanisms.</li><li><b>Quad Polarization (Quad‑Pol)</b>: Transmits and receives in both horizontal and vertical polarizations and captures all combinations (HH, HV, VH, VV) for comprehensive polarimetric data.</li></ul>`,
+        'pol-correlation': `<p>Polarization correlation in polarimetry explains the degree of correlation between polarization states of radar waves. In PolSAR, it is fundamental for understanding relationships among polarization combinations.</p><p><b>Co‑polarization</b> considers horizontal and vertical states when transmit and receive share the same polarization: HH (horizontal transmit, horizontal receive) and VV (vertical transmit, vertical receive). High co‑polarization indicates strong correlation and preserved polarization state.</p><p><b>Cross‑polarization</b> considers orthogonal states: HV (horizontal transmit, vertical receive) or VH (vertical transmit, horizontal receive). Low cross‑polarization indicates uncorrelated polarization states, commonly associated with surface or volume scattering.</p>`,
+        's-matrix': `<p>The scattering matrix (S‑matrix) represents how the target changes the polarization state of incident radar waves. In its 2×2 form:</p><pre>S = [ S11  S12\n      S21  S22 ]</pre><ul><li><b>S11</b>: co‑polarized return amplitude for the same polarization state (e.g., HH).</li><li><b>S22</b>: co‑polarized return amplitude for the orthogonal polarization state (e.g., VV).</li><li><b>S12</b>: cross‑polarized return amplitude from HH to VV or VV to HH.</li><li><b>S21</b>: cross‑polarized return amplitude from HV to VH or VH to HV.</li></ul>`,
+        'c-matrix': `<p>The C2 covariance matrix is used in dual‑polarization PolSAR systems and represents statistical relationships between two measured polarimetric channels (e.g., HH and HV or VV and VH):</p><pre>C = [ C11  C12\n      C21  C22 ]</pre><ul><li><b>C11</b> and <b>C22</b> (diagonal): powers of the co‑pol channels (e.g., HH and VV).</li><li><b>C12</b> and <b>C21</b> (off‑diagonal): complex covariance between co‑pol channels, carrying magnitude and phase information that describes cross‑correlation.</li></ul>`,
+        decomposition: `<p>Decomposition in microwave remote sensing breaks the observed radar return into constituent scattering mechanisms—typically surface scattering, double‑bounce scattering, and volume scattering. Surface scattering arises from flat, smooth surfaces (water, bare soil). Double‑bounce occurs with vertical structures (buildings, trunks). Volume scattering is produced by complex media (vegetation, snow). Model‑based and eigenvalue‑based decomposition methods reveal physical and geometric properties of targets, supporting land‑cover classification, forest biomass estimation, urban mapping, and environmental surveillance, and thereby improving interpretation accuracy.</p>`,
+        insar: `<p>Interferometry (InSAR) measures deformation or topography by interpreting phase differences between two or more radar images of the same scene acquired from nearby positions or at different times. The interferogram represents changes in distance from the sensor to the ground for corresponding pixels and is highly sensitive to millimetric displacements from earthquakes, landslides, subsidence, as well as elevation variations. Phase quality depends on wavelength, baseline distance between acquisitions, and surface roughness. InSAR provides a powerful means to quantify Earth’s dynamics.</p>`,
+        dem: `<p>A Digital Elevation Model (DEM) is a 3D representation of the Earth's surface capturing elevation over a defined area. DEMs are often produced using SAR/InSAR by measuring sensor‑to‑surface distance and deriving height from phase information observed from slightly different perspectives. DEM quality and resolution depend on source data, sensor characteristics, and processing. DEMs are essential for analyzing slopes, contours, and topographic features and underpin many geospatial analyses.</p>`,
+        speckle: `<p>Speckle filtering is an essential step in SAR image analysis aimed at mitigating granular speckle noise while preserving relevant information. Speckle results from random constructive and destructive interference of coherent waves from multiple scatterers within a resolution cell. Although informative of texture, speckle obscures patterns and reduces interpretability. Filtering applies mathematical algorithms to smooth speckle while maintaining edges, structure, and radiometric detail.</p>`,
+        coreg: `<p>Co‑registration overlays several radar images of the same scene so corresponding pixels represent the same ground location. It is crucial for interferometry, time‑series analysis, and change detection. The process involves coarse alignment using metadata followed by fine alignment via feature matching (e.g., cross‑correlation, mutual information) to achieve sub‑pixel accuracy, minimizing artifacts and enabling reliable comparisons of phase and intensity.</p>`,
+        geocoding: `<p>Geo‑coding brings radar images into a standard map coordinate system (latitude/longitude or a projection such as UTM). This enables precise registration with maps and other geospatial products so spatial analysis can be conducted accurately. Geo‑coding is essential for overlaying radar data with other spatial layers (satellite imagery, vector maps, GIS datasets) to support urban planning, disaster management, and environmental monitoring.</p>`,
+        radiometric: `<p>Radiometric calibration corrects SAR data so recorded signals accurately represent the reflectivity (backscatter) of observed targets. Raw SAR can be influenced by sensor characteristics, acquisition geometry, atmospheric effects, and system noise. Calibration references data against known standards (e.g., corner reflectors or homogeneous surfaces) and applies mission‑specific parameters. Accurate calibration is essential for quantitative analyses—land‑cover classification, biomass estimation, soil‑moisture retrieval—ensuring consistency, comparability across acquisitions, and reliability for scientific and operational use.</p>`
+      };
+
+      function openTopic(key) {
+        const modal = document.getElementById('topicModal');
+        const body = document.getElementById('modalBody');
+        const title = document.getElementById('modalTitle');
+        let displayKey = key;
+        if (!TOPIC_HTML[key]) displayKey = 'sar';
+        title.textContent = {
+          sar: 'Synthetic Aperture Radar (SAR)',
+          geometry: 'Range, Azimuth and Swath',
+          backscatter: 'Backscattering',
+          polsar: 'Polarimetric Synthetic Aperture Radar (PolSAR)',
+          'polarization-types': 'Types of Polarization',
+          'pol-correlation': 'Polarization Correlation',
+          's-matrix': 'Scattering Matrix',
+          'c-matrix': 'Covariance Matrix (C2)',
+          decomposition: 'Decomposition',
+          insar: 'Interferometry (InSAR)',
+          dem: 'Digital Elevation Model (DEM)',
+          speckle: 'Speckle Filtering',
+          coreg: 'Co-registration',
+          geocoding: 'Geo-coding',
+          radiometric: 'Radiometric Calibration'
+        }[displayKey] || 'Topic';
+        body.innerHTML = TOPIC_HTML[displayKey];
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('topicModal');
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        document.getElementById('modalBody').innerHTML = '';
+        document.getElementById('modalTitle').textContent = '';
+      }
+
+      // Working search filter for cards
+      function filterCards() {
+        const searchTerm = (document.getElementById('searchInput')?.value || '').toLowerCase();
+        document.querySelectorAll('#cardsGrid .card').forEach(card => {
+          const title = (card.querySelector('.card-title')?.textContent || '').toLowerCase();
+          const description = (card.querySelector('.card-description')?.textContent || '').toLowerCase();
+          card.style.display = (title.includes(searchTerm) || description.includes(searchTerm)) ? 'block' : 'none';
+        });
+      }
+
+      // Category filter for static and dynamic cards
+      function filterByCategory(category, btn) {
+        const cards = document.querySelectorAll('#cardsGrid .card');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+        cards.forEach(card => {
+          const cat = card.dataset.category || 'all';
+          card.style.display = (category === 'all' || cat === category) ? 'block' : 'none';
+        });
+      }
+
+      // Filter cards by search
+      // function filterCards() {
+      //   const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      //   const cards = document.querySelectorAll('.card');
+
+      //   cards.forEach(card => {
+      //     const title = card.querySelector('.card-title').textContent.toLowerCase();
+      //     const description = card.querySelector('.card-description').textContent.toLowerCase();
+          
+      //     if (title.includes(searchTerm) || description.includes(searchTerm)) {
+      //       card.style.display = 'block';
+      //     } else {
+      //       card.style.display = 'none';
+      //     }
+      //   });
+      // }
+
+      // Filter by category
+      // function filterByCategory(category) {
+      //   const cards = document.querySelectorAll('.card');
+      //   const filterButtons = document.querySelectorAll('.filter-btn');
+
+      //   // Update active button
+      //   filterButtons.forEach(btn => btn.classList.remove('active'));
+      //   event.target.classList.add('active');
+
+      //   cards.forEach(card => {
+      //     if (category === 'all' || card.dataset.category === category) {
+      //       card.style.display = 'block';
+      //     } else {
+      //       card.style.display = 'none';
+      //     }
+      //   });
+      // }
+
+      // Add smooth scrolling and animations
+      // document.addEventListener('DOMContentLoaded', function() {
+      //   // Animate cards on scroll
+      //   const observerOptions = {
+      //     threshold: 0.1,
+      //     rootMargin: '0px 0px -50px 0px'
+      //   };
+
+      //   const observer = new IntersectionObserver(function(entries) {
+      //     entries.forEach(entry => {
+      //       if (entry.isIntersecting) {
+      //         entry.target.style.opacity = '1';
+      //         entry.target.style.transform = 'translateY(0)';
+      //       }
+      //     });
+      //   }, observerOptions);
+
+      //   document.querySelectorAll('.card').forEach(card => {
+      //     observer.observe(card);
+      //   });
+      // });
+    </script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>

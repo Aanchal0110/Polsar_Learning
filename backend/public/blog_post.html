@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post Viewer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 2rem;
+        background: #f7f7f7;
+      }
+      #content {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Blog Post</h1>
+    <div id="content">Loading...</div>
+
+    <script>
+      // Replace this with your actual Google Drive file ID
+      const FILE_ID = "1KUEP750LggIY2jVP5CMrpJjxcZ3UY7nV";
+      const FILE_URL = `http://localhost:5000/proxy/fetch-drive-file/${FILE_ID}`;
+
+      fetch(FILE_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error("Failed to fetch file");
+          return res.text();
+        })
+        .then((text) => {
+          // Optional: Basic Markdown to HTML (only handles headers and paragraphs)
+          const html = text
+            .replace(/^### (.*$)/gim, "<h3>$1</h3>")
+            .replace(/^## (.*$)/gim, "<h2>$1</h2>")
+            .replace(/^# (.*$)/gim, "<h1>$1</h1>")
+            .replace(/^\> (.*$)/gim, "<blockquote>$1</blockquote>")
+            .replace(/\*\*(.*)\*\*/gim, "<b>$1</b>")
+            .replace(/\*(.*)\*/gim, "<i>$1</i>")
+            .replace(/\n$/gim, "<br/>");
+
+          document.getElementById("content").innerHTML = html;
+        })
+        .catch((err) => {
+          document.getElementById("content").innerText =
+            "Error loading post: " + err.message;
+        });
+    </script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+</body>
+</html>
