@@ -1,0 +1,42 @@
+# Render Blueprint — deploy the backend as a Node web service.
+# In Render: New + > Blueprint > pick this repo. It reads this file.
+# Env vars marked `sync: false` are NOT stored in git — you enter them
+# (their real values) in the Render dashboard when prompted.
+# The Google service_account.json is added separately as a Render "Secret File"
+# at path src/config/service_account.json (see deploy notes).
+services:
+  - type: web
+    name: polsar-learning
+    runtime: node
+    rootDir: backend
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CHAT_MODEL
+        value: claude-sonnet-5
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRY
+        sync: false
+      - key: SALT_ROUND
+        sync: false
+      - key: GDRIVE_POST_FOLDER
+        sync: false
+      - key: GDRIVE_COVER_FOLDER
+        sync: false
+      - key: APP_PASSWD
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: OTP_EXPIRY_MINUTES
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
