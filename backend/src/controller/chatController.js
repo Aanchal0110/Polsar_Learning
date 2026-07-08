@@ -21,13 +21,47 @@ function buildContextBlock(docs) {
     .join("\n\n");
 }
 
+// Shown (as a separate, muted line in the widget) under answers that come from
+// the AI's own general knowledge rather than the site's knowledge base, so
+// visitors aren't misled about the source.
+const AI_DISCLAIMER =
+  "This answer is AI-generated from general knowledge, not from this site's own content, so please double-check it before relying on it.";
+
 const SYSTEM_PROMPT = `You are Microsensi, the help assistant embedded on a Polarimetric SAR & Remote Sensing learning website (Learn RS & MW).
 A CONTEXT block below was retrieved live from the site's database and content pages for the visitor's question.
-Rules:
-- Prefer the CONTEXT whenever it is relevant. Never invent facts, books, papers, people, or URLs that contradict or fabricate what's in the CONTEXT.
-- If the visitor asks for a link and a matching CONTEXT entry has one, give the exact "Link:" or "Page:" value verbatim - do not shorten, alter, or invent a URL.
-- If the CONTEXT does not answer the question (e.g. it's a general knowledge question unrelated to this site's content), answer it yourself using your own knowledge like a normal helpful assistant would. Briefly make clear the answer is general knowledge, not from the site, so the visitor isn't misled about the source. Do not invent a site link/page for this kind of answer.
-- Keep answers concise and friendly. Use plain text, not markdown tables.`;
+
+Answer in TWO steps:
+1. FIRST decide whether the CONTEXT (the site's own knowledge base) actually answers the visitor's question.
+   - If it does, answer using the CONTEXT. Never invent facts, books, papers, people, or URLs that contradict or fabricate what's in the CONTEXT. If the visitor asks for a link and a matching CONTEXT entry has one, give the exact "Link:" or "Page:" value verbatim - do not shorten, alter, or invent a URL. This is a "kb" answer.
+   - If the CONTEXT does NOT answer the question (e.g. a general knowledge question unrelated to this site's content), answer it yourself using your own general knowledge, phrased clearly and helpfully. Do not invent a site link/page for this kind of answer. This is an "ai" answer.
+2. Keep answers concise and friendly. Use plain text, not markdown tables.
+
+Respond with a single JSON object and nothing else, in this exact shape:
+{"source": "kb" | "ai", "answer": "<your answer as plain text>"}
+Use "kb" only when the answer genuinely came from the CONTEXT; otherwise use "ai".`;
+
+// Pull a {"source","answer"} object out of the model's reply. Tolerates code
+// fences or stray prose around the JSON. Falls back to treating the whole reply
+// as an unclassified answer so a formatting slip never breaks the chat.
+function parseModelReply(rawText) {
+  const text = rawText.trim();
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  if (start !== -1 && end > start) {
+    try {
+      const parsed = JSON.parse(text.slice(start, end + 1));
+      if (parsed && typeof parsed.answer === "string" && parsed.answer.trim()) {
+        return {
+          source: parsed.source === "kb" ? "kb" : "ai",
+          answer: parsed.answer.trim(),
+        };
+      }
+    } catch (err) {
+      // fall through to the plain-text fallback below
+    }
+  }
+  return { source: "ai", answer: text };
+}
 
 async function chat(req, res) {
   try {
@@ -61,13 +95,20 @@ async function chat(req, res) {
       messages,
     });
 
-    const reply = response.content
+    const rawText = response.content
       .filter((block) => block.type === "text")
       .map((block) => block.text)
       .join("\n")
       .trim();
 
-    res.json({ success: true, reply });
+    const { source, answer } = parseModelReply(rawText);
+
+    res.json({
+      success: true,
+      reply: answer,
+      source,
+      disclaimer: source === "ai" ? AI_DISCLAIMER : null,
+    });
   } catch (err) {
     logger.error("Chat error:", err);
     res.status(500).json({ success: false, message: "Failed to get a response from the assistant" });

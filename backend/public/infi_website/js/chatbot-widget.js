@@ -23,6 +23,10 @@
     "padding:8px 16px;cursor:pointer;font-size:14px;}",
     "#lrsw-send:disabled{opacity:.6;cursor:default;}",
     ".lrsw-typing{font-style:italic;color:#666;}",
+    ".lrsw-disclaimer{margin:-4px auto 10px 0;max-width:85%;padding:6px 10px;border-radius:8px;",
+    "background:#fff7e6;border:1px solid #ffe0a3;color:#8a6d3b;font-size:11.5px;line-height:1.35;",
+    "display:flex;gap:6px;align-items:flex-start;}",
+    ".lrsw-disclaimer .lrsw-disc-icon{flex:none;}",
   ].join("");
 
   function injectStyle() {
@@ -81,6 +85,18 @@
       return div;
     }
 
+    function addDisclaimer(text) {
+      var div = document.createElement("div");
+      div.className = "lrsw-disclaimer";
+      div.innerHTML =
+        '<span class="lrsw-disc-icon" aria-hidden="true">⚠️</span><span>' +
+        linkify(text) +
+        "</span>";
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return div;
+    }
+
     function togglePanel(open) {
       panel.classList.toggle("lrsw-open", open);
       if (open && !greeted) {
@@ -124,6 +140,7 @@
 
         if (data.success) {
           addMessage("assistant", data.reply);
+          if (data.disclaimer) addDisclaimer(data.disclaimer);
           history.push({ role: "assistant", content: data.reply });
         } else {
           addMessage("assistant", "Sorry, I couldn't get an answer right now.");
