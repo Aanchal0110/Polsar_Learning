@@ -380,10 +380,11 @@ header {
 #navBar ul {
   width: 100%;
   display: flex;
-  justify-content: space-evenly; /* spread items across the width */
+  justify-content: center; /* keep items on one row, centered */
   align-items: center;
-  gap: clamp(16px, 3vw, 40px);
-  flex-wrap: wrap;
+  gap: clamp(8px, 1.5vw, 22px);
+  flex-wrap: nowrap; /* never wrap the menu onto a second line */
+  min-width: 0;
 }
 
 /* --- Responsive Breakpoints --- */
