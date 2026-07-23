@@ -41,22 +41,10 @@ class WebsiteSearch {
                 description: "Educational videos and tutorials on remote sensing topics"
             },
             {
-                title: "Academicians",
-                url: "/infi_website/HTML/academicians.html",
-                keywords: ["academicians", "professors", "researchers", "experts", "faculty", "academia"],
-                description: "Meet leading academicians and researchers in remote sensing"
-            },
-            {
-                title: "Industry Personnel",
-                url: "/infi_website/HTML/Industry Personnel.html",
-                keywords: ["industry", "professionals", "experts", "practitioners", "commercial", "business"],
-                description: "Industry experts and professionals in remote sensing applications"
-            },
-            {
-                title: "Researchers",
-                url: "/infi_website/HTML/Researchers.html",
-                keywords: ["researchers", "scientists", "research", "publications", "studies", "investigations"],
-                description: "Leading researchers and their contributions to remote sensing"
+                title: "Domain Experts",
+                url: "/infi_website/HTML/domain-experts.html",
+                keywords: ["domain experts", "academicians", "professors", "faculty", "academia", "industry", "professionals", "practitioners", "researchers", "scientists", "experts"],
+                description: "Academicians, industry professionals and researchers in remote sensing"
             },
             {
                 title: "Data Download",

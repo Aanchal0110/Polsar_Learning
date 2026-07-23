@@ -65,6 +65,19 @@
         box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
       }
 
+      .no-results {
+        max-width: 800px;
+        margin: 25px auto;
+        padding: 20px 25px;
+        background: #fff8e1;
+        border: 1px solid #ffe0a3;
+        border-left: 5px solid #ff9800;
+        border-radius: 10px;
+        color: #6d4c00;
+        font-size: 1.05rem;
+        text-align: center;
+      }
+
       .category-filters {
         display: flex;
         justify-content: center;
@@ -245,6 +258,8 @@
           <input type="text" id="journalSearch" class="search-input" placeholder="Search journals by name, publisher, or field..." />
         </div>
       </div>
+
+      <div id="noJournalsMsg" class="no-results" style="display: none"></div>
 
       <!-- Category Filters -->
       <div class="category-filters">
@@ -623,41 +638,65 @@
     </div>
 
     <script>
-      // Search functionality
-      document.getElementById('journalSearch').addEventListener('keyup', function() {
-        const searchTerm = this.value.toLowerCase();
-        const journalItems = document.querySelectorAll('.journal-item');
-        
-        journalItems.forEach(item => {
-          const name = item.querySelector('.journal-name').textContent.toLowerCase();
-          const description = item.querySelector('.journal-description').textContent.toLowerCase();
-          const text = name + ' ' + description;
-          
-          if (text.includes(searchTerm)) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
-          }
+      let activeCategory = 'all';
+
+      // Apply the current search term and category filter together
+      function applyJournalFilters() {
+        const input = document.getElementById('journalSearch');
+        const searchTerm = input ? input.value.trim().toLowerCase() : '';
+        const terms = searchTerm.split(/\s+/).filter(Boolean);
+        let visibleCount = 0;
+
+        document.querySelectorAll('.journal-category').forEach(cat => {
+          const catType = cat.dataset.category;
+          const inCategory = activeCategory === 'all' || catType === activeCategory;
+          let categoryHasMatch = false;
+
+          cat.querySelectorAll('.journal-item').forEach(item => {
+            const name = item.querySelector('.journal-name').textContent.toLowerCase();
+            const description = item.querySelector('.journal-description').textContent.toLowerCase();
+            const badgeEl = item.querySelector('.journal-badge');
+            const badge = badgeEl ? badgeEl.textContent.toLowerCase() : '';
+            const text = name + ' ' + description + ' ' + badge;
+
+            const matches = inCategory && terms.every(t => text.includes(t));
+            item.style.display = matches ? 'flex' : 'none';
+            if (matches) {
+              categoryHasMatch = true;
+              visibleCount++;
+            }
+          });
+
+          // Hide a publisher block entirely when nothing inside it matches
+          cat.style.display = inCategory && categoryHasMatch ? 'block' : 'none';
         });
-      });
+
+        const msg = document.getElementById('noJournalsMsg');
+        if (msg) {
+          if (visibleCount === 0) {
+            msg.textContent = searchTerm
+              ? 'No journal found matching "' + input.value.trim() + '". Please check the spelling or try another journal name, publisher, or field.'
+              : 'No journals available in this category.';
+            msg.style.display = '';
+          } else {
+            msg.style.display = 'none';
+          }
+        }
+      }
+
+      // Search functionality
+      document.getElementById('journalSearch').addEventListener('input', applyJournalFilters);
 
       // Category filter functionality
       function filterByCategory(category, btn) {
-        const categories = document.querySelectorAll('.journal-category');
         const filterButtons = document.querySelectorAll('.filter-btn');
-        
+
         // Update active button
         filterButtons.forEach(b => b.classList.remove('active'));
         if (btn) btn.classList.add('active');
-        
-        categories.forEach(cat => {
-          const catType = cat.dataset.category;
-          if (category === 'all' || catType === category) {
-            cat.style.display = 'block';
-          } else {
-            cat.style.display = 'none';
-          }
-        });
+
+        activeCategory = category;
+        applyJournalFilters();
       }
 
       // Initialize with all categories visible

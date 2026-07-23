@@ -119,30 +119,23 @@
         margin-bottom: 10px;
         letter-spacing: 0.5px;
       }
+      .career-card .company-name a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      .career-card .company-name a:hover,
+      .career-card .company-name a:focus {
+        color: var(--hover-blue);
+        border-bottom-color: var(--hover-blue);
+      }
       .career-card .career-details {
         color: #2d3a4a;
         font-size: 1.04rem;
         margin-bottom: 18px;
         text-align: justify;
         min-height: 90px;
-      }
-      .career-card .career-btn {
-        background: var(--accent-blue);
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        padding: 10px 22px;
-        font-weight: 600;
-        font-size: 1rem;
-        text-decoration: none;
-        transition: background 0.2s;
-        box-shadow: 0 2px 8px rgba(91, 141, 239, 0.08);
-        cursor: pointer;
-        margin-top: 8px;
-        display: inline-block;
-      }
-      .career-card .career-btn:hover {
-        background: var(--hover-blue);
       }
       @media (max-width: 1100px) {
         .career-main-layout {
@@ -528,9 +521,8 @@
           lastLetter = firstLetter;
         }
         html += `<div class="career-card">
-          <div class="company-name">${company.name}</div>
+          <div class="company-name"><a href="${company.link}" target="_blank" rel="noopener">${company.name}</a></div>
           <div class="career-details">${company.details}</div>
-          <a href="${company.link}" target="_blank" class="career-btn">More</a>
         </div>`;
       });
       document.getElementById("careerCards").innerHTML = html;

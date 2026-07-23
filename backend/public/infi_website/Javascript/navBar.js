@@ -34,14 +34,7 @@ const navbar = `<nav class="navbar">
                             <a href="/infi_website/HTML/Videos.html">Videos</a>
                         </div>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Domain Experts</a>
-                        <div class="dropdown-content">
-                            <a href="/infi_website/HTML/academicians.html">Academicians</a>
-                            <a href="/infi_website/HTML/Industry Personnel.html">Industry Personnel</a>
-                            <a href="/infi_website/HTML/Researchers.html">Researchers</a>
-                        </div>
-                    </li>
+                    <li><a href="/infi_website/HTML/domain-experts.html">Domain Experts</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropbtn">Downloads</a>
                         <div class="dropdown-content">

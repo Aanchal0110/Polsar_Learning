@@ -182,6 +182,19 @@
         box-shadow: 0 0 10px rgba(0, 150, 136, 0.2);
       }
 
+      .no-results {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px 25px;
+        background: #fff8e1;
+        border: 1px solid #ffe0a3;
+        border-left: 5px solid #ff9800;
+        border-radius: 10px;
+        color: #6d4c00;
+        font-size: 1.05rem;
+        text-align: center;
+      }
+
       @media (max-width: 768px) {
         h1 {
           font-size: 2rem;
@@ -236,6 +249,8 @@
         </p>
         <input type="text" id="paperSearch" class="paper-search" placeholder="Search by title, keyword, or author..." />
       </div>
+
+      <div id="noPapersMsg" class="no-results" style="display: none"></div>
 
       <div id="papersContainer">
         <!-- Remote Sensing: Sensor Types -->
@@ -1805,15 +1820,44 @@
 
     <script>
       // Enable search on this page, robust to load order
+      function runPaperSearch(query){
+        const terms = (query || '').toLowerCase().split(/\s+/).filter(Boolean);
+        let visibleCount = 0;
+
+        document.querySelectorAll('.paper-card').forEach(card => {
+          const text = card.textContent.toLowerCase().replace(/\s+/g, ' ');
+          const match = terms.every(t => text.includes(t));
+          card.style.display = match ? '' : 'none';
+          if (match) visibleCount++;
+        });
+
+        // Hide domain headings that no longer have any matching paper
+        document.querySelectorAll('.domain-section').forEach(section => {
+          const hasVisible = Array.from(section.querySelectorAll('.paper-card'))
+            .some(card => card.style.display !== 'none');
+          section.style.display = hasVisible ? '' : 'none';
+        });
+
+        const msg = document.getElementById('noPapersMsg');
+        if (msg) {
+          if (terms.length && visibleCount === 0) {
+            msg.textContent = 'No papers found for "' + query.trim() + '". Try a different title, keyword, or author name.';
+            msg.style.display = '';
+          } else {
+            msg.style.display = 'none';
+          }
+        }
+      }
+
       function bindPaperSearch(){
         const input = document.getElementById('paperSearch');
         if(!input) return;
         input.addEventListener('input', function(){
-          const q = this.value.toLowerCase();
-          document.querySelectorAll('.paper-card').forEach(card => {
-            const text = card.textContent.toLowerCase();
-            card.style.display = text.includes(q) ? '' : 'none';
-          });
+          runPaperSearch(this.value);
+        });
+        // Don't let Enter submit/reload the page
+        input.addEventListener('keydown', function(e){
+          if (e.key === 'Enter') e.preventDefault();
         });
       }
       if(document.readyState === 'loading'){
@@ -1850,6 +1894,9 @@
 
           setupAbstractToggles();
           enhancePaperLinks();
+          // Re-apply any search term the user typed while the JSON was loading
+          const searchBox = document.getElementById("paperSearch");
+          if (searchBox && searchBox.value) runPaperSearch(searchBox.value);
         })
         .catch((err) => console.error(err));
 

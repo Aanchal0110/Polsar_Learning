@@ -184,22 +184,17 @@
         background: linear-gradient(to bottom, #003366, #ff4500);
         top: 0;
         bottom: 0;
-        left: 50%;
-        margin-left: -2px;
+        left: 31px;
         border-radius: 2px;
       }
+      /* Single-column timeline: one satellite per row, newest first */
       .timeline-item {
-        padding: 10px 40px;
+        padding: 10px 25px 10px 70px;
         position: relative;
-        width: 50%;
+        width: 100%;
+        left: 0;
         box-sizing: border-box;
         margin-bottom: 30px;
-      }
-      .timeline-item:nth-child(odd) {
-        left: 0;
-      }
-      .timeline-item:nth-child(even) {
-        left: 50%;
       }
       .timeline-item::after {
         content: "";
@@ -210,14 +205,9 @@
         border: 4px solid #ff4500;
         border-radius: 50%;
         top: 15px;
+        left: 21px;
         z-index: 1;
         box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      }
-      .timeline-item:nth-child(odd)::after {
-        right: -10px;
-      }
-      .timeline-item:nth-child(even)::after {
-        left: -10px;
       }
       .timeline-content {
         padding: 25px;
@@ -353,22 +343,12 @@
         .resolution-grid {
           grid-template-columns: 1fr;
         }
-        .timeline::after {
-          left: 31px;
+        .timeline {
+          padding: 20px 0;
         }
         .timeline-item {
-          width: 100%;
-          padding-left: 70px;
-          padding-right: 25px;
-        }
-        .timeline-item:nth-child(even) {
-          left: 0;
-        }
-        .timeline-item::after {
-          left: 21px;
-        }
-        .timeline-item:nth-child(odd)::after {
-          right: auto;
+          padding-left: 60px;
+          padding-right: 0;
         }
         .section {
           padding: 20px;
@@ -567,205 +547,7 @@
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year">1972</div>
-              <div class="timeline-title">
-                <a href="https://landsat.gsfc.nasa.gov/satellites/landsat-1/" target="_blank">Landsat 1</a>
-              </div>
-              <div class="timeline-description">
-                NASA/USGS - Pioneering Earth observation satellite providing systematic surface imaging for agriculture, forestry, geology, and land use planning. Launched the era of civilian Earth observation.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 1986</div>
-              <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/spot-1/description" target="_blank">SPOT 1</a>
-              </div>
-              <div class="timeline-description">
-                CNES (France) - High-resolution optical imaging system for cartography, land use analysis, and environmental monitoring. Introduced stereo imaging capabilities.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 1988</div>
-              <div class="timeline-title">
-                <a href="https://www.isro.gov.in/IRS_1A.html?timeline=timeline" target="_blank">IRS-1A</a>
-              </div>
-              <div class="timeline-description">
-                ISRO (India) - India's first operational remote sensing satellite for land and water resources management, agricultural monitoring, and urban planning applications.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 1999</div>
-              <div class="timeline-title">
-                <a href="https://eospso.nasa.gov/missions/terra" target="_blank">Terra (EOS AM-1)</a>
-              </div>
-              <div class="timeline-description">
-                NASA - Flagship Earth Observing System satellite providing multispectral imaging for climate research, vegetation analysis, and comprehensive atmospheric studies.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 1999</div>
-              <div class="timeline-title">
-                <a href="https://en.wikipedia.org/wiki/IKONOS" target="_blank">IKONOS</a>
-              </div>
-              <div class="timeline-description">
-                GeoEye (USA) - First commercial high-resolution satellite providing 1-meter resolution imagery for urban planning, disaster response, and environmental monitoring.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2001</div>
-              <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/quickbird-2" target="_blank">QuickBird</a>
-              </div>
-              <div class="timeline-description">
-                DigitalGlobe (USA) - High-resolution Earth imagery system for detailed mapping, precision agriculture, and urban development applications.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2004</div>
-              <div class="timeline-title">
-                <a href="https://www.satimagingcorp.com/satellite-sensors/other-satellite-sensors/formosat-2/" target="_blank">FORMOSAT-2</a>
-              </div>
-              <div class="timeline-description">
-                NSPO (Taiwan) - High-resolution imagery system for disaster monitoring, environmental observation, and agricultural assessment with daily revisit capability.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2007</div>
-              <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/worldview-1" target="_blank">WorldView-1</a>
-              </div>
-              <div class="timeline-description">
-                DigitalGlobe (USA) - Ultra-high resolution imaging system for defense, intelligence, and detailed mapping applications with 0.5-meter resolution.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2007</div>
-              <div class="timeline-title">
-                <a href="https://www.isro.gov.in/CARTOSAT_2_PSLVC40.html" target="_blank">Cartosat-2</a>
-              </div>
-              <div class="timeline-description">
-                ISRO (India) - High-resolution imagery system for urban planning, rural development, and infrastructure monitoring with stereo imaging capabilities.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2008</div>
-              <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/geoeye-1" target="_blank">GeoEye-1</a>
-              </div>
-              <div class="timeline-description">
-                GeoEye (USA) - High-resolution Earth imagery system for mapping, agriculture, and urban planning with 0.41-meter resolution capabilities.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2011</div>
-              <div class="timeline-title">
-                <a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1/" target="_blank">Pleiades-1A</a>
-              </div>
-              <div class="timeline-description">
-                CNES (France) - High-resolution optical imaging system for defense applications, civil engineering, and environmental monitoring with 0.5-meter resolution.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2012</div>
-              <div class="timeline-title">
-                <a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1b/" target="_blank">Pleiades-1B</a>
-              </div>
-              <div class="timeline-description">
-                CNES (France) - Complementing Pleiades-1A for increased coverage and improved revisit frequency, enhancing operational capabilities.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2012</div>
-              <div class="timeline-title">
-                <a href="https://www.eoportal.org/satellite-missions/kompsat-3" target="_blank">Kompsat-3</a>
-              </div>
-              <div class="timeline-description">
-                KARI (South Korea) - High-resolution imagery system for land use analysis, disaster monitoring, and environmental observation with multispectral capabilities.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2013</div>
-              <div class="timeline-title">
-                <a href="https://www.eoportal.org/satellite-missions/dubaisat-2#spacecraft" target="_blank">DubaiSat-2</a>
-              </div>
-              <div class="timeline-description">
-                EIAST (UAE) - High-resolution Earth imaging system for urban planning, infrastructure development, and environmental monitoring in the Middle East region.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2013</div>
-              <div class="timeline-title">
-                <a href="https://www.eoportal.org/satellite-missions/gaofen-1" target="_blank">Gaofen-1</a>
-              </div>
-              <div class="timeline-description">
-                CNSA (China) - High-resolution Earth observation system for agricultural monitoring, disaster assessment, and natural resource management.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2015</div>
-              <div class="timeline-title">
-                <a href="https://en.wikipedia.org/wiki/Sentinel-2A" target="_blank">Sentinel-2A</a>
-              </div>
-              <div class="timeline-description">
-                ESA (European Union) - Multispectral imaging system for comprehensive land monitoring, agricultural applications, and disaster management with 10-meter resolution.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2016</div>
-              <div class="timeline-title">
-                <a href="https://earth.esa.int/eogateway/missions/worldview-4" target="_blank">WorldView-4</a>
-              </div>
-              <div class="timeline-description">
-                DigitalGlobe (USA) - Ultra-high resolution imagery system for detailed mapping, land classification, and infrastructure planning with 0.31-meter resolution.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2016</div>
-              <div class="timeline-title">
-                <a href="https://www.eoportal.org/satellite-missions/gaojing#spacecraft" target="_blank">SuperView-1</a>
-              </div>
-              <div class="timeline-description">
-                Siwei Star Co. (China) - High-resolution imagery system for mapping, land use analysis, and urban planning with commercial applications.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-year"> 2017</div>
+              <div class="timeline-year">2017</div>
               <div class="timeline-title">
                 <a href="https://en.wikipedia.org/wiki/Sentinel-2B" target="_blank">Sentinel-2B</a>
               </div>
@@ -776,12 +558,210 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-year"> 2014-present</div>
+              <div class="timeline-year">2016</div>
+              <div class="timeline-title">
+                <a href="https://earth.esa.int/eogateway/missions/worldview-4" target="_blank">WorldView-4</a>
+              </div>
+              <div class="timeline-description">
+                DigitalGlobe (USA) - Ultra-high resolution imagery system for detailed mapping, land classification, and infrastructure planning with 0.31-meter resolution.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2016</div>
+              <div class="timeline-title">
+                <a href="https://www.eoportal.org/satellite-missions/gaojing#spacecraft" target="_blank">SuperView-1</a>
+              </div>
+              <div class="timeline-description">
+                Siwei Star Co. (China) - High-resolution imagery system for mapping, land use analysis, and urban planning with commercial applications.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2015</div>
+              <div class="timeline-title">
+                <a href="https://en.wikipedia.org/wiki/Sentinel-2A" target="_blank">Sentinel-2A</a>
+              </div>
+              <div class="timeline-description">
+                ESA (European Union) - Multispectral imaging system for comprehensive land monitoring, agricultural applications, and disaster management with 10-meter resolution.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2014-present</div>
               <div class="timeline-title">
                 <a href="https://earth.esa.int/eogateway/missions/planetscope" target="_blank">PlanetScope</a>
               </div>
               <div class="timeline-description">
                 Planet Labs (USA) - Revolutionary constellation of small satellites providing daily, high-resolution imagery for various applications with global coverage.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2013</div>
+              <div class="timeline-title">
+                <a href="https://www.eoportal.org/satellite-missions/dubaisat-2#spacecraft" target="_blank">DubaiSat-2</a>
+              </div>
+              <div class="timeline-description">
+                EIAST (UAE) - High-resolution Earth imaging system for urban planning, infrastructure development, and environmental monitoring in the Middle East region.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2013</div>
+              <div class="timeline-title">
+                <a href="https://www.eoportal.org/satellite-missions/gaofen-1" target="_blank">Gaofen-1</a>
+              </div>
+              <div class="timeline-description">
+                CNSA (China) - High-resolution Earth observation system for agricultural monitoring, disaster assessment, and natural resource management.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2012</div>
+              <div class="timeline-title">
+                <a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1b/" target="_blank">Pleiades-1B</a>
+              </div>
+              <div class="timeline-description">
+                CNES (France) - Complementing Pleiades-1A for increased coverage and improved revisit frequency, enhancing operational capabilities.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2012</div>
+              <div class="timeline-title">
+                <a href="https://www.eoportal.org/satellite-missions/kompsat-3" target="_blank">Kompsat-3</a>
+              </div>
+              <div class="timeline-description">
+                KARI (South Korea) - High-resolution imagery system for land use analysis, disaster monitoring, and environmental observation with multispectral capabilities.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2011</div>
+              <div class="timeline-title">
+                <a href="https://www.satimagingcorp.com/satellite-sensors/pleiades-1/" target="_blank">Pleiades-1A</a>
+              </div>
+              <div class="timeline-description">
+                CNES (France) - High-resolution optical imaging system for defense applications, civil engineering, and environmental monitoring with 0.5-meter resolution.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2008</div>
+              <div class="timeline-title">
+                <a href="https://earth.esa.int/eogateway/missions/geoeye-1" target="_blank">GeoEye-1</a>
+              </div>
+              <div class="timeline-description">
+                GeoEye (USA) - High-resolution Earth imagery system for mapping, agriculture, and urban planning with 0.41-meter resolution capabilities.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2007</div>
+              <div class="timeline-title">
+                <a href="https://earth.esa.int/eogateway/missions/worldview-1" target="_blank">WorldView-1</a>
+              </div>
+              <div class="timeline-description">
+                DigitalGlobe (USA) - Ultra-high resolution imaging system for defense, intelligence, and detailed mapping applications with 0.5-meter resolution.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2007</div>
+              <div class="timeline-title">
+                <a href="https://www.isro.gov.in/CARTOSAT_2_PSLVC40.html" target="_blank">Cartosat-2</a>
+              </div>
+              <div class="timeline-description">
+                ISRO (India) - High-resolution imagery system for urban planning, rural development, and infrastructure monitoring with stereo imaging capabilities.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2004</div>
+              <div class="timeline-title">
+                <a href="https://www.satimagingcorp.com/satellite-sensors/other-satellite-sensors/formosat-2/" target="_blank">FORMOSAT-2</a>
+              </div>
+              <div class="timeline-description">
+                NSPO (Taiwan) - High-resolution imagery system for disaster monitoring, environmental observation, and agricultural assessment with daily revisit capability.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2001</div>
+              <div class="timeline-title">
+                <a href="https://earth.esa.int/eogateway/missions/quickbird-2" target="_blank">QuickBird</a>
+              </div>
+              <div class="timeline-description">
+                DigitalGlobe (USA) - High-resolution Earth imagery system for detailed mapping, precision agriculture, and urban development applications.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">1999</div>
+              <div class="timeline-title">
+                <a href="https://eospso.nasa.gov/missions/terra" target="_blank">Terra (EOS AM-1)</a>
+              </div>
+              <div class="timeline-description">
+                NASA - Flagship Earth Observing System satellite providing multispectral imaging for climate research, vegetation analysis, and comprehensive atmospheric studies.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">1999</div>
+              <div class="timeline-title">
+                <a href="https://en.wikipedia.org/wiki/IKONOS" target="_blank">IKONOS</a>
+              </div>
+              <div class="timeline-description">
+                GeoEye (USA) - First commercial high-resolution satellite providing 1-meter resolution imagery for urban planning, disaster response, and environmental monitoring.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">1988</div>
+              <div class="timeline-title">
+                <a href="https://www.isro.gov.in/IRS_1A.html?timeline=timeline" target="_blank">IRS-1A</a>
+              </div>
+              <div class="timeline-description">
+                ISRO (India) - India's first operational remote sensing satellite for land and water resources management, agricultural monitoring, and urban planning applications.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">1986</div>
+              <div class="timeline-title">
+                <a href="https://earth.esa.int/eogateway/missions/spot-1/description" target="_blank">SPOT 1</a>
+              </div>
+              <div class="timeline-description">
+                CNES (France) - High-resolution optical imaging system for cartography, land use analysis, and environmental monitoring. Introduced stereo imaging capabilities.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">1972</div>
+              <div class="timeline-title">
+                <a href="https://landsat.gsfc.nasa.gov/satellites/landsat-1/" target="_blank">Landsat 1</a>
+              </div>
+              <div class="timeline-description">
+                NASA/USGS - Pioneering Earth observation satellite providing systematic surface imaging for agriculture, forestry, geology, and land use planning. Launched the era of civilian Earth observation.
               </div>
             </div>
           </div>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domain Experts - PolSARLearn</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="/infi_website/CSS/style.css" />
+    <style>
+      .btn { display:inline-block; padding:8px 14px; border-radius:6px; border:1px solid #1e90ff; background:#1e90ff; color:#fff; text-decoration:none; font-size:0.95rem; cursor:pointer; transition:all 0.2s ease; }
+      .btn:hover { filter: brightness(0.95); }
+      p { text-align: justify; }
+
+      .experts-page h1 { text-align: center; }
+      .experts-intro { text-align: center; margin-bottom: 20px; color: #666; font-style: italic; }
+
+      /* Group tabs */
+      .expert-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin: 25px 0 35px;
+      }
+      .expert-tab {
+        padding: 10px 22px;
+        border: 1px solid #003366;
+        background: #fff;
+        color: #003366;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: all 0.25s ease;
+      }
+      .expert-tab:hover { background: #e8f1f8; }
+      .expert-tab.active { background: #003366; color: #fff; }
+
+      .expert-group { margin-bottom: 45px; }
+      .group-title {
+        color: #003366;
+        border-bottom: 3px solid #ff4500;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+      }
+
+      .academicians-items { text-align: center; }
+      .academician-item {
+        border: 1px solid #ccc;
+        margin: 15px 0;
+        padding: 15px;
+        border-radius: 8px;
+        background: #fff;
+      }
+      .academician-item h2 { margin-top: 10px; color: black; font-size: 1.15rem; }
+      .academician-item img,
+      .academician-img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .read-more-btn { color: #0077b5; cursor: pointer; font-weight: bold; }
+      .read-more-content {
+        display: none;
+        margin-top: 10px;
+        color: black;
+        text-align: justify;
+      }
+      .read-more-content a { display: block; text-align: center; margin-top: 10px; }
+      .read-more-content ul { list-style-type: none; padding-left: 0; }
+      .read-more-content li { margin-bottom: 10px; }
+      .read-more-content a.website-link { display: none; }
+      .linkedin-link { display: none; }
+
+      /* Handle missing images gracefully */
+      .academician-img:not([src]),
+      .academician-img[src=""],
+      .academician-img[src*="undefined"] {
+        background: #f8f9fa;
+        border: 2px dashed #dee2e6;
+        color: #6c757d;
+        font-size: 14px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <div id="navBar"></div>
+    </header>
+    <div id="navBarTracker"></div>
+
+    <div class="container">
+      <main class="experts-page">
+        <h1>Domain Experts</h1>
+        <div class="experts-intro">
+          <p>Last Updated: <span id="lastUpdated"></span></p>
+        </div>
+
+        <div class="expert-tabs">
+          <button class="expert-tab active" data-target="all">All Experts</button>
+          <button class="expert-tab" data-target="academicians">Academicians</button>
+          <button class="expert-tab" data-target="industry">Industry Professionals</button>
+          <button class="expert-tab" data-target="researchers">Researchers</button>
+        </div>
+
+        <section class="expert-group" id="academicians" data-group="academicians">
+          <h2 class="group-title">Academicians</h2>
+          <div class="academicians-items">
+            <div class="academician-item">
+                        <img src="/infi_website/image/Dr. dharmendra Singh.jpg" alt="Dr. Dharmendra Singh" class="academician-img">
+                        <h2>Dr. Dharmendra Singh (IIT Roorkee)</h2>
+                        <p>Senior Professor, Electronics & Communication Engineering, IIT Roorkee; Joint Faculty & Former Head, Computer Science. Coordinator, DRONE RESEARCH CENTER. Recipient of multiple international fellowships and National GOLD Award for e-governance. Ph.D. from IIT (BHU) Varanasi.</p>
+                        <p><b>Research Interests:</b> Radar, Microwave/Millimeter/THz Imaging, AI, ML, IoT, Drones, Image Processing, Satellite Data, Remote Sensing, Radar Polarimetry, Stealth Technology, EM Modeling.</p>
+                        <a href="https://www.linkedin.com/in/dharmendra-singh-9230b1252/" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="../image/Dr. gulab Singh.jpeg" alt="Dr. Gulab Singh" class="academician-img">
+                        <h2>Dr. Gulab Singh (CSRE IIT Bombay)</h2>
+                        <p>Expert in radar polarimetry and SAR data analysis. Develops radar remote sensing inversion techniques for geophysical parameter retrieval.</p>
+                        <p><b>Research Interests:</b> Radar remote sensing of snow/glaciers, SAR tomography, polarimetric SAR data decomposition.</p>
+                        <a href="https://linkedin.com/in/gulab-singh-26935244" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="../image/Dr. Krishna Mohan Buddhiraju.jpg" alt="Dr. Krishna Mohan Buddhiraju" class="academician-img">
+                        <h2>Dr. Krishna Mohan Buddhiraju (CSRE IIT Bombay)</h2>
+                        <p>Specializes in satellite image processing and analysis, leading a research team of postgraduates and doctoral students.</p>
+                        <p><b>Research Interests:</b> High-resolution image segmentation, hyperspectral analysis, GIS, educational content for image processing.</p>
+                        <a href="https://linkedin.com/in/krishna-mohan-buddhiraju-b31b9334" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="../image/Dr. Avik Bhattacharya.jpeg" alt="Dr. Avik Bhattacharya" class="academician-img">
+                        <h2>Dr. Avik Bhattacharya (CSRE IIT Bombay)</h2>
+                        <p>Professor at CSRE, IIT Bombay. Editor-in-Chief, IEEE GRSL. Specializes in SAR polarimetry and statistical analysis of SAR images.</p>
+                        <a href="https://linkedin.com/in/avik-bhattacharya-b66015137" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="/infi_website/image/Dr. Sanjay Shitole.jpeg" alt="Dr. Sanjay S. Shitole" class="academician-img">
+                        <h2>Dr. Sanjay S. Shitole (UMIT, Mumbai)</h2>
+                        <p>Active in research and teaching. Led NASA-ISRO funded projects on SAR and machine learning. Mentors Ph.D. students in remote sensing and image processing.</p>
+                        <p><b>Expertise:</b> Remote Sensing, Image Processing, Machine Learning, LaTeX, Digital Marketing.</p>
+                        <a href="https://linkedin.com/in/dr-sanjay-shitole" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="/infi_website/image/Dr. Amiya Kumar Tripathy.jpeg" alt="Dr. Amiya Kumar Tripathy" class="academician-img">
+                        <h2>Dr. Amiya Kumar Tripathy (DBIT, Mumbai)</h2>
+                        <p>Professor in Data Science, experienced in academia, research, and industry. Ph.D. in Data Mining & Sensor Network from IIT Bombay.</p>
+                        <p><b>Research Interests:</b> AI, Data Science, Embedded Systems, IoT, Machine Learning, Geo-ICT for Agriculture.</p>
+                        <a href="https://linkedin.com/in/dr-amiya-ku-tripathy-phd-b715732" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="/infi_website/image/Dr. Chandrakanta Ojha.jpeg" alt="Dr. Chandrakanta Ojha" class="academician-img">
+                        <h2>Dr. Chandrakanta Ojha (IISER Mohali)</h2>
+                        <p>Geodesist specializing in microwave remote sensing and satellite-based Earth deformation monitoring. Develops methods for SAR and InSAR analysis.</p>
+                        <p><b>Research Areas:</b> Microwave Remote Sensing, Satellite radar interferometry, Crustal deformation, Groundwater, Parallel computing.</p>
+                        <a href="https://linkedin.com/in/chandrakanta-ojha-82965035" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="/infi_website/image/Dr. Ummesh Khati.jpeg" alt="Dr. Unmesh Khati" class="academician-img">
+                        <h2>Dr. Unmesh Khati (IIT Indore)</h2>
+                        <p>Faculty at IIT Indore, former NASA-JPL researcher. Develops SAR remote sensing algorithms for ecosystems, agriculture, and asset monitoring.</p>
+                        <p><b>Research Interests:</b> Radar polarimetry, PolInSAR, Change detection, Machine learning, Data fusion, Lidar, SAR Tomography.</p>
+                        <a href="https://linkedin.com/in/unmesh-khati" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="/infi_website/image/Dr. Rishikesh Bharti.jpeg" alt="Dr. Rishikesh Bharti" class="academician-img">
+                        <h2>Dr. Rishikesh Bharti (IIT Guwahati)</h2>
+                        <p>Researcher in snow/glacier studies, tectonic geomorphology, micro-climate modeling, and GPR-based subsurface investigation.</p>
+                        <a href="https://linkedin.com/in/rishikesh-bharti-831ab8118" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="/infi_website/image/Dr. Vineet Kumar.jpeg" alt="Dr. Vineet Kumar" class="academician-img">
+                        <h2>Dr. Vineet Kumar (IHE Delft Institute for Water Education)</h2>
+                        <p>Expert in Remote Sensing, Synthetic Aperture Radar, and Earth observations with specialization in Remote Sensing of Vegetation. Currently affiliated with IHE Delft Institute for Water Education in Delft, South Holland, Netherlands.</p>
+                        <p><b>Research Interests:</b> Remote Sensing, Synthetic Aperture Radar (SAR), Earth observations, Remote Sensing of Vegetation, Water resources monitoring, Environmental applications.</p>
+                        <p><b>Education:</b> Indian Institute of Technology, Bombay</p>
+                        <a href="https://linkedin.com/in/vineet-kumar-6537b420" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="/infi_website/image/Dr. Mughda agarwadkar.jpeg" alt="Dr. Mugdha Agarwadkar" class="academician-img">
+                        <h2>Dr. Mugdha Agarwadkar (A P Shah Institute of Technology)</h2>
+                        <p>Associate Professor, Civil Engineering. Ph.D. in Groundwater Hydrology from IIT Bombay. Focuses on groundwater, water resources, and environmental monitoring.</p>
+                        <p><b>Interest Areas:</b> Groundwater hydrology, Water Resources, Environmental Health, Remote Sensing, GIS, Climate Change, Disaster Management.</p>
+                        <a href="https://linkedin.com/in/dr-mugdha-apte-agarwadkar-6145661a" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+
+            <div class="academician-item">
+                        <img src="/infi_website/image/Dr. Mousmi Chaurasia.jpeg" alt="Dr. Mousmi Chaurasia" class="academician-img">
+                        <h2>Dr. Mousmi Chaurasia (Muffakham Jah College of Engineering and Technology, Hyderabad)</h2>
+                        <p>Professor and Head, IT Dept. Published 28+ papers, 5 patents, international experience. IEEE Senior Member and awardee.</p>
+                        <p><b>Research Interests:</b> Artificial Intelligence, Geoscience & Remote Sensing, Computational Intelligence.</p>
+                        <a href="https://linkedin.com/in/mousmi-ajay-chaurasia-17a4a7188" target="_blank" class="btn">LinkedIn</a>
+                    </div>
+          </div>
+        </section>
+
+        <section class="expert-group" id="industry" data-group="industry">
+          <h2 class="group-title">Industry Professionals</h2>
+          <div class="academicians-items">
+            <div class="academician-item">
+              <img
+                src="/infi_website/image/Dr. Samee Azmi.jpeg"
+                alt="Dr. Samee Azmi"
+                class="academician-img"
+                style="display: block; margin: 0 auto"
+              />
+              <h2>Dr. Samee Azmi, Ph.D. (HERE Technologies)</h2>
+              <p style="text-align: justify">
+                Dr. Samee Azmi is a seasoned Project and Program Manager at HERE Technologies with over six years of experience leading global governance, risk management, and strategic program execution. With a strong foundation in geospatial sciences and hydrology, he holds a doctorate in Geoinformatics and Natural Resources from IIT Bombay and has previously contributed as a researcher, consultant, and modeling specialist in projects funded by organizations like the World Bank.
+              </p>
+              <span class="read-more-btn" onclick="toggleReadMore(this)">Read More</span>
+              <div class="read-more-content">
+                <p style="text-align: justify">
+                  He has authored more than 15 peer-reviewed publications, holds a patent, and brings extensive expertise in GIS, remote sensing, and decision support systems. His career spans academic research, rural development initiatives, and large-scale program governance, where he has successfully engaged with senior stakeholders, adopted Agile practices, and driven benefit realization.
+                </p>
+                <p style="text-align: justify">
+                  Certified with PMP®, DASSM®, PSPO®, and PSM®, Dr. Azmi combines technical depth with leadership skills, making him highly effective in bridging science, technology, and business strategy. His work reflects a balance of academic rigor, hands-on technical expertise, and organizational leadership, positioning him as a strong asset in both geospatial research and program management domains.
+                </p>
+                <p style="text-align: justify">Key Areas of Expertise:</p>
+                <ol>
+                  <li>Project and Program Management</li>
+                  <li>Geospatial Sciences and Hydrology</li>
+                  <li>GIS and Remote Sensing</li>
+                  <li>Decision Support Systems</li>
+                  <li>Agile Practices and Governance</li>
+                  <li>Strategic Program Execution</li>
+                </ol>
+                <a href="https://www.linkedin.com/in/samiazmi/" class="btn" target="_blank">LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="academician-item">
+              <img
+                src="/infi_website/image/Dr. Yogesh Agarwadkar.jpeg"
+                alt="Dr. Yogesh Agarwadkar"
+                class="academician-img"
+                style="display: block; margin: 0 auto"
+              />
+              <h2 style="margin-top: 10px">
+                Dr. Yogesh Agarwadkar (InfiCorridor Solutions Private Limited)
+              </h2>
+              <p style="text-align: justify">
+                Research experience of over 12 years while handling 9 research
+                projects. Planned, set-up and maintained a research facility at
+                IIT Bombay for successful completion of these projects. Also
+                have a teaching experience of over 3 years and have been invited
+                to conduct guest lectures at Mumbai University along with a
+                Short-Term Training Programme. Worked on 10 consultancy projects
+                in the field of application of civil engineering to
+                environmental and disaster management
+              </p>
+              <span class="read-more-btn" onclick="toggleReadMore(this)"
+                >Read More</span
+              >
+              <div class="read-more-content">
+                <p style="text-align: justify">
+                  Possess around two years of industry experience till date.
+                  Published 7 journal papers and presented 17 papers in national
+                  and international conferences. Successfully initiated,
+                  conceptualised, and organised a national conference
+                  “geomatrix” and helped organise a Research Scholars’
+                  Confluence for the first time during the golden jubilee year
+                  of IIT Bombay.
+                </p>
+                <p style="text-align: justify">
+                  Consultancy involvements in the field pertaining to Solution
+                  architecture, Hydrological modelling, Ground water analysis,
+                  Soil erosion and run off modelling, Terrain Evaluation,
+                  Surveying and related services, Data Analysis, Environmental
+                  Assessment, Disaster Management, Climate Change, Software
+                  Development, Simulation, Geo-spatial Analysis and Spatial
+                  Modelling, Image Processing etc.
+                </p>
+                <p style="text-align: justify">His Skills and Expertise:</p>
+                <ol>
+                  <li>Environmental Impact Assessment</li>
+                  <li>Computational Fluid Dynamics</li>
+                  <li>Remote Sensing</li>
+                  <li>Engineering Applied and Computational Mathematics</li>
+                  <li>Numerical Modeling</li>
+                  <li>Modeling and Simulation</li>
+                  <li>Numerical Analysis</li>
+                  <li>Spatial Analysis Mapping</li>
+                </ol>
+                <a href="https://www.linkedin.com/in/yogesh-a-1598045" class="btn" target="_blank">LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="academician-item">
+              <img
+                src="/infi_website/image/Shaunak De.jpeg"
+                alt="Dr. Shaunak De"
+                class="academician-img"
+                style="display: block; margin: 0 auto"
+              />
+              <h2>Dr. Shaunak De (Capella Space)</h2>
+              <p>
+                Shaunak De received the B.Eng. degree in electronics engineering
+                from the University of Mumbai, Mumbai, India, in 2012,
+                graduating as a gold medalist. He is currently working toward
+                the Ph.D. degree in remote sensing image analysis at the Centre
+                of Studies in Resources Engineering, Indian Institute of
+                Technology Bombay, Mumbai, India.
+              </p>
+              <span class="read-more-btn" onclick="toggleReadMore(this)"
+                >Read More</span
+              >
+              <div class="read-more-content">
+                <p>
+                  His current research interests include polarimetric SAR,
+                  machine learning, and information theory. He serves as a
+                  reviewer for international journals, among them, the IEEE
+                  Journal Of Selected Topics In Applied Earth Observations And
+                  Remote Sensing and the IEEE Geoscience And Remote Sensing
+                  Letters.
+                </p>
+                <p style="text-align: justify">
+                  Research Field and Area of Interests:
+                </p>
+                <ol>
+                  <li>Machine Learning</li>
+                  <li>Polarimetric SAR</li>
+                  <li>Deep Learning</li>
+                </ol>
+                <a href="https://www.linkedin.com/in/shaunakde" class="btn" target="_blank">LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="academician-item">
+              <img
+                src="/infi_website/image/Varsha-Turkar.png"
+                alt="Dr. Varsha Turkar"
+                class="academician-img"
+                style="display: block; margin: 0 auto"
+              />
+              <h2>Dr. Varsha Turkar (InfiCorridor Solutions Pvt. Ltd., Mumbai)</h2>
+              <p>
+                Dr. Varsha Turkar is a leading expert in SAR image classification and microwave remote sensing with over two decades of experience in research and industry applications. She specializes in data analysis, machine learning, and has a strong background in developing innovative solutions for remote sensing challenges.
+              </p>
+              <span class="read-more-btn" onclick="toggleReadMore(this)">Read More</span>
+              <div class="read-more-content">
+                <p>
+                  With extensive experience in both academia and industry, Dr. Turkar has contributed significantly to the field of microwave remote sensing. Her expertise spans across SAR polarimetry, image processing, and machine learning applications for Earth observation.
+                </p>
+                <p style="text-align: justify">Key Areas of Expertise:</p>
+                <ol>
+                  <li>SAR Image Classification</li>
+                  <li>Microwave Remote Sensing</li>
+                  <li>Machine Learning & AI</li>
+                  <li>Data Analysis & Processing</li>
+                  <li>PolSAR Applications</li>
+                  <li>Environmental Monitoring</li>
+                </ol>
+                <a href="https://linkedin.com/in/varshaturkar" target="_blank" class="btn">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="expert-group" id="researchers" data-group="researchers">
+          <h2 class="group-title">Researchers</h2>
+          <div class="academicians-items">
+            <div class="academician-item">
+            <img
+              src="/infi_website/image/Dr. Shiv Mohan.jpeg"
+              alt="Dr. Shiv Mohan"
+              class="academician-img"
+            />
+            <h2>Dr. Shiv Mohan (Space Application Centre, Ahmedabad)</h2>
+            <p>
+              Dr. Shiv Mohan, a pioneer in microwave remote sensing, played a
+              key role in India's SAR programs, including RISAT and
+              Chandrayaan SAR missions. He has 320+ research papers, guided
+              PhD students, and received the IEEE GRSS Outstanding Service
+              Award (2022). He also contributed to IEEE GRSS initiatives in
+              India.
+            </p>
+            <a href="https://linkedin.com/in/shiv-mohan-1a009234" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+            <div class="academician-item">
+            <img
+              src="/infi_website/image/Dr. Anup Das.jpeg"
+              alt="Dr. Anup Das"
+              class="academician-img"
+            />
+            <h2>Dr. Anup Das (Space Application Centre, Ahmedabad-ISRO)</h2>
+            <p>
+              Dr. Anup Das specializes in SAR applications for geosciences and
+              planetary studies. He is involved in major SAR missions like
+              RISAT-1, Chandrayaan SAR, and NISAR. He received the 'Green Asia
+              Award' (2017) for SAR-based forest biomass studies.
+            </p>
+            <a href="https://linkedin.com/in/anup-das-51880327" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+            <div class="academician-item">
+            <img
+              src="/infi_website/image/profile.png"
+              alt="Dr. Sujata Dash"
+              class="academician-img"
+            />
+            <h2>Dr. Sujata Dash (DTRL, DRDO, New Delhi)</h2>
+            <p>
+              Dr. Sujata Dash specializes in geospatial applications for
+              defense and SAR-based terrain modeling. She has 35+ research
+              papers and has received multiple awards, including 'Scientist of
+              the Year' (2006).
+            </p>
+            <a href="https://www.linkedin.com/in/sujata-dash-422971a3" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+            <div class="academician-item">
+            <img
+              src="/infi_website/image/Paul Rosen.jpeg"
+              alt="Dr. Paul Rosen"
+              class="academician-img"
+            />
+            <h2>Dr. Paul Rosen (Jet Propulsion Laboratory-NASA)</h2>
+            <p>
+              Dr. Paul Rosen leads SAR research at NASA's JPL. He played a key
+              role in SRTM and planetary SAR applications. He has received
+              NASA's Exceptional Service Medal (2001) and authored 30+ journal
+              papers.
+            </p>
+            <a href="https://www.linkedin.com/in/paul-rosen-4052b8b" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+            <div class="academician-item">
+            <img
+              src="/infi_website/image/profile.png"
+              alt="Dr. Sujata Ghosh"
+              class="academician-img"
+            />
+            <h2>Dr. Sujata Ghosh (ADRIN, Hyderabad)</h2>
+            <p>
+              Dr. Sujata Ghosh has expertise in government and remote sensing
+              applications, with prior experience at ISRO.
+            </p>
+            <a href="https://linkedin.com/in/sujata-ghosh-7b338a8" class="btn" target="_blank">LinkedIn</a>
+          </div>
+
+            <div class="academician-item">
+            <img
+              src="/infi_website/image/pratima_pandey.jpg"
+              alt="Dr. Pratima Pandey"
+              class="academician-img"
+            />
+            <h2>Dr. Pratima Pandey (IIRS, Dehradun)</h2>
+            <p>
+              Expertise: Glaciology, Optical and SAR applications for
+              cryosphere studies.
+            </p>
+            <a href="https://www.linkedin.com/in/pratima-pandey-209b181b3" class="btn" target="_blank">LinkedIn</a>
+          </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/infi_website/Javascript/script.js"></script>
+    <script type="module" src="/infi_website/Javascript/navBar.js"></script>
+    <script>
+      function toggleReadMore(button) {
+        var content = button.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          button.textContent = "Read More";
+        } else {
+          content.style.display = "block";
+          button.textContent = "Read Less";
+        }
+      }
+
+      // Group tabs
+      document.addEventListener("DOMContentLoaded", function () {
+        var tabs = document.querySelectorAll(".expert-tab");
+        var groups = document.querySelectorAll(".expert-group");
+
+        function showGroup(target) {
+          groups.forEach(function (g) {
+            g.style.display =
+              target === "all" || g.dataset.group === target ? "" : "none";
+          });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            tabs.forEach(function (t) { t.classList.remove("active"); });
+            tab.classList.add("active");
+            showGroup(tab.dataset.target);
+          });
+        });
+
+        // Deep links such as domain-experts.html#researchers
+        var hash = (window.location.hash || "").replace("#", "");
+        var match = document.querySelector('.expert-tab[data-target="' + hash + '"]');
+        if (match) match.click();
+
+        // Last updated date
+        var el = document.getElementById("lastUpdated");
+        if (el) {
+          el.textContent = new Date().toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+        }
+      });
+    </script>
+    <script src="/infi_website/js/chatbot-widget.js" defer></script>
+  </body>
+</html>
