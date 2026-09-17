@@ -1,7 +1,7 @@
 const { query } = require("../config/database");
 const fs = require("fs");
 const path = require("path");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const { generateOTP, getStoredOTP, deleteOTP, storeOTP } = require("../services/otpService");
 const { sendEmail } = require("../services/mailService");
